@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourNodes: []
   line: {fileID: 3365162495808956033}
+  castleMaxHP: 10
+  isEnemy: 1
+  summonedUnits: []
 --- !u!120 &1708125607113232501
 LineRenderer:
   m_ObjectHideFlags: 0
