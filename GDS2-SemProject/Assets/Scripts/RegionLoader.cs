@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class RegionLoader : MonoBehaviour
+public class RegionLoader : MonoBehaviour, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler
 {
     // Start is called before the first frame update
     private SpriteRenderer sprite;
@@ -41,5 +42,20 @@ public class RegionLoader : MonoBehaviour
     {
         //Currently changes colour of sprite, just placeholder for future anim
         sprite.color = Color.red;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Enter");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Exit");
     }
 }
