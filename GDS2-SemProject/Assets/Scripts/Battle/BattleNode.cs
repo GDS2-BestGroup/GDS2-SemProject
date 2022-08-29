@@ -91,7 +91,8 @@ public class BattleNode : MonoBehaviour
         isEnemy = !isEnemy;
         sr.color = isEnemy ? Color.red : Color.blue; 
         castleCurrHP = castleMaxHP;
-
+        CheckSurround();
+        EnemySummonUnits();
         //Let the connected nodes know it has been captured.
         foreach(BattleNode i in neighbourNodes)
         {
@@ -117,7 +118,6 @@ public class BattleNode : MonoBehaviour
             {
                 if (i.IsEnemy() == isEnemy)
                 {
-
                     surround = false;
                 }
                 else
@@ -126,7 +126,7 @@ public class BattleNode : MonoBehaviour
                 }
             }
             splitCount = checkSplit;
-
+            splitCount = Mathf.Clamp(splitCount, 1, 5);
         }
         if (surround && !isBoss)
         {
@@ -154,13 +154,15 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         StopAllCoroutines();
+        if(isEnemy){
         foreach(BattleNode i in neighbourNodes)
         {
             if (!i.IsEnemy())
             {
-                Debug.Log("S" + this.name);
+                Debug.Log("S " + this.name);
                 StartCoroutine(SummonUnit(testUnit, i.transform));
             }
+        }
         }
     }
 
@@ -170,6 +172,7 @@ public class BattleNode : MonoBehaviour
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
             unit.SpawnUnit(transform, dest);
+            Debug.Log(name + " " + splitCount);
         }
     }
 
