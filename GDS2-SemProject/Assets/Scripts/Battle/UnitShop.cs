@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class UnitShop : MonoBehaviour
 {
@@ -27,8 +27,9 @@ public class UnitShop : MonoBehaviour
     {
         foreach(Unit i in units)
         {
-            GameObject bb = Instantiate(button, transform);
-            //bb.GetComponentInChildren<Text>().text = i.name;
+            UnitButton bb = Instantiate(button, transform).GetComponent<UnitButton>();
+            bb.Setup(i);
         }
     }
+
 }

@@ -29,4 +29,9 @@ public class GameController : MonoBehaviour
     {
         return unitList;
     }
+
+    public void SelectUnit(Unit selected)
+    {
+        selectedUnit = selected;
+    }
 }
