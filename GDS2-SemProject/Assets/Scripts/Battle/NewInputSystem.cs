@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 namespace UnityEngine.EventSystems
 {
-    [AddComponentMenu("Event/Standalone Input Module")]
+    [AddComponentMenu("Event/New Input Module")]
     /// <summary>
     /// A BaseInputModule designed for mouse / keyboard / controller input.
     /// </summary>
