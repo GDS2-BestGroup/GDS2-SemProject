@@ -23,6 +23,8 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private bool isBoss;
 
+    private GameController gc;
+
     private int splitCount = 1;
 
     void Awake()
@@ -34,6 +36,8 @@ public class BattleNode : MonoBehaviour
         {
             i.AddNeighbour(this);
         }
+
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     private void Start()
@@ -79,6 +83,7 @@ public class BattleNode : MonoBehaviour
 
         //Create the path and stretch and rotate it.
         GameObject pp = Instantiate(path, mid, Quaternion.identity, /*pathParent.*/transform);
+        pp.GetComponent<PathScript>().SetParents(this, i);
         pp.transform.localScale = new Vector3(dist, 0.7f, 1);
         pp.transform.Rotate(0, 0, angle);
         pp.name = this.name + " to " + i.name;
