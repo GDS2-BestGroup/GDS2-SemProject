@@ -28,7 +28,7 @@ public class UnitShop : MonoBehaviour
         foreach(Unit i in units)
         {
             UnitButton bb = Instantiate(button, transform).GetComponent<UnitButton>();
-            bb.Setup(i);
+            bb.Setup(i, gc);
         }
     }
 

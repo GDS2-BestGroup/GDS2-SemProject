@@ -7,6 +7,7 @@ public class UnitButton : MonoBehaviour
 {
     [SerializeField] private Text text;
     [SerializeField] private Unit unit;
+    private GameController gc;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,15 @@ public class UnitButton : MonoBehaviour
         
     }
 
-    public void Setup(Unit i)
+    public void Setup(Unit i, GameController gg)
     {
-        text = GetComponentInChildren<Text>();
-        //text.text = i.name;
+        text.text = i.name;
         unit = i;
+        gc = gg;
+    }
+
+    public void SelectUnit()
+    {
+        gc.SelectUnit(unit);
     }
 }
