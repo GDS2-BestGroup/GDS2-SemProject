@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
+    public enum LevelType
+    {
+        Battle,
+        Event
+    }
+
     private SpriteRenderer sprite;
     public double levelIndex;
+    public LevelType level;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +33,15 @@ public class LevelLoader : MonoBehaviour
     void OnMouseDown()
     {
         //Debug.Log(this.name + " selected");
-        SceneManager.LoadScene("BattleMap" + levelIndex);
+        if (level == LevelType.Battle)
+        {
+            SceneManager.LoadScene("BattleMap" + levelIndex);
+        }
+        else if (level == LevelType.Event)
+        {
+            SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
+        }
+        
     }
 
     /// <summary>
@@ -34,7 +50,7 @@ public class LevelLoader : MonoBehaviour
     void OnMouseOver()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = Color.blue;
+        sprite.color = Color.black;
     }
 
     /// <summary>
