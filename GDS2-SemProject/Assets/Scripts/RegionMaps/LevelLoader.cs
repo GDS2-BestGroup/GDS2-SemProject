@@ -34,19 +34,6 @@ public class LevelLoader : MonoBehaviour
         
     }
 
-    public void TaskOnClick()
-    {
-        if (level == LevelType.Battle)
-        {
-            //SceneManager.LoadScene("BattleMap" + levelIndex);
-            Debug.Log("Battle Level");
-        }
-        else if (level == LevelType.Event)
-        {
-            //SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
-            Debug.Log("Event Level");
-        }
-    }
 
     /// <summary>
     /// Does something when user clicks on region collider   	
@@ -61,7 +48,7 @@ public class LevelLoader : MonoBehaviour
             if (yesBtn)
             {
                 yesBtn.onClick.RemoveAllListeners();
-                yesBtn.onClick.AddListener(TaskOnClick);
+                yesBtn.onClick.AddListener(OnLevelClick);
             }
         }
         
@@ -75,6 +62,20 @@ public class LevelLoader : MonoBehaviour
             SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
         }*/
         
+    }
+
+    public void OnLevelClick()
+    {
+        if (level == LevelType.Battle)
+        {
+            //SceneManager.LoadScene("BattleMap" + levelIndex);
+            Debug.Log("Battle Level");
+        }
+        else if (level == LevelType.Event)
+        {
+            //SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
+            Debug.Log("Event Level");
+        }
     }
 
     /// <summary>
@@ -98,5 +99,10 @@ public class LevelLoader : MonoBehaviour
     public void CloseUI()
     {
         confirmUI.gameObject.SetActive(false);
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("Overworld");
     }
 }
