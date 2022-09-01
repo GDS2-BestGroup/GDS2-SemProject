@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
@@ -12,6 +13,9 @@ public class LevelLoader : MonoBehaviour
     }
 
     private SpriteRenderer sprite;
+    [SerializeField]
+    private Canvas confirmUI;
+    private Button yesBtn;
     public double levelIndex;
     public LevelType level;
     
@@ -19,6 +23,9 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        confirmUI = GameObject.Find("ConfirmationUI").GetComponentInChildren<Canvas>(true);
+        
+        
     }
 
     // Update is called once per frame
@@ -27,20 +34,46 @@ public class LevelLoader : MonoBehaviour
         
     }
 
+    public void TaskOnClick()
+    {
+        if (level == LevelType.Battle)
+        {
+            //SceneManager.LoadScene("BattleMap" + levelIndex);
+            Debug.Log("Battle Level");
+        }
+        else if (level == LevelType.Event)
+        {
+            //SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
+            Debug.Log("Event Level");
+        }
+    }
+
     /// <summary>
     /// Does something when user clicks on region collider   	
     /// </summary>
     void OnMouseDown()
     {
-        //Debug.Log(this.name + " selected");
-        if (level == LevelType.Battle)
+        if (confirmUI)
+        {
+            confirmUI.gameObject.SetActive(true);
+            yesBtn = GameObject.Find("YesBtn").GetComponent<Button>();
+
+            if (yesBtn)
+            {
+                yesBtn.onClick.RemoveAllListeners();
+                yesBtn.onClick.AddListener(TaskOnClick);
+            }
+        }
+        
+
+        /*if (level == LevelType.Battle)
         {
             SceneManager.LoadScene("BattleMap" + levelIndex);
         }
         else if (level == LevelType.Event)
         {
             SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
-        }
+        }*/
         
     }
 
@@ -60,5 +93,10 @@ public class LevelLoader : MonoBehaviour
     {
         //Currently changes colour of sprite, just placeholder for future anim
         sprite.color = Color.white;
+    }
+
+    public void CloseUI()
+    {
+        confirmUI.gameObject.SetActive(false);
     }
 }
