@@ -19,10 +19,13 @@ public class LevelNode : MonoBehaviour
     private int region;
     private bool unlockFirst;
     private bool[] lvlCompletion;
+    private LineController lr;
+    public Transform[] points;
     public bool unlocked;
     public double levelIndex;
     public LevelType level;
     public GameData gameData;
+    public Sprite[] nodeSprites;
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +36,24 @@ public class LevelNode : MonoBehaviour
         unlocked = false;
         unlockFirst = false;
         region = Mathf.FloorToInt((float)levelIndex);
+        lr = GetComponent<LineController>();
+        if (points != null && lr)
+        {
+            lr.SetUpLine(points);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!unlockFirst) //2nd boolean is to stop level 1 being unlocked after winning the level and leaving the region
+        if (!unlockFirst)
         {
             UnlockFirstLevel();
         }
 
         if (!unlocked)
         {
-            sprite.color = new Color(1f, 1f, 1f, 0.5f);
+            sprite.color = Color.black;
         }
     }
 
@@ -66,17 +74,6 @@ public class LevelNode : MonoBehaviour
                 yesBtn.onClick.AddListener(OnLevelClick);
             }
         }
-        
-
-        /*if (level == LevelType.Battle)
-        {
-            SceneManager.LoadScene("BattleMap" + levelIndex);
-        }
-        else if (level == LevelType.Event)
-        {
-            SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
-        }*/
-        
     }
 
     public void OnLevelClick()
@@ -101,7 +98,7 @@ public class LevelNode : MonoBehaviour
         //Currently changes colour of sprite, just placeholder for future anim
         if (unlocked)
         {
-            sprite.color = Color.black;
+            sprite.sprite = nodeSprites[1];
         }
     }
 
@@ -111,7 +108,7 @@ public class LevelNode : MonoBehaviour
     void OnMouseExit()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = Color.white;
+        sprite.sprite = nodeSprites[0];
     }
 
     public void CloseUI()
@@ -153,21 +150,13 @@ public class LevelNode : MonoBehaviour
                 unlocked = true;
                 unlockFirst = true;
             }
-            else 
+            else
             {
                 unlocked = false;
                 unlockFirst = true;
             }
-            /*else if (levels[levels.Length - 1].levelIndex == levelIndex)
-            {
-                unlocked = true;
-                unlockFirst = true;
-            }*/
-            
-            
-            
-           
+
         }
-      
+
     }
 }
