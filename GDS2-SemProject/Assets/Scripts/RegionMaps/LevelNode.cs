@@ -83,16 +83,16 @@ public class LevelNode : MonoBehaviour
 
     public void OnLevelClick()
     {
+        gameData.previousLevel = SceneManager.GetActiveScene().name;
+        gameData.currentLevel = (int)levelNum;
+        gameData.currentRegion = region;
         if (level == LevelType.Battle)
         {
-            //SceneManager.LoadScene("BattleMap" + levelIndex);
+            SceneManager.LoadScene("BattleMapTemplate");
             Debug.Log("Battle Level");
         }
         else if (level == LevelType.Event)
         {
-            gameData.previousLevel = SceneManager.GetActiveScene().name;
-            gameData.currentLevel = (int)levelNum;
-            gameData.currentRegion = region;
             SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
             // Debug.Log("Event Level");
         }

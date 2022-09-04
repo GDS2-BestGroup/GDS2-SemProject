@@ -118,7 +118,7 @@ public class BattleNode : MonoBehaviour
         //Capture the castle and reset its hp
         if (isBoss)
         {
-            gc.EndGame(!isEnemy);
+            gc.EndGame(isEnemy);
         }
         isEnemy = !isEnemy;
         sr.color = isEnemy ? Color.red : Color.blue; 
