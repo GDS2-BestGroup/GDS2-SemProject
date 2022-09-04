@@ -15,7 +15,6 @@ public class EventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Compile(globalsInkFile.filePath);
         // gd = GameObject.Find("GameData").GetComponent<GameData>();
         StartEvent();

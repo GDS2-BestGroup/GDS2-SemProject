@@ -9,6 +9,7 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionTwoLvls;
     public bool[] lvlStatusRegionOne = {true, false};
     public bool[] lvlStatusRegionTwo = {true, false};
+    public int morale;
 
     public string previousLevel;
     public int currentLevel;
@@ -28,7 +29,7 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        morale = 800;
     }
 
     // Update is called once per frame
@@ -43,6 +44,10 @@ public class GameData : MonoBehaviour
             regionTwoLvls = FindObjectsOfType<LevelNode>();
         }
 
+        if (morale > 1000)
+        {
+            morale = 1000;
+        }
     }
 
     public LevelNode[] GetLevels(int region)
