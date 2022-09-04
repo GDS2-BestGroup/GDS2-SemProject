@@ -171,6 +171,9 @@ MonoBehaviour:
   regionTwoLvls: []
   lvlStatusRegionOne: 0100
   lvlStatusRegionTwo: 0100
+  previousLevel: 
+  currentLevel: 0
+  currentRegion: 0
 --- !u!1 &949100402
 GameObject:
   m_ObjectHideFlags: 0

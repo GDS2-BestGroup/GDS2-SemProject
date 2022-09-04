@@ -24,8 +24,11 @@ public class LevelNode : MonoBehaviour
     public bool unlocked;
     public double levelIndex;
     public LevelType level;
+    public double levelNum;
     public GameData gameData;
     public Sprite[] nodeSprites;
+
+    [SerializeField] public EventManager em;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,8 @@ public class LevelNode : MonoBehaviour
         {
             lr.SetUpLine(points);
         }
+        
+        levelNum = (levelIndex * 10) - (region * 10);
     }
 
     // Update is called once per frame
@@ -85,8 +90,11 @@ public class LevelNode : MonoBehaviour
         }
         else if (level == LevelType.Event)
         {
-            //SceneManager.LoadScene("Event" + levelIndex); //This should be changed to a random event once we know how many event levels there are
-            Debug.Log("Event Level");
+            gameData.previousLevel = SceneManager.GetActiveScene().name;
+            gameData.currentLevel = (int)levelNum;
+            gameData.currentRegion = region;
+            SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
+            // Debug.Log("Event Level");
         }
     }
 

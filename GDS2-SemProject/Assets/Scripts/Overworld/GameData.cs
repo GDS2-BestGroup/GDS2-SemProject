@@ -10,6 +10,9 @@ public class GameData : MonoBehaviour
     public bool[] lvlStatusRegionOne = {true, false};
     public bool[] lvlStatusRegionTwo = {true, false};
 
+    public string previousLevel;
+    public int currentLevel;
+    public int currentRegion;
 
     private void Awake()
     {
@@ -39,7 +42,6 @@ public class GameData : MonoBehaviour
         {
             regionTwoLvls = FindObjectsOfType<LevelNode>();
         }
-
 
     }
 
