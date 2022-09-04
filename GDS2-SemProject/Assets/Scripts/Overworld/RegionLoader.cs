@@ -9,9 +9,14 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     // Start is called before the first frame update
     private SpriteRenderer sprite;
     public int regionIndex;
+    public Color mouseExitColor;
+    public Color mouseOverColor;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        mouseExitColor = sprite.color;
+        mouseOverColor = sprite.color;
+        mouseOverColor.a = 0.5f;
     }
 
     // Update is called once per frame
@@ -35,7 +40,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseOver()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = Color.blue;
+        sprite.color = mouseOverColor;
     }
 
     /// <summary>
@@ -44,7 +49,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseExit()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = Color.red;
+        sprite.color = mouseExitColor;
     }
 
     /* FOR UI CLICKS
