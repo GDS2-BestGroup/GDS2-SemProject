@@ -184,6 +184,7 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
+  globalVars: {fileID: 4900000, guid: af9a64f44f5d2e842bb563d374a7e83d, type: 3}
 --- !u!1 &242875590
 GameObject:
   m_ObjectHideFlags: 0
