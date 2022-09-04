@@ -1,8 +1,8 @@
+using Ink.Runtime;
+using Ink.UnityIntegration;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ink.Runtime;
-using Ink.UnityIntegration;
 using System.IO;
 
 public class EventManager : MonoBehaviour
@@ -18,12 +18,6 @@ public class EventManager : MonoBehaviour
         Compile(globalsInkFile.filePath);
         gd = GameObject.Find("GameData").GetComponent<GameData>();
         StartEvent();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void StartEvent()
