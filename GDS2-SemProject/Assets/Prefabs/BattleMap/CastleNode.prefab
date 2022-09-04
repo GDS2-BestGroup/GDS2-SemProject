@@ -104,7 +104,6 @@ MonoBehaviour:
   isEnemy: 1
   enemyUnits: []
   summonedUnits: []
-  uSpawn: {fileID: -4016475931261724511, guid: 641647a0d8710034db23cb4ce31f3aa4, type: 3}
   path: {fileID: 9108120634360309913, guid: f930da3a79929434ab024837f853e387, type: 3}
   isBoss: 0
   gc: {fileID: 0}

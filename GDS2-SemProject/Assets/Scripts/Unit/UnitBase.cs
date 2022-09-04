@@ -2,35 +2,28 @@ using UnityEngine;
 
 public class UnitBase : MonoBehaviour
 {
-    public string unitName; //Name of the Unit
-    public float health; //Health point
-    public float damage; //Damage unit deal each hit
-    public float defense; //Damage resistance of the unit
-    public float attackSpeed; //Frequency of attack
-    public float walkSpeed; //How fast unit move
-    public float spawnSpeed; //How fast unit spawn
+    [SerializeField] private string unitName; //Name of the Unit
+    [SerializeField] private float health;//Health point
+    [SerializeField] private float damage; //Damage unit deal each hit
+    [SerializeField] private float defense;//Damage resistance of the unit
+    [SerializeField] private float attackSpeed; //Frequency of attack
+    [SerializeField] private float walkSpeed; //How fast unit move
+    [SerializeField] private float spawnSpeed;//How fast unit spawn
     public Transform destination;
     [SerializeField] private int cost;
-    [SerializeField] private bool isEnemy;
-
-    public BattleNode parent;
 
     //Range Unit Specific
-    public GameObject projectile;
-    public Transform firePoint;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform firePoint;
 
-    private void Update()
-    {
-        if(Vector2.Distance(destination.position, transform.position) < 0.5)
-        {
-            DestroySelf();
-        }
-    }
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
+        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity);
         bullet.transform.right = transform.right.normalized;
+        bullet.tag = gameObject.tag;
+        bullet.layer = (gameObject.tag == "Player") ? LayerMask.NameToLayer("Player") : LayerMask.NameToLayer("Enemy");
+        bullet.GetComponent<ProjectileAttackDealer>().damage = damage;
     }
 
     public void DestroySelf()
@@ -43,32 +36,48 @@ public class UnitBase : MonoBehaviour
         return spawnSpeed;
     }
 
-    public void SpawnUnit(BattleNode start, Transform end, bool ally)
+    public float GetHealth()
     {
-        UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
+        return health;
+    }
+
+    public void SetHealth(float value)
+    {
+        health = value;
+    }
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetDefense()
+    {
+        return defense;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed;
+    }
+
+    public float GetWalkSpeed()
+    {
+        return walkSpeed;
+    }
+     
+
+    public void SpawnUnit(Transform start, Transform end, bool ally)
+    {
+        UnitBase l = Instantiate(this, start.position, Quaternion.identity);
         l.destination = end;
-        l.parent = start;
         if (ally)
         {
             l.tag = "Player";
-            l.gameObject.layer = 7;
-            isEnemy = false;
-            foreach (Transform i in l.transform)
-            {
-                i.gameObject.layer = 7;
-            }
-            l.transform.localScale = new Vector3(2, 2, 1);
+
         }
         else
         {
             l.tag = "Enemy";
-            l.gameObject.layer = 6;
-            isEnemy = true;
-            foreach(Transform i in l.transform)
-            {
-                i.gameObject.layer = 6;
-            }
-            l.transform.localScale = new Vector3(-2, 2, 1);
         }
 
     }
@@ -76,11 +85,6 @@ public class UnitBase : MonoBehaviour
     public int GetCost()
     {
         return cost;
-    }
-
-    public bool IsEnemy()
-    {
-        return isEnemy;
     }
 }
 
