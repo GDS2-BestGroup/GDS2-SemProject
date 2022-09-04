@@ -30,6 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleScenes/BattleMap1.1.unity
     guid: 6a6813bf8291c964fade3154f7b75c76
   - enabled: 1
-    path: Assets/Scenes/BattleScenes/BattleMap2.1.unity
+    path: Assets/Scenes/BattleScenes/BattleMap2.2.unity
     guid: ca94fe6c13a13df48a1d1247e0c780df
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 4ed156f1550afc24caeb7d343fa47096
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: ffc36e4f1288b1647822268812c9effb
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: c98d8a222c266544c978007fd25f78b5
   m_configObjects: {}

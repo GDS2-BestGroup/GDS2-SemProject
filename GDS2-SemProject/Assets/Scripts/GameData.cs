@@ -49,6 +49,9 @@ public class GameData : MonoBehaviour
         {
             morale = 1000;
         }
+
+        CheckFinalWin();
+        CheckMorale();
     }
 
     public LevelNode[] GetLevels(int region)
@@ -80,16 +83,58 @@ public class GameData : MonoBehaviour
     public void LoseBattle()
     {
         morale -= 300;
+        CheckMorale();
     }
 
     public void WinBattle()
     {
         morale += 100;
         baseIncome += 2;
+        CheckMorale();
+        CheckFinalWin();
     }
 
     public int GetBaseIncome()
     {
         return baseIncome;
+    }
+
+    private void CheckMorale()
+    {
+        if(morale <= 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+
+        if(morale > 800)
+        {
+            baseIncome = 8;
+        }
+    }
+
+    private void CheckFinalWin()
+    {
+        bool win = true;
+        foreach(bool i in lvlStatusRegionOne)
+        {
+            if (i)
+            {
+                win = false;
+            }
+        }
+        if (win)
+        {
+            foreach(bool i in lvlStatusRegionTwo)
+            {
+                if (i)
+                {
+                    win = false;
+                }
+            }
+        }
+        if (win)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
 }

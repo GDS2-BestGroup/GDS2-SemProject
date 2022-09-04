@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.96990186, b: 0.19339621, a: 1}
+  m_Color: {r: 1, g: 0.90344024, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -71,8 +71,8 @@ MonoBehaviour:
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 60
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4086745682497323357, guid: 22da01b248d6675418f26c5979a68617, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 182.08
       objectReference: {fileID: 0}
     - target: {fileID: 4086745682497323357, guid: 22da01b248d6675418f26c5979a68617, type: 3}
       propertyPath: m_LocalPosition.x
