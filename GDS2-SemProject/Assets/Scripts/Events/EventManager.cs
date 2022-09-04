@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         Compile(globalsInkFile.filePath);
-        // gd = GameObject.Find("GameData").GetComponent<GameData>();
+        gd = GameObject.Find("GameData").GetComponent<GameData>();
         StartEvent();
     }
 
@@ -28,12 +28,9 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        foreach(KeyValuePair<string, Ink.Runtime.Object> kp in variables)
-        {
-            Debug.Log(kp);
-        }
-        DialogueManager.GetInstance().EnterDialogueMode(inkText[0]);
-        // DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
+        // variables["morale"] = (Ink.Runtime.Object)gd.morale;
+        // DialogueManager.GetInstance().EnterDialogueMode(inkText[0]);
+        DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
     }
 
     public void StartListening(Story story)
@@ -56,6 +53,11 @@ public class EventManager : MonoBehaviour
         {
             variables.Remove(name);
             variables.Add(name, value);
+        }
+
+        if (name.Equals("morale"))
+        {
+            gd.morale -= 150;
         }
     }
 

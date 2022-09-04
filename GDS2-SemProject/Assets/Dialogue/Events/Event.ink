@@ -14,6 +14,6 @@ What do you do?
     You order an attack during the night. -> END
 + [Attack during the day]
     You order an attack during the day. -> END
-+ [Avoid them and do not attack(Enemy Camp +1 next battle, Morale + 150)]
-    ~ morale += 150
-    You order your men to stand down. -> END
+// + [Avoid them and do not attack (Morale + 150)]
+//     ~ morale -= 150
+//     You order your men to stand down. -> END

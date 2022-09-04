@@ -237,6 +237,7 @@ MonoBehaviour:
   - {fileID: 1144731858}
   characterPortrait: {fileID: 1523300097}
   caveBackground: {fileID: 740733748}
+  em: {fileID: 45763418}
 --- !u!1 &280806632
 GameObject:
   m_ObjectHideFlags: 0
