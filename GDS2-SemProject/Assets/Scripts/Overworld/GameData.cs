@@ -11,6 +11,9 @@ public class GameData : MonoBehaviour
     public bool[] lvlStatusRegionTwo = {true, false};
     public int morale;
 
+    public string previousLevel;
+    public int currentLevel;
+    public int currentRegion;
 
     private void Awake()
     {

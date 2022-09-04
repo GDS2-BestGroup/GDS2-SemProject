@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     
     private Story currentStory;
     private static DialogueManager instance;
+    private GameData gd;
 
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
@@ -42,6 +44,7 @@ public class DialogueManager : MonoBehaviour
         {
             choicesText[i] = choiceButtons[i].GetComponentInChildren<TextMeshProUGUI>();
         }
+        gd = GameObject.Find("GameData").GetComponent<GameData>();
     }
 
     // Update is called once per frame
@@ -77,6 +80,14 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         caveBackground.SetActive(false);
+
+        // Level progression
+        gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
+        if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
+        {
+            gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+        }
+        SceneManager.LoadScene(gd.previousLevel);
 
         em.StopListening(currentStory);
     }
