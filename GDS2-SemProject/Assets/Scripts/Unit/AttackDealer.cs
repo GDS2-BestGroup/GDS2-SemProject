@@ -23,8 +23,9 @@ public class AttackDealer : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             UnitBase target = collision.gameObject.GetComponent<UnitBase>();
-            float damageToDeal = DealDamage(unitStats.damage, target.defense);
-            target.health -= damageToDeal;
+            float damageToDeal = DealDamage(unitStats.GetDamage(), target.GetDefense()) ;
+            float health = target.GetHealth();
+            target.SetHealth(health -= damageToDeal);
         }
     }
 

@@ -6,7 +6,7 @@ public class AnimationTrigger : MonoBehaviour
 {
     private Animator animator;
     private UnitBase unitStats;
-    public bool trigger = false; //A bool to replace OnTriggerStay2D, it is not called every frame
+    [SerializeField] private bool trigger = false; //A bool to replace OnTriggerStay2D, it is not called every frame
     
     private Transform destination;
     private float walkSpeed;
@@ -19,8 +19,8 @@ public class AnimationTrigger : MonoBehaviour
     {
         unitStats = GetComponentInParent<UnitBase>();
         animator = GetComponentInParent<Animator>();
-        walkSpeed = unitStats.walkSpeed;
-        attackSpeed = unitStats.attackSpeed;
+        walkSpeed = unitStats.GetWalkSpeed();
+        attackSpeed = unitStats.GetAttackSpeed();
         attackInterval = attackSpeed;
         destination = unitStats.destination;
     }
@@ -38,7 +38,7 @@ public class AnimationTrigger : MonoBehaviour
             Move();
         }
 
-        if(unitStats.health <= 0)
+        if(unitStats.GetHealth() <= 0)
         {
             trigger = false;
             animator.SetTrigger("Death");
@@ -58,7 +58,7 @@ public class AnimationTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Node")
         {
             Debug.Log("Hit");
-            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.damage);
+            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
             unitStats.DestroySelf();
 
         }
