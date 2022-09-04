@@ -75,4 +75,9 @@ public class GameData : MonoBehaviour
         }
         return null;
     }
+
+    public void LoseBattle()
+    {
+        morale -= 300;
+    }
 }

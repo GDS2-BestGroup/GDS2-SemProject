@@ -8,12 +8,13 @@ public class Unit : MonoBehaviour
     float movespeed = 3;
     public Transform destination;
     public bool summoned = false;
-    float life = 7;
+    GameObject parnet;
+    float life = 4;
+    int cost;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -27,8 +28,8 @@ public class Unit : MonoBehaviour
 
         life -= Time.deltaTime;
         if(life <= 0)
-        {
-            Destroy(this);
+        {   
+            Destroy(gameObject);
         }
     }
     
@@ -47,5 +48,10 @@ public class Unit : MonoBehaviour
     private void MoveUnit()
     {
 
+    }
+
+    public int GetCost()
+    {
+        return cost;
     }
 }

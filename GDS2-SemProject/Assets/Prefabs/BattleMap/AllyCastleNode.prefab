@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyCastleNode
       objectReference: {fileID: 0}
+    - target: {fileID: 3891390316751306760, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891390316751306760, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: m_TagString
+      value: Node
+      objectReference: {fileID: 0}
     - target: {fileID: 3891390316751306762, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -69,6 +77,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
       propertyPath: isEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: enemyUnits.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
