@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDealer : MonoBehaviour
+public class ProjectileAttackDealer : MonoBehaviour
 {
+    private List<UnitBase> targetList = new List<UnitBase>();
     private UnitBase unitStats;
 
     // Start is called before the first frame update
@@ -15,25 +16,29 @@ public class AttackDealer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Enemy")
         {
-            UnitBase target = collision.gameObject.GetComponent<UnitBase>();
+            targetList.Add(collision.gameObject.GetComponent<UnitBase>());
+            UnitBase target = targetList[0];
             float damageToDeal = DealDamage(unitStats.damage, target.defense);
             target.health -= damageToDeal;
         }
-       
+        
         if (collision.gameObject.tag == "Player")
         {
-            UnitBase target = collision.gameObject.GetComponent<UnitBase>();
+            targetList.Add(collision.gameObject.GetComponent<UnitBase>());
+            UnitBase target = targetList[0];
             float damageToDeal = DealDamage(unitStats.damage, target.defense);
             target.health -= damageToDeal;
         }
 
+        Destroy(gameObject);
     }
 
     public float DealDamage(float damage, float defense)

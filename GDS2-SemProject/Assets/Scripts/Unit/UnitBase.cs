@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitBase : MonoBehaviour
@@ -11,96 +9,26 @@ public class UnitBase : MonoBehaviour
     public float attackSpeed; //Frequency of attack
     public float walkSpeed; //How fast unit move
     public float spawnSpeed; //How fast unit spawn
-    private float attackInterval; //Timer for attack speed
-    public bool isPlayer; //Is player unit or not
-
-    private Animator animator;
-    private bool trigger = false; //A bool to replace OnTriggerStay2D, it is not called every frame
     public Vector2 destination;
+
+    //Range Unit Specific
+    public GameObject projectile;
+    public Transform firePoint;
+
     public void Start()
     {
-        attackInterval = attackSpeed;
-        animator = GetComponent<Animator>();
-    }
 
-    public void Update()
+    }
+    public void SpawnProjectile()
     {
-        if (health <= 0)
-        {
-            animator.SetTrigger("Death");
-        }
-
-        if (trigger)
-        {
-            Attack();
-        }
-
-        if (!trigger)
-        {
-            Move();
-        }
+        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
+        bullet.transform.right = transform.right.normalized;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void DestroySelf()
     {
-        switch(isPlayer)
-        {
-            case true:
-                if (collision.gameObject.tag == "Enemy")
-                {
-                    trigger = true;
-                }
-                break;
-
-            case false:
-                if (collision.gameObject.tag == "Player")
-                {
-                    trigger = true;
-                }
-                break;
-        }
-
+        Destroy(gameObject);
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        switch (isPlayer)
-        {
-            case true:
-                if (collision.gameObject.tag == "Enemy")
-                {
-                    trigger = false;
-                }
-                break;
-
-            case false:
-                if (collision.gameObject.tag == "Player")
-                {
-                    trigger = false;
-                }
-                break;
-        }
-
-    }
-    /// <summary>
-    /// Play the attack animation
-    /// </summary>
-    public void Attack()
-    {
-        attackInterval -= Time.deltaTime;
-        if (attackInterval <= 0)
-        {
-            Debug.Log("Attack");
-            animator.SetTrigger("Attack");
-            attackInterval = attackSpeed;
-        }
-
-    }
-
-    public void Move()
-    {
-        float speed = walkSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, destination, speed);
-    }
 }
 
