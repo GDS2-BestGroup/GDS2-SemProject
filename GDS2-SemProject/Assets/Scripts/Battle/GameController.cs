@@ -7,8 +7,8 @@ public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] private Unit selectedUnit;
-    [SerializeField] private List<Unit> unitList;
+    [SerializeField] private UnitBase selectedUnit;
+    [SerializeField] private List<UnitBase> unitList;
 
     [SerializeField] private int baseIncome = 10;
     private int gameIncome;
@@ -29,25 +29,20 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && selectedUnit != null)
-        {
-            selectedUnit = null;
-        }
-
         incomeText.text = currIncome.ToString();
     }
 
-    public Unit GetSelectedUnit()
+    public UnitBase GetSelectedUnit()
     {
         return selectedUnit;
     }
 
-    public List<Unit> GetUnitList()
+    public List<UnitBase> GetUnitList()
     {
         return unitList;
     }
 
-    public void SelectUnit(Unit selected)
+    public void SelectUnit(UnitBase selected)
     {
         selectedUnit = selected;
     }
@@ -79,6 +74,6 @@ public class GameController : MonoBehaviour
 
     public bool AffordCost(int value)
     {
-        return (currIncome -= value) >= 0;
+        return (currIncome - value) >= 0;
     }
 }

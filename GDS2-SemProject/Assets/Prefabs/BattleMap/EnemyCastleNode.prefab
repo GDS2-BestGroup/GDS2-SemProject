@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCastleNode
       objectReference: {fileID: 0}
+    - target: {fileID: 3891390316751306760, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891390316751306760, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: m_TagString
+      value: Node
+      objectReference: {fileID: 0}
     - target: {fileID: 3891390316751306762, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -74,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
       propertyPath: enemyUnits.Array.data[0]
       value: 
-      objectReference: {fileID: 4818156918017236675, guid: 34a5bd618b445c04293d53f63cd4a0a3, type: 3}
+      objectReference: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
     - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
       propertyPath: summonedUnits.Array.size
       value: 0

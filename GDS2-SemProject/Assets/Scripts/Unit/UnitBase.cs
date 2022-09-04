@@ -9,16 +9,14 @@ public class UnitBase : MonoBehaviour
     public float attackSpeed; //Frequency of attack
     public float walkSpeed; //How fast unit move
     public float spawnSpeed; //How fast unit spawn
-    public Vector2 destination;
+    public Transform destination;
+    [SerializeField] private int cost;
 
     //Range Unit Specific
     public GameObject projectile;
     public Transform firePoint;
 
-    public void Start()
-    {
 
-    }
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
@@ -30,5 +28,30 @@ public class UnitBase : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public float GetSpawnSpeed()
+    {
+        return spawnSpeed;
+    }
+
+    public void SpawnUnit(Transform start, Transform end, bool ally)
+    {
+        UnitBase l = Instantiate(this, start.position, Quaternion.identity);
+        l.destination = end;
+        if (ally)
+        {
+            l.tag = "Player";
+
+        }
+        else
+        {
+            l.tag = "Enemy";
+        }
+
+    }
+
+    public int GetCost()
+    {
+        return cost;
+    }
 }
 

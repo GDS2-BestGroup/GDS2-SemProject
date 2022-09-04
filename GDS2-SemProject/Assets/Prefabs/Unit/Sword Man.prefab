@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6049571142595598231}
   - component: {fileID: 6545635355323325858}
   - component: {fileID: 5280722169052785767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3315765787274250194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprte Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5094184241074160833}
   - component: {fileID: 5094184241074160832}
   - component: {fileID: 5094184241074160846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 54596768150884115}
   - component: {fileID: 5094184241543559792}
   - component: {fileID: 5094184241543559793}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 5094184241543559798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: -2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3315765787274250194}
@@ -248,8 +248,9 @@ MonoBehaviour:
   defense: 10
   attackSpeed: 2
   walkSpeed: 1
-  spawnSpeed: 0
-  destination: {x: 0, y: 0}
+  spawnSpeed: 3
+  destination: {fileID: 0}
+  cost: 3
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
 --- !u!61 &54596768150884115
@@ -329,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4234095937339634483}
   - component: {fileID: 3353230482398449901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

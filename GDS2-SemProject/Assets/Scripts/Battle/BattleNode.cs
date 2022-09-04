@@ -10,12 +10,12 @@ public class BattleNode : MonoBehaviour
     //[SerializeField] private LineController line;
 
     // Castle Stats
-    [SerializeField] private float castleMaxHP = 10;
+    [SerializeField] private float castleMaxHP = 200;
     [SerializeField] private float castleCurrHP;
 
     [SerializeField] private bool isEnemy = true;
-    [SerializeField] private List<Unit> enemyUnits;
-    [SerializeField] private List<Unit> summonedUnits;
+    [SerializeField] private List<UnitBase> enemyUnits;
+    [SerializeField] private List<UnitBase> summonedUnits;
 
 
     //[SerializeField] private Unit testUnit;
@@ -25,7 +25,7 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private bool isBoss;
 
-    private GameController gc;
+    [SerializeField] private GameController gc;
 
     private int splitCount = 1;
 
@@ -85,13 +85,16 @@ public class BattleNode : MonoBehaviour
 
         //Create the path and stretch and rotate it.
         GameObject pp = Instantiate(path, mid, Quaternion.identity, /*pathParent.*/transform);
-        pp.GetComponent<PathScript>().SetParents(this, i, gc);
+        pp.GetComponent<PathScript>().SetParents(this, i);
         pp.transform.localScale = new Vector3(dist, 0.7f, 1);
         pp.transform.Rotate(0, 0, angle);
         pp.name = this.name + " to " + i.name;
     }
 
-
+    public void TakeDamage(float damage)
+    {
+        castleCurrHP -= damage;
+    }
     private void CastleCapture()
     {
         //Capture the castle and reset its hp
@@ -103,7 +106,12 @@ public class BattleNode : MonoBehaviour
         StopAllCoroutines();
         if (isEnemy)
         {
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
             EnemySummonUnits();
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
         //Let the connected nodes know it has been captured.
         foreach(BattleNode i in neighbourNodes)
@@ -170,7 +178,7 @@ public class BattleNode : MonoBehaviour
         {
             if (!i.IsEnemy())
             {
-                foreach (Unit e in enemyUnits)
+                foreach (UnitBase e in enemyUnits)
                 {
                     //Debug.Log("S " + this.name);
                     StartCoroutine(EnemySummonUnit(e, i.transform));
@@ -179,29 +187,30 @@ public class BattleNode : MonoBehaviour
         }
     }
 
-    private IEnumerator EnemySummonUnit(Unit unit, Transform dest)
+    private IEnumerator EnemySummonUnit(UnitBase unit, Transform dest)
     {
         while (isEnemy)
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
-            unit.SpawnUnit(transform, dest);
+            unit.SpawnUnit(transform, dest, false);
             //Debug.Log(name + " " + splitCount);
         }
     }
 
-    private IEnumerator AllySummonUnit(Unit unit, BattleNode dest)
+    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
     {
         while (dest.IsEnemy())
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed());
-            unit.SpawnUnit(transform, dest.transform);
+            unit.SpawnUnit(transform, dest.transform, true);
+            Debug.Log("Summoned");
         }
     }
 
-    public void AddUnits(Unit i, BattleNode dest)
+    public void AddUnits(UnitBase i, BattleNode dest)
     {
         //summonedUnits.Add(i);
-        if (!isEnemy)
+        if (!isEnemy && dest.IsEnemy())
         {
             if (gc.AffordCost(i.GetCost()))
             {

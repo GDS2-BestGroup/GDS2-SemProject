@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UnitShop : MonoBehaviour
 {
-    [SerializeField] private List<Unit> units;
+    [SerializeField] private List<UnitBase> units;
     private GameController gc;
     [SerializeField] private GameObject button;
 
@@ -25,7 +25,7 @@ public class UnitShop : MonoBehaviour
 
     private void MakeUnitButtons()
     {
-        foreach(Unit i in units)
+        foreach(UnitBase i in units)
         {
             UnitButton bb = Instantiate(button, transform).GetComponent<UnitButton>();
             bb.Setup(i, gc);

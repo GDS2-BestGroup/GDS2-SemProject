@@ -9,10 +9,14 @@ public class PathScript : MonoBehaviour
     [SerializeField] private BattleNode parent1;
     [SerializeField] private BattleNode parent2;
 
-    private GameController gc;
+    [SerializeField] private GameController gc;
 
     private bool mouse = false;
 
+    private void Awake()
+    {
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
+    }
     void Start()
     {
 
@@ -23,22 +27,22 @@ public class PathScript : MonoBehaviour
     {
         if (mouse)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && gc)
             {
                 parent1.AddUnits(gc.GetSelectedUnit(), parent2);
             }
         }
     }
 
-    public void SetParents(BattleNode i, BattleNode j, GameController g)
+    public void SetParents(BattleNode i, BattleNode j)
     {
         parent1 = i;
         parent2 = j;
-        gc = g;
     }
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
+        Debug.Log("mouse " + this.name);
         mouse = true;
     }
 

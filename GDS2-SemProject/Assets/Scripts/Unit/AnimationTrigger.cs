@@ -8,7 +8,7 @@ public class AnimationTrigger : MonoBehaviour
     private UnitBase unitStats;
     public bool trigger = false; //A bool to replace OnTriggerStay2D, it is not called every frame
     
-    private Vector2 destination;
+    private Transform destination;
     private float walkSpeed;
     private float attackSpeed;
     private float attackInterval; //Timer for attack speed
@@ -54,6 +54,14 @@ public class AnimationTrigger : MonoBehaviour
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             trigger = true;
         }
+
+        if (collision.gameObject.tag == "Node")
+        {
+            Debug.Log("Hit");
+            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.damage);
+            unitStats.DestroySelf();
+
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -89,6 +97,6 @@ public class AnimationTrigger : MonoBehaviour
     public void Move()
     {
         float speed = walkSpeed * Time.deltaTime;
-        gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination, speed);
+        gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
     }
 }

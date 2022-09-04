@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7569488551556079270}
   - component: {fileID: 4919128211249109364}
   - component: {fileID: 3193665309710340463}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2375773140836640174}
   - component: {fileID: 6673563980693976386}
   - component: {fileID: 8361106899756372823}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6903062277560627590}
   - component: {fileID: 2791643573962970565}
   - component: {fileID: 1599792669195641845}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shield Bearer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,8 +268,9 @@ MonoBehaviour:
   defense: 30
   attackSpeed: 4
   walkSpeed: 0.5
-  spawnSpeed: 0
-  destination: {x: 0, y: 0}
+  spawnSpeed: 1
+  destination: {fileID: 0}
+  cost: 2
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
 --- !u!61 &6903062277560627590

@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class UnitButton : MonoBehaviour
 {
     [SerializeField] private Text text;
-    [SerializeField] private Unit unit;
+    [SerializeField] private UnitBase unit;
     private GameController gc;
     // Start is called before the first frame update
+
+
     void Start()
     {
         
@@ -20,7 +22,7 @@ public class UnitButton : MonoBehaviour
         
     }
 
-    public void Setup(Unit i, GameController gg)
+    public void Setup(UnitBase i, GameController gg)
     {
         text.text = i.name;
         unit = i;
