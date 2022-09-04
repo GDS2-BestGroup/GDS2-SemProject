@@ -1,2 +1,2 @@
-VAR morale = "500"
-VAR gold = ""
+VAR morale = 800
+VAR gold = 0

@@ -167,7 +167,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b498f248a4c64398f6b2bfef8375e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkText: {fileID: 4900000, guid: c1e5485bfda3d69439f05ac2b7f6a499, type: 3}
+  inkText:
+  - {fileID: 4900000, guid: c1e5485bfda3d69439f05ac2b7f6a499, type: 3}
+  - {fileID: 4900000, guid: 131f1f437060d2b41b71c5e82fafd5ad, type: 3}
+  globalsInkFile:
+    compileAutomatically: 0
+    inkAsset: {fileID: 102900000, guid: b4ac3246fa1b5bb48a2d1dd69233e30d, type: 3}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 0}
+    unhandledCompileErrors: []
+    errors: []
+    warnings: []
+    todos: []
+    parents: []
+    masterInkAssets: []
+    masterInkAsset: {fileID: 0}
+    includePaths: []
+    includes: []
 --- !u!1 &242875590
 GameObject:
   m_ObjectHideFlags: 0

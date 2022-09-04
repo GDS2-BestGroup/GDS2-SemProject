@@ -29,12 +29,10 @@ public class DialogueManager : MonoBehaviour
     private const string PORTRAIT_TAG = "portrait";
     private const string BACKGROUND_TAG = "background";
 
-    private EventManager em;
+    [SerializeField] public EventManager em;
     private void Awake() 
     {
         instance = this;
-
-        em = new EventManager();
     }
     // Start is called before the first frame update
     void Start()
