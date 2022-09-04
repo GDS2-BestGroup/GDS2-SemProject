@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class RegionLoader : MonoBehaviour, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler
+public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler*/ //For UI Clicks
 {
     // Start is called before the first frame update
     private SpriteRenderer sprite;
+    public int regionIndex;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -23,7 +25,8 @@ public class RegionLoader : MonoBehaviour, IPointerClickHandler, IPointerExitHan
     /// </summary>
     void OnMouseDown()
     {
-        Debug.Log(this.name + " selected");
+        //Debug.Log(this.name + " selected");
+        SceneManager.LoadScene("Region"+ regionIndex);
     }
 
     /// <summary>
@@ -44,6 +47,7 @@ public class RegionLoader : MonoBehaviour, IPointerClickHandler, IPointerExitHan
         sprite.color = Color.red;
     }
 
+    /* FOR UI CLICKS
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
@@ -58,4 +62,5 @@ public class RegionLoader : MonoBehaviour, IPointerClickHandler, IPointerExitHan
     {
         Debug.Log("Mouse Exit");
     }
+    */
 }
