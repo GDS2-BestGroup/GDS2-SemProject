@@ -11,8 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private UnitBase selectedUnit;
     [SerializeField] private List<UnitBase> unitList;
 
-    [SerializeField] private int baseIncome = 10;
-    private int gameIncome;
+    [SerializeField] private int gameIncome;
     private int currIncome;
 
     [SerializeField] private GameData gd;
@@ -20,13 +19,19 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text incomeText;
 
     private void Awake()
-    { 
-        gameIncome = baseIncome;
+    {
+        
     }
 
     void Start()
     {
+        gameIncome = 5;
+        currIncome = gameIncome;
         gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (gd)
+        {
+            gameIncome = gd.GetBaseIncome();
+        }
         currIncome = gameIncome;
     }
 
@@ -83,15 +88,18 @@ public class GameController : MonoBehaviour
 
     public void EndGame(bool winner)
     {
-        if (winner)
+        if (gd)
         {
-            gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
-            gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+            if (winner)
+            {
+                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
+                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+            }
+            else
+            {
+                gd.LoseBattle();
+            }
+            SceneManager.LoadScene(gd.previousLevel);
         }
-        else
-        {
-            gd.LoseBattle();
-        }
-        SceneManager.LoadScene(gd.previousLevel);
     }
 }

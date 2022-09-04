@@ -101,7 +101,7 @@ public class BattleNode : MonoBehaviour
         angle = Mathf.Atan2(i.transform.position.y - transform.position.y, i.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
 
         //Create the path and stretch and rotate it.
-        GameObject pp = Instantiate(path, mid, Quaternion.identity, /*pathParent.*/transform);
+        GameObject pp = Instantiate(path, mid, Quaternion.identity, transform);
         pp.GetComponent<PathScript>().SetParents(this, i);
         pp.transform.localScale = new Vector3(dist, 0.7f, 1);
         pp.transform.Rotate(0, 0, angle);
