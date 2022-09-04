@@ -10,6 +10,7 @@ public class GameData : MonoBehaviour
     public bool[] lvlStatusRegionOne = {true, false};
     public bool[] lvlStatusRegionTwo = {true, false};
     public int morale;
+    [SerializeField] private int baseIncome = 5;
 
     public string previousLevel;
     public int currentLevel;
@@ -79,5 +80,10 @@ public class GameData : MonoBehaviour
     public void LoseBattle()
     {
         morale -= 300;
+    }
+
+    public int GetBaseIncome()
+    {
+        return baseIncome;
     }
 }

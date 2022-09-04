@@ -68,6 +68,7 @@ public class UnitBase : MonoBehaviour
             {
                 i.gameObject.layer = 6;
             }
+            l.transform.localScale = new Vector3(-2, 2, 1);
         }
 
     }

@@ -108,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 508
+        y: 528
         width: 18
-        height: 49
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -786,41 +786,41 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      16x16 knight 3_21: 964589453
-      16x16 knight 3_7: -1897459463
-      16x16 knight 3_22: 1806428129
-      16x16 knight 3_27: -1904675324
-      16x16 knight 3_12: -1384611295
-      16x16 knight 3_25: 551358627
-      2: -1635285347
-      16x16 knight 3_6: -1950172236
-      16x16 knight 3_34: 1842130509
-      16x16 knight 3_31: -1515510690
-      16x16 knight 3_8: -1114321813
-      16x16 knight 3_18: 395004536
-      16x16 knight 3_14: -907740333
-      16x16 knight 3_9: 1968645354
-      16x16 knight 3_13: -1553361789
-      16x16 knight 3_17: -912452988
-      16x16 knight 3_20: 33255240
-      16x16 knight 3_5: 969932436
-      Sword_Man: -1000254315
-      Death 1: 19857066
-      16x16 knight 3_2: 1849068195
-      16x16 knight 3_15: 1213342269
-      16x16 knight 3_10: -49957058
-      1: 1298700349
-      16x16 knight 3_33: -1861395629
-      16x16 knight 3_23: -824143701
-      16x16 knight 3_0: -750428222
-      16x16 knight 3_19: -1777151588
-      16x16 knight 3_32: -35277506
-      16x16 knight 3_11: 2111651842
-      Sword_Man_Death: 126524953
-      16x16 knight 3_4: 125644428
-      16x16 knight 3_16: -140145728
-      16x16 knight 3_29: -139027178
-      16x16 knight 3_3: 734269529
+      16x16 knight 3_3: 1842130509
+      16x16 knight 3_7: -1161916238
+      16x16 knight 3_22: 1849068195
+      16x16 knight 3_27: 734269529
+      16x16 knight 3_12: 125644428
+      16x16 knight 3_25: 969932436
+      2: -1950172236
+      16x16 knight 3_6: -1897459463
+      16x16 knight 3_34: -1114321813
+      16x16 knight 3_31: 1968645354
+      16x16 knight 3_8: -49957058
+      16x16 knight 3_18: 2111651842
+      16x16 knight 3_14: -1384611295
+      16x16 knight 3_9: -1553361789
+      16x16 knight 3_13: -907740333
+      16x16 knight 3_17: 1213342269
+      16x16 knight 3_20: -140145728
+      16x16 knight 3_5: -912452988
+      Sword_Man: 395004536
+      Death 1: -1777151588
+      16x16 knight 3_2: 33255240
+      16x16 knight 3_15: 964589453
+      16x16 knight 3_10: 1806428129
+      1: -824143701
+      16x16 knight 3_33: 370489945
+      16x16 knight 3_23: 551358627
+      16x16 knight 3_0: -1348965944
+      16x16 knight 3_19: -1904675324
+      16x16 knight 3_32: 61879816
+      16x16 knight 3_11: -139027178
+      Sword_Man_Death: -1120532212
+      16x16 knight 3_4: -1515510690
+      16x16 knight 3_16: -35277506
+      16x16 knight 3_29: -1861395629
+      16x16 knight 3_21: -750428222
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
