@@ -67,5 +67,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: enemyUnits.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: enemyUnits.Array.data[0]
+      value: 
+      objectReference: {fileID: 4818156918017236675, guid: 34a5bd618b445c04293d53f63cd4a0a3, type: 3}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: summonedUnits.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: summonedUnits.Array.data[0]
+      value: 
+      objectReference: {fileID: 4818156918017236675, guid: 34a5bd618b445c04293d53f63cd4a0a3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}

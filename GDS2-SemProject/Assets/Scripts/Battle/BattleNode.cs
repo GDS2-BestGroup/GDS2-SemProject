@@ -14,9 +14,11 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private float castleCurrHP;
 
     [SerializeField] private bool isEnemy = true;
-    [SerializeField] private Unit[] summonedUnits;
+    [SerializeField] private List<Unit> enemyUnits;
+    [SerializeField] private List<Unit> summonedUnits;
 
-    [SerializeField] private Unit testUnit;
+
+    //[SerializeField] private Unit testUnit;
 
     [SerializeField] private GameObject path;
     //[SerializeField] private GameObject pathParent;
@@ -83,7 +85,7 @@ public class BattleNode : MonoBehaviour
 
         //Create the path and stretch and rotate it.
         GameObject pp = Instantiate(path, mid, Quaternion.identity, /*pathParent.*/transform);
-        pp.GetComponent<PathScript>().SetParents(this, i);
+        pp.GetComponent<PathScript>().SetParents(this, i, gc);
         pp.transform.localScale = new Vector3(dist, 0.7f, 1);
         pp.transform.Rotate(0, 0, angle);
         pp.name = this.name + " to " + i.name;
@@ -96,8 +98,13 @@ public class BattleNode : MonoBehaviour
         isEnemy = !isEnemy;
         sr.color = isEnemy ? Color.red : Color.blue; 
         castleCurrHP = castleMaxHP;
+        summonedUnits.Clear();
         CheckSurround();
-        EnemySummonUnits();
+        StopAllCoroutines();
+        if (isEnemy)
+        {
+            EnemySummonUnits();
+        }
         //Let the connected nodes know it has been captured.
         foreach(BattleNode i in neighbourNodes)
         {
@@ -137,7 +144,7 @@ public class BattleNode : MonoBehaviour
         {
             Debug.Log(this.name + "is Surrounded");
             CastleCapture();
-        }else if(splitCount > 0)
+        }else if(splitCount > 0 && isEnemy)
         {
             EnemySummonUnits();
         }
@@ -159,25 +166,48 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         StopAllCoroutines();
-        if(isEnemy){
         foreach(BattleNode i in neighbourNodes)
         {
             if (!i.IsEnemy())
             {
-                Debug.Log("S " + this.name);
-                StartCoroutine(SummonUnit(testUnit, i.transform));
+                foreach (Unit e in enemyUnits)
+                {
+                    //Debug.Log("S " + this.name);
+                    StartCoroutine(EnemySummonUnit(e, i.transform));
+                }
             }
-        }
         }
     }
 
-    private IEnumerator SummonUnit(Unit unit, Transform dest)
+    private IEnumerator EnemySummonUnit(Unit unit, Transform dest)
     {
         while (isEnemy)
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
             unit.SpawnUnit(transform, dest);
-            Debug.Log(name + " " + splitCount);
+            //Debug.Log(name + " " + splitCount);
+        }
+    }
+
+    private IEnumerator AllySummonUnit(Unit unit, BattleNode dest)
+    {
+        while (dest.IsEnemy())
+        {
+            yield return new WaitForSeconds(unit.GetSpawnSpeed());
+            unit.SpawnUnit(transform, dest.transform);
+        }
+    }
+
+    public void AddUnits(Unit i, BattleNode dest)
+    {
+        //summonedUnits.Add(i);
+        if (!isEnemy)
+        {
+            if (gc.AffordCost(i.GetCost()))
+            {
+                gc.UseIncome(i.GetCost());
+                StartCoroutine(AllySummonUnit(i, dest));
+            }
         }
     }
 

@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6638614658191174901, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}
+      propertyPath: enemyUnits.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ef1ae6605f66744fa6d456d3ba69379, type: 3}

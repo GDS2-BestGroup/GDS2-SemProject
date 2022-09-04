@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     public bool summoned = false;
     GameObject parnet;
     float life = 4;
+    int cost;
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +48,10 @@ public class Unit : MonoBehaviour
     private void MoveUnit()
     {
 
+    }
+
+    public int GetCost()
+    {
+        return cost;
     }
 }

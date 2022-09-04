@@ -101,7 +101,7 @@ MonoBehaviour:
   castleMaxHP: 10
   castleCurrHP: 0
   isEnemy: 1
+  enemyUnits: []
   summonedUnits: []
-  testUnit: {fileID: 4818156918017236675, guid: 34a5bd618b445c04293d53f63cd4a0a3, type: 3}
   path: {fileID: 9108120634360309913, guid: f930da3a79929434ab024837f853e387, type: 3}
   isBoss: 0
