@@ -5,30 +5,20 @@ using UnityEngine;
 public class ProjectileAttackDealer : MonoBehaviour
 {
     private List<UnitBase> targetList = new List<UnitBase>();
-    public float damage { get; set; }
+    private UnitBase unitStats;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        unitStats = GetComponentInParent<UnitBase>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //RayCast, no collider, cast a raycast, if hit move to the target.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 10f);
 
-        if (hit)
-        {
-            if (hit.transform.tag == "Enemy" || hit.transform.tag == "Player")
-            {
-                Debug.Log("HIT");
-            }
-        }    
     }
 
-    /*
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -42,7 +32,6 @@ public class ProjectileAttackDealer : MonoBehaviour
         Destroy(gameObject);
     }
 
-    */
     public float DealDamage(float damage, float defense)
     {
         float damageToDeal = (damage - defense);

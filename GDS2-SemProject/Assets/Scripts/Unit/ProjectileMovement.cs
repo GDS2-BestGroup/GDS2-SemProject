@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    [SerializeField] private float velocity;
-    private Rigidbody2D rb;
+    public float velocity;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        gameObject.tag = gameObject.transform.parent.tag;
+        gameObject.layer = (gameObject.transform.parent.tag == "Player") ? LayerMask.NameToLayer("Player") : LayerMask.NameToLayer("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.right * velocity;
+        transform.position = Vector2.MoveTowards(transform.position, transform.forward, velocity * Time.deltaTime);
 
     }
 }
