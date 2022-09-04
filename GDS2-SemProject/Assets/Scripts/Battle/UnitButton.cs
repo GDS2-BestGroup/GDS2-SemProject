@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UnitButton : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private Text cost;
     [SerializeField] private UnitBase unit;
     private GameController gc;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class UnitButton : MonoBehaviour
         text.text = i.name;
         unit = i;
         gc = gg;
+        cost.text = i.GetCost().ToString();
     }
 
     public void SelectUnit()

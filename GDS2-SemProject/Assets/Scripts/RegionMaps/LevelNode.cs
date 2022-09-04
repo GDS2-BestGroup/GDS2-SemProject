@@ -88,7 +88,7 @@ public class LevelNode : MonoBehaviour
         gameData.currentRegion = region;
         if (level == LevelType.Battle)
         {
-            SceneManager.LoadScene("BattleMapTemplate");
+            SceneManager.LoadScene("BattleMap" + levelIndex);
             Debug.Log("Battle Level");
         }
         else if (level == LevelType.Event)
