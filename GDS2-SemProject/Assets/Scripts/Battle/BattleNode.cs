@@ -17,12 +17,11 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private List<UnitBase> enemyUnits;
     [SerializeField] private List<UnitBase> summonedUnits;
 
-    [SerializeField] private UnitSpawner uSpawn;
 
     //[SerializeField] private Unit testUnit;
 
     [SerializeField] private GameObject path;
-    [SerializeField] private List<GameObject> pathList;
+    //[SerializeField] private GameObject pathParent;
 
     [SerializeField] private bool isBoss;
 
@@ -65,27 +64,11 @@ public class BattleNode : MonoBehaviour
     
     private void CreatePaths()
     {
-        foreach(GameObject i in pathList)
+
+
+        foreach (BattleNode i in neighbourNodes)
         {
-            Destroy(i);
-        }
-        pathList.Clear();
-        if (isEnemy)
-        {
-            foreach (BattleNode i in neighbourNodes)
-            {
-                if (i.IsEnemy())
-                {
-                    CreatePath(i);
-                }
-            }
-        }
-        else
-        {
-            foreach(BattleNode i in neighbourNodes)
-            {
-                CreatePath(i);
-            }
+            CreatePath(i);
         }
     }
 
@@ -101,12 +84,11 @@ public class BattleNode : MonoBehaviour
         angle = Mathf.Atan2(i.transform.position.y - transform.position.y, i.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
 
         //Create the path and stretch and rotate it.
-        GameObject pp = Instantiate(path, mid, Quaternion.identity, transform);
+        GameObject pp = Instantiate(path, mid, Quaternion.identity, /*pathParent.*/transform);
         pp.GetComponent<PathScript>().SetParents(this, i);
         pp.transform.localScale = new Vector3(dist, 0.7f, 1);
         pp.transform.Rotate(0, 0, angle);
         pp.name = this.name + " to " + i.name;
-        pathList.Add(pp);
     }
 
     public void TakeDamage(float damage)
@@ -116,10 +98,6 @@ public class BattleNode : MonoBehaviour
     private void CastleCapture()
     {
         //Capture the castle and reset its hp
-        if (isBoss)
-        {
-            gc.EndGame(isEnemy);
-        }
         isEnemy = !isEnemy;
         sr.color = isEnemy ? Color.red : Color.blue; 
         castleCurrHP = castleMaxHP;
@@ -134,7 +112,6 @@ public class BattleNode : MonoBehaviour
         else
         {
             gameObject.layer = LayerMask.NameToLayer("Player");
-            CreatePaths();
         }
         //Let the connected nodes know it has been captured.
         foreach(BattleNode i in neighbourNodes)
@@ -142,14 +119,15 @@ public class BattleNode : MonoBehaviour
             i.CheckSurround();
         }
 
+        //Boss entities can't be surrounded
+        /*if (isBoss)
+        {
+            GameController.EndStage(true);
+        }*/
     }
 
     public void CheckSurround()
     {
-        if (!isEnemy)
-        {
-            CreatePaths();
-        }
         bool surround = false;
         if (neighbourNodes.Count > 1)
         {
@@ -214,20 +192,20 @@ public class BattleNode : MonoBehaviour
         while (isEnemy)
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
-            unit.SpawnUnit(this, dest, false);
+            unit.SpawnUnit(transform, dest, false);
             //Debug.Log(name + " " + splitCount);
         }
     }
 
-/*    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
+    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
     {
         while (dest.IsEnemy())
         {
             yield return new WaitForSeconds(unit.GetSpawnSpeed());
-            unit.SpawnUnit(this, dest.transform, true);
+            unit.SpawnUnit(transform, dest.transform, true);
             Debug.Log("Summoned");
         }
-    }*/
+    }
 
     public void AddUnits(UnitBase i, BattleNode dest)
     {
@@ -237,9 +215,7 @@ public class BattleNode : MonoBehaviour
             if (gc.AffordCost(i.GetCost()))
             {
                 gc.UseIncome(i.GetCost());
-                UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
-                us.Setup(i.GetCost(), i, dest, this);
-                //StartCoroutine(AllySummonUnit(i, dest));
+                StartCoroutine(AllySummonUnit(i, dest));
             }
         }
     }

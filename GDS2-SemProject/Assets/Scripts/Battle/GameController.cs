@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,27 +10,19 @@ public class GameController : MonoBehaviour
     [SerializeField] private UnitBase selectedUnit;
     [SerializeField] private List<UnitBase> unitList;
 
-    [SerializeField] private int gameIncome;
+    [SerializeField] private int baseIncome = 10;
+    private int gameIncome;
     private int currIncome;
-
-    [SerializeField] private GameData gd;
 
     [SerializeField] private Text incomeText;
 
     private void Awake()
     {
-        
+        gameIncome = baseIncome;
     }
 
     void Start()
     {
-        gameIncome = 5;
-        currIncome = gameIncome;
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
-        if (gd)
-        {
-            gameIncome = gd.GetBaseIncome();
-        }
         currIncome = gameIncome;
     }
 
@@ -84,22 +75,5 @@ public class GameController : MonoBehaviour
     public bool AffordCost(int value)
     {
         return (currIncome - value) >= 0;
-    }
-
-    public void EndGame(bool winner)
-    {
-        if (gd)
-        {
-            if (winner)
-            {
-                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
-                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
-            }
-            else
-            {
-                gd.LoseBattle();
-            }
-            SceneManager.LoadScene(gd.previousLevel);
-        }
     }
 }

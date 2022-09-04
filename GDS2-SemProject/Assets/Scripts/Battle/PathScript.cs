@@ -30,7 +30,6 @@ public class PathScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && gc)
             {
                 parent1.AddUnits(gc.GetSelectedUnit(), parent2);
-                Debug.Log("Gogo");
             }
         }
     }
