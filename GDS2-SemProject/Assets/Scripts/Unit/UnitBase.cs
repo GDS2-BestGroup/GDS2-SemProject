@@ -36,6 +36,7 @@ public class UnitBase : MonoBehaviour
         return spawnSpeed;
     }
 
+    public float GetHealth()
     {
         return health;
     }
