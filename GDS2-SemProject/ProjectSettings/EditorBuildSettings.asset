@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScenes/BattleMapTemplate.unity
     guid: 761342c60878e514cbaa6998dd97fcb8
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 3b36579d3517331409bcb29aaf380aaa
   m_configObjects: {}

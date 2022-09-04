@@ -21,4 +21,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Overworld");
     }
+
+    public void Instructions()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
 }
