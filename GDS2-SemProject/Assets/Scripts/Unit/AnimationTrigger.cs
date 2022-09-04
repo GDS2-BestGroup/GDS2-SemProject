@@ -21,7 +21,7 @@ public class AnimationTrigger : MonoBehaviour
         animator = GetComponentInParent<Animator>();
         walkSpeed = unitStats.walkSpeed;
         attackSpeed = unitStats.attackSpeed;
-        attackInterval = attackSpeed;
+        attackInterval = 0;
         destination = unitStats.destination;
     }
 
@@ -57,10 +57,8 @@ public class AnimationTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Node")
         {
-            Debug.Log("Hit");
             collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.damage);
             unitStats.DestroySelf();
-
         }
     }
 

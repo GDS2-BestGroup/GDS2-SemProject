@@ -76,4 +76,9 @@ public class GameController : MonoBehaviour
     {
         return (currIncome - value) >= 0;
     }
+
+    public void EndGame(bool winner)
+    {
+
+    }
 }
