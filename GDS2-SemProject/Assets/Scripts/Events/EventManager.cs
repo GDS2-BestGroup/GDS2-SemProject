@@ -1,23 +1,30 @@
-using Ink.Runtime;
-using Ink.UnityIntegration;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.Runtime;
+// using Ink.UnityIntegration;
 using System.IO;
 
 public class EventManager : MonoBehaviour
 {
     [SerializeField] TextAsset[] inkText;
-    [SerializeField] private InkFile globalsInkFile;
+    // [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] public TextAsset globalVars;
     private Dictionary<string, Ink.Runtime.Object> variables;
     private GameData gd;
 
     // Start is called before the first frame update
     void Start()
     {
-        Compile(globalsInkFile.filePath);
+        Compile();
         gd = GameObject.Find("GameData").GetComponent<GameData>();
         StartEvent();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     public void StartEvent()
@@ -63,11 +70,13 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void Compile(string globalsFilePath)
+    public void Compile()
     {
-        string inkFileContents = File.ReadAllText(globalsFilePath);
-        Ink.Compiler compiler = new Ink.Compiler(inkFileContents);
-        Story globalVariablesStory = compiler.Compile();
+        // string inkFileContents = File.ReadAllText(globalsFilePath);
+        // Ink.Compiler compiler = new Ink.Compiler(inkFileContents);
+        // Story globalVariablesStory = compiler.Compile();
+
+        Story globalVariablesStory = new Story(globalVars.text);
 
         variables = new Dictionary<string, Ink.Runtime.Object>();
         foreach(string name in globalVariablesStory.variablesState)
