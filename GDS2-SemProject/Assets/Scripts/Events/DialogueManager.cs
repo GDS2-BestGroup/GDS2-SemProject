@@ -15,14 +15,24 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
     private TextMeshProUGUI[] choicesText;
+
+    [Header("Layout UI")]
+    [SerializeField] private GameObject characterPortrait;
+    [SerializeField] private GameObject caveBackground;
     
     private Story currentStory;
     private static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
+    private const string PORTRAIT_TAG = "portrait";
+    private const string BACKGROUND_TAG = "background";
+
+    private EventManager em;
     private void Awake() 
     {
         instance = this;
+
+        em = new EventManager();
     }
     // Start is called before the first frame update
     void Start()
@@ -53,6 +63,11 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkText.text);
         dialogueUI.SetActive(true);
 
+        characterPortrait.SetActive(false);
+        caveBackground.SetActive(false);
+
+        em.StartListening(currentStory);
+
         ContinueStory();
     }
 
@@ -60,6 +75,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueUI.SetActive(false);
         dialogueText.text = "";
+        characterPortrait.SetActive(false);
+        caveBackground.SetActive(false);
+
+        em.StopListening(currentStory);
     }
 
     public void ContinueStory()
@@ -123,6 +142,12 @@ public class DialogueManager : MonoBehaviour
             {
                 case SPEAKER_TAG:
                     displayNameText.text = tagValue;
+                    break;
+                case PORTRAIT_TAG: 
+                    characterPortrait.SetActive(true);
+                    break;
+                case BACKGROUND_TAG:
+                    caveBackground.SetActive(true);
                     break;
             }
             

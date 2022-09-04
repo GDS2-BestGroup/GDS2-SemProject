@@ -219,6 +219,8 @@ MonoBehaviour:
   - {fileID: 1838496566}
   - {fileID: 1629412456}
   - {fileID: 1144731858}
+  characterPortrait: {fileID: 1523300097}
+  caveBackground: {fileID: 740733748}
 --- !u!1 &280806632
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bc9911b286359541a72702b31c031ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 881a8387668376946abfadff8cfae6dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -715,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &791105802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1340,7 +1342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523300098
 RectTransform:
   m_ObjectHideFlags: 0

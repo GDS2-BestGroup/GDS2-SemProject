@@ -1,16 +1,32 @@
--> enemy_camp
+INCLUDE globals.ink
+
+VAR knot_name = -> enemy_camp
+
+-> knot_name
 
 === enemy_camp ===
 
-You are approached by your lieutenant who informs you of a nearby enemy camp. He advises that attacking them at night will be the best option however you understand that this could lead to soldier morale lowering. #speaker:Lieutenant Adam
+You are approached by your lieutenant who informs you of a nearby enemy camp. He advises that attacking them at night will be the best option however you understand that this could lead to soldier morale lowering. #speaker:Lieutenant Adam #portrait:Lieutenant Adam
 
 What do you do?
 + [Attack them in the night (Troop Damage +10%, Morale - 150)]
+    ~ morale = 150
     You order an attack during the night. -> END
 + [Attack during the day]
     You order an attack during the day. -> END
 + [Avoid them and do not attack(Enemy Camp +1 next battle, Morale + 150)]
     You order your men to stand down. -> END
+
+=== cave ===
+
+Your army arrives at a cave entrance which you know connects to the next settlement however none of your lieutenants are familiar with this particular cave system. #background:Cave
+
+What do you do?
++ [Enter the cave system anyway (Morale - 150)]
+    You enter the cave system blindly. Somehow you make it out but the stressful experience lowers troop morale. -> END
++ [Look for a local cave guide (Gold - 200)]
+    You offer payment for a local cave guide to navigate the cave system and your troops make it swiftly and safely to the exit. -> END
+    
 
 === market ===
 
