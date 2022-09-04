@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547237526920809659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90,6 +90,8 @@ MonoBehaviour:
   spawnSpeed: 1
   destination: {fileID: 0}
   cost: 2
+  isEnemy: 0
+  parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}
   firePoint: {fileID: 4636937361449694447}
 --- !u!212 &5144203262305750239

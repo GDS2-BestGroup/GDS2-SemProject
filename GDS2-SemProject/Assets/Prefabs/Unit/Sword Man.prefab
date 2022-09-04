@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 5094184241543559806}
   - component: {fileID: 54596768150884115}
   - component: {fileID: 5094184241543559792}
-  - component: {fileID: 5094184241543559793}
+  - component: {fileID: 5932660339075346663}
   m_Layer: 12
   m_Name: Sword Man
   m_TagString: Untagged
@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5094184241543559798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -238,7 +238,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1000254315, guid: 6da8090aaf274f54e8834e258e4d5338, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   spawnSpeed: 3
   destination: {fileID: 0}
   cost: 3
-  isEnemy: 0
+  isEnemy: 1
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
@@ -322,7 +322,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!95 &5094184241543559793
+--- !u!95 &5932660339075346663
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
