@@ -20,20 +20,12 @@ public class AttackDealer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             UnitBase target = collision.gameObject.GetComponent<UnitBase>();
             float damageToDeal = DealDamage(unitStats.damage, target.defense);
             target.health -= damageToDeal;
         }
-       
-        if (collision.gameObject.tag == "Player")
-        {
-            UnitBase target = collision.gameObject.GetComponent<UnitBase>();
-            float damageToDeal = DealDamage(unitStats.damage, target.defense);
-            target.health -= damageToDeal;
-        }
-
     }
 
     public float DealDamage(float damage, float defense)

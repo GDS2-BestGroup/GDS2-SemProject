@@ -12,6 +12,8 @@ public class AnimationTrigger : MonoBehaviour
     private float walkSpeed;
     private float attackSpeed;
     private float attackInterval; //Timer for attack speed
+
+    private List<UnitBase> targetList = new List<UnitBase>();
     // Start is called before the first frame update
     void Start()
     {
@@ -47,28 +49,24 @@ public class AnimationTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
-            trigger = true;
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
+            targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             trigger = true;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
-            trigger = false;
+            targetList.Remove(collision.gameObject.GetComponent<UnitBase>());
+            if (targetList.Count == 0)
+            {
+                trigger = false;
+            }
         }
 
-        if (collision.gameObject.tag == "Player")
-        {
-            trigger = false;
-        }
     }
 
     /// <summary>

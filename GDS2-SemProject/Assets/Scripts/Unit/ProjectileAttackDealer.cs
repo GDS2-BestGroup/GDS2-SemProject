@@ -22,22 +22,13 @@ public class ProjectileAttackDealer : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
             float damageToDeal = DealDamage(unitStats.damage, target.defense);
             target.health -= damageToDeal;
         }
-        
-        if (collision.gameObject.tag == "Player")
-        {
-            targetList.Add(collision.gameObject.GetComponent<UnitBase>());
-            UnitBase target = targetList[0];
-            float damageToDeal = DealDamage(unitStats.damage, target.defense);
-            target.health -= damageToDeal;
-        }
-
         Destroy(gameObject);
     }
 
