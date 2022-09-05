@@ -19,10 +19,10 @@ public class AnimationTrigger : MonoBehaviour
     {
         unitStats = GetComponentInParent<UnitBase>();
         animator = GetComponentInParent<Animator>();
-        walkSpeed = unitStats.walkSpeed;
-        attackSpeed = unitStats.attackSpeed;
+        walkSpeed = unitStats.GetWalkSpeed();
+        attackSpeed = unitStats.GetAttackSpeed();
         attackInterval = 0;
-        destination = unitStats.destination;
+        destination = unitStats.GetDest();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class AnimationTrigger : MonoBehaviour
             Move();
         }
 
-        if(unitStats.health <= 0)
+        if(unitStats.GetHealth() <= 0)
         {
             trigger = false;
             animator.SetTrigger("Death");
@@ -57,7 +57,7 @@ public class AnimationTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Node")
         {
-            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.damage);
+            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
             unitStats.DestroySelf();
         }
     }

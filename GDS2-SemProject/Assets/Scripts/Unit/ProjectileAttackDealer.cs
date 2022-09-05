@@ -26,8 +26,8 @@ public class ProjectileAttackDealer : MonoBehaviour
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
-            float damageToDeal = DealDamage(unitStats.damage, target.defense);
-            target.health -= damageToDeal;
+            float damageToDeal = DealDamage(unitStats.GetDamage(), target.GetDefense());
+            target.TakeDamage(damageToDeal);
         }
         Destroy(gameObject);
     }

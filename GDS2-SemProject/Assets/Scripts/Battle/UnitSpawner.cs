@@ -39,7 +39,7 @@ public class UnitSpawner : MonoBehaviour
         unit = u;
         destination = d;
         parent = p;
-        spawnSpeed = u.spawnSpeed;
+        spawnSpeed = u.GetSpawnSpeed();
     }
 
 
