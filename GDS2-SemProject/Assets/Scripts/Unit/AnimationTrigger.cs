@@ -49,6 +49,12 @@ public class AnimationTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
+        */
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());

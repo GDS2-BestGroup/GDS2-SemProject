@@ -29,8 +29,9 @@ public class UnitBase : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
-        bullet.transform.right = transform.right.normalized;
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
     public void DestroySelf()
