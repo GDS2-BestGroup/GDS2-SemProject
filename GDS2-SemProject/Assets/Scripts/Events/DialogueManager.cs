@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI displayNameText;    
+    [SerializeField] private TextMeshProUGUI displayNameText; 
+    [SerializeField] private Animator backgroundAnimator;   
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -57,7 +58,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (canContinueToNextLine && Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Up in Update");
             ContinueStory();
         } else if (displayLineCoroutine != null && Input.GetMouseButtonUp(0))
         {
@@ -207,6 +207,7 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case BACKGROUND_TAG:
                     caveBackground.SetActive(true);
+                    backgroundAnimator.Play(tagValue);
                     break;
             }
             
