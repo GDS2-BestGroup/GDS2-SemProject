@@ -86,6 +86,7 @@ public class AnimationTrigger : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        animator.SetBool("Walking", false);
         attackInterval -= Time.deltaTime;
         if (attackInterval <= 0)
         {
@@ -102,5 +103,6 @@ public class AnimationTrigger : MonoBehaviour
     {
         float speed = walkSpeed * Time.deltaTime;
         gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        animator.SetBool("Walking", true);
     }
 }
