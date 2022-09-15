@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         gameIncome = 5;
         currIncome = gameIncome;
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
+        //gd = GameObject.Find("GameData").GetComponent<GameData>();
         if (gd)
         {
             gameIncome = gd.GetBaseIncome();
