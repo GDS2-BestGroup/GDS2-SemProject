@@ -19,8 +19,15 @@ public class UnitBase : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
 
+    private GameController gc;
+    private void Awake()
+    {
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
+    }
+
     private void Update()
     {
+        Time.timeScale = gc.GetTime(); 
         if(Vector2.Distance(destination.position, transform.position) < 0.5)
         {
             DestroySelf();

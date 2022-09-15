@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameData gd;
 
     [SerializeField] private Text incomeText;
+    [SerializeField] private Text speedText;
+
+    private float timeSpeed = 1;
 
     private void Awake()
     {
@@ -101,5 +104,24 @@ public class GameController : MonoBehaviour
             }
             SceneManager.LoadScene(gd.previousLevel);
         }
+    }
+
+    public void ChangeSpeed()
+    {
+        if(timeSpeed == 1)
+        {
+            timeSpeed = 2;
+            speedText.text = "x2";
+        }
+        else
+        {
+            timeSpeed = 1;
+            speedText.text = "x1";
+        }
+    }
+
+    public float GetTime()
+    {
+        return timeSpeed;
     }
 }
