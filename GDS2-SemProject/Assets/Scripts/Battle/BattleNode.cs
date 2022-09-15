@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleNode : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private GameController gc;
 
+    [SerializeField] private Image healthBar;
+
+    private float flipBuffer;
+
     private int splitCount = 1;
 
     void Awake()
@@ -54,12 +59,10 @@ public class BattleNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If the castle has been 'taken over', switch sides.
-        if(castleCurrHP <= 0)
+        if (flipBuffer > 0)
         {
-            CastleCapture();
+            flipBuffer -= 1 * Time.deltaTime;
         }
-
         //castleCurrHP -= 1 * Time.deltaTime;
     }
     
@@ -111,37 +114,50 @@ public class BattleNode : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        castleCurrHP -= damage;
+        if (flipBuffer <= 0)
+        {
+            flipBuffer = 0.05f;
+            castleCurrHP -= damage;
+
+            //If the castle has been 'taken over', switch sides.
+            if (castleCurrHP <= 0)
+            {
+                castleCurrHP = castleMaxHP;
+                CastleCapture();
+            }
+
+            UpdateHealth();
+        }
     }
     private void CastleCapture()
     {
-        //Capture the castle and reset its hp
-        if (isBoss)
-        {
-            gc.EndGame(isEnemy);
-        }
-        isEnemy = !isEnemy;
-        sr.color = isEnemy ? Color.red : Color.blue; 
-        castleCurrHP = castleMaxHP;
-        summonedUnits.Clear();
-        CheckSurround();
-        StopAllCoroutines();
-        if (isEnemy)
-        {
-            gameObject.layer = LayerMask.NameToLayer("Enemy");
-            EnemySummonUnits();
-        }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer("Player");
-            CreatePaths();
-        }
-        //Let the connected nodes know it has been captured.
-        foreach(BattleNode i in neighbourNodes)
-        {
-            i.CheckSurround();
-        }
-
+            //Capture the castle and reset its hp
+            if (isBoss)
+            {
+                gc.EndGame(isEnemy);
+            }
+            isEnemy = !isEnemy;
+            sr.color = isEnemy ? Color.red : Color.blue;
+            summonedUnits.Clear();
+            CheckSurround();
+            StopAllCoroutines();
+            if (isEnemy)
+            {
+                gameObject.layer = LayerMask.NameToLayer("Enemy");
+                EnemySummonUnits();
+            }
+            else
+            {
+                gameObject.layer = LayerMask.NameToLayer("Player");
+                CreatePaths();
+            }
+            //Let the connected nodes know it has been captured.
+            foreach (BattleNode i in neighbourNodes)
+            {
+                i.CheckSurround();
+            }
+            castleCurrHP = castleMaxHP;
+            UpdateHealth();
     }
 
     public void CheckSurround()
@@ -244,4 +260,8 @@ public class BattleNode : MonoBehaviour
         }
     }
 
+    private void UpdateHealth()
+    {
+        healthBar.fillAmount = castleCurrHP / castleMaxHP;
+    }
 }

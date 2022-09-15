@@ -11,6 +11,8 @@ public class PathScript : MonoBehaviour
 
     [SerializeField] private GameController gc;
 
+    [SerializeField] private Color defaultColor;
+    [SerializeField] private Color hoverColor;
     private bool mouse = false;
 
     private void Awake()
@@ -45,10 +47,12 @@ public class PathScript : MonoBehaviour
     {
         Debug.Log("mouse " + this.name);
         mouse = true;
+        gameObject.GetComponent<SpriteRenderer>().color = hoverColor;
     }
 
     private void OnMouseExit()
     {
         mouse = false;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
     }
 }
