@@ -14,7 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText; 
-    [SerializeField] private Animator backgroundAnimator;   
+    [SerializeField] private Animator backgroundAnimator;
+    [SerializeField] private Animator characterPortraitAnimator;
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -22,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Layout UI")]
     [SerializeField] private GameObject characterPortrait;
-    [SerializeField] private GameObject caveBackground;
+    [SerializeField] private GameObject background;
     
     private Story currentStory;
     private static DialogueManager instance;
@@ -76,7 +77,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
 
         characterPortrait.SetActive(false);
-        caveBackground.SetActive(false);
+        background.SetActive(false);
 
         em.StartListening(currentStory);
 
@@ -88,7 +89,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         characterPortrait.SetActive(false);
-        caveBackground.SetActive(false);
+        background.SetActive(false);
 
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
@@ -202,11 +203,12 @@ public class DialogueManager : MonoBehaviour
                 case SPEAKER_TAG:
                     displayNameText.text = tagValue;
                     break;
-                case PORTRAIT_TAG: 
+                case PORTRAIT_TAG:
                     characterPortrait.SetActive(true);
+                    characterPortraitAnimator.Play(tagValue);
                     break;
                 case BACKGROUND_TAG:
-                    caveBackground.SetActive(true);
+                    background.SetActive(true);
                     backgroundAnimator.Play(tagValue);
                     break;
             }

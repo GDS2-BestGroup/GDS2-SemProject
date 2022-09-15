@@ -30,10 +30,10 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         // variables["morale"] = (Ink.Runtime.Object)gd.morale;
-        // DialogueManager.GetInstance().EnterDialogueMode(inkText[0]);
+        DialogueManager.GetInstance().EnterDialogueMode(inkText[1]);
 
         // DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
-        DialogueManager.GetInstance().EnterDialogueMode(inkText[Random.Range(0, 2)]);
+        // DialogueManager.GetInstance().EnterDialogueMode(inkText[Random.Range(0, 2)]);
     }
 
     public void StartListening(Story story)

@@ -221,12 +221,13 @@ MonoBehaviour:
   dialogueText: {fileID: 774728005}
   displayNameText: {fileID: 1091680224}
   backgroundAnimator: {fileID: 740733752}
+  characterPortraitAnimator: {fileID: 1523300101}
   choiceButtons:
   - {fileID: 1838496566}
   - {fileID: 1629412456}
   - {fileID: 1144731858}
   characterPortrait: {fileID: 1523300097}
-  caveBackground: {fileID: 740733748}
+  background: {fileID: 740733748}
   em: {fileID: 45763418}
 --- !u!1 &280806632
 GameObject:
@@ -1364,8 +1365,9 @@ GameObject:
   - component: {fileID: 1523300098}
   - component: {fileID: 1523300100}
   - component: {fileID: 1523300099}
+  - component: {fileID: 1523300101}
   m_Layer: 5
-  m_Name: Main Character
+  m_Name: Character Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,6 +1431,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523300097}
   m_CullTransparentMesh: 1
+--- !u!95 &1523300101
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523300097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd9e337597e1c664786493c7b6909743, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1523563576
 GameObject:
   m_ObjectHideFlags: 0
