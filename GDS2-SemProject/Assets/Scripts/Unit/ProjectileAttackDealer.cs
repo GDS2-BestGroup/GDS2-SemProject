@@ -19,16 +19,21 @@ public class ProjectileAttackDealer : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
             float damageToDeal = DealDamage(damage, target.GetDefense());
             target.TakeDamage(damageToDeal);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     public float DealDamage(float damage, float defense)

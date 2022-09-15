@@ -20,6 +20,11 @@ public class AttackDealer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             UnitBase target = collision.gameObject.GetComponent<UnitBase>();
