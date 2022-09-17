@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Node
+  - Audio
   layers:
   - Default
   - TransparentFX
