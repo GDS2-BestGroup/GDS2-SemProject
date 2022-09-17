@@ -15,6 +15,10 @@ public class UnitButton : MonoBehaviour
     private Color sel;
     private ColorBlock norm;
 
+    private GameObject evs;
+
+    private int flip = -1;
+
     // Start is called before the first frame update
 
     private KeyCode[] keyCodes =
@@ -35,6 +39,7 @@ public class UnitButton : MonoBehaviour
         norm = gameObject.GetComponent<Button>().colors;
         def = norm.normalColor;
         sel = norm.selectedColor;
+        evs = GameObject.Find("EventSystem");
     }
 
     // Update is called once per frame
@@ -69,6 +74,15 @@ public class UnitButton : MonoBehaviour
 
     public void SelectUnit()
     {
-        gc.SelectUnit(unit);
+        flip *= -1;
+        if (flip > 0)
+        {
+            gc.SelectUnit(unit);
+        }
+        else
+        {
+            evs.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+            gc.SelectUnit(null);
+        }
     }
 }

@@ -27,6 +27,10 @@ public class PathScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gc.GetSelectedUnit() == null)
+        {
+            OnMouseExit();
+        }
         if (mouse)
         {
             if (Input.GetMouseButtonDown(0) && gc)
@@ -47,7 +51,7 @@ public class PathScript : MonoBehaviour
     {
         if (gc.GetSelectedUnit() != null)
         {
-            Debug.Log("mouse " + this.name);
+            //Debug.Log("mouse " + this.name);
             mouse = true;
             gameObject.GetComponent<SpriteRenderer>().color = hoverColor;
         }
