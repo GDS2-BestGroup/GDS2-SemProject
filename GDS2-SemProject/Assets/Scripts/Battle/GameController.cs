@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
             gameIncome = gd.GetBaseIncome();
         }
         currIncome = gameIncome;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -121,11 +122,13 @@ public class GameController : MonoBehaviour
         {
             timeSpeed = 2;
             speedText.text = "x2";
+            Time.timeScale = 2;
         }
         else
         {
             timeSpeed = 1;
             speedText.text = "x1";
+            Time.timeScale = 1;
         }
     }
 

@@ -68,7 +68,7 @@ public class BattleNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = gc.GetTime();
+
         if (flipBuffer > 0)
         {
             flipBuffer -= 1 * Time.deltaTime;
@@ -197,8 +197,13 @@ public class BattleNode : MonoBehaviour
                     Destroy(pathList[i]);
                     pathList.RemoveAt(i);
                 }
+                else if (pathList[i].GetComponent<PathScript>().GetParents(2).IsEnemy())
+                {
+                    pathList[i].GetComponent<PathScript>().SetActive(false);
+                }
             }
         }
+
         bool surround = false;
         if (neighbourNodes.Count > 1)
         {

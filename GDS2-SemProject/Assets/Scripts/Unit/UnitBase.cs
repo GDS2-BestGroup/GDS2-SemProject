@@ -27,7 +27,7 @@ public class UnitBase : MonoBehaviour
 
     private void Update()
     {
-        Time.timeScale = gc.GetTime(); 
+        //Time.timeScale = gc.GetTime(); 
         if(Vector2.Distance(destination.position, transform.position) < 0.5)
         {
             DestroySelf();

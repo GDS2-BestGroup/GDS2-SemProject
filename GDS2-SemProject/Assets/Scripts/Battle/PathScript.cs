@@ -58,6 +58,23 @@ public class PathScript : MonoBehaviour
         return active;
     }
 
+    public void SetActive(bool set)
+    {
+        active = set;
+    }
+
+    public BattleNode GetParents(int i)
+    {
+        if(i == 1)
+        {
+            return parent1;
+        }
+        else
+        {
+            return parent2;
+        }
+    }
+
     private void OnMouseEnter()
     {
         if (gc.GetSelectedUnit() != null && active)
