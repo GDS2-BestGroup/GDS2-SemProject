@@ -15,6 +15,9 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private float castleCurrHP;
 
     [SerializeField] private bool isEnemy = true;
+    [SerializeField] private bool isNeutral = false;
+    [SerializeField] private bool isBoss;
+
     [SerializeField] private List<UnitBase> enemyUnits;
     [SerializeField] private List<UnitBase> summonedUnits;
 
@@ -25,7 +28,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private GameObject path;
     [SerializeField] private List<GameObject> pathList;
 
-    [SerializeField] private bool isBoss;
+
 
     [SerializeField] private GameController gc;
 
@@ -34,6 +37,8 @@ public class BattleNode : MonoBehaviour
     private float flipBuffer;
 
     private int splitCount = 1;
+
+    private bool capturedBefore = false;
 
     void Awake()
     { 
@@ -59,6 +64,7 @@ public class BattleNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Time.timeScale = gc.GetTime();
         if (flipBuffer > 0)
         {
             flipBuffer -= 1 * Time.deltaTime;
@@ -68,11 +74,8 @@ public class BattleNode : MonoBehaviour
     
     private void CreatePaths()
     {
-        foreach(GameObject i in pathList)
-        {
-            Destroy(i);
-        }
-        pathList.Clear();
+        ResetPaths();
+
         if (isEnemy)
         {
             foreach (BattleNode i in neighbourNodes)
@@ -90,6 +93,15 @@ public class BattleNode : MonoBehaviour
                 CreatePath(i);
             }
         }
+    }
+
+    private void ResetPaths()
+    {
+        foreach(GameObject i in pathList)
+        {
+            Destroy(i);
+        }
+        pathList.Clear();
     }
 
     public void CreatePath(BattleNode i)
@@ -136,6 +148,12 @@ public class BattleNode : MonoBehaviour
             {
                 gc.EndGame(isEnemy);
             }
+            if(!capturedBefore)
+            {
+            gc.IncreaseIncome(1);
+            capturedBefore = true;
+            }
+            isNeutral = false;
             isEnemy = !isEnemy;
             sr.color = isEnemy ? Color.red : Color.blue;
             summonedUnits.Clear();
@@ -212,14 +230,17 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         StopAllCoroutines();
-        foreach(BattleNode i in neighbourNodes)
+        if (!isNeutral)
         {
-            if (!i.IsEnemy())
+            foreach (BattleNode i in neighbourNodes)
             {
-                foreach (UnitBase e in enemyUnits)
+                if (!i.IsEnemy())
                 {
-                    //Debug.Log("S " + this.name);
-                    StartCoroutine(EnemySummonUnit(e, i.transform));
+                    foreach (UnitBase e in enemyUnits)
+                    {
+                        //Debug.Log("S " + this.name);
+                        StartCoroutine(EnemySummonUnit(e, i.transform));
+                    }
                 }
             }
         }

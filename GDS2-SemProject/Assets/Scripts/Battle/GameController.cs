@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text incomeText;
     [SerializeField] private Text speedText;
 
-    private float timeSpeed = 1;
+    private float timeSpeed = 0;
 
     private void Awake()
     {

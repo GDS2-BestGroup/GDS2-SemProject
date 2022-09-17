@@ -14,6 +14,7 @@ public class PathScript : MonoBehaviour
     [SerializeField] private Color defaultColor;
     [SerializeField] private Color hoverColor;
     private bool mouse = false;
+    private bool active = false;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class PathScript : MonoBehaviour
         {
             OnMouseExit();
         }
+
         if (mouse)
         {
             if (Input.GetMouseButtonDown(0) && gc)
@@ -45,11 +47,20 @@ public class PathScript : MonoBehaviour
     {
         parent1 = i;
         parent2 = j;
+        if((parent1.IsEnemy() == false || parent2.IsEnemy()==false) && parent1.IsEnemy()!=parent2.IsEnemy())
+        {
+            active = true;
+        }
+    }
+
+    public void SetActive(bool i)
+    {
+        active = i;
     }
 
     private void OnMouseEnter()
     {
-        if (gc.GetSelectedUnit() != null)
+        if (gc.GetSelectedUnit() != null && active)
         {
             //Debug.Log("mouse " + this.name);
             mouse = true;

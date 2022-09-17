@@ -11,13 +11,13 @@ public class UnitButton : MonoBehaviour
     private GameController gc;
     private KeyCode numb;
 
-    private Color def;
-    private Color sel;
-    private ColorBlock norm;
+    //private Color def;
+    //private Color sel;
+    //private ColorBlock norm;
 
     private GameObject evs;
 
-    private int flip = -1;
+    //private int flip = -1;
 
     // Start is called before the first frame update
 
@@ -36,9 +36,9 @@ public class UnitButton : MonoBehaviour
 
     void Start()
     {
-        norm = gameObject.GetComponent<Button>().colors;
+/*        norm = gameObject.GetComponent<Button>().colors;
         def = norm.normalColor;
-        sel = norm.selectedColor;
+        sel = norm.selectedColor;*/
         evs = GameObject.Find("EventSystem");
     }
 
@@ -52,13 +52,23 @@ public class UnitButton : MonoBehaviour
 
         if (gc.GetSelectedUnit() == unit)
         {
+            /*            
             norm.normalColor = sel;
-            gameObject.GetComponent<Button>().colors = norm;
+            norm.selectedColor = sel;
+            gameObject.GetComponent<Button>().colors = norm;*/
+            if (evs.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject != gameObject)
+            {
+                evs.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(gameObject);
+            }
         }
         else
         {
-            norm.normalColor = def;
-            gameObject.GetComponent<Button>().colors = norm;
+            /*norm.normalColor = def;
+            gameObject.GetComponent<Button>().colors = norm;*/
+            if (evs.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject != null)
+            {
+                evs.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+            }
         }
 
     }
@@ -74,15 +84,14 @@ public class UnitButton : MonoBehaviour
 
     public void SelectUnit()
     {
-        flip *= -1;
-        if (flip > 0)
+        if (evs.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject != gameObject)
         {
+            evs.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(gameObject);
             gc.SelectUnit(unit);
         }
         else
         {
             evs.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-            gc.SelectUnit(null);
         }
     }
 }
