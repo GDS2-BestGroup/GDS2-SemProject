@@ -41,6 +41,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
         incomeText.text = currIncome.ToString();
+/*        if (Input.GetMouseButtonDown(0))
+        {
+            selectedUnit = null;
+        }*/
     }
 
     public UnitBase GetSelectedUnit()

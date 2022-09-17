@@ -32,7 +32,7 @@ public class PathScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && gc)
             {
                 parent1.AddUnits(gc.GetSelectedUnit(), parent2);
-                Debug.Log("Gogo");
+                //Debug.Log("Gogo");
             }
         }
     }
@@ -45,9 +45,12 @@ public class PathScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("mouse " + this.name);
-        mouse = true;
-        gameObject.GetComponent<SpriteRenderer>().color = hoverColor;
+        if (gc.GetSelectedUnit() != null)
+        {
+            Debug.Log("mouse " + this.name);
+            mouse = true;
+            gameObject.GetComponent<SpriteRenderer>().color = hoverColor;
+        }
     }
 
     private void OnMouseExit()
