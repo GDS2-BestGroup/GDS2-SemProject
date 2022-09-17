@@ -59,6 +59,10 @@ public class BattleNode : MonoBehaviour
         {
             EnemySummonUnits();
         }
+        else
+        {
+            capturedBefore = true;
+        }
     }
 
     // Update is called once per frame
@@ -184,6 +188,17 @@ public class BattleNode : MonoBehaviour
         {
             CreatePaths();
         }
+        else
+        {
+            for(int i = 0; i < pathList.Count; i++)
+            {
+                if (pathList[i].GetComponent<PathScript>().IsActive() == false)
+                {
+                    Destroy(pathList[i]);
+                    pathList.RemoveAt(i);
+                }
+            }
+        }
         bool surround = false;
         if (neighbourNodes.Count > 1)
         {
@@ -250,7 +265,14 @@ public class BattleNode : MonoBehaviour
     {
         while (isEnemy)
         {
-            yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
+            if (isBoss)
+            {
+                yield return new WaitForSeconds(unit.GetSpawnSpeed() * 0.75f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount));
+            }
             unit.SpawnUnit(this, dest, false);
             //Debug.Log(name + " " + splitCount);
         }

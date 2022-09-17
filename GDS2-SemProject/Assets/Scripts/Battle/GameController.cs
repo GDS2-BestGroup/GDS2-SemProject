@@ -41,10 +41,15 @@ public class GameController : MonoBehaviour
     void Update()
     {
         incomeText.text = currIncome.ToString();
-/*        if (Input.GetMouseButtonDown(0))
+        /*        if (Input.GetMouseButtonDown(0))
+                {
+                    selectedUnit = null;
+                }*/
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            selectedUnit = null;
-        }*/
+            ChangeSpeed();
+        }
     }
 
     public UnitBase GetSelectedUnit()

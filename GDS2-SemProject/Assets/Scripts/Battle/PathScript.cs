@@ -14,7 +14,7 @@ public class PathScript : MonoBehaviour
     [SerializeField] private Color defaultColor;
     [SerializeField] private Color hoverColor;
     private bool mouse = false;
-    private bool active = false;
+    [SerializeField] private bool active = false;
 
     private void Awake()
     {
@@ -53,9 +53,9 @@ public class PathScript : MonoBehaviour
         }
     }
 
-    public void SetActive(bool i)
+    public bool IsActive()
     {
-        active = i;
+        return active;
     }
 
     private void OnMouseEnter()
