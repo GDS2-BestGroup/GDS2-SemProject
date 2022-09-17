@@ -255,12 +255,13 @@ MonoBehaviour:
   castleMaxHP: 200
   castleCurrHP: 0
   isEnemy: 1
+  isNeutral: 0
+  isBoss: 0
   enemyUnits: []
   summonedUnits: []
   uSpawn: {fileID: -4016475931261724511, guid: 641647a0d8710034db23cb4ce31f3aa4, type: 3}
   path: {fileID: 9108120634360309913, guid: f930da3a79929434ab024837f853e387, type: 3}
   pathList: []
-  isBoss: 0
   gc: {fileID: 0}
   healthBar: {fileID: 8701056340036117884}
 --- !u!61 &1741194986597720743
@@ -328,7 +329,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 7}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9088422995835294589
 Canvas:
