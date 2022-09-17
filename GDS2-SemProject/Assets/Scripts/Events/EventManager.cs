@@ -14,11 +14,16 @@ public class EventManager : MonoBehaviour
     private GameData gd;
 
     // Start is called before the first frame update
+
+    void Awake() 
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         Compile();
         gd = GameObject.Find("GameData").GetComponent<GameData>();
-        StartEvent();
+        // StartEvent();
     }
 
     // Update is called once per frame

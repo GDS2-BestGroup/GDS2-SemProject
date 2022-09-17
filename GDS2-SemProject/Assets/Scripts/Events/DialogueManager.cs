@@ -41,6 +41,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake() 
     {
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class DialogueManager : MonoBehaviour
             ContinueStory();
         } else if (displayLineCoroutine != null && Input.GetMouseButtonUp(0))
         {
+            Debug.Log("umm");
             completeLine = true;
         }
     }
@@ -178,6 +180,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (completeLine)
             {
+                Debug.Log("Completed line?");
                 dialogueText.text = line;
                 completeLine = false;
                 break;
