@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioClip overworldClip;
+    public AudioSource audio;
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Audio");
@@ -17,12 +19,18 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ChangeMusic ()
+    {
+        audio.clip = overworldClip;
+        audio.Play();
     }
 }

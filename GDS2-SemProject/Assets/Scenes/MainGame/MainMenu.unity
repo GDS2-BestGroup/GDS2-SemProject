@@ -1322,6 +1322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d48975aa9b40540b88aac181124356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overworldClip: {fileID: 8300000, guid: 04acf55436c343e4f9567793abdc4c9a, type: 3}
+  audio: {fileID: 0}
 --- !u!1 &1534861483
 GameObject:
   m_ObjectHideFlags: 0
