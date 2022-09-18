@@ -269,9 +269,11 @@ MonoBehaviour:
   attackSpeed: 2
   walkSpeed: 1
   spawnSpeed: 3
+  spawnDuration: 10
   destination: {fileID: 0}
   cost: 3
   isEnemy: 1
+  sprite: {fileID: -1000254315, guid: 6da8090aaf274f54e8834e258e4d5338, type: 3}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}

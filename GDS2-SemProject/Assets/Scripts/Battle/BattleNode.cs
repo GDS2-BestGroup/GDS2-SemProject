@@ -22,6 +22,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private List<UnitBase> summonedUnits;
 
     [SerializeField] private UnitSpawner uSpawn;
+    [SerializeField] private GameObject nImage;
 
     //[SerializeField] private Unit testUnit;
 
@@ -39,6 +40,8 @@ public class BattleNode : MonoBehaviour
     private int splitCount = 1;
 
     private bool capturedBefore = false;
+
+    [SerializeField] private GameObject unitDisplay;
 
     void Awake()
     { 
@@ -161,6 +164,10 @@ public class BattleNode : MonoBehaviour
             isEnemy = !isEnemy;
             sr.color = isEnemy ? Color.red : Color.blue;
             summonedUnits.Clear();
+            foreach(Transform ni in nImage.transform)
+            {
+            Destroy(ni.gameObject);
+            }
             CheckSurround();
             StopAllCoroutines();
             if (isEnemy)
@@ -250,8 +257,16 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         StopAllCoroutines();
+
+
         if (!isNeutral)
         {
+            foreach (UnitBase u in enemyUnits)
+            {
+                GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
+                ni.GetComponent<NodeImage>().NodeSetUp(u.GetSprite(), -1);
+            }
+
             foreach (BattleNode i in neighbourNodes)
             {
                 if (!i.IsEnemy())
@@ -272,7 +287,7 @@ public class BattleNode : MonoBehaviour
         {
             if (isBoss)
             {
-                yield return new WaitForSeconds(unit.GetSpawnSpeed() * 0.75f);
+                yield return new WaitForSeconds(unit.GetSpawnSpeed() * 0.95f);
             }
             else
             {
@@ -303,6 +318,9 @@ public class BattleNode : MonoBehaviour
                 gc.UseIncome(i.GetCost());
                 UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
                 us.Setup(i.GetCost(), i, dest, this);
+
+                GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
+                ni.GetComponent<NodeImage>().NodeSetUp(i.GetSprite(), i.GetDuration());
                 //StartCoroutine(AllySummonUnit(i, dest));
             }
         }
@@ -312,4 +330,6 @@ public class BattleNode : MonoBehaviour
     {
         healthBar.fillAmount = castleCurrHP / castleMaxHP;
     }
+
+    
 }

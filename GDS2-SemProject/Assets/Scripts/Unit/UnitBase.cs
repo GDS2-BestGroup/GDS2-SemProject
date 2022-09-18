@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float attackSpeed; //Frequency of attack
     [SerializeField] private float walkSpeed; //How fast unit move
     [SerializeField] private float spawnSpeed; //How fast unit spawn
+    [SerializeField] private float spawnDuration; //How long the unit spawns for
     [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
+    [SerializeField] private Sprite sprite;
 
     public BattleNode parent;
 
@@ -23,6 +26,7 @@ public class UnitBase : MonoBehaviour
     private void Awake()
     {
         gc = GameObject.Find("GameController").GetComponent<GameController>();
+        sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void Update()
@@ -127,5 +131,14 @@ public class UnitBase : MonoBehaviour
         return health;
     }
 
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public float GetDuration()
+    {
+        return spawnDuration;
+    }
 }
 
