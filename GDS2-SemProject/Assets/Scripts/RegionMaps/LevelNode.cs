@@ -16,6 +16,8 @@ public class LevelNode : MonoBehaviour
     [SerializeField]
     private Canvas confirmUI;
     private Button yesBtn;
+    private GameObject[] panels;
+    private bool panelActive;
     private int region;
     private bool unlockFirst;
     private bool[] lvlCompletion;
@@ -36,12 +38,14 @@ public class LevelNode : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         confirmUI = GameObject.Find("ConfirmationUI").GetComponentInChildren<Canvas>(true);
         gameData = GameObject.Find("GameData").GetComponent<GameData>();
+        //panels = confirmUI.GetComponentsInChildren<UIP>
         unlocked = false;
         unlockFirst = false;
         region = Mathf.FloorToInt((float)levelIndex);
         lr = GetComponent<LineController>();
         if (points != null && lr)
         {
+            Debug.Log("Line rendering");
             lr.SetUpLine(points);
         }
         
@@ -103,6 +107,15 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseOver()
     {
+        //Checks whether any panels are active to stop btm hover anim
+        //panelActive = false;
+        /*foreach (GameObject panel in panels)
+        {
+            if (panel.activeSelf)
+            {
+                panelActive = true;
+            }
+        }*/
         //Currently changes colour of sprite, just placeholder for future anim
         if (unlocked)
         {

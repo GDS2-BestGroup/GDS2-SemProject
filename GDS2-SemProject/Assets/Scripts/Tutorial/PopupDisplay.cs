@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class PopupDisplay : MonoBehaviour
 {
-    //[SerializeField] private GameObject display; //The tutorial indicator.
-    [SerializeField] private string[] instructions;
-    private TMP_Text text;
-    private int count;
+    [SerializeField] private GameObject display; //Highlight panel.
+    [SerializeField] private int enableDisplay; //instruction number at which display should be enabled;
+    [SerializeField] private string[] instructions; //Text to display on popup
+    private TMP_Text text; //Actual text element of popup
+    private int count; //Keeps track of what instruction is currently being displayed
 
 
     void Start()
@@ -28,11 +29,16 @@ public class PopupDisplay : MonoBehaviour
         if (text.text != instructions[^1]) //if not last instruction
         {
             text.text = instructions[++count];
+            if (count == enableDisplay)
+            {
+                display.SetActive(true);
+            }
+
         }
         else
         {
             gameObject.SetActive(false);
-
+            display.SetActive(false);
         }
 
     }
