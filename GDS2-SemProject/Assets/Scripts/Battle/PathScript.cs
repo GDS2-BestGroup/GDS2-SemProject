@@ -13,6 +13,8 @@ public class PathScript : MonoBehaviour
 
     [SerializeField] private Color defaultColor;
     [SerializeField] private Color hoverColor;
+    [SerializeField] private Color deactiveColor;
+
     private bool mouse = false;
     [SerializeField] private bool active = false;
 
@@ -28,7 +30,11 @@ public class PathScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gc.GetSelectedUnit() == null)
+        if (!active)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = deactiveColor;
+        }else
+        if (gc.GetSelectedUnit() == null)
         {
             OnMouseExit();
         }
@@ -49,7 +55,7 @@ public class PathScript : MonoBehaviour
         parent2 = j;
         if((parent1.IsEnemy() == false || parent2.IsEnemy()==false) && parent1.IsEnemy()!=parent2.IsEnemy())
         {
-            active = true;
+            SetActive(true);
         }
     }
 

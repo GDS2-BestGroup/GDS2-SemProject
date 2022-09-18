@@ -28,14 +28,17 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
         currIncome = gameIncome;
-        //gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (GameObject.Find("GameData").GetComponent<GameData>()) {
+            gd = GameObject.Find("GameData").GetComponent<GameData>();
+        }
         if (gd)
         {
             gameIncome = gd.GetBaseIncome();
         }
         currIncome = gameIncome;
-        Time.timeScale = 0;
+        
     }
 
     // Update is called once per frame

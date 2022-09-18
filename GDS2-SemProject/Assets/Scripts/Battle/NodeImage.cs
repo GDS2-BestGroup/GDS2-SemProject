@@ -28,7 +28,7 @@ public class NodeImage : MonoBehaviour
         unitCircle.fillAmount = (current / duration);
         if(current >= duration)
         {
-            Destroy(gameObject);
+            DestroySelf();
         }
     }
 
@@ -36,5 +36,10 @@ public class NodeImage : MonoBehaviour
     {
         unitImage.sprite = img;
         duration = dur;
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
