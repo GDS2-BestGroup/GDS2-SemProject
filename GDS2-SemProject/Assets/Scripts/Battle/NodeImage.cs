@@ -36,6 +36,5 @@ public class NodeImage : MonoBehaviour
     {
         unitImage.sprite = img;
         duration = dur;
-        Debug.Log("Node Display");
     }
 }
