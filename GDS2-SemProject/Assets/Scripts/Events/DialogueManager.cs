@@ -7,11 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+   
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI displayNameText;
-    
+    [SerializeField] private TextMeshProUGUI displayNameText; 
+    [SerializeField] private Animator backgroundAnimator;
+    [SerializeField] private Animator characterPortraitAnimator;
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -19,11 +23,15 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Layout UI")]
     [SerializeField] private GameObject characterPortrait;
-    [SerializeField] private GameObject caveBackground;
+    [SerializeField] private GameObject background;
     
     private Story currentStory;
     private static DialogueManager instance;
     private GameData gd;
+
+    private bool canContinueToNextLine = false;
+    private bool completeLine = false;
+    private Coroutine displayLineCoroutine;
 
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
@@ -33,6 +41,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake() 
     {
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
     // Start is called before the first frame update
     void Start()
@@ -42,15 +51,19 @@ public class DialogueManager : MonoBehaviour
         {
             choicesText[i] = choiceButtons[i].GetComponentInChildren<TextMeshProUGUI>();
         }
+
         gd = GameObject.Find("GameData").GetComponent<GameData>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (canContinueToNextLine && Input.GetMouseButtonUp(0))
         {
             ContinueStory();
+        } else if (displayLineCoroutine != null && Input.GetMouseButtonUp(0))
+        {
+            completeLine = true;
         }
     }
 
@@ -65,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
 
         characterPortrait.SetActive(false);
-        caveBackground.SetActive(false);
+        background.SetActive(false);
 
         em.StartListening(currentStory);
 
@@ -77,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         characterPortrait.SetActive(false);
-        caveBackground.SetActive(false);
+        background.SetActive(false);
 
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
@@ -94,14 +107,21 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+
             HandleTags(currentStory.currentTags);
         } 
         else if (currentStory.currentChoices.Count > 0)
         {
             dialogueText.text = "";
             DisplayChoices();
-        } 
+        }
+
         else
         {
             ExitDialogueMode();
@@ -122,6 +142,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choiceButtons)
+        {
+            choiceButton.SetActive(false);
+        }
+    }
+
     private void RemoveChoices()
     {
         for (int i = 0; i < choiceButtons.Length; i++)
@@ -133,9 +161,34 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        RemoveChoices();
+        if (canContinueToNextLine)
+        {
+            RemoveChoices();
 
-        currentStory.ChooseChoiceIndex(choiceIndex);
+            currentStory.ChooseChoiceIndex(choiceIndex);
+        }
+    }
+
+    private IEnumerator DisplayLine (string line)
+    {
+        dialogueText.text = "";
+
+        canContinueToNextLine = false;
+
+        foreach( char letter in line.ToCharArray())
+        {
+            if (completeLine)
+            {
+                Debug.Log("Completed line?");
+                dialogueText.text = line;
+                completeLine = false;
+                break;
+            }
+
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        canContinueToNextLine = true;
     }
 
     private void HandleTags(List<string> currentTags)
@@ -152,11 +205,13 @@ public class DialogueManager : MonoBehaviour
                 case SPEAKER_TAG:
                     displayNameText.text = tagValue;
                     break;
-                case PORTRAIT_TAG: 
+                case PORTRAIT_TAG:
                     characterPortrait.SetActive(true);
+                    characterPortraitAnimator.Play(tagValue);
                     break;
                 case BACKGROUND_TAG:
-                    caveBackground.SetActive(true);
+                    background.SetActive(true);
+                    backgroundAnimator.Play(tagValue);
                     break;
             }
             
