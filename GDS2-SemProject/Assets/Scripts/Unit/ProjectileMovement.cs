@@ -15,7 +15,7 @@ public class ProjectileMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.velocity = transform.right * velocity;
 

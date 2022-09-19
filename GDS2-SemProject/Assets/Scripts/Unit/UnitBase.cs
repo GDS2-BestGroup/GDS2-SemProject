@@ -16,8 +16,9 @@ public class UnitBase : MonoBehaviour
     public BattleNode parent;
 
     //Range Unit Specific
-    public GameObject projectile;
-    public Transform firePoint;
+    [SerializeField] GameObject projectile; //Prefab of projectile
+    [SerializeField] Transform firePoint;
+    private Vector2 targetPosition; //Used for Curve Bullet
 
     private void Update()
     {
@@ -30,7 +31,16 @@ public class UnitBase : MonoBehaviour
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
+        {
+            bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        }
+
+        else if (bullet.TryGetComponent(out AttackDealer ad))
+        {
+            bullet.GetComponent<AttackDealer>().SetDamage(damage);
+        }
+
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
@@ -121,5 +131,9 @@ public class UnitBase : MonoBehaviour
         return health;
     }
 
+    public void SetTargetPosition(Vector2 tp)
+    {
+        targetPosition = tp;
+    }
 }
 
