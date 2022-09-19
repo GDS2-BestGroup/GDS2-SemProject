@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float attackSpeed; //Frequency of attack
     [SerializeField] private float walkSpeed; //How fast unit move
     [SerializeField] private float spawnSpeed; //How fast unit spawn
+    [SerializeField] private float spawnDuration; //How long the unit spawns for
     [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
+    [SerializeField] private Sprite sprite;
 
     public BattleNode parent;
 
@@ -23,21 +26,24 @@ public class UnitBase : MonoBehaviour
     private void Awake()
     {
         gc = GameObject.Find("GameController").GetComponent<GameController>();
+        sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void Update()
     {
-        Time.timeScale = gc.GetTime(); 
+        //Time.timeScale = gc.GetTime(); 
         if(Vector2.Distance(destination.position, transform.position) < 0.5)
         {
+            //Debug.Log("Destination Reached");
             DestroySelf();
         }
     }
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
-        bullet.transform.right = transform.right.normalized;
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
     public void DestroySelf()
@@ -127,5 +133,14 @@ public class UnitBase : MonoBehaviour
         return health;
     }
 
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public float GetDuration()
+    {
+        return spawnDuration;
+    }
 }
 

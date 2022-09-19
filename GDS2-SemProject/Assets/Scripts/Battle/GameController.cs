@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text incomeText;
     [SerializeField] private Text speedText;
 
-    private float timeSpeed = 1;
+    private float timeSpeed = 0;
 
     private void Awake()
     {
@@ -28,19 +28,32 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
         currIncome = gameIncome;
-        //gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (GameObject.Find("GameData").GetComponent<GameData>()) {
+            gd = GameObject.Find("GameData").GetComponent<GameData>();
+        }
         if (gd)
         {
             gameIncome = gd.GetBaseIncome();
         }
         currIncome = gameIncome;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         incomeText.text = currIncome.ToString();
+        /*        if (Input.GetMouseButtonDown(0))
+                {
+                    selectedUnit = null;
+                }*/
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ChangeSpeed();
+        }
     }
 
     public UnitBase GetSelectedUnit()
@@ -112,11 +125,13 @@ public class GameController : MonoBehaviour
         {
             timeSpeed = 2;
             speedText.text = "x2";
+            Time.timeScale = 2;
         }
         else
         {
             timeSpeed = 1;
             speedText.text = "x1";
+            Time.timeScale = 1;
         }
     }
 

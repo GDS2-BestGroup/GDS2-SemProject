@@ -15,17 +15,21 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private float castleCurrHP;
 
     [SerializeField] private bool isEnemy = true;
+    [SerializeField] private bool isNeutral = false;
+    [SerializeField] private bool isBoss;
+
     [SerializeField] private List<UnitBase> enemyUnits;
     [SerializeField] private List<UnitBase> summonedUnits;
 
     [SerializeField] private UnitSpawner uSpawn;
+    [SerializeField] private GameObject nImage;
 
     //[SerializeField] private Unit testUnit;
 
     [SerializeField] private GameObject path;
     [SerializeField] private List<GameObject> pathList;
 
-    [SerializeField] private bool isBoss;
+
 
     [SerializeField] private GameController gc;
 
@@ -35,12 +39,16 @@ public class BattleNode : MonoBehaviour
 
     private int splitCount = 1;
 
+    private bool capturedBefore = false;
+
+    [SerializeField] private GameObject unitDisplay;
+
     void Awake()
-    { 
+    {
         sr = GetComponent<SpriteRenderer>();
         castleCurrHP = castleMaxHP;
         CreatePaths();
-        foreach(BattleNode i in neighbourNodes)
+        foreach (BattleNode i in neighbourNodes)
         {
             i.AddNeighbour(this);
         }
@@ -54,25 +62,27 @@ public class BattleNode : MonoBehaviour
         {
             EnemySummonUnits();
         }
+        else
+        {
+            capturedBefore = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (flipBuffer > 0)
         {
             flipBuffer -= 1 * Time.deltaTime;
         }
         //castleCurrHP -= 1 * Time.deltaTime;
     }
-    
+
     private void CreatePaths()
     {
-        foreach(GameObject i in pathList)
-        {
-            Destroy(i);
-        }
-        pathList.Clear();
+        ResetPaths();
+
         if (isEnemy)
         {
             foreach (BattleNode i in neighbourNodes)
@@ -85,11 +95,20 @@ public class BattleNode : MonoBehaviour
         }
         else
         {
-            foreach(BattleNode i in neighbourNodes)
+            foreach (BattleNode i in neighbourNodes)
             {
                 CreatePath(i);
             }
         }
+    }
+
+    private void ResetPaths()
+    {
+        foreach (GameObject i in pathList)
+        {
+            Destroy(i);
+        }
+        pathList.Clear();
     }
 
     public void CreatePath(BattleNode i)
@@ -131,33 +150,49 @@ public class BattleNode : MonoBehaviour
     }
     private void CastleCapture()
     {
-            //Capture the castle and reset its hp
-            if (isBoss)
-            {
-                gc.EndGame(isEnemy);
-            }
-            isEnemy = !isEnemy;
-            sr.color = isEnemy ? Color.red : Color.blue;
-            summonedUnits.Clear();
-            CheckSurround();
-            StopAllCoroutines();
-            if (isEnemy)
-            {
-                gameObject.layer = LayerMask.NameToLayer("Enemy");
-                EnemySummonUnits();
-            }
-            else
-            {
-                gameObject.layer = LayerMask.NameToLayer("Player");
-                CreatePaths();
-            }
-            //Let the connected nodes know it has been captured.
-            foreach (BattleNode i in neighbourNodes)
-            {
-                i.CheckSurround();
-            }
-            castleCurrHP = castleMaxHP;
-            UpdateHealth();
+        //Capture the castle and reset its hp
+        if (isBoss)
+        {
+            gc.EndGame(isEnemy);
+        }
+
+        if (!capturedBefore)
+        {
+            gc.IncreaseIncome(1);
+            capturedBefore = true;
+        }
+
+        isNeutral = false;
+        isEnemy = !isEnemy;
+        sr.color = isEnemy ? Color.red : Color.blue;
+        summonedUnits.Clear();
+
+        foreach (Transform ni in unitDisplay.transform)
+        {
+            ni.gameObject.GetComponent<NodeImage>().DestroySelf();
+        }
+
+        CheckSurround();
+        StopAllCoroutines();
+
+        if (isEnemy)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+            EnemySummonUnits();
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Player");
+            CreatePaths();
+        }
+
+        //Let the connected nodes know it has been captured.
+        foreach (BattleNode i in neighbourNodes)
+        {
+            i.CheckSurround();
+        }
+        castleCurrHP = castleMaxHP;
+        UpdateHealth();
     }
 
     public void CheckSurround()
@@ -166,6 +201,23 @@ public class BattleNode : MonoBehaviour
         {
             CreatePaths();
         }
+        else
+        {
+            for (int i = pathList.Count-1; i >-1; i--)
+            {
+                if (pathList[i].GetComponent<PathScript>().IsActive() == false)
+                {
+                    Debug.Log(name);
+                    Destroy(pathList[i]);
+                    pathList.RemoveAt(i);
+                }
+                else if (pathList[i].GetComponent<PathScript>().GetParents(2).IsEnemy())
+                {
+                    pathList[i].GetComponent<PathScript>().SetActive(false);
+                }
+            }
+        }
+
         bool surround = false;
         if (neighbourNodes.Count > 1)
         {
@@ -190,7 +242,8 @@ public class BattleNode : MonoBehaviour
         {
             Debug.Log(this.name + "is Surrounded");
             CastleCapture();
-        }else if(splitCount > 0 && isEnemy)
+        }
+        else if (splitCount > 0 && isEnemy)
         {
             EnemySummonUnits();
         }
@@ -212,14 +265,27 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         StopAllCoroutines();
-        foreach(BattleNode i in neighbourNodes)
+
+        if (!isNeutral)
         {
-            if (!i.IsEnemy())
+            if (unitDisplay.transform.childCount == 0)
             {
-                foreach (UnitBase e in enemyUnits)
+                foreach (UnitBase u in enemyUnits)
                 {
-                    //Debug.Log("S " + this.name);
-                    StartCoroutine(EnemySummonUnit(e, i.transform));
+                    GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
+                    ni.GetComponent<NodeImage>().NodeSetUp(u.GetSprite(), -1);
+                }
+            }
+
+            foreach (BattleNode i in neighbourNodes)
+            {
+                if (!i.IsEnemy())
+                {
+                    foreach (UnitBase e in enemyUnits)
+                    {
+                        //Debug.Log("S " + this.name);
+                        StartCoroutine(EnemySummonUnit(e, i.transform));
+                    }
                 }
             }
         }
@@ -229,21 +295,28 @@ public class BattleNode : MonoBehaviour
     {
         while (isEnemy)
         {
-            yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount*0.75f));
+            if (isBoss)
+            {
+                yield return new WaitForSeconds(unit.GetSpawnSpeed() * 0.95f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(unit.GetSpawnSpeed() * (splitCount));
+            }
             unit.SpawnUnit(this, dest, false);
             //Debug.Log(name + " " + splitCount);
         }
     }
 
-/*    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
-    {
-        while (dest.IsEnemy())
+    /*    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
         {
-            yield return new WaitForSeconds(unit.GetSpawnSpeed());
-            unit.SpawnUnit(this, dest.transform, true);
-            Debug.Log("Summoned");
-        }
-    }*/
+            while (dest.IsEnemy())
+            {
+                yield return new WaitForSeconds(unit.GetSpawnSpeed());
+                unit.SpawnUnit(this, dest.transform, true);
+                Debug.Log("Summoned");
+            }
+        }*/
 
     public void AddUnits(UnitBase i, BattleNode dest)
     {
@@ -255,6 +328,9 @@ public class BattleNode : MonoBehaviour
                 gc.UseIncome(i.GetCost());
                 UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
                 us.Setup(i.GetCost(), i, dest, this);
+
+                GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
+                ni.GetComponent<NodeImage>().NodeSetUp(i.GetSprite(), i.GetDuration());
                 //StartCoroutine(AllySummonUnit(i, dest));
             }
         }
@@ -264,4 +340,6 @@ public class BattleNode : MonoBehaviour
     {
         healthBar.fillAmount = castleCurrHP / castleMaxHP;
     }
+
+
 }

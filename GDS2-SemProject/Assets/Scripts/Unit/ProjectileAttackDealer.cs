@@ -5,12 +5,13 @@ using UnityEngine;
 public class ProjectileAttackDealer : MonoBehaviour
 {
     private List<UnitBase> targetList = new List<UnitBase>();
-    private UnitBase unitStats;
+    private float damage;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        unitStats = GetComponentInParent<UnitBase>();
+        
     }
 
     // Update is called once per frame
@@ -21,15 +22,27 @@ public class ProjectileAttackDealer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
 
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
-            float damageToDeal = DealDamage(unitStats.GetDamage(), target.GetDefense());
+            float damageToDeal = DealDamage(damage, target.GetDefense());
             target.TakeDamage(damageToDeal);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
+        if (collision.gameObject.tag == "Node")
+        {
+            BattleNode target = collision.gameObject.GetComponent<BattleNode>();
+            float damageToDeal = DealDamage(damage, 0);
+            target.TakeDamage(damageToDeal);
+            Destroy(gameObject);
+        }
     }
 
     public float DealDamage(float damage, float defense)
@@ -41,5 +54,10 @@ public class ProjectileAttackDealer : MonoBehaviour
         }
 
         return damageToDeal;
+    }
+
+    public void SetDamage(float dmg)
+    {
+        damage = dmg;
     }
 }

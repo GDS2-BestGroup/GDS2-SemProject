@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5280722169052785767}
   m_Layer: 12
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024943978, y: 0.19}
+  m_Offset: {x: 0.113147974, y: 0.28314015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72894496, y: 0.42072582}
+  m_Size: {x: 0.6289372, y: 0.60700613}
   m_EdgeRadius: 0
 --- !u!114 &5280722169052785767
 MonoBehaviour:
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 5094184241543559798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5094184241074160835}
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1000254315, guid: 6da8090aaf274f54e8834e258e4d5338, type: 3}
+  m_Sprite: {fileID: 2057244330, guid: 0e12a15fd766c344587247f4a1f28ab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,9 +269,11 @@ MonoBehaviour:
   attackSpeed: 2
   walkSpeed: 1
   spawnSpeed: 3
+  spawnDuration: 10
   destination: {fileID: 0}
   cost: 3
   isEnemy: 1
+  sprite: {fileID: 2057244330, guid: 0e12a15fd766c344587247f4a1f28ab3, type: 3}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
@@ -288,18 +290,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003005106, y: 0.1}
+  m_Offset: {x: 0.0060096234, y: 0.14206329}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.30039343, y: 0.039463587}
-    oldSize: {x: 0.18, y: 0.28}
+    pivot: {x: 0.5615101, y: 0.015695509}
+    oldSize: {x: 0.24, y: 0.3}
     newSize: {x: 0.18, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18464026, y: 0.22081584}
+  m_Size: {x: 0.22069451, y: 0.30494243}
   m_EdgeRadius: 0
 --- !u!50 &5094184241543559792
 Rigidbody2D:
