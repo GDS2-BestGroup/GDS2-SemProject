@@ -49,6 +49,12 @@ public class AnimationTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
+        */
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
@@ -80,6 +86,7 @@ public class AnimationTrigger : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        animator.SetBool("Walking", false);
         attackInterval -= Time.deltaTime;
         if (attackInterval <= 0)
         {
@@ -96,5 +103,6 @@ public class AnimationTrigger : MonoBehaviour
     {
         float speed = walkSpeed * Time.deltaTime;
         gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        animator.SetBool("Walking", true);
     }
 }
