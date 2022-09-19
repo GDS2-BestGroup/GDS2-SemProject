@@ -74,6 +74,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6817084299161204913}
     m_Modifications:
+    - target: {fileID: 2055376488, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6817084299161204919}
+    - target: {fileID: 2055376488, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSpeed
+      objectReference: {fileID: 0}
     - target: {fileID: 4615804785762567624, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_Pivot.x
       value: 0
