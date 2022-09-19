@@ -120,6 +120,7 @@ public class DialogueManager : MonoBehaviour
         else if (currentStory.currentChoices.Count > 0)
         {
             dialogueText.text = "";
+            Debug.Log("gonna display choices");
             DisplayChoices();
         }
 

@@ -7,7 +7,7 @@ using System.IO;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] TextAsset[] inkText;
+    [SerializeField] List<TextAsset> inkText;
     // [SerializeField] private InkFile globalsInkFile;
     [SerializeField] public TextAsset globalVars;
     private Dictionary<string, Ink.Runtime.Object> variables;
@@ -35,7 +35,10 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         // variables["morale"] = (Ink.Runtime.Object)gd.morale;
-        DialogueManager.GetInstance().EnterDialogueMode(inkText[1]);
+
+        int randEvent = Random.Range(0, inkText.Count);
+        DialogueManager.GetInstance().EnterDialogueMode(inkText[randEvent]);
+        inkText.RemoveAt(randEvent);
 
         // DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
         // DialogueManager.GetInstance().EnterDialogueMode(inkText[Random.Range(0, 2)]);
