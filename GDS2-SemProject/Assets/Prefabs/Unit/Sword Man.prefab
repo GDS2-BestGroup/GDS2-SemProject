@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5280722169052785767}
   m_Layer: 12
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   destination: {fileID: 0}
   cost: 3
   isEnemy: 1
-  sprite: {fileID: -1000254315, guid: 6da8090aaf274f54e8834e258e4d5338, type: 3}
+  sprite: {fileID: 2057244330, guid: 0e12a15fd766c344587247f4a1f28ab3, type: 3}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}

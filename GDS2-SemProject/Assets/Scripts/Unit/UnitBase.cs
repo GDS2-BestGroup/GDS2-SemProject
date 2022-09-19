@@ -34,6 +34,7 @@ public class UnitBase : MonoBehaviour
         //Time.timeScale = gc.GetTime(); 
         if(Vector2.Distance(destination.position, transform.position) < 0.5)
         {
+            //Debug.Log("Destination Reached");
             DestroySelf();
         }
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3193665309710340463}
   m_Layer: 12
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

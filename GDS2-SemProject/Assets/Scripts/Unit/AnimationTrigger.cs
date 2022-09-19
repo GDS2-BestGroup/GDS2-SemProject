@@ -63,8 +63,11 @@ public class AnimationTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Node")
         {
-            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
-            unitStats.DestroySelf();
+            if (collision.gameObject.GetComponent<BattleNode>().IsEnemy() != unitStats.IsEnemy()) {
+                Debug.Log(unitStats.name);
+                //collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
+                trigger = true;
+            }
         }
     }
 
@@ -77,6 +80,11 @@ public class AnimationTrigger : MonoBehaviour
             {
                 trigger = false;
             }
+        }
+
+        if(collision.gameObject.tag == "Node")
+        {
+            trigger = false;
         }
 
     }
