@@ -61,6 +61,7 @@ MonoBehaviour:
   unitList:
   - {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
   - {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
-  gameIncome: 0
+  gameIncome: 10
   gd: {fileID: 0}
   incomeText: {fileID: 0}
+  speedText: {fileID: 0}

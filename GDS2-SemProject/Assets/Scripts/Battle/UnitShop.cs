@@ -25,10 +25,10 @@ public class UnitShop : MonoBehaviour
 
     private void MakeUnitButtons()
     {
-        foreach(UnitBase i in units)
+        for(int i = 0; i < units.Count; i++)
         {
             UnitButton bb = Instantiate(button, transform).GetComponent<UnitButton>();
-            bb.Setup(i, gc);
+            bb.Setup(units[i], gc, i);
         }
     }
 

@@ -7,6 +7,7 @@ public class ProjectileMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] float velocity;
     private float lifeTime;
+    private Transform destination;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,17 @@ public class ProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.right * velocity;
+        Move();
 
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
         }
+    }
+    public void Move()
+    {
+        float speed = velocity * Time.deltaTime;
+        gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
     }
 }

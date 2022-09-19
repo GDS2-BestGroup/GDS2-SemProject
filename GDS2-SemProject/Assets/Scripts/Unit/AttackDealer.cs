@@ -32,6 +32,13 @@ public class AttackDealer : MonoBehaviour
             float damageToDeal = DealDamage(unitStats.GetDamage(), target.GetDefense());
             target.TakeDamage(damageToDeal);
         }
+
+        if(collision.gameObject.tag == "Node")
+        {
+            BattleNode target = collision.gameObject.GetComponent<BattleNode>();
+            float damageToDeal = DealDamage(unitStats.GetDamage(), 0);
+            target.TakeDamage(damageToDeal);
+        }
     }
 
     public float DealDamage(float damage, float defense)

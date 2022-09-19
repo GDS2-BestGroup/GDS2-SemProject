@@ -6,6 +6,7 @@ public class ProjectileAttackDealer : MonoBehaviour
 {
     private List<UnitBase> targetList = new List<UnitBase>();
     private float damage;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,14 @@ public class ProjectileAttackDealer : MonoBehaviour
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
             float damageToDeal = DealDamage(damage, target.GetDefense());
+            target.TakeDamage(damageToDeal);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Node")
+        {
+            BattleNode target = collision.gameObject.GetComponent<BattleNode>();
+            float damageToDeal = DealDamage(damage, 0);
             target.TakeDamage(damageToDeal);
             Destroy(gameObject);
         }

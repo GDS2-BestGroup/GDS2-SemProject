@@ -87,10 +87,12 @@ MonoBehaviour:
   defense: 10
   attackSpeed: 1
   walkSpeed: 1.2
-  spawnSpeed: 1
+  spawnSpeed: 3
+  spawnDuration: 9
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0
+  sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
   parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}
   firePoint: {fileID: 4636937361449694447}
@@ -226,7 +228,7 @@ GameObject:
   - component: {fileID: 1213045767811410552}
   m_Layer: 12
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
