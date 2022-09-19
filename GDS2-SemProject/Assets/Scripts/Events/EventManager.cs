@@ -34,14 +34,9 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        // variables["morale"] = (Ink.Runtime.Object)gd.morale;
-
         int randEvent = Random.Range(0, inkText.Count);
         DialogueManager.GetInstance().EnterDialogueMode(inkText[randEvent]);
         inkText.RemoveAt(randEvent);
-
-        // DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
-        // DialogueManager.GetInstance().EnterDialogueMode(inkText[Random.Range(0, 2)]);
     }
 
     public void StartListening(Story story)
@@ -82,10 +77,6 @@ public class EventManager : MonoBehaviour
 
     public void Compile()
     {
-        // string inkFileContents = File.ReadAllText(globalsFilePath);
-        // Ink.Compiler compiler = new Ink.Compiler(inkFileContents);
-        // Story globalVariablesStory = compiler.Compile();
-
         Story globalVariablesStory = new Story(globalVars.text);
 
         variables = new Dictionary<string, Ink.Runtime.Object>();
