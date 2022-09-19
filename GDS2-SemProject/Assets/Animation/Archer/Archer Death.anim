@@ -58,12 +58,26 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
+      value: {fileID: 1655026795, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.1
+      value: {fileID: -935913972, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.2
+      value: {fileID: 1826561921, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.3
+      value: {fileID: 1803235653, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.4
+      value: {fileID: 1918607845, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.5
+      value: {fileID: 1926995543, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.6
+      value: {fileID: 497297035, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - time: 0.7
+      value: {fileID: 1149422241, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 30
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -92,13 +106,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
+    - {fileID: 1655026795, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: -935913972, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 1826561921, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 1803235653, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 1918607845, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 1926995543, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 497297035, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
+    - {fileID: 1149422241, guid: 64fbdc1965dd0934ab0bb0552f2670ba, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.05
+    m_StopTime: 0.8666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -156,7 +177,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.05
+  - time: 0.8666667
     functionName: DestroySelf
     data: 
     objectReferenceParameter: {fileID: 0}

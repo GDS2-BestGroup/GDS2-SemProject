@@ -6,22 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainGame/MainMenu.unity
     guid: 1204359cda43f714aa17c8ec27d0563a
   - enabled: 1
-    path: Assets/Scenes/Overworld.unity
+    path: Assets/Scenes/MainGame/Overworld.unity
     guid: d2c99dce7130eb9449944970055fd481
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Region1.unity
+    path: Assets/Scenes/MainGame/Region1.unity
     guid: cb65eb9bc88ed954793fc8df3e1decb1
   - enabled: 1
-    path: Assets/Scenes/Region2.unity
+    path: Assets/Scenes/MainGame/Region2.unity
     guid: 336473990aeebc14cbbdd5f90544de65
   - enabled: 1
-    path: Assets/Scenes/Dialogue.unity
+    path: Assets/Scenes/MainGame/Dialogue.unity
     guid: a81a212cee4292947a3df16735351343
   - enabled: 0
     path: Assets/Scenes/BattleScenes/BattleMapTemplate.unity

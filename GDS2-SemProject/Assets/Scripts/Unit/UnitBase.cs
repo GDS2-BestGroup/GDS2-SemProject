@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
-    public string unitName; //Name of the Unit
-    public float health; //Health point
-    public float damage; //Damage unit deal each hit
-    public float defense; //Damage resistance of the unit
-    public float attackSpeed; //Frequency of attack
-    public float walkSpeed; //How fast unit move
-    public float spawnSpeed; //How fast unit spawn
-    public Transform destination;
+    [SerializeField] private string unitName; //Name of the Unit
+    [SerializeField] private float health; //Health point
+    [SerializeField] private float damage; //Damage unit deal each hit
+    [SerializeField] private float defense; //Damage resistance of the unit
+    [SerializeField] private float attackSpeed; //Frequency of attack
+    [SerializeField] private float walkSpeed; //How fast unit move
+    [SerializeField] private float spawnSpeed; //How fast unit spawn
+    [SerializeField] private float spawnDuration; //How long the unit spawns for
+    [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
+    [SerializeField] private Sprite sprite;
 
     public BattleNode parent;
 
@@ -19,18 +22,28 @@ public class UnitBase : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
 
+    private GameController gc;
+    private void Awake()
+    {
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
+        sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+    }
+
     private void Update()
     {
+        //Time.timeScale = gc.GetTime(); 
         if(Vector2.Distance(destination.position, transform.position) < 0.5)
         {
+            //Debug.Log("Destination Reached");
             DestroySelf();
         }
     }
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity, gameObject.transform);
-        bullet.transform.right = transform.right.normalized;
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
     public void DestroySelf()
@@ -38,10 +51,6 @@ public class UnitBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public float GetSpawnSpeed()
-    {
-        return spawnSpeed;
-    }
 
     public void SpawnUnit(BattleNode start, Transform end, bool ally)
     {
@@ -73,14 +82,65 @@ public class UnitBase : MonoBehaviour
 
     }
 
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
+
     public int GetCost()
     {
         return cost;
     }
 
-    public bool IsEnemy()
+    public float GetSpawnSpeed()
     {
-        return isEnemy;
+        return spawnSpeed;
+    }
+
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetDefense()
+    {
+        return defense;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
+    public float GetWalkSpeed()
+    {
+        return walkSpeed;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed;
+    }
+
+    public Transform GetDest()
+    {
+        return destination;
+    }
+
+    public float GetHealth()
+    {
+        return health;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public float GetDuration()
+    {
+        return spawnDuration;
     }
 }
 

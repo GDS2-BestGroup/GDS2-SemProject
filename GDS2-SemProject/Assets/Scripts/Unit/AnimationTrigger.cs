@@ -19,10 +19,10 @@ public class AnimationTrigger : MonoBehaviour
     {
         unitStats = GetComponentInParent<UnitBase>();
         animator = GetComponentInParent<Animator>();
-        walkSpeed = unitStats.walkSpeed;
-        attackSpeed = unitStats.attackSpeed;
+        walkSpeed = unitStats.GetWalkSpeed();
+        attackSpeed = unitStats.GetAttackSpeed();
         attackInterval = 0;
-        destination = unitStats.destination;
+        destination = unitStats.GetDest();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class AnimationTrigger : MonoBehaviour
             Move();
         }
 
-        if(unitStats.health <= 0)
+        if(unitStats.GetHealth() <= 0)
         {
             trigger = false;
             animator.SetTrigger("Death");
@@ -49,6 +49,12 @@ public class AnimationTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
+        if (collision.TryGetComponent(out ProjectileMovement projectile))
+        {
+            return;
+        }
+        */
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
@@ -57,8 +63,11 @@ public class AnimationTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Node")
         {
-            collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.damage);
-            unitStats.DestroySelf();
+            if (collision.gameObject.GetComponent<BattleNode>().IsEnemy() != unitStats.IsEnemy()) {
+                Debug.Log(unitStats.name);
+                //collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
+                trigger = true;
+            }
         }
     }
 
@@ -73,6 +82,11 @@ public class AnimationTrigger : MonoBehaviour
             }
         }
 
+        if(collision.gameObject.tag == "Node")
+        {
+            trigger = false;
+        }
+
     }
 
     /// <summary>
@@ -80,6 +94,7 @@ public class AnimationTrigger : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        animator.SetBool("Walking", false);
         attackInterval -= Time.deltaTime;
         if (attackInterval <= 0)
         {
@@ -96,5 +111,6 @@ public class AnimationTrigger : MonoBehaviour
     {
         float speed = walkSpeed * Time.deltaTime;
         gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        animator.SetBool("Walking", true);
     }
 }
