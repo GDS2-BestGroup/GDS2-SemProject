@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         {
             gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
         }
-        SceneManager.LoadScene(gd.previousLevel);
+        // SceneManager.LoadScene(gd.previousLevel);
 
         em.StopListening(currentStory);
     }
