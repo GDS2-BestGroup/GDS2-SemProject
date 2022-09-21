@@ -30,8 +30,8 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
         currIncome = gameIncome;
-        if (GameObject.Find("GameData").GetComponent<GameData>()) {
-            gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (GameObject.Find("Managers").GetComponent<GameData>()) {
+            gd = GameObject.Find("Managers").GetComponent<GameData>();
         }
         if (gd)
         {

@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleScenes/BattleMapTemplate.unity
     guid: 761342c60878e514cbaa6998dd97fcb8
   - enabled: 1
-    path: Assets/Scenes/BattleScenes/BattleMap0.1.unity
+    path: Assets/Scenes/BattleScenes/Tutorial/BattleMap0.1.unity
     guid: 8afdc751e9e21584183aa117111a1651
   - enabled: 1
     path: Assets/Scenes/BattleScenes/BattleMap1.1.unity

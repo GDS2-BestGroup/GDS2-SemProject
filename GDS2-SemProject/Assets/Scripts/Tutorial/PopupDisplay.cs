@@ -6,21 +6,42 @@ using UnityEngine;
 
 public class PopupDisplay : MonoBehaviour
 {
-    [SerializeField] private GameObject display; //Highlight panel.
+    [SerializeField] private GameObject highlight; //Highlight panel.
+    [SerializeField] private GameObject clickBlocker; //Transparent panel that stops the usrr interacting with the rest of the scene.
+    [SerializeField] private bool clickBlockerEnabled;
+    [SerializeField] private GameObject nextPopup; //Next popup to enable, if any
     [SerializeField] private int enableDisplay; //instruction number at which display should be enabled;
+    [SerializeField] private bool resume;
     [SerializeField] private string[] instructions; //Text to display on popup
     private TMP_Text text; //Actual text element of popup
     private int count; //Keeps track of what instruction is currently being displayed
-
+    private float previousTimeScale;
+    private GameController gc;
 
     void Start()
     {
+        //clickBlocker = GameObject.Find("ClickBlocker", true);
+        if (clickBlocker != null)
+        {
+            clickBlocker.SetActive(clickBlocker);
+        }
         GetComponent<Collider2D>().isTrigger = true;
         count = 0;
         text = GetComponentInChildren<TMP_Text>();
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
         //display.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (gameObject.activeSelf)
+        {
+            previousTimeScale = Time.timeScale;
+            Debug.Log(previousTimeScale);
+            Time.timeScale = 0;
+            Debug.Log("Paused");
+        }
+    }
 
 
     private void OnMouseDown()
@@ -31,14 +52,33 @@ public class PopupDisplay : MonoBehaviour
             text.text = instructions[++count];
             if (count == enableDisplay)
             {
-                display.SetActive(true);
+                highlight.SetActive(true);
             }
 
         }
         else
         {
+            if (resume && gc)
+            {
+                Time.timeScale = gc.GetTime();
+                Debug.Log("Unpaused");
+
+            }
+
             gameObject.SetActive(false);
-            display.SetActive(false);
+            if (clickBlocker)
+            {
+                clickBlocker.SetActive(false);
+
+            }
+            if (highlight)
+            {
+                highlight.SetActive(false);
+            }
+            if (nextPopup)
+            {
+                nextPopup.SetActive(true);
+            }
         }
 
     }

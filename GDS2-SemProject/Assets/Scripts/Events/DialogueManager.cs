@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
             choicesText[i] = choiceButtons[i].GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
     }
 
     // Update is called once per frame

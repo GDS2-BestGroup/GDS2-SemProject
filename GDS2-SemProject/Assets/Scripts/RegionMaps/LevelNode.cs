@@ -40,9 +40,9 @@ public class LevelNode : MonoBehaviour
         // gameData = GameObject.Find("Managers").transform.Find("GameData").GetComponent<GameData>();
         
         // Managers
-        gameData = GameObject.Find("GameData").GetComponent<GameData>();
+        gameData = GameObject.Find("Managers").GetComponent<GameData>();
         //panels = confirmUI.GetComponentsInChildren<UIP>
-        em = GameObject.Find("EventManager").GetComponent<EventManager>();
+        em = GameObject.Find("Managers").GetComponent<EventManager>();
 
         unlocked = false;
         unlockFirst = false;
@@ -166,13 +166,17 @@ public class LevelNode : MonoBehaviour
             {
                 lvlCompletion = gameData.lvlStatusRegionOne;
             }
-            else
+            else if (region == 2)
             {
                 lvlCompletion = gameData.lvlStatusRegionTwo;
             }
+            else if (region == 0)
+            {
+                lvlCompletion = gameData.lvlStatusRegionZero;
+            }
 
-            double level = (levelIndex * 10) - (region * 10);
-            if (lvlCompletion[(int)level - 1] == true)
+            //double level = (levelIndex * 10) - (region * 10);
+            if (lvlCompletion[(int)levelNum - 1] == true)
             {
                 unlocked = true;
                 unlockFirst = true;

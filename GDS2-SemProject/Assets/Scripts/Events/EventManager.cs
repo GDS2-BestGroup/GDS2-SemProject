@@ -22,7 +22,7 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         Compile();
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
         // StartEvent();
     }
 
