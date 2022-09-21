@@ -12,6 +12,7 @@ public class PopupDisplay : MonoBehaviour
     [SerializeField] private GameObject nextPopup; //Next popup to enable, if any
     [SerializeField] private int enableDisplay; //instruction number at which display should be enabled;
     [SerializeField] private bool resume;
+    [SerializeField] private bool pause;
     [SerializeField] private string[] instructions; //Text to display on popup
     private TMP_Text text; //Actual text element of popup
     private int count; //Keeps track of what instruction is currently being displayed
@@ -28,13 +29,16 @@ public class PopupDisplay : MonoBehaviour
         GetComponent<Collider2D>().isTrigger = true;
         count = 0;
         text = GetComponentInChildren<TMP_Text>();
-        gc = GameObject.Find("GameController").GetComponent<GameController>();
+        if (GameObject.Find("GameController").GetComponent<GameController>())
+        {
+            gc = GameObject.Find("GameController").GetComponent<GameController>();
+        }
         //display.SetActive(false);
     }
 
     private void Update()
     {
-        if (gameObject.activeSelf)
+        if (gameObject.activeSelf && pause)
         {
             previousTimeScale = Time.timeScale;
             Debug.Log(previousTimeScale);

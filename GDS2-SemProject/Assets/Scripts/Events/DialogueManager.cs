@@ -94,9 +94,12 @@ public class DialogueManager : MonoBehaviour
 
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
+        gd.GetLevels(gd.currentRegion)[gd.currentLevel-1].LevelUnlock(); //Makes the call to the level node to unlock
+
         if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
         {
             gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+            gd.GetLevels(gd.currentRegion)[gd.currentLevel].LevelLock(); //Makes the call to the level node to lock
         }
         // SceneManager.LoadScene(gd.previousLevel);
 

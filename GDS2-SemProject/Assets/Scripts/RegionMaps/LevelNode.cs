@@ -97,11 +97,13 @@ public class LevelNode : MonoBehaviour
         gameData.currentRegion = region;
         if (level == LevelType.Battle)
         {
+            CloseUI();
             SceneManager.LoadScene("BattleMap" + levelIndex);
             Debug.Log("Battle Level");
         }
         else if (level == LevelType.Event)
         {
+            CloseUI();
             // SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
             em.StartEvent();
             // Debug.Log("Event Level");
@@ -150,7 +152,16 @@ public class LevelNode : MonoBehaviour
 
     public void LevelUnlock()
     {
+        Debug.Log("Level " + levelNum + " unlocked");
         sprite.color = Color.white;
+        unlocked = true;
+    }
+
+    public void LevelLock()
+    {
+        Debug.Log("Level " + levelNum + " Locked");
+        sprite.color = Color.black;
+        unlocked = false;
     }
 
     /// <summary>
