@@ -40,7 +40,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public EventManager em;
     private void Awake() 
     {
-        instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
     // Start is called before the first frame update
@@ -67,11 +66,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public static DialogueManager GetInstance()
-    {
-        return instance;
-    }
-
     public void EnterDialogueMode(TextAsset inkText)
     {
         currentStory = new Story(inkText.text);
@@ -87,6 +81,8 @@ public class DialogueManager : MonoBehaviour
 
     public void ExitDialogueMode()
     {
+        canContinueToNextLine = false;
+
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         characterPortrait.SetActive(false);

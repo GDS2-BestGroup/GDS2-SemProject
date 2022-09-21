@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     // [SerializeField] private InkFile globalsInkFile;
     [SerializeField] public TextAsset globalVars;
     private Dictionary<string, Ink.Runtime.Object> variables;
+    private DialogueManager dm;
     private GameData gd;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class EventManager : MonoBehaviour
     {
         Compile();
         gd = GameObject.Find("Managers").GetComponent<GameData>();
-        // StartEvent();
+        dm = GameObject.Find("Managers").GetComponent<DialogueManager>();
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         int randEvent = Random.Range(0, inkText.Count);
-        DialogueManager.GetInstance().EnterDialogueMode(inkText[randEvent]);
+        dm.EnterDialogueMode(inkText[randEvent]);
         inkText.RemoveAt(randEvent);
     }
 
