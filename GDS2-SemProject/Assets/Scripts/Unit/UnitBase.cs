@@ -21,7 +21,7 @@ public class UnitBase : MonoBehaviour
     //Range Unit Specific
     [SerializeField] GameObject projectile; //Prefab of projectile
     [SerializeField] Transform firePoint;
-    private Vector2 targetPosition; //Used for Curve Bullet
+    private Transform targetPosition; //Used for Bullet Destination
 
     private GameController gc;
     private void Awake()
@@ -45,12 +45,20 @@ public class UnitBase : MonoBehaviour
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
-            bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+            pad.SetDamage(damage);
+            if (pad.TryGetComponent(out ProjectileMovement pm))
+            {
+                pm.setTarget(targetPosition);
+            }
         }
 
         else if (bullet.TryGetComponent(out AttackDealer ad))
         {
-            bullet.GetComponent<AttackDealer>().SetDamage(damage);
+            ad.SetDamage(damage);
+            if (ad.TryGetComponent(out CurveProjectileMovement cpm))
+            {
+                cpm.setTarget(targetPosition);
+            }
         }
 
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
@@ -143,7 +151,7 @@ public class UnitBase : MonoBehaviour
         return health;
     }
 
-    public void SetTargetPosition(Vector2 tp)
+    public void SetTargetPosition(Transform tp)
     {
         targetPosition = tp;
     }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &238611979316801749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535282952636994650}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &535282952636994650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238611979316801749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.64, y: 0.754, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909466142270741696}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909466141896153508
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +42,10 @@ GameObject:
   - component: {fileID: 1909466141896153511}
   - component: {fileID: 6663104157587417432}
   - component: {fileID: 8410166371266870857}
+  - component: {fileID: 3317300883871213247}
   m_Layer: 0
   m_Name: Attack Range
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +78,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.1160274, y: 0.4564931}
+  m_Offset: {x: 2.1160274, y: 0.40705892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.826951, y: 0.88841385}
+  m_Size: {x: 4.826951, y: 0.7895455}
   m_EdgeRadius: 0
 --- !u!114 &8410166371266870857
 MonoBehaviour:
@@ -72,6 +104,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
+--- !u!114 &3317300883871213247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909466141896153508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23fd87a855904d41b786f35a2f9ab56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ub: {fileID: 0}
+  enemyList: []
 --- !u!1 &1909466142270741702
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1909466141896153511}
+  - {fileID: 535282952636994650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,12 +227,15 @@ MonoBehaviour:
   attackSpeed: 4
   walkSpeed: 1
   spawnSpeed: 1
+  spawnDuration: 0
   destination: {fileID: 0}
   cost: 3
   isEnemy: 0
+  sprite: {fileID: 0}
   parent: {fileID: 0}
-  projectile: {fileID: 0}
-  firePoint: {fileID: 0}
+  projectile: {fileID: 2614429239907495362, guid: 67c2114689e4973439a60d38a90f624c, type: 3}
+  firePoint: {fileID: 535282952636994650}
+  targetPosition: {fileID: 0}
 --- !u!61 &3793915811144278218
 BoxCollider2D:
   m_ObjectHideFlags: 0

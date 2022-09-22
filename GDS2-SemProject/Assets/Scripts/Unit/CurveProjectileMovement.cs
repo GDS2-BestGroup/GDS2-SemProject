@@ -4,41 +4,48 @@ using UnityEngine;
 
 public class CurveProjectileMovement : MonoBehaviour
 {
-    [SerializeField] AnimationCurve xCurve, yCurve;
-    private Rigidbody2D rb;
-    private float timeElapsed = 0;
-    private bool started = false;
-
-    private Vector2 startPosition;
-    private Vector2 endPosition;
+    [SerializeField] float velocity;
+    private float lifeTime;
+    private Transform destination;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        lifeTime = 30;
     }
 
     private void FixedUpdate()
     {
-        if (!started)
+        Move();
+
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
         {
-            started = true;
-            timeElapsed = 0;
-            startPosition = transform.position;
+            Destroy(gameObject);
+        }
+
+    }
+    public void Move()
+    {
+        float speed = velocity * Time.deltaTime;
+        Vector3 offSet = new Vector3(0, 0.17f, 0);
+        Vector3 relativePos = destination.position - transform.position;
+
+        if (destination)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector2.up);
+            transform.rotation = rotation;
         }
 
         else
         {
-            timeElapsed += Time.deltaTime;
-
-            rb.MovePosition(endPosition);
-
-                    //startPosition.x + xCurve.Evaluate(timeElapsed),
-                    //startPosition.y + yCurve.Evaluate(timeElapsed))
+            Debug.Log("No Destination");
+            Destroy(gameObject);
         }
-    }
 
-    public void setTarget(Vector2 end)
+    }
+    public void setTarget(Transform end)
     {
-        endPosition = end;
+        destination = end;
     }
 }

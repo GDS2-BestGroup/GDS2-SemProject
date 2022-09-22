@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
     [SerializeField] float velocity;
     private float lifeTime;
-    private Transform destination;
+    [SerializeField] Transform destination;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        lifeTime = 30;
+        lifeTime = 3;
     }
 
     // Update is called once per frame
@@ -29,6 +27,20 @@ public class ProjectileMovement : MonoBehaviour
     public void Move()
     {
         float speed = velocity * Time.deltaTime;
-        gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        Vector3 offSet = new Vector3(0, 0.17f, 0);
+        if (destination)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
+        }
+
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Vector2.right, speed);
+        }
+    }
+
+    public void setTarget(Transform end)
+    {
+        destination = end;
     }
 }
