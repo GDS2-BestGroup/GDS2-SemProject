@@ -16,6 +16,8 @@ public class LevelNode : MonoBehaviour
     [SerializeField]
     private Canvas confirmUI;
     private Button yesBtn;
+    private GameObject[] panels;
+    private bool panelActive;
     private int region;
     private bool unlockFirst;
     private bool[] lvlCompletion;
@@ -27,6 +29,8 @@ public class LevelNode : MonoBehaviour
     public double levelNum;
     public GameData gameData;
     public Sprite[] nodeSprites;
+    [SerializeField] public bool popup;
+
 
     [SerializeField] public EventManager em;
 
@@ -36,10 +40,11 @@ public class LevelNode : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         confirmUI = GameObject.Find("ConfirmationUI").GetComponentInChildren<Canvas>(true);
         // gameData = GameObject.Find("Managers").transform.Find("GameData").GetComponent<GameData>();
-        
+
         // Managers
-        gameData = GameObject.Find("GameData").GetComponent<GameData>();
-        em = GameObject.Find("EventManager").GetComponent<EventManager>();
+        gameData = GameObject.Find("Managers").GetComponent<GameData>();
+        //panels = confirmUI.GetComponentsInChildren<UIP>
+        em = GameObject.Find("Managers").GetComponent<EventManager>();
 
         unlocked = false;
         unlockFirst = false;
@@ -47,9 +52,10 @@ public class LevelNode : MonoBehaviour
         lr = GetComponent<LineController>();
         if (points != null && lr)
         {
+            Debug.Log("Line rendering");
             lr.SetUpLine(points);
         }
-        
+
         levelNum = (levelIndex * 10) - (region * 10);
     }
 
@@ -73,7 +79,7 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseDown()
     {
-        if (confirmUI && unlocked)
+        if (confirmUI && unlocked && !popup)
         {
             confirmUI.gameObject.SetActive(true);
             yesBtn = GameObject.Find("YesBtn").GetComponent<Button>();
@@ -93,11 +99,13 @@ public class LevelNode : MonoBehaviour
         gameData.currentRegion = region;
         if (level == LevelType.Battle)
         {
+            CloseUI();
             SceneManager.LoadScene("BattleMap" + levelIndex);
             Debug.Log("Battle Level");
         }
         else if (level == LevelType.Event)
         {
+            CloseUI();
             // SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
             em.StartEvent();
             // Debug.Log("Event Level");
@@ -109,8 +117,17 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseOver()
     {
+        //Checks whether any panels are active to stop btm hover anim
+        //panelActive = false;
+        /*foreach (GameObject panel in panels)
+        {
+            if (panel.activeSelf)
+            {
+                panelActive = true;
+            }
+        }*/
         //Currently changes colour of sprite, just placeholder for future anim
-        if (unlocked)
+        if (unlocked && !popup)
         {
             sprite.sprite = nodeSprites[1];
         }
@@ -130,14 +147,18 @@ public class LevelNode : MonoBehaviour
         confirmUI.gameObject.SetActive(false);
     }
 
-    public void GoBack()
-    {
-        SceneManager.LoadScene("Overworld");
-    }
-
     public void LevelUnlock()
     {
+        Debug.Log("Level " + levelNum + " unlocked");
         sprite.color = Color.white;
+        unlocked = true;
+    }
+
+    public void LevelLock()
+    {
+        Debug.Log("Level " + levelNum + " Locked");
+        sprite.color = Color.black;
+        unlocked = false;
     }
 
     /// <summary>
@@ -153,13 +174,17 @@ public class LevelNode : MonoBehaviour
             {
                 lvlCompletion = gameData.lvlStatusRegionOne;
             }
-            else
+            else if (region == 2)
             {
                 lvlCompletion = gameData.lvlStatusRegionTwo;
             }
+            else if (region == 0)
+            {
+                lvlCompletion = gameData.lvlStatusRegionZero;
+            }
 
-            double level = (levelIndex * 10) - (region * 10);
-            if (lvlCompletion[(int)level - 1] == true)
+            //double level = (levelIndex * 10) - (region * 10);
+            if (lvlCompletion[(int)levelNum - 1] == true)
             {
                 unlocked = true;
                 unlockFirst = true;
