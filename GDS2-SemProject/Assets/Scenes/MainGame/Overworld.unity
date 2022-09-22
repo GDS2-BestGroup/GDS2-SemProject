@@ -570,16 +570,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingSpeed: 0.04
   dialogueUI: {fileID: 719186568}
-  dialogueText: {fileID: 0}
-  displayNameText: {fileID: 0}
-  backgroundAnimator: {fileID: 0}
-  characterPortraitAnimator: {fileID: 0}
+  dialogueText: {fileID: 171766191}
+  displayNameText: {fileID: 1409801103}
+  backgroundAnimator: {fileID: 1265246103}
+  characterPortraitAnimator: {fileID: 649474937}
   choiceButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  characterPortrait: {fileID: 0}
-  background: {fileID: 0}
+  - {fileID: 945344410}
+  - {fileID: 1921369054}
+  - {fileID: 114037845}
+  characterPortrait: {fileID: 649474935}
+  background: {fileID: 1265246101}
   em: {fileID: 636572546}
 --- !u!114 &636572548
 MonoBehaviour:
