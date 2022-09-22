@@ -26,7 +26,9 @@ public class TutorialRegion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!popup.activeSelf)
+        //REALLY NEED TO FIND A BETTER WAY TO DO THIS 
+        GameObject[] popups = GameObject.FindGameObjectsWithTag("Panel");
+        if (popups.Length == 0)
         {
             lvlOne.popup = false;
         }

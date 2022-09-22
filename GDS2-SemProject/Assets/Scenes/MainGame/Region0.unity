@@ -388,6 +388,169 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &727193973
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1764895259}
+    m_Modifications:
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_text
+      value: Welcome to the tutorial region map (click here to continue)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Name
+      value: MoraleTut
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_TagString
+      value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 661.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 322.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 592
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 187.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 323966652}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: highlight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: clickBlocker
+      value: 
+      objectReference: {fileID: 1290345341}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: enableDisplay
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: clickBlockerEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: Up here is your army's morale
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: This will go up and down depending on the outcome of each battle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: and the choices that you make in each event
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'Be careful, if your morale reaches 0, your army will abandon you '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Good luck!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+--- !u!224 &727193974 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+  m_PrefabInstance: {fileID: 727193973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &727193975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+  m_PrefabInstance: {fileID: 727193973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &767472401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1083,6 +1246,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1925405289}
+  - {fileID: 727193974}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2129,11 +2293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Name
-      value: WelcomeTutImg
+      value: WelcomeTut
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_TagString
+      value: Panel
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Pivot.x
@@ -2228,6 +2396,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 323966652}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: nextPopup
+      value: 
+      objectReference: {fileID: 727193975}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: clickBlocker
       value: 
       objectReference: {fileID: 1290345341}
@@ -2241,7 +2413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[0]
