@@ -7,7 +7,7 @@ public class ProjectileMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] float velocity;
     private float lifeTime;
-    private Transform destination;
+    [SerializeField] private Transform destination;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +29,20 @@ public class ProjectileMovement : MonoBehaviour
     public void Move()
     {
         float speed = velocity * Time.deltaTime;
-        gameObject.transform.parent.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        if (destination)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, speed);
+        }
+    }
+
+    public void SetDestination(Transform d)
+    {
+        destination = d;
+        Debug.Log("destination set");
+    }
+
+    public void SetVelocity(float v)
+    {
+        velocity = v;
     }
 }

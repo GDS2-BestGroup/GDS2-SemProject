@@ -16,6 +16,8 @@ public class GameData : MonoBehaviour
     public int currentLevel;
     public int currentRegion;
 
+    [SerializeField] private List<UnitBase> unitList;
+
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -115,7 +117,7 @@ public class GameData : MonoBehaviour
     private void CheckFinalWin()
     {
         bool win = true;
-        foreach(bool i in lvlStatusRegionOne)
+        foreach (bool i in lvlStatusRegionOne)
         {
             if (i)
             {
@@ -124,7 +126,7 @@ public class GameData : MonoBehaviour
         }
         if (win)
         {
-            foreach(bool i in lvlStatusRegionTwo)
+            foreach (bool i in lvlStatusRegionTwo)
             {
                 if (i)
                 {
@@ -136,5 +138,10 @@ public class GameData : MonoBehaviour
         {
             SceneManager.LoadScene("WinScene");
         }
+    }
+
+    public List<UnitBase> GetUnitList()
+    {
+        return unitList;
     }
 }

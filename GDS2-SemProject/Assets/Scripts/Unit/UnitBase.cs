@@ -16,6 +16,8 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private bool isEnemy;
     [SerializeField] private Sprite sprite;
 
+    private float angle;
+
     public BattleNode parent;
 
     //Range Unit Specific
@@ -41,8 +43,9 @@ public class UnitBase : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation,transform);
         bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
+        bullet.GetComponent<ProjectileMovement>().SetDestination(destination);
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
@@ -52,12 +55,24 @@ public class UnitBase : MonoBehaviour
     }
 
 
-    public void SpawnUnit(BattleNode start, Transform end, bool ally)
+    public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u)
     {
         UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
         l.destination = end;
         l.parent = start;
-        if (ally)
+        angle = Mathf.Atan2(end.position.y - start.transform.position.y, end.position.x - start.transform.position.x) * Mathf.Rad2Deg;
+        if (Mathf.Abs(angle) > 90)
+        {
+            angle += 180f;
+            l.transform.localScale = new Vector3(-2, 2, 1);
+        }
+        else
+        {
+            l.transform.localScale = new Vector3(2, 2, 1);
+        }
+        l.transform.Rotate(0, 0, angle);
+
+        if (!enemy)
         {
             l.tag = "Player";
             l.gameObject.layer = 7;
@@ -66,7 +81,7 @@ public class UnitBase : MonoBehaviour
             {
                 i.gameObject.layer = 7;
             }
-            l.transform.localScale = new Vector3(2, 2, 1);
+            
         }
         else
         {
@@ -77,7 +92,6 @@ public class UnitBase : MonoBehaviour
             {
                 i.gameObject.layer = 6;
             }
-            l.transform.localScale = new Vector3(-2, 2, 1);
         }
 
     }
