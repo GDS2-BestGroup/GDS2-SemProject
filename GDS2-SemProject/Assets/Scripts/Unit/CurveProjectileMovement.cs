@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class CurveProjectileMovement : MonoBehaviour
 {
     [SerializeField] float velocity;
     private float lifeTime;
-    [SerializeField] private Transform destination;
+    private Transform destination;
     // Start is called before the first frame update
     void Start()
     {
-        lifeTime = 3;
+        lifeTime = 30;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Move();
 
@@ -23,29 +22,30 @@ public class ProjectileMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
     public void Move()
     {
         float speed = velocity * Time.deltaTime;
         Vector3 offSet = new Vector3(0, 0.17f, 0);
+        Vector3 relativePos = destination.position - transform.position;
+
         if (destination)
         {
             transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector2.up);
+            transform.rotation = rotation;
         }
 
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, Vector2.right, speed);
+            Debug.Log("No Destination");
+            Destroy(gameObject);
         }
-    }
 
+    }
     public void setTarget(Transform end)
     {
         destination = end;
-    }
-
-    public void SetVelocity(float v)
-    {
-        velocity = v;
     }
 }

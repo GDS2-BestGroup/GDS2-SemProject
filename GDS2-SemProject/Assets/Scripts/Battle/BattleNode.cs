@@ -121,7 +121,7 @@ public class BattleNode : MonoBehaviour
         dist = Vector3.Distance(transform.position, i.transform.position);
         mid = (transform.position + i.transform.position) / 2;
         angle = Mathf.Atan2(i.transform.position.y - transform.position.y, i.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-
+        //Debug.Log(angle);
         //Create the path and stretch and rotate it.
         GameObject pp = Instantiate(path, mid, Quaternion.identity, transform);
         pp.GetComponent<PathScript>().SetParents(this, i);
@@ -205,7 +205,7 @@ public class BattleNode : MonoBehaviour
         {
             for (int i = pathList.Count-1; i >-1; i--)
             {
-                if (pathList[i].GetComponent<PathScript>().IsActive() == false)
+                if (pathList[i].GetComponent<PathScript>().IsActive() == false && !pathList[i].GetComponent<PathScript>().GetParents(2).IsEnemy())
                 {
                     Debug.Log(name);
                     Destroy(pathList[i]);
@@ -277,21 +277,32 @@ public class BattleNode : MonoBehaviour
                 }
             }
 
+            float sps = 0f;
             foreach (BattleNode i in neighbourNodes)
             {
                 if (!i.IsEnemy())
                 {
+                    if (isBoss)
+                    {
+                        sps = 0.95f;
+                    }
+                    else
+                    {
+                        sps = splitCount;
+                    }
                     foreach (UnitBase e in enemyUnits)
                     {
+                        UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
+                        us.Setup(0, e, e.GetSpawnSpeed() * sps, i, this, true);
                         //Debug.Log("S " + this.name);
-                        StartCoroutine(EnemySummonUnit(e, i.transform));
+                        //StartCoroutine(EnemySummonUnit(e, i.transform));
                     }
                 }
             }
         }
     }
 
-    private IEnumerator EnemySummonUnit(UnitBase unit, Transform dest)
+    /*private IEnumerator EnemySummonUnit(UnitBase unit, Transform dest)
     {
         while (isEnemy)
         {
@@ -306,6 +317,12 @@ public class BattleNode : MonoBehaviour
             unit.SpawnUnit(this, dest, false);
             //Debug.Log(name + " " + splitCount);
         }
+    }
+    */
+
+    public void AddToList(UnitBase u)
+    {
+        summonedUnits.Add(u);
     }
 
     /*    private IEnumerator AllySummonUnit(UnitBase unit, BattleNode dest)
@@ -327,7 +344,7 @@ public class BattleNode : MonoBehaviour
             {
                 gc.UseIncome(i.GetCost());
                 UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
-                us.Setup(i.GetCost(), i, dest, this);
+                us.Setup(i.GetCost(), i, i.GetSpawnSpeed(), dest, this, false);
 
                 GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
                 ni.GetComponent<NodeImage>().NodeSetUp(i.GetSprite(), i.GetDuration());

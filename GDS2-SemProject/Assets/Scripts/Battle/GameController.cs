@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
         if (gd)
         {
             gameIncome = gd.GetBaseIncome();
+            unitList = gd.GetUnitList();
         }
         currIncome = gameIncome;
         

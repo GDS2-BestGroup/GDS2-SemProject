@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackDealer : MonoBehaviour
 {
     private UnitBase unitStats;
+    private float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -49,5 +50,10 @@ public class AttackDealer : MonoBehaviour
         }
 
         return damageToDeal;
+    }
+
+    public void SetDamage(float dmg)
+    {
+        damage = dmg;
     }
 }
