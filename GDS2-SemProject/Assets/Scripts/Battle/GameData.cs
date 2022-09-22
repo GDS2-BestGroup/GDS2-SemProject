@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
+    public LevelNode[] regionZeroLvls; //Tutorial Level
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
+    public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false };
     public bool[] lvlStatusRegionTwo = { true, false };
     public int morale;
@@ -46,6 +48,10 @@ public class GameData : MonoBehaviour
         {
             regionTwoLvls = FindObjectsOfType<LevelNode>();
         }
+        else if (SceneManager.GetActiveScene().name == "Region0")
+        {
+            regionZeroLvls = FindObjectsOfType<LevelNode>();
+        }
 
         if (morale > 1000)
         {
@@ -66,6 +72,10 @@ public class GameData : MonoBehaviour
         {
             return regionTwoLvls;
         }
+        else if (region == 0)
+        {
+            return regionZeroLvls;
+        }
         return null;
     }
 
@@ -78,6 +88,10 @@ public class GameData : MonoBehaviour
         else if (region == 2)
         {
             return lvlStatusRegionTwo;
+        }
+        else if (region == 0)
+        {
+            return lvlStatusRegionZero;
         }
         return null;
     }
@@ -127,6 +141,16 @@ public class GameData : MonoBehaviour
         if (win)
         {
             foreach (bool i in lvlStatusRegionTwo)
+            {
+                if (i)
+                {
+                    win = false;
+                }
+            }
+        }
+        if (win)
+        {
+            foreach (bool i in lvlStatusRegionZero)
             {
                 if (i)
                 {

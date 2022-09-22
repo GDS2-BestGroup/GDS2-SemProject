@@ -21,8 +21,8 @@ public class Morale : MonoBehaviour
     }
     void Start()
     {
-        moraleTxt = GetComponentInChildren<TMP_Text>();
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
+        moraleTxt = GameObject.Find("MoraleCounter").GetComponent<TMP_Text>();
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
     }
 
     // Update is called once per frame
