@@ -49,7 +49,7 @@ public class MapCanvas : MonoBehaviour
         //Regions start from int 1
         Debug.Log("This is level " + level);
         canvas.worldCamera = Camera.main;
-        if (moraleTxt)
+        if (moraleTxt != null && gd != null)
         {
             moraleTxt.text = "Morale: " + gd.morale;
         }

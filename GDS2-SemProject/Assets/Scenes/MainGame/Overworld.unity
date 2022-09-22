@@ -491,8 +491,8 @@ RectTransform:
   m_GameObject: {fileID: 568032966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 92}
-  m_LocalScale: {x: 0.00049, y: 0.00049, z: 0.00049}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1265246102}
   - {fileID: 649474936}
@@ -502,8 +502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.99994, y: -539.99994}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &636572544
 GameObject:
@@ -552,9 +552,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkText:
-  - {fileID: 4900000, guid: c1e5485bfda3d69439f05ac2b7f6a499, type: 3}
+  - {fileID: 4900000, guid: 8b196bae7635d8b47825c94bbadd34c8, type: 3}
   - {fileID: 4900000, guid: 817093c9c6f07a347862810336db1f1c, type: 3}
   - {fileID: 4900000, guid: 131f1f437060d2b41b71c5e82fafd5ad, type: 3}
+  - {fileID: 4900000, guid: 39216dc4e0b22b44ebeb7c84793f46cb, type: 3}
+  - {fileID: 4900000, guid: 7763700b62094b344a75bee795de84b9, type: 3}
+  - {fileID: 4900000, guid: be476237a82c0484db6885627f1cb642, type: 3}
+  - {fileID: 4900000, guid: 614d8a5c62b789a46bd990ab272110c6, type: 3}
+  - {fileID: 4900000, guid: f24f0f672deb6ed47a7b64466d634b01, type: 3}
   globalVars: {fileID: 4900000, guid: af9a64f44f5d2e842bb563d374a7e83d, type: 3}
 --- !u!114 &636572547
 MonoBehaviour:
@@ -738,7 +743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -166}
+  m_AnchoredPosition: {x: 0, y: -210}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &719186570
@@ -2301,7 +2306,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0
