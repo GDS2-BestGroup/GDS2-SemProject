@@ -29,6 +29,8 @@ public class LevelNode : MonoBehaviour
     public double levelNum;
     public GameData gameData;
     public Sprite[] nodeSprites;
+    [SerializeField] public bool popup;
+
 
     [SerializeField] public EventManager em;
 
@@ -38,7 +40,7 @@ public class LevelNode : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         confirmUI = GameObject.Find("ConfirmationUI").GetComponentInChildren<Canvas>(true);
         // gameData = GameObject.Find("Managers").transform.Find("GameData").GetComponent<GameData>();
-        
+
         // Managers
         gameData = GameObject.Find("Managers").GetComponent<GameData>();
         //panels = confirmUI.GetComponentsInChildren<UIP>
@@ -53,7 +55,7 @@ public class LevelNode : MonoBehaviour
             Debug.Log("Line rendering");
             lr.SetUpLine(points);
         }
-        
+
         levelNum = (levelIndex * 10) - (region * 10);
     }
 
@@ -77,7 +79,7 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseDown()
     {
-        if (confirmUI && unlocked)
+        if (confirmUI && unlocked && !popup)
         {
             confirmUI.gameObject.SetActive(true);
             yesBtn = GameObject.Find("YesBtn").GetComponent<Button>();
@@ -125,7 +127,7 @@ public class LevelNode : MonoBehaviour
             }
         }*/
         //Currently changes colour of sprite, just placeholder for future anim
-        if (unlocked)
+        if (unlocked && !popup)
         {
             sprite.sprite = nodeSprites[1];
         }

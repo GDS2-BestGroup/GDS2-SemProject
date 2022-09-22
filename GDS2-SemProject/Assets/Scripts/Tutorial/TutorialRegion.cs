@@ -6,21 +6,29 @@ public class TutorialRegion : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private LevelNode lvlOne;
+    [SerializeField] private GameObject popup;
+    private GameData gd;
     void Start()
     {
-        if ( lvlOne && lvlOne.unlocked)
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
+        if (gd.GetLevelCompletion(0)[0]) //If level one is unlocked
         {
-            gameObject.SetActive(true);
+            popup.SetActive(true);
+            lvlOne.popup = true;
         }
         else
         {
-            gameObject.SetActive(false);
+            popup.SetActive(false);
+            lvlOne.popup = false;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!popup.activeSelf)
+        {
+            lvlOne.popup = false;
+        }
     }
 }
