@@ -605,11 +605,12 @@ MonoBehaviour:
   lvlStatusRegionOne: 0100
   lvlStatusRegionTwo: 0100
   morale: 0
-  baseIncome: 7
+  baseIncome: 8
   previousLevel: 
   currentLevel: 0
   currentRegion: 0
-  unitList: []
+  unitList:
+  - {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
 --- !u!1 &649474935
 GameObject:
   m_ObjectHideFlags: 0
