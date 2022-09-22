@@ -68,7 +68,10 @@ public class UnitBase : MonoBehaviour
 
     public void DestroySelf()
     {
-        spawner.RemoveFromList(gameObject);
+        if (spawner)
+        {
+            spawner.RemoveFromList(gameObject);
+        }
         Destroy(gameObject);
     }
 

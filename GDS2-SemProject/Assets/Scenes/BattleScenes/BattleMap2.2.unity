@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: incomeText
       value: 
       objectReference: {fileID: 6817084299144726934}
+    - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: unitList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
 --- !u!114 &6817084299144726933 stripped
