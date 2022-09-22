@@ -6,7 +6,7 @@ public class ProjectileMovement : MonoBehaviour
 {
     [SerializeField] float velocity;
     private float lifeTime;
-    [SerializeField] Transform destination;
+    [SerializeField] private Transform destination;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +42,10 @@ public class ProjectileMovement : MonoBehaviour
     public void setTarget(Transform end)
     {
         destination = end;
+    }
+
+    public void SetVelocity(float v)
+    {
+        velocity = v;
     }
 }

@@ -7,18 +7,23 @@ using System.IO;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] TextAsset[] inkText;
+    [SerializeField] List<TextAsset> inkText;
     // [SerializeField] private InkFile globalsInkFile;
     [SerializeField] public TextAsset globalVars;
     private Dictionary<string, Ink.Runtime.Object> variables;
     private GameData gd;
 
     // Start is called before the first frame update
+
+    void Awake() 
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         Compile();
         gd = GameObject.Find("GameData").GetComponent<GameData>();
-        StartEvent();
+        // StartEvent();
     }
 
     // Update is called once per frame
@@ -29,9 +34,9 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        // variables["morale"] = (Ink.Runtime.Object)gd.morale;
-        // DialogueManager.GetInstance().EnterDialogueMode(inkText[0]);
-        DialogueManager.GetInstance().EnterDialogueMode(inkText[gd.currentRegion-1]);
+        int randEvent = Random.Range(0, inkText.Count);
+        DialogueManager.GetInstance().EnterDialogueMode(inkText[randEvent]);
+        inkText.RemoveAt(randEvent);
     }
 
     public void StartListening(Story story)
@@ -72,10 +77,6 @@ public class EventManager : MonoBehaviour
 
     public void Compile()
     {
-        // string inkFileContents = File.ReadAllText(globalsFilePath);
-        // Ink.Compiler compiler = new Ink.Compiler(inkFileContents);
-        // Story globalVariablesStory = compiler.Compile();
-
         Story globalVariablesStory = new Story(globalVars.text);
 
         variables = new Dictionary<string, Ink.Runtime.Object>();

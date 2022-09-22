@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536398066533266744}
-  - component: {fileID: 3171030137236464022}
   - component: {fileID: 5144203262305750239}
+  - component: {fileID: 3171030137236464022}
   - component: {fileID: 4521283942715991542}
   - component: {fileID: 2664080658910324518}
   - component: {fileID: 5169593086938539153}
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,6 +149,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3171030137236464022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547237526920809659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4d1322cbbb7b64289ba5abc5a56ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Archer
+  health: 50
+  damage: 30
+  defense: 10
+  attackSpeed: 1
+  walkSpeed: 1.2
+  spawnSpeed: 3
+  spawnDuration: 9
+  destination: {fileID: 0}
+  cost: 2
+  isEnemy: 0
+  sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
+  parent: {fileID: 0}
+  projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}
+  firePoint: {fileID: 4636937361449694447}
 --- !u!61 &4521283942715991542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,7 +290,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8830155, y: 0.14443044}
+  m_Offset: {x: 0.34927005, y: 0.16761714}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -274,7 +301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.195411, y: 0.3198273}
+  m_Size: {x: 1.1279207, y: 0.3662007}
   m_EdgeRadius: 0
 --- !u!114 &1213045767811410552
 MonoBehaviour:

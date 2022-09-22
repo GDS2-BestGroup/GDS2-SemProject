@@ -35,7 +35,12 @@ public class LevelNode : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         confirmUI = GameObject.Find("ConfirmationUI").GetComponentInChildren<Canvas>(true);
+        // gameData = GameObject.Find("Managers").transform.Find("GameData").GetComponent<GameData>();
+        
+        // Managers
         gameData = GameObject.Find("GameData").GetComponent<GameData>();
+        em = GameObject.Find("EventManager").GetComponent<EventManager>();
+
         unlocked = false;
         unlockFirst = false;
         region = Mathf.FloorToInt((float)levelIndex);
@@ -93,7 +98,8 @@ public class LevelNode : MonoBehaviour
         }
         else if (level == LevelType.Event)
         {
-            SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
+            // SceneManager.LoadScene("Dialogue"); //This should be changed to a random event once we know how many event levels there are
+            em.StartEvent();
             // Debug.Log("Event Level");
         }
     }
