@@ -14,7 +14,7 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private bool isEnemy = true;
     private float spawnSpeed;
 
-    [SerializeField] private List<UnitBase> childUnits;
+    [SerializeField] private List<GameObject> childUnits;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +32,11 @@ public class UnitSpawner : MonoBehaviour
 
             if (parent.IsEnemy() || !destination.IsEnemy())
             {
-                foreach (UnitBase u in childUnits)
+                foreach(GameObject u in childUnits)
                 {
-                    Destroy(u.gameObject);
+                    Destroy(u);
                 }
+                childUnits.Clear();
                 DestroySequence();
             }
         }
@@ -43,9 +44,12 @@ public class UnitSpawner : MonoBehaviour
         {
             if (!parent.IsEnemy() || destination.IsEnemy())
             {
-                foreach (UnitBase u in childUnits)
+                foreach (GameObject u in childUnits)
                 {
-                    Destroy(u.gameObject);
+                    if (u)
+                    {
+                        Destroy(u);
+                    }
                 }
                 DestroySequence();
             }
@@ -78,8 +82,13 @@ public class UnitSpawner : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void AddToList(UnitBase u)
+    public void AddToList(GameObject u)
     {
         childUnits.Add(u);
+    }
+
+    public void RemoveFromList(GameObject u)
+    {
+        childUnits.Remove(u);
     }
 }

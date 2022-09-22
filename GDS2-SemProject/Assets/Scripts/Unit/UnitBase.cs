@@ -15,6 +15,7 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private UnitSpawner spawner;
 
     private float angle;
 
@@ -51,6 +52,7 @@ public class UnitBase : MonoBehaviour
 
     public void DestroySelf()
     {
+        spawner.RemoveFromList(gameObject);
         Destroy(gameObject);
     }
 
@@ -58,6 +60,8 @@ public class UnitBase : MonoBehaviour
     public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u)
     {
         UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
+        spawner = u;
+        spawner.AddToList(l.gameObject);
         l.destination = end;
         l.parent = start;
         angle = Mathf.Atan2(end.position.y - start.transform.position.y, end.position.x - start.transform.position.x) * Mathf.Rad2Deg;
