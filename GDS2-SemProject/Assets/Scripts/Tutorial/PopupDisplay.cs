@@ -8,7 +8,7 @@ public class PopupDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject highlight; //Highlight panel.
     [SerializeField] private GameObject clickBlocker; //Transparent panel that stops the usrr interacting with the rest of the scene.
-    [SerializeField] private bool clickBlockerEnabled;
+    [SerializeField] public bool clickBlockerEnabled;
     [SerializeField] private GameObject nextPopup; //Next popup to enable, if any
     [SerializeField] private int enableDisplay; //instruction number at which display should be enabled;
     [SerializeField] private bool resume;
@@ -85,6 +85,11 @@ public class PopupDisplay : MonoBehaviour
             }
         }
 
+    }
+
+    public void DisableBlocker()
+    {
+        clickBlocker.SetActive(false);
     }
 
 
