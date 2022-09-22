@@ -30,8 +30,8 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
         currIncome = gameIncome;
-        if (GameObject.Find("GameData").GetComponent<GameData>()) {
-            gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (GameObject.Find("Managers").GetComponent<GameData>()) {
+            gd = GameObject.Find("Managers").GetComponent<GameData>();
         }
         if (gd)
         {
@@ -110,7 +110,10 @@ public class GameController : MonoBehaviour
             {
                 gd.WinBattle();
                 gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
-                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+                if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
+                {
+                    gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+                }
             }
             else
             {
