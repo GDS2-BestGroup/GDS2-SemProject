@@ -29,8 +29,6 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private GameObject path;
     [SerializeField] private List<GameObject> pathList;
 
-
-
     [SerializeField] private GameController gc;
 
     [SerializeField] private Image healthBar;
@@ -278,7 +276,15 @@ public class BattleNode : MonoBehaviour
 
     private void EnemySummonUnits()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
+
+        foreach(Transform tt in transform)
+        {
+            if (tt.gameObject.GetComponent<UnitSpawner>())
+            {
+                Destroy(tt.gameObject);
+            }
+        }
 
         if (!isNeutral)
         {
