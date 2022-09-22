@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3236916455544905435}
   - component: {fileID: 5779752898278818621}
   - component: {fileID: 7058512194444395760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1201995053, guid: 328b5a69028177949a73edf0b5f35b3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,12 +108,13 @@ MonoBehaviour:
   defense: 10
   attackSpeed: 1.5
   walkSpeed: 3
-  spawnSpeed: 0
-  spawnDuration: 0
+  spawnSpeed: 2
+  spawnDuration: 10
   destination: {fileID: 0}
   cost: 1
   isEnemy: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 1201995053, guid: 328b5a69028177949a73edf0b5f35b3b, type: 3}
+  spawner: {fileID: 0}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
@@ -195,7 +196,7 @@ GameObject:
   - component: {fileID: 1194131443590856873}
   - component: {fileID: 6908229978548414089}
   - component: {fileID: 7585557502022507282}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: AttackRange
   m_Icon: {fileID: 0}
@@ -230,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030906439, y: 0.26452428}
+  m_Offset: {x: -0.028085709, y: 0.26452428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -241,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92349863, y: 0.6240493}
+  m_Size: {x: 0.9291401, y: 0.6240493}
   m_EdgeRadius: 0
 --- !u!114 &7585557502022507282
 MonoBehaviour:
@@ -267,7 +268,7 @@ GameObject:
   - component: {fileID: 7204501810728707503}
   - component: {fileID: 484994461145800734}
   - component: {fileID: 3541319915657333221}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
