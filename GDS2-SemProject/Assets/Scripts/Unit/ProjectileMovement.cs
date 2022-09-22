@@ -32,7 +32,6 @@ public class ProjectileMovement : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
         }
-
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, Vector2.right, speed);
@@ -48,4 +47,5 @@ public class ProjectileMovement : MonoBehaviour
     {
         velocity = v;
     }
+
 }

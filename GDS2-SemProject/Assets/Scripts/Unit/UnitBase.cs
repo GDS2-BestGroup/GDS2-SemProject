@@ -46,6 +46,8 @@ public class UnitBase : MonoBehaviour
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
+        bullet.tag = (gameObject.tag == "Player") ? "Player" : "Enemy";
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
             pad.SetDamage(damage);
@@ -63,7 +65,8 @@ public class UnitBase : MonoBehaviour
                 cpm.setTarget(targetPosition);
             }
         }
-        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
+        //bullet.GetComponent<ProjectileMovement>().SetVelocity(3);
+
     }
 
     public void DestroySelf()
