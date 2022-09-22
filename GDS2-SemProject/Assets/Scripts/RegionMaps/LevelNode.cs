@@ -145,11 +145,6 @@ public class LevelNode : MonoBehaviour
         confirmUI.gameObject.SetActive(false);
     }
 
-    public void GoBack()
-    {
-        SceneManager.LoadScene("Overworld");
-    }
-
     public void LevelUnlock()
     {
         Debug.Log("Level " + levelNum + " unlocked");
