@@ -609,6 +609,7 @@ MonoBehaviour:
   previousLevel: 
   currentLevel: 0
   currentRegion: 0
+  unitList: []
 --- !u!1 &649474935
 GameObject:
   m_ObjectHideFlags: 0

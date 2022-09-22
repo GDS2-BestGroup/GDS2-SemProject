@@ -36,10 +36,10 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleScenes/Tutorial/BattleMap0.3.unity
     guid: 53d62ed70fd3e7241b75cf2d03b034f8
   - enabled: 1
-    path: Assets/Scenes/BattleScenes/BattleMap1.1.unity
+    path: Assets/Scenes/BattleScenes/Region1/BattleMap1.1.unity
     guid: 6a6813bf8291c964fade3154f7b75c76
   - enabled: 1
-    path: Assets/Scenes/BattleScenes/BattleMap2.2.unity
+    path: Assets/Scenes/BattleScenes/Region2/BattleMap2.2.unity
     guid: ca94fe6c13a13df48a1d1247e0c780df
   - enabled: 1
     path: Assets/Scenes/Instructions.unity

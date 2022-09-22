@@ -43,6 +43,9 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private GameObject unitDisplay;
 
+    [SerializeField] private Sprite AbossSprite;
+    [SerializeField] private Sprite EbossSprite;
+
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -58,6 +61,17 @@ public class BattleNode : MonoBehaviour
 
     private void Start()
     {
+        if (isBoss)
+        {
+            if (isEnemy)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = EbossSprite;
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = AbossSprite;
+            }
+        }
         if (isEnemy)
         {
             EnemySummonUnits();
