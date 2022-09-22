@@ -22,8 +22,9 @@ public class UnitBase : MonoBehaviour
     public BattleNode parent;
 
     //Range Unit Specific
-    public GameObject projectile;
-    public Transform firePoint;
+    [SerializeField] GameObject projectile; //Prefab of projectile
+    [SerializeField] Transform firePoint;
+    private Transform targetPosition; //Used for Bullet Destination
 
     private GameController gc;
     private void Awake()
@@ -44,9 +45,24 @@ public class UnitBase : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation,transform);
-        bullet.GetComponent<ProjectileAttackDealer>().SetDamage(damage);
-        bullet.GetComponent<ProjectileMovement>().SetDestination(destination);
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
+        {
+            pad.SetDamage(damage);
+            if (pad.TryGetComponent(out ProjectileMovement pm))
+            {
+                pm.setTarget(targetPosition);
+            }
+        }
+
+        else if (bullet.TryGetComponent(out AttackDealer ad))
+        {
+            ad.SetDamage(damage);
+            if (ad.TryGetComponent(out CurveProjectileMovement cpm))
+            {
+                cpm.setTarget(targetPosition);
+            }
+        }
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
 
@@ -151,6 +167,11 @@ public class UnitBase : MonoBehaviour
         return health;
     }
 
+    public void SetTargetPosition(Transform tp)
+    {
+        targetPosition = tp;
+    }
+    
     public Sprite GetSprite()
     {
         return sprite;
