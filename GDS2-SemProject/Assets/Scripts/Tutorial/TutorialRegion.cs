@@ -18,6 +18,7 @@ public class TutorialRegion : MonoBehaviour
         }
         else
         {
+            popup.GetComponent<PopupDisplay>().DisableBlocker();
             popup.SetActive(false);
             lvlOne.popup = false;
         }
