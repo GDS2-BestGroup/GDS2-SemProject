@@ -109,7 +109,10 @@ public class GameController : MonoBehaviour
             {
                 gd.WinBattle();
                 gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
-                gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+                if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
+                {
+                    gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+                }
             }
             else
             {

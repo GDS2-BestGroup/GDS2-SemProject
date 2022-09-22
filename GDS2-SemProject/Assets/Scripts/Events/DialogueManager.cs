@@ -87,15 +87,31 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         background.SetActive(false);
-
+        Debug.Log(gd.currentLevel);
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
-        gd.GetLevels(gd.currentRegion)[gd.currentLevel-1].LevelUnlock(); //Makes the call to the level node to unlock
+        Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
 
+        LevelNode[] levels = gd.GetLevels(gd.currentRegion); 
+        foreach (LevelNode level in levels)
+        {
+            if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel))
+            {
+                level.LevelLock();
+            }
+        }
+
+        //Unlock Next Level if it exsits
         if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
         {
             gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
-            gd.GetLevels(gd.currentRegion)[gd.currentLevel].LevelLock(); //Makes the call to the level node to lock
+            foreach (LevelNode level in levels)
+            {
+                if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel + 1))
+                {
+                    level.LevelUnlock();
+                }
+            }
         }
         // SceneManager.LoadScene(gd.previousLevel);
 
