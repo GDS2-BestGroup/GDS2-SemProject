@@ -60,6 +60,7 @@ public class GameData : MonoBehaviour
             morale = 1000;
         }
 
+        RegionUnlock();
         CheckFinalWin();
         CheckMorale();
     }
@@ -140,10 +141,10 @@ public class GameData : MonoBehaviour
                 win = false;
             }
         }
-        if (win)
+        /*if (win)
         {
             overworldStatus[1] = true;
-        }
+        }*/
   
         if (win)
         {
@@ -154,10 +155,10 @@ public class GameData : MonoBehaviour
                     win = false;
                 }
             }
-            if (win)
+            /*if (win)
             {
                 overworldStatus[2] = true;
-            }
+            }*/
         }
 
         if (win)
@@ -180,5 +181,24 @@ public class GameData : MonoBehaviour
     public List<UnitBase> GetUnitList()
     {
         return unitList;
+    }
+
+    public void RegionUnlock()
+    {
+        foreach(LevelNode level in regionZeroLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
+            {
+                overworldStatus[1] = true;
+            }
+        }
+
+        foreach (LevelNode level in regionOneLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+            {
+                overworldStatus[2] = true;
+            }
+        }
     }
 }

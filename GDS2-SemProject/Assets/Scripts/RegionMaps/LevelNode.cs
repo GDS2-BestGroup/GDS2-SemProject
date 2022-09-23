@@ -30,6 +30,7 @@ public class LevelNode : MonoBehaviour
     public GameData gameData;
     public Sprite[] nodeSprites;
     [SerializeField] public bool popup;
+    [SerializeField] public bool isFinalLevel;
     [SerializeField] private LevelNode[] neighbours;
 
 
