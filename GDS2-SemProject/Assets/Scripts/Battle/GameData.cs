@@ -22,6 +22,7 @@ public class GameData : MonoBehaviour
 
     [SerializeField] private List<UnitBase> fullUnitList;
     [SerializeField] private List<UnitBase> unitList;
+    private int unitSequence = 0;
 
     private void Awake()
     {
@@ -200,6 +201,15 @@ public class GameData : MonoBehaviour
             {
                 overworldStatus[2] = true;
             }
+        }
+    }
+
+    private void UnlockNextUnit()
+    {
+        unitSequence += 1;
+        if (unitSequence < fullUnitList.Count)
+        {
+            unitList.Add(fullUnitList[unitSequence]);
         }
     }
 }
