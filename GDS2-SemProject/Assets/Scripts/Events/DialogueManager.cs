@@ -57,10 +57,10 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canContinueToNextLine && Input.GetMouseButtonUp(0))
+        if (canContinueToNextLine && Input.GetMouseButtonDown(0))
         {
             ContinueStory();
-        } else if (displayLineCoroutine != null && Input.GetMouseButtonUp(0))
+        } else if (displayLineCoroutine != null && Input.GetMouseButtonDown(0))
         {
             completeLine = true;
         }
@@ -203,7 +203,6 @@ public class DialogueManager : MonoBehaviour
         {
             if (completeLine)
             {
-                Debug.Log("Completed line?");
                 dialogueText.text = line;
                 completeLine = false;
                 break;

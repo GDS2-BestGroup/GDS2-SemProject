@@ -37,7 +37,7 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         int randEvent = Random.Range(0, inkText.Count);
-        dm.EnterDialogueMode(inkText[3]);
+        dm.EnterDialogueMode(inkText[randEvent]);
         inkText.RemoveAt(randEvent);
     }
 
