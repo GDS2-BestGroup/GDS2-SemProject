@@ -112,7 +112,7 @@ public class GameData : MonoBehaviour
     public void WinBattle()
     {
         morale += 100;
-        baseIncome += 2;
+        baseIncome += 1;
         CheckMorale();
         CheckFinalWin();
     }
