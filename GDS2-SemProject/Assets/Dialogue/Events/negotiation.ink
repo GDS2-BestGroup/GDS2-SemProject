@@ -6,6 +6,8 @@ VAR knot_name = -> negotiation
 
 === negotiation ===
 
+~ morale = 0
+
 You and Lieutenant Edwards are approached by a foreign messenger. He mentions that his Deputy is asking for some assistance in exchange for payment. #speaker:Lieutenant Edwards #portrait:LieutenantEdwards #background: clearing
 
 Lieutenant Edwards thinks this could be a good opportunity to gather some resources and take a rest.

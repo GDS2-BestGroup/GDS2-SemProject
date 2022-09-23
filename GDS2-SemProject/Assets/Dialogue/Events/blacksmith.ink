@@ -4,6 +4,8 @@ INCLUDE globals.ink
 
 === blacksmith ===
 
+~ morale = 0
+
 You pass a large settlement that encompasses multiple skilled blacksmiths. #background:blacksmith #portrait:LieutenantSerena
 The village chief approaches both you and Lieutenant Serena with an offer to repair and refine your army's weapons.
 

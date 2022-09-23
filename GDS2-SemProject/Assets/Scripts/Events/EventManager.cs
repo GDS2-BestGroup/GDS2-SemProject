@@ -66,7 +66,10 @@ public class EventManager : MonoBehaviour
         switch(name)
         {
             case("morale"):
-                gd.morale = (int) dm.currentStory.variablesState["morale"];
+                if ((int) dm.currentStory.variablesState["morale"] != 0)
+                {
+                    gd.morale += (int) dm.currentStory.variablesState["morale"];
+                }
                 break;
             case("gold"):
                 break;
