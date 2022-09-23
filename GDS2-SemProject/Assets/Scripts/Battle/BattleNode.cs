@@ -44,6 +44,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private Sprite AbossSprite;
     [SerializeField] private Sprite EbossSprite;
 
+    [SerializeField] private AudioSource captureSound;
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -160,6 +161,12 @@ public class BattleNode : MonoBehaviour
             UpdateHealth();
         }
     }
+
+    private void PlayCaptureSound()
+    {
+        captureSound.Play();
+    }
+
     private void CastleCapture()
     {
         //Capture the castle and reset its hp
@@ -167,6 +174,9 @@ public class BattleNode : MonoBehaviour
         {
             gc.EndGame(isEnemy);
         }
+
+        PlayCaptureSound();
+
 
         if (!capturedBefore)
         {

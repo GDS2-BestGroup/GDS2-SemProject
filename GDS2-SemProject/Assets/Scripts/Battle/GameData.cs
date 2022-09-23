@@ -120,7 +120,7 @@ public class GameData : MonoBehaviour
         return baseIncome;
     }
 
-    private void CheckMorale()
+    public void CheckMorale()
     {
         if(morale <= 0)
         {
@@ -130,6 +130,11 @@ public class GameData : MonoBehaviour
         if(morale > 800)
         {
             baseIncome = 8;
+        }
+
+        if(morale > 1000)
+        {
+            morale = 1000;
         }
     }
 

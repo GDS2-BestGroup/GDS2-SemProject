@@ -127,7 +127,11 @@ public class MapCanvas : MonoBehaviour
 
     public void UpdateMorale()
     {
-        if (moraleTxt != null && gd != null)
+        if(gd.morale > 1000)
+        {
+            moraleTxt.text = "Morale: " + 1000;
+        }
+        else 
         {
             moraleTxt.text = "Morale: " + gd.morale;
         }
