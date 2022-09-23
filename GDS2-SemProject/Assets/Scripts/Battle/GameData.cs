@@ -24,6 +24,8 @@ public class GameData : MonoBehaviour
     [SerializeField] private List<UnitBase> unitList;
     private int unitSequence = 0;
 
+    private bool additionalIncome = false;
+
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -127,9 +129,15 @@ public class GameData : MonoBehaviour
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(morale > 800)
+        if(morale >= 800 && additionalIncome == false)
         {
-            baseIncome = 8;
+            additionalIncome = true;
+            baseIncome += 1;
+        }
+        else if(additionalIncome == true && morale < 800)
+        {
+            additionalIncome = false;
+            baseIncome -= 1;
         }
 
         if(morale > 1000)
