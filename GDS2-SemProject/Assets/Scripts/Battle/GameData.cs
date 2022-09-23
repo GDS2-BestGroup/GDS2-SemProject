@@ -20,6 +20,7 @@ public class GameData : MonoBehaviour
     public int currentLevel;
     public int currentRegion;
 
+    [SerializeField] private List<UnitBase> fullUnitList;
     [SerializeField] private List<UnitBase> unitList;
 
     private void Awake()
