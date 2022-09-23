@@ -189,15 +189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Archer
-  health: 50
+  health: 75
   damage: 30
   defense: 10
   attackSpeed: 3
-  walkSpeed: 1.2
-  spawnSpeed: 5
-  spawnDuration: 10
+  walkSpeed: 0.8
+  spawnSpeed: 10
+  spawnDuration: 5
   destination: {fileID: 0}
-  cost: 2
+  cost: 4
   isEnemy: 1
   sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
   spawner: {fileID: 0}

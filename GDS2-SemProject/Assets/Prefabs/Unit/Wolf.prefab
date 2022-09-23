@@ -104,14 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Wolf
   health: 30
-  damage: 50
+  damage: 40
   defense: 10
   attackSpeed: 1.5
-  walkSpeed: 2
+  walkSpeed: 1.5
   spawnSpeed: 2
   spawnDuration: 10
   destination: {fileID: 0}
-  cost: 1
+  cost: 2
   isEnemy: 0
   sprite: {fileID: 1201995053, guid: 328b5a69028177949a73edf0b5f35b3b, type: 3}
   spawner: {fileID: 0}

@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     void Start()

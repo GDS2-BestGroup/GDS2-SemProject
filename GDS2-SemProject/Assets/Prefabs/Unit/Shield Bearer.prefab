@@ -265,15 +265,16 @@ MonoBehaviour:
   unitName: Shield Bearer
   health: 120
   damage: 25
-  defense: 30
+  defense: 20
   attackSpeed: 4
   walkSpeed: 0.5
   spawnSpeed: 3
   spawnDuration: 10
   destination: {fileID: 0}
-  cost: 2
+  cost: 4
   isEnemy: 0
   sprite: {fileID: -1656026290, guid: e64464d3df382814d8385961d6c27126, type: 3}
+  spawner: {fileID: 0}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}

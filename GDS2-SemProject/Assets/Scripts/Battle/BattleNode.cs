@@ -304,7 +304,7 @@ public class BattleNode : MonoBehaviour
                 {
                     if (isBoss)
                     {
-                        sps = 0.95f;
+                        sps = 1f;
                     }
                     else
                     {

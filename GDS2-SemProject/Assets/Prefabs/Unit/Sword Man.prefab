@@ -265,7 +265,7 @@ MonoBehaviour:
   unitName: Sword Man
   health: 100
   damage: 35
-  defense: 10
+  defense: 15
   attackSpeed: 2
   walkSpeed: 1
   spawnSpeed: 3
@@ -274,6 +274,7 @@ MonoBehaviour:
   cost: 3
   isEnemy: 1
   sprite: {fileID: 2057244330, guid: 0e12a15fd766c344587247f4a1f28ab3, type: 3}
+  spawner: {fileID: 0}
   parent: {fileID: 0}
   projectile: {fileID: 0}
   firePoint: {fileID: 0}

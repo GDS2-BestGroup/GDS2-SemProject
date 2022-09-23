@@ -82,10 +82,13 @@ public class UnitBase : MonoBehaviour
     public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u)
     {
         UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
+        l.SetEnemy(enemy);
+        Debug.Log(isEnemy);
         spawner = u;
         spawner.AddToList(l.gameObject);
         l.destination = end;
         l.parent = start;
+
         angle = Mathf.Atan2(end.position.y - start.transform.position.y, end.position.x - start.transform.position.x) * Mathf.Rad2Deg;
         if (Mathf.Abs(angle) > 90)
         {
@@ -98,11 +101,11 @@ public class UnitBase : MonoBehaviour
         }
         l.transform.Rotate(0, 0, angle);
 
-        if (!enemy)
+        if (!l.IsEnemy())
         {
             l.tag = "Player";
             l.gameObject.layer = 7;
-            isEnemy = false;
+
             foreach (Transform i in l.transform)
             {
                 i.gameObject.layer = 7;
@@ -113,7 +116,6 @@ public class UnitBase : MonoBehaviour
         {
             l.tag = "Enemy";
             l.gameObject.layer = 6;
-            isEnemy = true;
             foreach(Transform i in l.transform)
             {
                 i.gameObject.layer = 6;
@@ -125,6 +127,11 @@ public class UnitBase : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+    }
+
+    public void SetEnemy(bool tf)
+    {
+        isEnemy = tf;
     }
 
     public int GetCost()
