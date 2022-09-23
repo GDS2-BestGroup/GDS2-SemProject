@@ -746,6 +746,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5167693370427612761, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
   m_PrefabInstance: {fileID: 767472401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &767472403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+  m_PrefabInstance: {fileID: 767472401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baaa106d8cd6be428dfdb9d03d6f6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &812969418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1350,14 @@ PrefabInstance:
       propertyPath: points.Array.data[1]
       value: 
       objectReference: {fileID: 767472402}
+    - target: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: neighbours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 767472403}
     - target: {fileID: 5167693370427612765, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
       propertyPath: m_Name
       value: LvlNode0.2
@@ -1354,6 +1373,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5167693370427612761, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
   m_PrefabInstance: {fileID: 1452138646}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1452138648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+  m_PrefabInstance: {fileID: 1452138646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baaa106d8cd6be428dfdb9d03d6f6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764895255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,6 +2247,18 @@ PrefabInstance:
       propertyPath: points.Array.data[1]
       value: 
       objectReference: {fileID: 1452138647}
+    - target: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: neighbours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 1452138648}
+    - target: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 767472403}
     - target: {fileID: 5167693370427612765, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
       propertyPath: m_Name
       value: LvlNode0.1

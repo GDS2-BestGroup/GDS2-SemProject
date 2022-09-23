@@ -8,6 +8,7 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionZeroLvls; //Tutorial Level
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
+    public LevelNode[] neighbours;
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false };
     public bool[] lvlStatusRegionTwo = { true, false };

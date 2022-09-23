@@ -30,6 +30,7 @@ public class LevelNode : MonoBehaviour
     public GameData gameData;
     public Sprite[] nodeSprites;
     [SerializeField] public bool popup;
+    [SerializeField] private LevelNode[] neighbours;
 
 
     [SerializeField] public EventManager em;
@@ -97,6 +98,7 @@ public class LevelNode : MonoBehaviour
         gameData.previousLevel = SceneManager.GetActiveScene().name;
         gameData.currentLevel = (int)levelNum;
         gameData.currentRegion = region;
+        gameData.neighbours = neighbours;
         if (level == LevelType.Battle)
         {
             CloseUI();
@@ -197,5 +199,10 @@ public class LevelNode : MonoBehaviour
 
         }
 
+    }
+
+    public LevelNode[] GetNeighbours()
+    {
+        return neighbours;
     }
 }
