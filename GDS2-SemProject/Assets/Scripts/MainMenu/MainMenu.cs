@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        audioManager.ChangeMusic();
+        //audioManager.ChangeMusic();
         audioSource.Play();
         SceneManager.LoadScene("Overworld");
     }
