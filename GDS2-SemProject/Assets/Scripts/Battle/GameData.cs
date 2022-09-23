@@ -204,7 +204,7 @@ public class GameData : MonoBehaviour
         }
     }
 
-    private void UnlockNextUnit()
+    public void UnlockNextUnit()
     {
         unitSequence += 1;
         if (unitSequence < fullUnitList.Count)

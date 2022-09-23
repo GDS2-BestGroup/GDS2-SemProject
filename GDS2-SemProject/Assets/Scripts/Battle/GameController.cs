@@ -43,7 +43,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         
-
     }
 
     // Update is called once per frame
@@ -168,5 +167,10 @@ public class GameController : MonoBehaviour
     public float GetTime()
     {
         return timeSpeed;
+    }
+
+    public void UnlockNextUnit()
+    {
+        gd.UnlockNextUnit();
     }
 }
