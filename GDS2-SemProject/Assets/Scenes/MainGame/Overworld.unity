@@ -1459,6 +1459,11 @@ MonoBehaviour:
   previousLevel: 
   currentLevel: 0
   currentRegion: 0
+  fullUnitList:
+  - {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+  - {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+  - {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
+  - {fileID: 3837123510629813929, guid: 894d71223af66b2418d8717d3a463db7, type: 3}
   unitList:
   - {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
 --- !u!1 &649474935
