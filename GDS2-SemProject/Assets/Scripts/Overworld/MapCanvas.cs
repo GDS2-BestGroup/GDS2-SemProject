@@ -124,4 +124,16 @@ public class MapCanvas : MonoBehaviour
             SceneManager.LoadScene("Overworld");
         }
     }
+
+    public void UpdateMorale()
+    {
+        if(gd.morale > 1000)
+        {
+            moraleTxt.text = "Morale: " + 1000;
+        }
+        else 
+        {
+            moraleTxt.text = "Morale: " + gd.morale;
+        }
+    }
 }
