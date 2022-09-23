@@ -11,8 +11,8 @@ public class GameData : MonoBehaviour
     public LevelNode[] neighbours;
     [SerializeField] public bool[] overworldStatus = { true, false, false };
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
-    public bool[] lvlStatusRegionOne = { true, false };
-    public bool[] lvlStatusRegionTwo = { true, false };
+    public bool[] lvlStatusRegionOne = { true, false, false, false, false, false, false, false };
+    public bool[] lvlStatusRegionTwo = { true, false, false, false, false, false, false, false };
     public int morale;
     [SerializeField] private int baseIncome = 7;
 

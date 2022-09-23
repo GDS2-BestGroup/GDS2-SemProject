@@ -1449,9 +1449,11 @@ MonoBehaviour:
   regionZeroLvls: []
   regionOneLvls: []
   regionTwoLvls: []
+  neighbours: []
+  overworldStatus: 010000
   lvlStatusRegionZero: 010000
-  lvlStatusRegionOne: 0100
-  lvlStatusRegionTwo: 0100
+  lvlStatusRegionOne: 0100000000000000
+  lvlStatusRegionTwo: 0100000000000000
   morale: 0
   baseIncome: 8
   previousLevel: 
