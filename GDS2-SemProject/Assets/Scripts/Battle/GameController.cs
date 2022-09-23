@@ -110,9 +110,24 @@ public class GameController : MonoBehaviour
             {
                 gd.WinBattle();
                 gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
-                if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
+                /*if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
                 {
                     gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
+                }*/
+               //LevelNode currentlvl = gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1];
+               // Debug.Log("Neighbours length of level " + currentlvl.name + " is " + currentlvl.GetNeighbours().Length);
+                if (gd.neighbours.Length > 0)
+                {
+                    //foreach (bool status in gd.GetLevelCompletion(gd.currentRegion))
+                    //{
+                    //    if 
+                    //}
+                    //Debug.Log("Found level " + currentlvl.name);
+                    foreach (LevelNode level in gd.neighbours)
+                    {
+                        gd.GetLevelCompletion(gd.currentRegion)[(int)level.levelNum-1] = true;
+                        //Debug.Log("Unlocked level " + level.name);
+                    }
                 }
             }
             else

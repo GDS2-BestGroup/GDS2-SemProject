@@ -91,18 +91,19 @@ public class DialogueManager : MonoBehaviour
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
         Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
-
+        LevelNode currentlvl = null;
         LevelNode[] levels = gd.GetLevels(gd.currentRegion); 
         foreach (LevelNode level in levels)
         {
             if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel))
             {
                 level.LevelLock();
+                currentlvl = level;
             }
         }
 
         //Unlock Next Level if it exsits
-        if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
+        /*if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
         {
             gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
             foreach (LevelNode level in levels)
@@ -111,6 +112,14 @@ public class DialogueManager : MonoBehaviour
                 {
                     level.LevelUnlock();
                 }
+            }
+        }*/
+        if (currentlvl && currentlvl.GetNeighbours().Length > 0)
+        {
+            foreach(LevelNode level in currentlvl.GetNeighbours())
+            {
+                gd.GetLevelCompletion(gd.currentRegion)[(int)level.levelNum - 1] = true;
+                level.LevelUnlock();
             }
         }
         // SceneManager.LoadScene(gd.previousLevel);

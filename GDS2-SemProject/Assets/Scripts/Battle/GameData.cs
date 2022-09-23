@@ -8,6 +8,8 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionZeroLvls; //Tutorial Level
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
+    public LevelNode[] neighbours;
+    [SerializeField] public bool[] overworldStatus = { true, false, false };
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false };
     public bool[] lvlStatusRegionTwo = { true, false };
@@ -58,6 +60,7 @@ public class GameData : MonoBehaviour
             morale = 1000;
         }
 
+        RegionUnlock();
         CheckFinalWin();
         CheckMorale();
     }
@@ -131,13 +134,33 @@ public class GameData : MonoBehaviour
     private void CheckFinalWin()
     {
         bool win = true;
-        foreach (bool i in lvlStatusRegionOne)
+        foreach (bool i in lvlStatusRegionZero)
         {
             if (i)
             {
                 win = false;
             }
         }
+        /*if (win)
+        {
+            overworldStatus[1] = true;
+        }*/
+  
+        if (win)
+        {
+            foreach (bool i in lvlStatusRegionOne)
+            {
+                if (i)
+                {
+                    win = false;
+                }
+            }
+            /*if (win)
+            {
+                overworldStatus[2] = true;
+            }*/
+        }
+
         if (win)
         {
             foreach (bool i in lvlStatusRegionTwo)
@@ -148,16 +171,7 @@ public class GameData : MonoBehaviour
                 }
             }
         }
-        if (win)
-        {
-            foreach (bool i in lvlStatusRegionZero)
-            {
-                if (i)
-                {
-                    win = false;
-                }
-            }
-        }
+
         if (win)
         {
             SceneManager.LoadScene("WinScene");
@@ -167,5 +181,24 @@ public class GameData : MonoBehaviour
     public List<UnitBase> GetUnitList()
     {
         return unitList;
+    }
+
+    public void RegionUnlock()
+    {
+        foreach(LevelNode level in regionZeroLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
+            {
+                overworldStatus[1] = true;
+            }
+        }
+
+        foreach (LevelNode level in regionOneLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+            {
+                overworldStatus[2] = true;
+            }
+        }
     }
 }
