@@ -26,14 +26,9 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-
-    }
-
-    void Start()
-    {
-        
         currIncome = gameIncome;
-        if (GameObject.Find("Managers").GetComponent<GameData>()) {
+        if (GameObject.Find("Managers").GetComponent<GameData>())
+        {
             gd = GameObject.Find("Managers").GetComponent<GameData>();
         }
         if (gd)
@@ -43,6 +38,12 @@ public class GameController : MonoBehaviour
         }
         currIncome = gameIncome;
         Time.timeScale = 0;
+    }
+
+    void Start()
+    {
+        
+
     }
 
     // Update is called once per frame
