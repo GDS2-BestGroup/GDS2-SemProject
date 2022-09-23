@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject background;
     
-    private Story currentStory;
+    public Story currentStory;
     private static DialogueManager instance;
     private GameData gd;
 

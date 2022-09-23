@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
+    
     void Start()
     {
         Compile();
@@ -36,7 +37,7 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         int randEvent = Random.Range(0, inkText.Count);
-        dm.EnterDialogueMode(inkText[randEvent]);
+        dm.EnterDialogueMode(inkText[3]);
         inkText.RemoveAt(randEvent);
     }
 
@@ -62,9 +63,15 @@ public class EventManager : MonoBehaviour
             variables.Add(name, value);
         }
 
-        if (name.Equals("morale"))
+        switch(name)
         {
-            gd.morale -= 150;
+            case("morale"):
+                gd.morale = (int) dm.currentStory.variablesState["morale"];
+                break;
+            case("gold"):
+                break;
+            case("swordsmanAtt"):
+                break;
         }
     }
 

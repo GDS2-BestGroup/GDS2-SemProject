@@ -10,10 +10,12 @@ You are approached by your lieutenant who informs you of a nearby enemy camp. He
 
 What do you do?
 + [Attack them in the night (Troop Damage +10%, Morale - 150)]
+    You order an attack during the night. 
     ~ morale -= 150
-    You order an attack during the night. -> END
+    -> END
 + [Attack during the day]
     You order an attack during the day. -> END
-// + [Avoid them and do not attack (Morale + 150)]
-//     ~ morale -= 150
-//     You order your men to stand down. -> END
++ [Avoid them and do not attack (Morale + 150)]
+    You order your men to stand down. 
+    ~ morale += 150
+    -> END

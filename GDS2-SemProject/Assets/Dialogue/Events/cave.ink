@@ -8,7 +8,8 @@ Your army arrives at a cave entrance which you know connects to the next settlem
 
 What do you do?
 + [Enter the cave system anyway (Morale - 150)]
+    You enter the cave system blindly. Somehow you make it out but the stressful experience lowers troop morale. 
     ~ morale -= 150
-    You enter the cave system blindly. Somehow you make it out but the stressful experience lowers troop morale. -> END
+    -> END
 + [Look for a local cave guide (Troop Movement Speed -10%)]
     You offer payment for a local cave guide to navigate the cave system and your troops make it swiftly and safely to the exit. -> END
