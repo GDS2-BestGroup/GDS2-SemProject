@@ -193,7 +193,7 @@ MonoBehaviour:
   damage: 30
   defense: 10
   attackSpeed: 3
-  walkSpeed: 0.8
+  walkSpeed: 0.6
   spawnSpeed: 10
   spawnDuration: 5
   destination: {fileID: 0}

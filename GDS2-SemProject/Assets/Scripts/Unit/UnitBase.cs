@@ -47,7 +47,6 @@ public class UnitBase : MonoBehaviour
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
-        bullet.tag = (gameObject.tag == "Player") ? "Player" : "Enemy";
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
             pad.SetDamage(damage);

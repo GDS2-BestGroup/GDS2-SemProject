@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Shield Bearer
-  health: 120
-  damage: 25
-  defense: 20
+  health: 200
+  damage: 30
+  defense: 25
   attackSpeed: 4
   walkSpeed: 0.5
-  spawnSpeed: 3
+  spawnSpeed: 5
   spawnDuration: 10
   destination: {fileID: 0}
   cost: 4

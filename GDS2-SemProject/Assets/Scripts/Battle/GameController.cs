@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text incomeText;
     [SerializeField] private Text speedText;
 
+    [SerializeField] private Canvas afterScreen;
+    [SerializeField] private Text endingText;
+
     private float timeSpeed = 0;
 
     private void Awake()
@@ -114,13 +117,20 @@ public class GameController : MonoBehaviour
                 {
                     gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
                 }
+                endingText.text = "Victory!";
             }
             else
             {
                 gd.LoseBattle();
+                endingText.text = "Defeat...";
             }
-            SceneManager.LoadScene(gd.previousLevel);
+            afterScreen.gameObject.SetActive(true);
         }
+    }
+
+    public void ToOverworld()
+    {
+        SceneManager.LoadScene(gd.previousLevel);
     }
 
     public void ChangeSpeed()
