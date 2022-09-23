@@ -104,13 +104,13 @@ MonoBehaviour:
   - dependency: {fileID: 2800000, guid: bb16c69bc3f7e5244a1c9bb103045609, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 593d6294879d75342bfa972a2a5306c5, type: 3}
-    instantiationMode: 0
+    instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 4d96933fd89a6594f836c5aa8400cf44, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 7400000, guid: 62c99f12a215be24c988aea3af6ebfff, type: 2}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 9ffb02a5dd96b9a4a9c69ac94fa82ef4, type: 3}
-    instantiationMode: 0
+    instantiationMode: 1
   - dependency: {fileID: 7330391944571574702, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 8249229788597187058, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}

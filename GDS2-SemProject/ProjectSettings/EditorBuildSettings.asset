@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleScenes/Region1/BattleMap1.1.unity
     guid: 6a6813bf8291c964fade3154f7b75c76
   - enabled: 1
-    path: Assets/Scenes/BattleScenes/Region2/BattleMap2.2.unity
+    path: Assets/Scenes/BattleScenes/Region2/BattleMap2.1.unity
     guid: ca94fe6c13a13df48a1d1247e0c780df
   - enabled: 1
     path: Assets/Scenes/Instructions.unity
@@ -50,4 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: c98d8a222c266544c978007fd25f78b5
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region1/BattleMap1.2.unity
+    guid: d6d2cf2025ddf7b4c8e08ccf0942b41d
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region1/BattleMap1.3.unity
+    guid: d7a7bf433c621b3438c65afc11c1de09
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region1/BattleMap1.4.unity
+    guid: 0f9a20a3e14792c42ad88aeffe460a78
   m_configObjects: {}
