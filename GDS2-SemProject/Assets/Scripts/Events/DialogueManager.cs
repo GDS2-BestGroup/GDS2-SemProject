@@ -118,6 +118,7 @@ public class DialogueManager : MonoBehaviour
         {
             foreach(LevelNode level in currentlvl.GetNeighbours())
             {
+                gd.GetLevelCompletion(gd.currentRegion)[(int)level.levelNum - 1] = true;
                 level.LevelUnlock();
             }
         }
