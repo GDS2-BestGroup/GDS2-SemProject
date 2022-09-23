@@ -205,16 +205,17 @@ public class GameData : MonoBehaviour
             if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
             {
                 overworldStatus[1] = true;
+                overworldStatus[2] = true;
             }
         }
 
-        foreach (LevelNode level in regionOneLvls)
+        /*foreach (LevelNode level in regionOneLvls)
         {
             if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
             {
                 overworldStatus[2] = true;
             }
-        }
+        }*/
     }
 
     public void UnlockNextUnit()
