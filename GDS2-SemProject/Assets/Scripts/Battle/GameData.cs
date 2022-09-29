@@ -25,6 +25,8 @@ public class GameData : MonoBehaviour
     private int unitSequence = 0;
 
     private bool additionalIncome = false;
+    private bool regionOneComplete = false;
+    private bool regionTwoComplete = false;
 
     private void Awake()
     {
@@ -64,7 +66,7 @@ public class GameData : MonoBehaviour
             morale = 1000;
         }
 
-        CheckFinalWin();
+        //CheckFinalWin();
         CheckMorale();
     }
 
@@ -146,48 +148,76 @@ public class GameData : MonoBehaviour
         }
     }
 
+    //private void CheckFinalWin()
+    //{
+    //    bool win = true;
+    //    foreach (bool i in lvlStatusRegionZero)
+    //    {
+    //        if (i)
+    //        {
+    //            win = false;
+    //        }
+    //    }
+    //    /*if (win)
+    //    {
+    //        overworldStatus[1] = true;
+    //    }*/
+  
+    //    if (win)
+    //    {
+    //        foreach (bool i in lvlStatusRegionOne)
+    //        {
+    //            if (i)
+    //            {
+    //                win = false;
+    //            }
+    //        }
+    //        /*if (win)
+    //        {
+    //            overworldStatus[2] = true;
+    //        }*/
+    //    }
+
+    //    if (win)
+    //    {
+    //        foreach (bool i in lvlStatusRegionTwo)
+    //        {
+    //            if (i)
+    //            {
+    //                win = false;
+    //            }
+    //        }
+    //    }
+
+    //    if (win)
+    //    {
+    //        SceneManager.LoadScene("WinScene");
+    //    }
+    //}
+
     private void CheckFinalWin()
     {
-        bool win = true;
-        foreach (bool i in lvlStatusRegionZero)
-        {
-            if (i)
-            {
-                win = false;
-            }
-        }
-        /*if (win)
-        {
-            overworldStatus[1] = true;
-        }*/
-  
-        if (win)
-        {
-            foreach (bool i in lvlStatusRegionOne)
-            {
-                if (i)
-                {
-                    win = false;
-                }
-            }
-            /*if (win)
-            {
-                overworldStatus[2] = true;
-            }*/
-        }
 
-        if (win)
+        foreach (LevelNode level in regionOneLvls)
         {
-            foreach (bool i in lvlStatusRegionTwo)
+            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
             {
-                if (i)
-                {
-                    win = false;
-                }
+                regionOneComplete = true;
             }
         }
 
-        if (win)
+
+        foreach (LevelNode level in regionTwoLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            {
+                regionTwoComplete = true;
+            }
+        }
+
+        Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
+
+        if (regionOneComplete && regionTwoComplete)
         {
             SceneManager.LoadScene("WinScene");
         }
