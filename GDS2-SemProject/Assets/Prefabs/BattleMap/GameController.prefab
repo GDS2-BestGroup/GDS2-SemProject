@@ -549,6 +549,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6817084299161204913}
     m_Modifications:
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 156.4341
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 82.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -78.21701
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.08499
+      objectReference: {fileID: 0}
     - target: {fileID: 2055376488, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -644,6 +676,10 @@ PrefabInstance:
     - target: {fileID: 4615804785762567628, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_Name
       value: BattleCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615804785762567630, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4615804785762567631, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_SortingOrder
