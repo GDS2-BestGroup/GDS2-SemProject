@@ -59,6 +59,11 @@ public class LevelNode : MonoBehaviour
         }
 
         levelNum = (levelIndex * 10) - (region * 10);
+
+        if (level == LevelType.Battle)
+        {
+            sprite.sprite = nodeSprites[2];
+        }
     }
 
     // Update is called once per frame
@@ -71,7 +76,14 @@ public class LevelNode : MonoBehaviour
 
         if (!unlocked)
         {
-            sprite.color = Color.black;
+            if (level == LevelType.Battle)
+            {
+                sprite.sprite = nodeSprites[5];
+            }
+            else
+            {
+                sprite.sprite = nodeSprites[4];
+            }
         }
     }
 
@@ -130,9 +142,13 @@ public class LevelNode : MonoBehaviour
             }
         }*/
         //Currently changes colour of sprite, just placeholder for future anim
-        if (unlocked && !popup)
+        if (unlocked && !popup && level == LevelType.Event)
         {
             sprite.sprite = nodeSprites[1];
+        }
+        else if (unlocked && !popup && level == LevelType.Battle)
+        {
+            sprite.sprite=nodeSprites[3];
         }
     }
 
@@ -142,7 +158,15 @@ public class LevelNode : MonoBehaviour
     void OnMouseExit()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.sprite = nodeSprites[0];
+        if (level == LevelType.Event)
+        {
+            sprite.sprite = nodeSprites[0];
+        }
+        else
+        {
+            sprite.sprite = nodeSprites[2]; 
+        }
+
     }
 
     public void CloseUI()
@@ -153,7 +177,14 @@ public class LevelNode : MonoBehaviour
     public void LevelUnlock()
     {
         Debug.Log("Level " + levelNum + " unlocked");
-        sprite.color = Color.white;
+        if (level == LevelType.Event)
+        {
+            sprite.color = Color.white;
+
+        }
+        {
+            sprite.sprite = nodeSprites[2];
+        }
         unlocked = true;
     }
 
