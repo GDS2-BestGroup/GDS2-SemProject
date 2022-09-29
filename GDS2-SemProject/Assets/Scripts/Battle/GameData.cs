@@ -126,7 +126,7 @@ public class GameData : MonoBehaviour
 
     public void CheckMorale()
     {
-        if(morale <= 0)
+        if(morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
         {
             SceneManager.LoadScene("LoseScene");
         }
