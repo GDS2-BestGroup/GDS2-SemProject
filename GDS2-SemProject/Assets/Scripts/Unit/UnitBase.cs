@@ -63,13 +63,11 @@ public class UnitBase : MonoBehaviour
             }
         }
 
-        else if (bullet.TryGetComponent(out AttackDealer ad))
+        else if (bullet.TryGetComponent(out CurveProjectileMovement cpm))
         {
-            ad.SetDamage(damage);
-            if (ad.TryGetComponent(out CurveProjectileMovement cpm))
-            {
-                cpm.setTarget(targetPosition);
-            }
+            cpm.setTarget(targetPosition);
+            CurveProjectileAttackDealer cad = cpm.GetComponentInChildren<CurveProjectileAttackDealer>();
+            cad.SetDamage(damage);
         }
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }

@@ -1,11 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileAttackDealer : MonoBehaviour
+public class CurveProjectileAttackDealer : MonoBehaviour
 {
-    private List<UnitBase> targetList = new List<UnitBase>();
     private float damage;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +27,10 @@ public class ProjectileAttackDealer : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
-            targetList.Add(collision.gameObject.GetComponent<UnitBase>());
-            UnitBase target = targetList[0];
+            UnitBase target = collision.gameObject.GetComponent<UnitBase>();
             float damageToDeal = DealDamage(damage, target.GetDefense());
             target.TakeDamage(damageToDeal);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Node")
@@ -40,7 +38,7 @@ public class ProjectileAttackDealer : MonoBehaviour
             BattleNode target = collision.gameObject.GetComponent<BattleNode>();
             float damageToDeal = DealDamage(damage, 0);
             target.TakeDamage(damageToDeal);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

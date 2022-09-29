@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238611979316801749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: 0.754, z: 0}
+  m_LocalPosition: {x: 0.64, y: 0.961, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.1160274, y: 0.40705892}
+  m_Offset: {x: 2.6418202, y: 0.40705892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.826951, y: 0.7895455}
+  m_Size: {x: 5.8785367, y: 0.7895455}
   m_EdgeRadius: 0
 --- !u!114 &8410166371266870857
 MonoBehaviour:
@@ -237,7 +237,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: f285d274040e842478ed74cae19ba18c, type: 3}
   audioSource: {fileID: 4070709177499074123}
   parent: {fileID: 0}
-  projectile: {fileID: 2614429239907495362, guid: 67c2114689e4973439a60d38a90f624c, type: 3}
+  projectile: {fileID: 2756068747138202276, guid: 67c2114689e4973439a60d38a90f624c, type: 3}
   firePoint: {fileID: 535282952636994650}
 --- !u!61 &3793915811144278218
 BoxCollider2D:
