@@ -780,6 +780,10 @@ PrefabInstance:
       value: LvlNode0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbb759301744fa54a937c554033a59f6, type: 3}
+    - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -1322,6 +1326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LvlNode0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6f5152371eec18d46a34f7ea0ee78189, type: 3}
     - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2224,6 +2232,10 @@ PrefabInstance:
       value: LvlNode0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbb759301744fa54a937c554033a59f6, type: 3}
+    - target: {fileID: 5167693370427612766, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -2656,7 +2668,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[3]
-      value: Red means unlocked, black means locked
+      value: as indicated by the icons, with the padlock meaning the level is currently
+        locked
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[4]
