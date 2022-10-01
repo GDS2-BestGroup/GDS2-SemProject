@@ -33,7 +33,6 @@ public class LevelNode : MonoBehaviour
     [SerializeField] public bool isFinalLevel;
     [SerializeField] private LevelNode[] neighbours;
 
-
     [SerializeField] public EventManager em;
 
     // Start is called before the first frame update
