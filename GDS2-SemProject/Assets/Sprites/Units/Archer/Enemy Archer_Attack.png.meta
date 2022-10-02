@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: 8e90c1bab41e1964ba6ffd52c2d88eee
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Archer_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 52
+        width: 25
+        height: 39
+      alignment: 9
+      pivot: {x: 0.8648166, y: 0.012757717}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc15f28c7998c054a88e45f6de398abd
+      internalID: 665679527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 52
+        width: 31
+        height: 39
+      alignment: 9
+      pivot: {x: 0.85423326, y: 0.0118807275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e46e428e4a8f3342a9c7ca824085f73
+      internalID: 1896361138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 52
+        width: 26
+        height: 39
+      alignment: 9
+      pivot: {x: 0.7900766, y: 0.010397105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578db19a919bd014b83c0a7fe01a02d0
+      internalID: -628228759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 52
+        width: 40
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5367187, y: 0.017393613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b2a493cb507ed40b2e3833eab6d78b
+      internalID: -768393074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 52
+        width: 37
+        height: 38
+      alignment: 9
+      pivot: {x: 0.58296657, y: 0.013307271}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3747c4cf044ac468e50a8e4624874d
+      internalID: 34988731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 52
+        width: 28
+        height: 36
+      alignment: 9
+      pivot: {x: 0.84087265, y: 0.010520723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543feb8c3eb11b342ba984347de2781f
+      internalID: -1096845825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 52
+        width: 29
+        height: 39
+      alignment: 9
+      pivot: {x: 0.9102867, y: 0.015039199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5ae77e72398894a9519f87cfdbf8e2
+      internalID: -1281169785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Arrow
+      rect:
+        serializedVersion: 2
+        x: 2497
+        y: 73
+        width: 23
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12eb7e2b55d74a141ac0418342c27335
+      internalID: -457239359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 52
+        width: 25
+        height: 39
+      alignment: 9
+      pivot: {x: 0.8635864, y: 0.008780651}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fdc4a52cebe6394fa1330adec6da782
+      internalID: -1944711549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spr_ArcherAttack_strip_NoBkg_22: 683342212
+      Archer_Attack_05: 34988731
+      Archer_Attack_07: -1281169785
+      spr_ArcherAttack_strip_NoBkg_17: -1665930673
+      spr_ArcherAttack_strip_NoBkg_45: 889498294
+      spr_ArcherAttack_strip_NoBkg_47: 547405486
+      spr_ArcherAttack_strip_NoBkg_49: 407924414
+      spr_ArcherAttack_strip_NoBkg_48: 1998668227
+      spr_ArcherAttack_strip_NoBkg_10: 1246930816
+      spr_ArcherAttack_strip_NoBkg_33: -1592897886
+      spr_ArcherAttack_strip_NoBkg_42: 1485589875
+      spr_ArcherAttack_strip_NoBkg_52: -1779103214
+      Archer_Attack_03: -628228759
+      spr_ArcherAttack_strip_NoBkg_44: -1643685852
+      spr_ArcherAttack_strip_NoBkg_20: -1275412595
+      spr_ArcherAttack_strip_NoBkg_14: -429202699
+      spr_ArcherAttack_strip_NoBkg_28: 897532215
+      spr_ArcherAttack_strip_NoBkg_11: -354678743
+      Archer_Attack_02: 1896361138
+      spr_ArcherAttack_strip_NoBkg_51: 56247795
+      spr_ArcherAttack_strip_NoBkg_15: 655899836
+      spr_ArcherAttack_strip_NoBkg_9: 282063802
+      spr_ArcherAttack_strip_NoBkg_21: 510495322
+      spr_ArcherAttack_strip_NoBkg_3: -226712214
+      Archer_Attack_00: 665679527
+      spr_ArcherAttack_strip_NoBkg_27: -825544078
+      spr_ArcherAttack_strip_NoBkg_16: -666474616
+      spr_ArcherAttack_strip_NoBkg_53: -148778429
+      Archer_Arrow: -457239359
+      spr_ArcherAttack_strip_NoBkg_23: 1244802830
+      Archer_Attack_06: -1096845825
+      spr_ArcherAttack_strip_NoBkg_26: -255059656
+      spr_ArcherAttack_strip_NoBkg_1: 1185440848
+      spr_ArcherAttack_strip_NoBkg_30: 948303517
+      spr_ArcherAttack_strip_NoBkg_35: 77072856
+      spr_ArcherAttack_strip_NoBkg_2: 523354133
+      spr_ArcherAttack_strip_NoBkg_46: 582388680
+      spr_ArcherAttack_strip_NoBkg_40: 20742194
+      spr_ArcherAttack_strip_NoBkg_41: -1516224246
+      spr_ArcherAttack_strip_NoBkg_39: 1571975986
+      spr_ArcherAttack_strip_NoBkg_6: 1842085759
+      spr_ArcherAttack_strip_NoBkg_54: -413145312
+      spr_ArcherAttack_strip_NoBkg_31: -688422422
+      spr_ArcherAttack_strip_NoBkg_36: -840275315
+      spr_ArcherAttack_strip_NoBkg_37: 683367462
+      spr_ArcherAttack_strip_NoBkg_24: 695033364
+      spr_ArcherAttack_strip_NoBkg_29: -1124008232
+      Archer_Attack_01: -1944711549
+      spr_ArcherAttack_strip_NoBkg_38: 908788106
+      spr_ArcherAttack_strip_NoBkg_18: -1206766131
+      spr_ArcherAttack_strip_NoBkg_43: 825039255
+      spr_ArcherAttack_strip_NoBkg_34: -613371013
+      spr_ArcherAttack_strip_NoBkg_25: -448445727
+      spr_ArcherAttack_strip_NoBkg_12: -1234930293
+      Archer_Attack_04: -768393074
+      spr_ArcherAttack_strip_NoBkg_8: 377396544
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
