@@ -24,6 +24,10 @@ public class GameData : MonoBehaviour
     [SerializeField] private List<UnitBase> unitList;
     private int unitSequence = 0;
 
+    private bool additionalIncome = false;
+    private bool regionOneComplete = false;
+    private bool regionTwoComplete = false;
+
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -62,8 +66,7 @@ public class GameData : MonoBehaviour
             morale = 1000;
         }
 
-        RegionUnlock();
-        CheckFinalWin();
+        //CheckFinalWin();
         CheckMorale();
     }
 
@@ -110,9 +113,10 @@ public class GameData : MonoBehaviour
     public void WinBattle()
     {
         morale += 100;
-        baseIncome += 2;
+        baseIncome += 1;
         CheckMorale();
         CheckFinalWin();
+        RegionUnlock();
     }
 
     public int GetBaseIncome()
@@ -122,14 +126,20 @@ public class GameData : MonoBehaviour
 
     public void CheckMorale()
     {
-        if(morale <= 0)
+        if(morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
         {
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(morale > 800)
+        if(morale >= 800 && additionalIncome == false)
         {
-            baseIncome = 8;
+            additionalIncome = true;
+            baseIncome += 1;
+        }
+        else if(additionalIncome == true && morale < 800)
+        {
+            additionalIncome = false;
+            baseIncome -= 1;
         }
 
         if(morale > 1000)
@@ -138,48 +148,76 @@ public class GameData : MonoBehaviour
         }
     }
 
+    //private void CheckFinalWin()
+    //{
+    //    bool win = true;
+    //    foreach (bool i in lvlStatusRegionZero)
+    //    {
+    //        if (i)
+    //        {
+    //            win = false;
+    //        }
+    //    }
+    //    /*if (win)
+    //    {
+    //        overworldStatus[1] = true;
+    //    }*/
+  
+    //    if (win)
+    //    {
+    //        foreach (bool i in lvlStatusRegionOne)
+    //        {
+    //            if (i)
+    //            {
+    //                win = false;
+    //            }
+    //        }
+    //        /*if (win)
+    //        {
+    //            overworldStatus[2] = true;
+    //        }*/
+    //    }
+
+    //    if (win)
+    //    {
+    //        foreach (bool i in lvlStatusRegionTwo)
+    //        {
+    //            if (i)
+    //            {
+    //                win = false;
+    //            }
+    //        }
+    //    }
+
+    //    if (win)
+    //    {
+    //        SceneManager.LoadScene("WinScene");
+    //    }
+    //}
+
     private void CheckFinalWin()
     {
-        bool win = true;
-        foreach (bool i in lvlStatusRegionZero)
-        {
-            if (i)
-            {
-                win = false;
-            }
-        }
-        /*if (win)
-        {
-            overworldStatus[1] = true;
-        }*/
-  
-        if (win)
-        {
-            foreach (bool i in lvlStatusRegionOne)
-            {
-                if (i)
-                {
-                    win = false;
-                }
-            }
-            /*if (win)
-            {
-                overworldStatus[2] = true;
-            }*/
-        }
 
-        if (win)
+        foreach (LevelNode level in regionOneLvls)
         {
-            foreach (bool i in lvlStatusRegionTwo)
+            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
             {
-                if (i)
-                {
-                    win = false;
-                }
+                regionOneComplete = true;
             }
         }
 
-        if (win)
+
+        foreach (LevelNode level in regionTwoLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            {
+                regionTwoComplete = true;
+            }
+        }
+
+        Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
+
+        if (regionOneComplete && regionTwoComplete)
         {
             SceneManager.LoadScene("WinScene");
         }
@@ -197,6 +235,7 @@ public class GameData : MonoBehaviour
             if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
             {
                 overworldStatus[1] = true;
+                //overworldStatus[2] = true;
             }
         }
 

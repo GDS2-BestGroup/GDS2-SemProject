@@ -34,7 +34,7 @@ public class UnitSpawner : MonoBehaviour
             {
                 foreach(GameObject u in childUnits)
                 {
-                    Destroy(u);
+                    u.GetComponent<UnitBase>().DestroySelf();
                 }
                 childUnits.Clear();
                 DestroySequence();
@@ -48,7 +48,7 @@ public class UnitSpawner : MonoBehaviour
                 {
                     if (u)
                     {
-                        Destroy(u);
+                        u.GetComponent<UnitBase>().DestroySelf();
                     }
                 }
                 DestroySequence();

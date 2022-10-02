@@ -126,7 +126,13 @@ MonoBehaviour:
   nodeSprites:
   - {fileID: 21300000, guid: c27eddac2501b8c46938a6b53161f668, type: 3}
   - {fileID: 21300000, guid: 637824c103b85744e80dc55aa01ea5f2, type: 3}
+  - {fileID: 21300000, guid: bbb759301744fa54a937c554033a59f6, type: 3}
+  - {fileID: 21300000, guid: d1771da7116365c47ae5a8b4ae4eae58, type: 3}
+  - {fileID: 21300000, guid: f788b6058a9a74f4f8150815c61bb37f, type: 3}
+  - {fileID: 21300000, guid: e99b8e6dbf4b83947a0e1e5c28b1c977, type: 3}
   popup: 0
+  isFinalLevel: 0
+  neighbours: []
   em: {fileID: 0}
 --- !u!120 &1987507328413634004
 LineRenderer:
