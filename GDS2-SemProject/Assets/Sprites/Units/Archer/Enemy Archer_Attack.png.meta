@@ -303,9 +303,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      spr_ArcherAttack_strip_NoBkg_44: -1643685852
       spr_ArcherAttack_strip_NoBkg_22: 683342212
-      Archer_Attack_05: 34988731
-      Archer_Attack_07: -1281169785
+      spr_ArcherAttack_strip_NoBkg_8: 377396544
       spr_ArcherAttack_strip_NoBkg_17: -1665930673
       spr_ArcherAttack_strip_NoBkg_45: 889498294
       spr_ArcherAttack_strip_NoBkg_47: 547405486
@@ -314,9 +314,9 @@ TextureImporter:
       spr_ArcherAttack_strip_NoBkg_10: 1246930816
       spr_ArcherAttack_strip_NoBkg_33: -1592897886
       spr_ArcherAttack_strip_NoBkg_42: 1485589875
-      spr_ArcherAttack_strip_NoBkg_52: -1779103214
+      Archer_Attack_07: -1281169785
       Archer_Attack_03: -628228759
-      spr_ArcherAttack_strip_NoBkg_44: -1643685852
+      Archer_Attack_05: 34988731
       spr_ArcherAttack_strip_NoBkg_20: -1275412595
       spr_ArcherAttack_strip_NoBkg_14: -429202699
       spr_ArcherAttack_strip_NoBkg_28: 897532215
@@ -358,7 +358,7 @@ TextureImporter:
       spr_ArcherAttack_strip_NoBkg_25: -448445727
       spr_ArcherAttack_strip_NoBkg_12: -1234930293
       Archer_Attack_04: -768393074
-      spr_ArcherAttack_strip_NoBkg_8: 377396544
+      spr_ArcherAttack_strip_NoBkg_52: -1779103214
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

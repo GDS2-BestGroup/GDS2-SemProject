@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,8 +18,8 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private bool isEnemy;
     [SerializeField] private Sprite sprite;
     [SerializeField] private UnitSpawner spawner;
-    [SerializeField] private AudioClip deathSound;
-    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private List<AudioClip> deathSound = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> attackSound = new List<AudioClip>();
     [SerializeField] private AudioSource audioSource;
 
     private float angle;
@@ -193,12 +195,12 @@ public class UnitBase : MonoBehaviour
 
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(deathSound, 0.5f);
+        audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 
     public void PlayAttackSound()
     {
-        audioSource.PlayOneShot(attackSound, 0.5f);
+        audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 }
 

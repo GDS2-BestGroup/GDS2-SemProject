@@ -116,8 +116,14 @@ MonoBehaviour:
   isEnemy: 0
   sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
   spawner: {fileID: 0}
-  deathSound: {fileID: 8300000, guid: fdf22d5a4d5c77d4d92ba1cc140e5561, type: 3}
-  attackSound: {fileID: 8300000, guid: b795329507728044083ec4bbd4dc6bd7, type: 3}
+  deathSound:
+  - {fileID: 8300000, guid: fdf22d5a4d5c77d4d92ba1cc140e5561, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  attackSound:
+  - {fileID: 8300000, guid: b795329507728044083ec4bbd4dc6bd7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   audioSource: {fileID: 6395324030280584702}
   parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}
