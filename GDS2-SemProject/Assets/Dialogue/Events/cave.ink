@@ -6,7 +6,7 @@ INCLUDE globals.ink
 
 ~ morale = 0
 
-Your army arrives at a cave entrance which you know connects to the next settlement however none of your lieutenants are familiar with this particular cave system. #background:cave
+Your army arrives at a cave entrance which you know connects to the next settlement however none of your lieutenants are familiar with this particular cave system. #background:cave #speaker: 
 
 What do you do?
 + [Enter the cave system anyway (Morale - 150)]

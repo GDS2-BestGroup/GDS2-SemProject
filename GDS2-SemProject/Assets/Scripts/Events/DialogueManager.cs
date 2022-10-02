@@ -12,10 +12,12 @@ public class DialogueManager : MonoBehaviour
    
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject dialogueNameUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText; 
     [SerializeField] private Animator backgroundAnimator;
     [SerializeField] private Animator characterPortraitAnimator;
+    [SerializeField] private Animator dialogueAnimator;
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -69,10 +71,13 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkText)
     {
         currentStory = new Story(inkText.text);
-        dialogueUI.SetActive(true);
-
-        characterPortrait.SetActive(false);
+        
         background.SetActive(false);
+        characterPortrait.SetActive(false);
+        dialogueUI.SetActive(true);
+        dialogueAnimator.Play("appear");
+
+        // HandleTags(currentStory.currentTags);
 
         em.StartListening(currentStory);
 
@@ -102,18 +107,6 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        //Unlock Next Level if it exsits
-        /*if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
-        {
-            gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
-            foreach (LevelNode level in levels)
-            {
-                if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel + 1))
-                {
-                    level.LevelUnlock();
-                }
-            }
-        }*/
         if (currentlvl && currentlvl.GetNeighbours().Length > 0)
         {
             foreach(LevelNode level in currentlvl.GetNeighbours())
@@ -122,7 +115,6 @@ public class DialogueManager : MonoBehaviour
                 level.LevelUnlock();
             }
         }
-        // SceneManager.LoadScene(gd.previousLevel);
 
         em.StopListening(currentStory);
     }
@@ -226,7 +218,11 @@ public class DialogueManager : MonoBehaviour
             switch(tagKey)
             {
                 case SPEAKER_TAG:
-                    displayNameText.text = tagValue;
+                    if (tagValue != "")
+                    {
+                        dialogueNameUI.SetActive(true);
+                        displayNameText.text = tagValue;
+                    }
                     break;
                 case PORTRAIT_TAG:
                     characterPortrait.SetActive(true);
