@@ -235,6 +235,7 @@ public class UnitBase : MonoBehaviour
         health += 5 * upgradeFactor;
         damage += 5 * upgradeFactor;
         defense += 2 * upgradeFactor;
+    }
 
     public void PlayDeathSound()
     {

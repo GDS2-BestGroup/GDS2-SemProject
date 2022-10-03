@@ -288,6 +288,7 @@ public class GameData : MonoBehaviour
             DisableTut();
         }
 
+    }
     public bool CheckCost(int cost)
     {
         return cost <= gold;
