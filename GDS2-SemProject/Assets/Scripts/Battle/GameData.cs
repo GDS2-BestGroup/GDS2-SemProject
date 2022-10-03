@@ -275,6 +275,7 @@ public class GameData : MonoBehaviour
         if (disable)
         {
             Button disableBtn = disable.GetComponent<Button>();
+            Debug.Log("Button Found");
             disableBtn.onClick.RemoveAllListeners();
             disableBtn.onClick.AddListener(DisableTut);
         }

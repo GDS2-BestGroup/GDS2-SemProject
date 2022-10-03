@@ -13,6 +13,7 @@ public class PopupDisplay : MonoBehaviour
     [SerializeField] private int enableDisplay; //instruction number at which display should be enabled;
     [SerializeField] private bool resume;
     [SerializeField] private bool pause;
+    [SerializeField] private bool notLast;
     [SerializeField] private string[] instructions; //Text to display on popup
     private TMP_Text text; //Actual text element of popup
     private int count; //Keeps track of what instruction is currently being displayed
@@ -82,6 +83,10 @@ public class PopupDisplay : MonoBehaviour
             if (nextPopup)
             {
                 nextPopup.SetActive(true);
+            }
+            else if (!notLast)
+            {
+                this.transform.parent.gameObject.SetActive(false);
             }
         }
 

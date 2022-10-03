@@ -810,6 +810,7 @@ RectTransform:
   - {fileID: 863836019}
   - {fileID: 1363573608}
   - {fileID: 1796884134}
+  - {fileID: 1710899126}
   - {fileID: 1906163679}
   - {fileID: 333459221}
   - {fileID: 855921382}
@@ -1037,7 +1038,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199436476}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1436,7 +1437,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199436476}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1847,6 +1848,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: notLast
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: highlight
       value: 
       objectReference: {fileID: 0}
@@ -1872,7 +1877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[1]
-      value: This can be spent on spawning units
+      value: Once you feel prepared, click start to begin the battle
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[2]
@@ -2198,7 +2203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: resume
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: highlight
@@ -2207,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: nextPopup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1710899127}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: clickBlocker
       value: 
@@ -2435,6 +2440,201 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+--- !u!1001 &1710899125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 199436476}
+    m_Modifications:
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_text
+      value: During the battle, you can use this button to speed up time
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_margin.w
+      value: 63.30275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_margin.x
+      value: 121.94855
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_margin.y
+      value: 66.055046
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_margin.z
+      value: 105.19283
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Name
+      value: SpeedUpBtnPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 251.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 101.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 177
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -174.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: resume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: highlight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: nextPopup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: clickBlocker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: enableDisplay
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: During the battle, you can use this button to speed up time
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: Click here to cycle through x1 and x2 time
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: and will be replenished once a unit despawns
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Size.x
+      value: 344.76874
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Size.y
+      value: 107.20309
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Offset.x
+      value: 50.16977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.32902145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+--- !u!224 &1710899126 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1649908869125097009, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+  m_PrefabInstance: {fileID: 1710899125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1710899127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+  m_PrefabInstance: {fileID: 1710899125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1722853613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5067335900511141248, guid: a01b5dcb698b58b4b9310b948c702911, type: 3}
@@ -2507,7 +2707,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199436476}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
