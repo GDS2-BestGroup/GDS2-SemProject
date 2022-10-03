@@ -1,9 +1,14 @@
+
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
     [SerializeField] private string unitName; //Name of the Unit
+    [SerializeField] private int unitLevel; //Unit level
+
     [SerializeField] private float health; //Health point
     [SerializeField] private float damage; //Damage unit deal each hit
     [SerializeField] private float defense; //Damage resistance of the unit
@@ -11,11 +16,17 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float walkSpeed; //How fast unit move
     [SerializeField] private float spawnSpeed; //How fast unit spawn
     [SerializeField] private float spawnDuration; //How long the unit spawns for
+    private List<float> baseStats = new List<float>();
+    [Space(10)]
+
     [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
     [SerializeField] private Sprite sprite;
     [SerializeField] private UnitSpawner spawner;
+    [SerializeField] private List<AudioClip> deathSound = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> attackSound = new List<AudioClip>();
+    [SerializeField] private AudioSource audioSource;
 
     private float angle;
 
@@ -29,6 +40,9 @@ public class UnitBase : MonoBehaviour
     private GameController gc;
     private void Awake()
     {
+        baseStats.Add(health);
+        baseStats.Add(damage);
+        baseStats.Add(defense);
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
@@ -40,6 +54,11 @@ public class UnitBase : MonoBehaviour
         {
             //Debug.Log("Destination Reached");
             DestroySelf();
+        }
+
+        if (audioSource)
+        {
+            Debug.Log("as");
         }
     }
 
@@ -56,13 +75,11 @@ public class UnitBase : MonoBehaviour
             }
         }
 
-        else if (bullet.TryGetComponent(out AttackDealer ad))
+        else if (bullet.TryGetComponent(out CurveProjectileMovement cpm))
         {
-            ad.SetDamage(damage);
-            if (ad.TryGetComponent(out CurveProjectileMovement cpm))
-            {
-                cpm.setTarget(targetPosition);
-            }
+            cpm.setTarget(targetPosition);
+            CurveProjectileAttackDealer cad = cpm.GetComponentInChildren<CurveProjectileAttackDealer>();
+            cad.SetDamage(damage);
         }
         //bullet.GetComponent<ProjectileMovement>().SetVelocity(3);
 
@@ -192,6 +209,41 @@ public class UnitBase : MonoBehaviour
     public float GetDuration()
     {
         return spawnDuration;
+    }
+
+
+    public void LevelUp()
+    {
+        unitLevel += 1;
+        LevelCheck();
+    }
+
+    public void SetLevel(int i)
+    {
+        unitLevel = i;
+        LevelCheck();
+    }
+
+    public int GetLevel()
+    {
+        return unitLevel;
+    }
+
+    private void LevelCheck()
+    {
+        float upgradeFactor = unitLevel - 1;
+        health += 5 * upgradeFactor;
+        damage += 5 * upgradeFactor;
+        defense += 2 * upgradeFactor;
+
+    public void PlayDeathSound()
+    {
+        audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
+    }
+
+    public void PlayAttackSound()
+    {
+        audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 }
 

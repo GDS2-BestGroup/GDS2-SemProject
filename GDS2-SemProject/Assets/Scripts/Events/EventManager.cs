@@ -27,7 +27,9 @@ public class EventManager : MonoBehaviour
         Compile();
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         dm = GameObject.Find("Managers").GetComponent<DialogueManager>();
-        mc = GameObject.Find("MapCanvas").GetComponent<MapCanvas>();
+        mc = GameObject.Find("Map Canvas").GetComponent<MapCanvas>();
+
+        // StartEvent();
     }
 
     // Update is called once per frame
