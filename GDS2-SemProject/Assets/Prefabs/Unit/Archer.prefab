@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Archer
+  unitLevel: 1
   health: 75
   damage: 30
   defense: 10

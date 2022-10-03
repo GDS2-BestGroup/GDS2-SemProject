@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 6817084299161204913}
   - component: {fileID: 6817084299161204912}
   - component: {fileID: 6817084299161204919}
+  - component: {fileID: 4075771849965530027}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -441,6 +442,18 @@ MonoBehaviour:
   speedText: {fileID: 1363298909272594197}
   afterScreen: {fileID: 4696042676532028836}
   endingText: {fileID: 7966070041620712811}
+--- !u!114 &4075771849965530027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817084299161204918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5dd3f93e7b1014185ae27327d35399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7764778629035770572
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6817084299161204913}
     m_Modifications:
+    - target: {fileID: 56663915, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -567,19 +584,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 156.4341
+      value: 128.7823
       objectReference: {fileID: 0}
     - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 82.17
+      value: 58.708
       objectReference: {fileID: 0}
     - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -78.21701
+      value: -64.39114
       objectReference: {fileID: 0}
     - target: {fileID: 2055376487, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 41.08499
+      value: 29.353989
       objectReference: {fileID: 0}
     - target: {fileID: 2055376488, guid: c2fd932fd4030eb4ba5525a762ce3977, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

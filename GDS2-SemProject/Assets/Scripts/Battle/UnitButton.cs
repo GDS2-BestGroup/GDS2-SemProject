@@ -7,6 +7,7 @@ public class UnitButton : MonoBehaviour
 {
     [SerializeField] private Image img;
     [SerializeField] private Text cost;
+    [SerializeField] private Text level;
     [SerializeField] private UnitBase unit;
     private GameController gc;
     private KeyCode numb;
@@ -79,6 +80,7 @@ public class UnitButton : MonoBehaviour
         unit = i;
         gc = gg;
         cost.text = i.GetCost().ToString();
+        level.text = i.GetLevel().ToString();
         numb = keyCodes[num];
     }
 
