@@ -1467,6 +1467,7 @@ MonoBehaviour:
   lvlStatusRegionTwo: 0100000000000000
   morale: 0
   baseIncome: 8
+  disableTut: 0
   previousLevel: 
   currentLevel: 0
   currentRegion: 0
@@ -9276,18 +9277,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 843238383674547521, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 636572547}
-    - target: {fileID: 843238384037406265, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 636572547}
-    - target: {fileID: 843238384211763633, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4c2efd1bcee205c409956cad9bb95376, type: 3}
+    - target: {fileID: 1354633812, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.780029
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981234072, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981234072, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 843238384388874405, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
       propertyPath: m_Name
       value: Map Canvas
@@ -9380,25 +9381,5 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1191844736}
-    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: backgrounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 4c2efd1bcee205c409956cad9bb95376, type: 3}
-    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: backgrounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 7da12589ee7a8514891172fd6607c5b3, type: 3}
-    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: backgrounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 5ef24244a8e74164188a27b857717de3, type: 3}
-    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: backgrounds.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: d0be642fe10dbc644a4d53b6c745c642, type: 3}
-    - target: {fileID: 843238385134578988, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 636572547}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
