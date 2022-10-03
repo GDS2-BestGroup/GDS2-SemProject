@@ -34,7 +34,10 @@ public class UnitSpawner : MonoBehaviour
             {
                 foreach(GameObject u in childUnits)
                 {
-                    u.GetComponent<UnitBase>().DestroySelf();
+                    if (u)
+                    {
+                        u.GetComponent<UnitBase>().DestroySelf();
+                    }
                 }
                 childUnits.Clear();
                 DestroySequence();

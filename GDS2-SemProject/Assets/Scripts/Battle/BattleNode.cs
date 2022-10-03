@@ -19,6 +19,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private bool isBoss;
 
     [SerializeField] private List<UnitBase> enemyUnits;
+    public int enemyLevel;
     [SerializeField] private List<UnitBase> summonedUnits;
 
     [SerializeField] private UnitSpawner uSpawn;
@@ -56,6 +57,10 @@ public class BattleNode : MonoBehaviour
         }
 
         gc = GameObject.Find("GameController").GetComponent<GameController>();
+        foreach(UnitBase ub in enemyUnits)
+        {
+            ub.SetLevel(enemyLevel);
+        }
     }
 
     private void Start()
