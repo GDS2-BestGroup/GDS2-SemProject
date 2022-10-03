@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameData : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameData : MonoBehaviour
     public bool[] lvlStatusRegionTwo = { true, false, false, false, false, false, false, false };
     public int morale;
     [SerializeField] private int baseIncome = 7;
+    [SerializeField] private bool disableTut = false;
 
     public string previousLevel;
     public int currentLevel;
@@ -130,23 +132,23 @@ public class GameData : MonoBehaviour
 
     public void CheckMorale()
     {
-        if(morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
+        if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
         {
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(morale >= 800 && additionalIncome == false)
+        if (morale >= 800 && additionalIncome == false)
         {
             additionalIncome = true;
             baseIncome += 1;
         }
-        else if(additionalIncome == true && morale < 800)
+        else if (additionalIncome == true && morale < 800)
         {
             additionalIncome = false;
             baseIncome -= 1;
         }
 
-        if(morale > 1000)
+        if (morale > 1000)
         {
             morale = 1000;
         }
@@ -166,7 +168,7 @@ public class GameData : MonoBehaviour
     //    {
     //        overworldStatus[1] = true;
     //    }*/
-  
+
     //    if (win)
     //    {
     //        foreach (bool i in lvlStatusRegionOne)
@@ -234,7 +236,7 @@ public class GameData : MonoBehaviour
 
     public void RegionUnlock()
     {
-        foreach(LevelNode level in regionZeroLvls)
+        foreach (LevelNode level in regionZeroLvls)
         {
             if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
             {
@@ -260,6 +262,31 @@ public class GameData : MonoBehaviour
             unitList.Add(fullUnitList[unitSequence]);
         }
     }
+
+    public void DisableTut()
+    {
+        GameObject[] tutCanvas = GameObject.FindGameObjectsWithTag("Panel");
+        foreach (GameObject t in tutCanvas)
+        {
+            t.SetActive(false);
+        }
+        disableTut = true;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        GameObject disable = GameObject.Find("DisableTutBtn");
+        if (disable)
+        {
+            Button disableBtn = disable.GetComponent<Button>();
+            Debug.Log("Button Found");
+            disableBtn.onClick.RemoveAllListeners();
+            disableBtn.onClick.AddListener(DisableTut);
+        }
+        if (disableTut)
+        {
+            DisableTut();
+        }
 
     public bool CheckCost(int cost)
     {

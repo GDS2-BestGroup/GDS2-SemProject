@@ -124,11 +124,11 @@ MonoBehaviour:
   levelNum: 0
   gameData: {fileID: 0}
   nodeSprites:
-  - {fileID: 21300000, guid: c27eddac2501b8c46938a6b53161f668, type: 3}
-  - {fileID: 21300000, guid: 637824c103b85744e80dc55aa01ea5f2, type: 3}
+  - {fileID: 21300000, guid: 6f5152371eec18d46a34f7ea0ee78189, type: 3}
+  - {fileID: 21300000, guid: 66a3c1eb169edf0418d6a39b05782337, type: 3}
   - {fileID: 21300000, guid: bbb759301744fa54a937c554033a59f6, type: 3}
   - {fileID: 21300000, guid: d1771da7116365c47ae5a8b4ae4eae58, type: 3}
-  - {fileID: 21300000, guid: f788b6058a9a74f4f8150815c61bb37f, type: 3}
+  - {fileID: 21300000, guid: 85d5154ddb6c8a54d8381f36c96ff373, type: 3}
   - {fileID: 21300000, guid: e99b8e6dbf4b83947a0e1e5c28b1c977, type: 3}
   popup: 0
   isFinalLevel: 0

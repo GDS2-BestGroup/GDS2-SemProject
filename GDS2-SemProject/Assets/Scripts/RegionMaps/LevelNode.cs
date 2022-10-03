@@ -33,7 +33,6 @@ public class LevelNode : MonoBehaviour
     [SerializeField] public bool isFinalLevel;
     [SerializeField] private LevelNode[] neighbours;
 
-
     [SerializeField] public EventManager em;
 
     // Start is called before the first frame update
@@ -191,7 +190,17 @@ public class LevelNode : MonoBehaviour
     public void LevelLock()
     {
         Debug.Log("Level " + levelNum + " Locked");
-        sprite.color = Color.black;
+        if (!unlocked)
+        {
+            if (level == LevelType.Battle)
+            {
+                sprite.sprite = nodeSprites[5];
+            }
+            else
+            {
+                sprite.sprite = nodeSprites[4];
+            }
+        }
         unlocked = false;
     }
 
