@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Shield Bearer
+  unitLevel: 1
   health: 200
   damage: 30
   defense: 25

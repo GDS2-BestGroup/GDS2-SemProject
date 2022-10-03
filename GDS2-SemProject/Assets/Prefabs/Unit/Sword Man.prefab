@@ -263,9 +263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Sword Man
-  health: 100
-  damage: 35
-  defense: 15
+  unitLevel: 1
+  health: 115
+  damage: 50
+  defense: 21
   attackSpeed: 2
   walkSpeed: 0.75
   spawnSpeed: 3

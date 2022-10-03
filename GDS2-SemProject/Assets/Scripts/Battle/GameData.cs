@@ -28,6 +28,10 @@ public class GameData : MonoBehaviour
     private bool regionOneComplete = false;
     private bool regionTwoComplete = false;
 
+    [SerializeField] private int gold;
+
+    private int unitLevels = 1;
+
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -255,5 +259,25 @@ public class GameData : MonoBehaviour
         {
             unitList.Add(fullUnitList[unitSequence]);
         }
+    }
+
+    public bool CheckCost(int cost)
+    {
+        return cost <= gold;
+    }
+
+    public void UseGold(int cost)
+    {
+        gold -= cost;
+    }
+
+    public int GetUnitLevels()
+    {
+        return unitLevels;
+    }
+
+    public void UnitLevelUp()
+    {
+        unitLevels += 1;
     }
 }
