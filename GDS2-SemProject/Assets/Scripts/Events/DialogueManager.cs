@@ -97,6 +97,7 @@ public class DialogueManager : MonoBehaviour
         characterPortrait.SetActive(false);
         background.SetActive(false);
         Debug.Log(gd.currentLevel);
+        
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
         Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
@@ -144,6 +145,7 @@ public class DialogueManager : MonoBehaviour
 
         else
         {
+            // backgroundAnimator.SetTrigger("end_dialogue");
             ExitDialogueMode();
         }
     }
