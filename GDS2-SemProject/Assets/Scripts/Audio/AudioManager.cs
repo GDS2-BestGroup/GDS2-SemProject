@@ -28,12 +28,6 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    /*public void ChangeMusic ()
-    {
-        audio.clip = overworldClip;
-        audio.Play();
-    }*/
-
     private void OnLevelWasLoaded(int level)
     {
         if (level == 0 || level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7)

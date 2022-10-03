@@ -26,6 +26,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Layout UI")]
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject background;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private List<AudioClip> writingSFX;
     
     public Story currentStory;
     private static DialogueManager instance;
@@ -187,6 +191,9 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DisplayLine (string line)
     {
+        audio.clip = writingSFX[Random.Range(0, writingSFX.Count)];
+        audio.Play();
+
         dialogueText.text = "";
 
         canContinueToNextLine = false;
@@ -204,6 +211,8 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         canContinueToNextLine = true;
+
+        audio.Stop();
     }
 
     private void HandleTags(List<string> currentTags)
