@@ -1,5 +1,6 @@
-using System.Collections;
+
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,9 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private bool isEnemy;
     [SerializeField] private Sprite sprite;
     [SerializeField] private UnitSpawner spawner;
+    [SerializeField] private List<AudioClip> deathSound = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> attackSound = new List<AudioClip>();
+    [SerializeField] private AudioSource audioSource;
 
     private float angle;
 
@@ -51,6 +55,11 @@ public class UnitBase : MonoBehaviour
             //Debug.Log("Destination Reached");
             DestroySelf();
         }
+
+        if (audioSource)
+        {
+            Debug.Log("as");
+        }
     }
 
     public void SpawnProjectile()
@@ -66,13 +75,11 @@ public class UnitBase : MonoBehaviour
             }
         }
 
-        else if (bullet.TryGetComponent(out AttackDealer ad))
+        else if (bullet.TryGetComponent(out CurveProjectileMovement cpm))
         {
-            ad.SetDamage(damage);
-            if (ad.TryGetComponent(out CurveProjectileMovement cpm))
-            {
-                cpm.setTarget(targetPosition);
-            }
+            cpm.setTarget(targetPosition);
+            CurveProjectileAttackDealer cad = cpm.GetComponentInChildren<CurveProjectileAttackDealer>();
+            cad.SetDamage(damage);
         }
         //bullet.GetComponent<ProjectileMovement>().SetVelocity(3);
 
@@ -204,6 +211,7 @@ public class UnitBase : MonoBehaviour
         return spawnDuration;
     }
 
+
     public void LevelUp()
     {
         unitLevel += 1;
@@ -227,6 +235,15 @@ public class UnitBase : MonoBehaviour
         health += 5 * upgradeFactor;
         damage += 5 * upgradeFactor;
         defense += 2 * upgradeFactor;
+
+    public void PlayDeathSound()
+    {
+        audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
+    }
+
+    public void PlayAttackSound()
+    {
+        audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 }
 

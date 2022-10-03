@@ -1,40 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CurveProjectileMovement : MonoBehaviour
 {
-    [SerializeField] float velocity;
-    private float lifeTime;
-    private Transform destination;
+    private Vector3 startPos;
+    [SerializeField] private Transform dest;
+    private float tick = 0;
+    [SerializeField] private float timeToDest = 3;
+    public float Percent => tick / timeToDest;
+
+    [SerializeField] private Transform child;
+    [SerializeField] private float height = 2;
     // Start is called before the first frame update
     void Start()
     {
-        lifeTime = 30;
+        startPos = transform.position;
+        transform.right = dest.position - startPos;
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        float add = tick + Time.deltaTime;
+        tick += add > timeToDest ? 0 : Time.deltaTime;
         Move();
-
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0)
-        {
-            Destroy(gameObject);
-        }
 
     }
     public void Move()
     {
-        float speed = velocity * Time.deltaTime;
-        Vector3 offSet = new Vector3(0, 0.17f, 0);
-        Vector3 relativePos = destination.position - transform.position;
-
-        if (destination)
+        if (dest)
         {
-            transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
-            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector2.up);
-            transform.rotation = rotation;
+            Vector2 newPos = Vector2.Lerp(startPos, dest.position, Percent);
+            transform.position = newPos;
+
+            Vector2 localPos = new()
+            {
+                y = height * Mathf.Sin(Mathf.Deg2Rad * Percent * 180)
+            };
+            child.localPosition = localPos;
+
         }
 
         else
@@ -44,8 +47,9 @@ public class CurveProjectileMovement : MonoBehaviour
         }
 
     }
+
     public void setTarget(Transform end)
     {
-        destination = end;
+        dest = end;
     }
 }
