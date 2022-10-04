@@ -10,6 +10,7 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
     public LevelNode[] neighbours;
+    public bool paused;
     [SerializeField] public bool[] overworldStatus = { true, false, false };
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false, false, false, false, false, false, false };
@@ -49,6 +50,7 @@ public class GameData : MonoBehaviour
     void Start()
     {
         morale = 600;
+        paused = false;
     }
 
     // Update is called once per frame
