@@ -7835,7 +7835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[0]
-      value: Click this island to enter your first Region Map
+      value: Click this small island to the right to enter your first Region Map
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Size.x
@@ -10786,10 +10786,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1354633812, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -12.780029
-      objectReference: {fileID: 0}
+    - target: {fileID: 78743304, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1726286768}
     - target: {fileID: 1981234072, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

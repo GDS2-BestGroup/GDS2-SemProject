@@ -157,53 +157,6 @@ public class GameData : MonoBehaviour
         }
     }
 
-    //private void CheckFinalWin()
-    //{
-    //    bool win = true;
-    //    foreach (bool i in lvlStatusRegionZero)
-    //    {
-    //        if (i)
-    //        {
-    //            win = false;
-    //        }
-    //    }
-    //    /*if (win)
-    //    {
-    //        overworldStatus[1] = true;
-    //    }*/
-
-    //    if (win)
-    //    {
-    //        foreach (bool i in lvlStatusRegionOne)
-    //        {
-    //            if (i)
-    //            {
-    //                win = false;
-    //            }
-    //        }
-    //        /*if (win)
-    //        {
-    //            overworldStatus[2] = true;
-    //        }*/
-    //    }
-
-    //    if (win)
-    //    {
-    //        foreach (bool i in lvlStatusRegionTwo)
-    //        {
-    //            if (i)
-    //            {
-    //                win = false;
-    //            }
-    //        }
-    //    }
-
-    //    if (win)
-    //    {
-    //        SceneManager.LoadScene("WinScene");
-    //    }
-    //}
-
     private void CheckFinalWin()
     {
 
@@ -269,13 +222,15 @@ public class GameData : MonoBehaviour
     public void DisableTut()
     {
         GameObject[] tutCanvas = GameObject.FindGameObjectsWithTag("Panel");
-        foreach (GameObject t in tutCanvas)
+        if (tutCanvas != null)
         {
-            t.SetActive(false);
+            foreach (GameObject t in tutCanvas)
+            {
+                t.SetActive(false);
+            }
+            disableTut = true;
+            disableBtn.interactable = false;
         }
-        disableTut = true;
-        disableBtn.interactable = false;
-
     }
 
     private void OnLevelWasLoaded(int level)
