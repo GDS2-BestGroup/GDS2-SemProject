@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559798, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559798, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: m_TagString
@@ -251,11 +251,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: damage
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: health
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+      propertyPath: counter
+      value: Armored Knight
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: walkSpeed
@@ -272,6 +276,18 @@ PrefabInstance:
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: destination.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+      propertyPath: damageAdditionPercent
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545635355323325858, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9327212
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545635355323325858, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.26504
       objectReference: {fileID: 0}
     - target: {fileID: 7302374718604027180, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: m_Layer
@@ -412,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1202862274496857703, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.25
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 1202862274496857703, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
       propertyPath: m_LocalPosition.y
@@ -458,14 +474,42 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4919128211249109364, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: m_Size.x
+      value: 0.26275507
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919128211249109364, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0172631
+      objectReference: {fileID: 0}
     - target: {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: health
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: counter
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: walkSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986858803511197398, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
       propertyPath: destination
       value: 
       objectReference: {fileID: 840371054}
+    - target: {fileID: 6903062277560627590, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: m_Size.x
+      value: 0.1774337
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903062277560627590, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01824604
+      objectReference: {fileID: 0}
     - target: {fileID: 8249229788597187058, guid: 0af63efcab9bb4948bab7ed602cc0068, type: 3}
       propertyPath: m_Name
       value: Armored Knight
@@ -564,63 +608,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1374238877865597274
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778598255015941101, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919578346322633848, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
-      propertyPath: m_Name
-      value: Armored Knight (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
 --- !u!1001 &1909466141187507333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1046,6 +1033,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
+      propertyPath: counter
+      value: Armored Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: attackSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -1053,6 +1048,10 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 374964005}
+    - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
+      propertyPath: damageAdditionPercent
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574698, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1107,7 +1106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574702, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574702, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: m_TagString
