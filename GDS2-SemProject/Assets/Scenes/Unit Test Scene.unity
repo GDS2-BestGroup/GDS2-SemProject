@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: walkSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
       propertyPath: destination
@@ -1038,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: counter
-      value: Armored Knight
+      value: Wolf
       objectReference: {fileID: 0}
     - target: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
       propertyPath: attackSpeed

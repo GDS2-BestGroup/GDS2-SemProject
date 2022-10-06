@@ -142,6 +142,8 @@ MonoBehaviour:
   walkSpeed: 1
   spawnSpeed: 1
   spawnDuration: 0
+  counter: Armored Knight
+  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 3
   isEnemy: 0
