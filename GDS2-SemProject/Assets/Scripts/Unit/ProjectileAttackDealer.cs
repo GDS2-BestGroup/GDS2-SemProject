@@ -28,8 +28,6 @@ public class ProjectileAttackDealer : MonoBehaviour
             return;
         }
 
-        Debug.Log(collision.gameObject.tag);
-
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());

@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class UnitButton : MonoBehaviour
 {
-    [SerializeField] private Image img;
+    [SerializeField] private Text text;
     [SerializeField] private Text cost;
-    [SerializeField] private Text level;
     [SerializeField] private UnitBase unit;
     private GameController gc;
     private KeyCode numb;
@@ -76,11 +75,10 @@ public class UnitButton : MonoBehaviour
 
     public void Setup(UnitBase i, GameController gg, int num)
     {
-        img.sprite = i.GetSprite();
+        text.text = i.name;
         unit = i;
         gc = gg;
         cost.text = i.GetCost().ToString();
-        level.text = i.GetLevel().ToString();
         numb = keyCodes[num];
     }
 

@@ -19,18 +19,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text incomeText;
     [SerializeField] private Text speedText;
 
-    [SerializeField] private Canvas afterScreen;
-    [SerializeField] private Text endingText;
-
     private float timeSpeed = 0;
-
-    private int unitLevels;
 
     private void Awake()
     {
+        
+    }
+
+    void Start()
+    {
+        Time.timeScale = 0;
         currIncome = gameIncome;
-        if (GameObject.Find("Managers").GetComponent<GameData>())
-        {
+        if (GameObject.Find("Managers").GetComponent<GameData>()) {
             gd = GameObject.Find("Managers").GetComponent<GameData>();
         }
         if (gd)
@@ -39,16 +39,7 @@ public class GameController : MonoBehaviour
             unitList = gd.GetUnitList();
         }
         currIncome = gameIncome;
-        Time.timeScale = 0;
-    }
-
-    void Start()
-    {
-        unitLevels = gd.GetUnitLevels();
-        foreach(UnitBase ub in unitList)
-        {
-            ub.SetLevel(unitLevels);
-        }
+        
     }
 
     // Update is called once per frame
@@ -119,39 +110,17 @@ public class GameController : MonoBehaviour
             {
                 gd.WinBattle();
                 gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
-                /*if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
+                if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
                 {
                     gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
-                }*/
-               //LevelNode currentlvl = gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1];
-               // Debug.Log("Neighbours length of level " + currentlvl.name + " is " + currentlvl.GetNeighbours().Length);
-                if (gd.neighbours.Length > 0)
-                {
-                    //foreach (bool status in gd.GetLevelCompletion(gd.currentRegion))
-                    //{
-                    //    if 
-                    //}
-                    //Debug.Log("Found level " + currentlvl.name);
-                    foreach (LevelNode level in gd.neighbours)
-                    {
-                        gd.GetLevelCompletion(gd.currentRegion)[(int)level.levelNum-1] = true;
-                        //Debug.Log("Unlocked level " + level.name);
-                    }
                 }
-                endingText.text = "Victory!";
             }
             else
             {
                 gd.LoseBattle();
-                endingText.text = "Defeat...";
             }
-            afterScreen.gameObject.SetActive(true);
+            SceneManager.LoadScene(gd.previousLevel);
         }
-    }
-
-    public void ToOverworld()
-    {
-        SceneManager.LoadScene(gd.previousLevel);
     }
 
     public void ChangeSpeed()
@@ -173,10 +142,5 @@ public class GameController : MonoBehaviour
     public float GetTime()
     {
         return timeSpeed;
-    }
-
-    public void UnlockNextUnit()
-    {
-        gd.UnlockNextUnit();
     }
 }

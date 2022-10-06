@@ -19,7 +19,6 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private bool isBoss;
 
     [SerializeField] private List<UnitBase> enemyUnits;
-    public int enemyLevel;
     [SerializeField] private List<UnitBase> summonedUnits;
 
     [SerializeField] private UnitSpawner uSpawn;
@@ -29,6 +28,8 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private GameObject path;
     [SerializeField] private List<GameObject> pathList;
+
+
 
     [SerializeField] private GameController gc;
 
@@ -42,10 +43,6 @@ public class BattleNode : MonoBehaviour
 
     [SerializeField] private GameObject unitDisplay;
 
-    [SerializeField] private Sprite AbossSprite;
-    [SerializeField] private Sprite EbossSprite;
-
-    [SerializeField] private AudioSource captureSound;
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -57,25 +54,10 @@ public class BattleNode : MonoBehaviour
         }
 
         gc = GameObject.Find("GameController").GetComponent<GameController>();
-        foreach(UnitBase ub in enemyUnits)
-        {
-            ub.SetLevel(enemyLevel);
-        }
     }
 
     private void Start()
     {
-        if (isBoss)
-        {
-            if (isEnemy)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = EbossSprite;
-            }
-            else
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = AbossSprite;
-            }
-        }
         if (isEnemy)
         {
             EnemySummonUnits();
@@ -166,12 +148,6 @@ public class BattleNode : MonoBehaviour
             UpdateHealth();
         }
     }
-
-    private void PlayCaptureSound()
-    {
-        captureSound.Play();
-    }
-
     private void CastleCapture()
     {
         //Capture the castle and reset its hp
@@ -179,9 +155,6 @@ public class BattleNode : MonoBehaviour
         {
             gc.EndGame(isEnemy);
         }
-
-        PlayCaptureSound();
-
 
         if (!capturedBefore)
         {
@@ -291,15 +264,7 @@ public class BattleNode : MonoBehaviour
 
     private void EnemySummonUnits()
     {
-        //StopAllCoroutines();
-
-        foreach(Transform tt in transform)
-        {
-            if (tt.gameObject.GetComponent<UnitSpawner>())
-            {
-                Destroy(tt.gameObject);
-            }
-        }
+        StopAllCoroutines();
 
         if (!isNeutral)
         {
@@ -312,14 +277,23 @@ public class BattleNode : MonoBehaviour
                 }
             }
 
+            float sps = 0f;
             foreach (BattleNode i in neighbourNodes)
             {
                 if (!i.IsEnemy())
                 {
-                 foreach (UnitBase e in enemyUnits)
+                    if (isBoss)
+                    {
+                        sps = 0.95f;
+                    }
+                    else
+                    {
+                        sps = splitCount;
+                    }
+                    foreach (UnitBase e in enemyUnits)
                     {
                         UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
-                        us.Setup(0, e, e.GetSpawnSpeed() * splitCount, i, this, true);
+                        us.Setup(0, e, e.GetSpawnSpeed() * sps, i, this, true);
                         //Debug.Log("S " + this.name);
                         //StartCoroutine(EnemySummonUnit(e, i.transform));
                     }
