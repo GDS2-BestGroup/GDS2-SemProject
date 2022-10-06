@@ -11,7 +11,7 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private BattleNode parent;
     [SerializeField] private float spawnTimer = 1;
     [SerializeField] private float spawnDuration = 1;
-    [SerializeField] private bool isEnemy = false;
+    [SerializeField] private bool isEnemy = true;
     private float spawnSpeed;
 
     [SerializeField] private List<GameObject> childUnits;
@@ -34,10 +34,7 @@ public class UnitSpawner : MonoBehaviour
             {
                 foreach(GameObject u in childUnits)
                 {
-                    if (u)
-                    {
-                        u.GetComponent<UnitBase>().DestroySelf();
-                    }
+                    Destroy(u);
                 }
                 childUnits.Clear();
                 DestroySequence();
@@ -51,7 +48,7 @@ public class UnitSpawner : MonoBehaviour
                 {
                     if (u)
                     {
-                        u.GetComponent<UnitBase>().DestroySelf();
+                        Destroy(u);
                     }
                 }
                 DestroySequence();
@@ -60,8 +57,8 @@ public class UnitSpawner : MonoBehaviour
         
         if (spawnTimer <= 0)
         {
-            spawnTimer = spawnSpeed;
             unit.SpawnUnit(parent, destination.transform, isEnemy, this);
+            spawnTimer = spawnSpeed;
         }
 
         spawnDuration -= Time.deltaTime;

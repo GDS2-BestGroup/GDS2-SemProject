@@ -1,3 +1,2 @@
-VAR morale = 0
+VAR morale = 800
 VAR gold = 0
-VAR swordsmanAtt = 5

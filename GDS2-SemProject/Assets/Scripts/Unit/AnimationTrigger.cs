@@ -58,7 +58,7 @@ public class AnimationTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Node")
         {
             if (collision.gameObject.GetComponent<BattleNode>().IsEnemy() != unitStats.IsEnemy()) {
-                //Debug.Log(unitStats.name);
+                Debug.Log(unitStats.name);
                 //collision.gameObject.GetComponent<BattleNode>().TakeDamage(unitStats.GetDamage());
                 trigger = true;
             }

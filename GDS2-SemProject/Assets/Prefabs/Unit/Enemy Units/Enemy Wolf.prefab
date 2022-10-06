@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Wolf
-  unitLevel: 1
   health: 30
   damage: 1
   defense: 10

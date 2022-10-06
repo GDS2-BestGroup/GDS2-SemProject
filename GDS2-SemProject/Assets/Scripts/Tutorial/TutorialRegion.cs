@@ -18,8 +18,7 @@ public class TutorialRegion : MonoBehaviour
         }
         else
         {
-            popup.GetComponent<PopupDisplay>().DisableBlocker();
-            popup.transform.parent.gameObject.SetActive(false);
+            popup.SetActive(false);
             lvlOne.popup = false;
         }
     }
