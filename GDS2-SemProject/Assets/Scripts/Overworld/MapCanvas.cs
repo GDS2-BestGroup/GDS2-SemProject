@@ -13,6 +13,7 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private TMP_Text moraleTxt;
     [SerializeField] private Button backBtn;
+    [SerializeField] private Slider moraleSlider;
     private GameData gd;
     private void Awake()
     {
@@ -31,7 +32,8 @@ public class MapCanvas : MonoBehaviour
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         canvas = this.GetComponent<Canvas>();
         EnableCanvas();
-        moraleTxt.text = "Morale: " + gd.morale;
+        moraleTxt.text = gd.morale + "/1000";
+        moraleSlider.value = gd.morale;
         //backgroundImg = GameObject.Find("Background").GetComponent<Image>();
         //text = GameObject.Find("Title").GetComponent<TMP_Text>();
         //moraleTxt = GameObject.Find("MoraleCounter").GetComponent<TMP_Text>();
@@ -49,7 +51,7 @@ public class MapCanvas : MonoBehaviour
         //Regions start from int 1
         Debug.Log("This is level " + level);
         canvas.worldCamera = Camera.main;
-        if (moraleTxt)
+        if (moraleTxt != null && gd != null)
         {
             moraleTxt.text = "Morale: " + gd.morale;
         }
@@ -122,6 +124,20 @@ public class MapCanvas : MonoBehaviour
         else
         {
             SceneManager.LoadScene("Overworld");
+        }
+    }
+
+    public void UpdateMorale()
+    {
+        if(gd.morale > 1000)
+        {
+            moraleTxt.text = 1000 + "/1000";
+            moraleSlider.value = 1000;
+        }
+        else 
+        {
+            moraleTxt.text = gd.morale + "/1000";
+            moraleSlider.value = gd.morale;
         }
     }
 }

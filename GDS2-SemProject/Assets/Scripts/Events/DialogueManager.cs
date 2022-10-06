@@ -12,10 +12,12 @@ public class DialogueManager : MonoBehaviour
    
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject dialogueNameUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText; 
     [SerializeField] private Animator backgroundAnimator;
     [SerializeField] private Animator characterPortraitAnimator;
+    [SerializeField] private Animator dialogueAnimator;
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -24,8 +26,12 @@ public class DialogueManager : MonoBehaviour
     [Header("Layout UI")]
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject background;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private List<AudioClip> writingSFX;
     
-    private Story currentStory;
+    public Story currentStory;
     private static DialogueManager instance;
     private GameData gd;
 
@@ -57,10 +63,10 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canContinueToNextLine && Input.GetMouseButtonUp(0))
+        if (canContinueToNextLine && Input.GetMouseButtonDown(0))
         {
             ContinueStory();
-        } else if (displayLineCoroutine != null && Input.GetMouseButtonUp(0))
+        } else if (displayLineCoroutine != null && Input.GetMouseButtonDown(0))
         {
             completeLine = true;
         }
@@ -69,10 +75,13 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkText)
     {
         currentStory = new Story(inkText.text);
-        dialogueUI.SetActive(true);
-
-        characterPortrait.SetActive(false);
+        
         background.SetActive(false);
+        characterPortrait.SetActive(false);
+        dialogueUI.SetActive(true);
+        dialogueAnimator.Play("appear");
+
+        // HandleTags(currentStory.currentTags);
 
         em.StartListening(currentStory);
 
@@ -88,32 +97,29 @@ public class DialogueManager : MonoBehaviour
         characterPortrait.SetActive(false);
         background.SetActive(false);
         Debug.Log(gd.currentLevel);
+        
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
         Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
-
+        LevelNode currentlvl = null;
         LevelNode[] levels = gd.GetLevels(gd.currentRegion); 
         foreach (LevelNode level in levels)
         {
             if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel))
             {
                 level.LevelLock();
+                currentlvl = level;
             }
         }
 
-        //Unlock Next Level if it exsits
-        if (gd.currentLevel <= gd.GetLevelCompletion(gd.currentRegion).Length -1)
+        if (currentlvl && currentlvl.GetNeighbours().Length > 0)
         {
-            gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel] = true;
-            foreach (LevelNode level in levels)
+            foreach(LevelNode level in currentlvl.GetNeighbours())
             {
-                if (level.name == "LvlNode" + gd.currentRegion + "." + (gd.currentLevel + 1))
-                {
-                    level.LevelUnlock();
-                }
+                gd.GetLevelCompletion(gd.currentRegion)[(int)level.levelNum - 1] = true;
+                level.LevelUnlock();
             }
         }
-        // SceneManager.LoadScene(gd.previousLevel);
 
         em.StopListening(currentStory);
     }
@@ -139,6 +145,7 @@ public class DialogueManager : MonoBehaviour
 
         else
         {
+            // backgroundAnimator.SetTrigger("end_dialogue");
             ExitDialogueMode();
         }
     }
@@ -186,6 +193,9 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DisplayLine (string line)
     {
+        audio.clip = writingSFX[Random.Range(0, writingSFX.Count)];
+        audio.Play();
+
         dialogueText.text = "";
 
         canContinueToNextLine = false;
@@ -194,7 +204,6 @@ public class DialogueManager : MonoBehaviour
         {
             if (completeLine)
             {
-                Debug.Log("Completed line?");
                 dialogueText.text = line;
                 completeLine = false;
                 break;
@@ -204,6 +213,8 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         canContinueToNextLine = true;
+
+        audio.Stop();
     }
 
     private void HandleTags(List<string> currentTags)
@@ -218,7 +229,11 @@ public class DialogueManager : MonoBehaviour
             switch(tagKey)
             {
                 case SPEAKER_TAG:
-                    displayNameText.text = tagValue;
+                    if (tagValue != "")
+                    {
+                        dialogueNameUI.SetActive(true);
+                        displayNameText.text = tagValue;
+                    }
                     break;
                 case PORTRAIT_TAG:
                     characterPortrait.SetActive(true);

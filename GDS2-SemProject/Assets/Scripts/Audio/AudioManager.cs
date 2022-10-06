@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip overworldClip;
+    public AudioClip[] backgroundMusic;
     public AudioSource audio;
     private void Awake()
     {
@@ -28,9 +28,21 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void ChangeMusic ()
+    private void OnLevelWasLoaded(int level)
     {
-        audio.clip = overworldClip;
-        audio.Play();
+        if (level == 0 || level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7)
+        {
+            audio.clip = backgroundMusic[0];
+            audio.Play();
+        }
+        else
+        {
+            if (audio.clip != backgroundMusic[1])
+            {
+                audio.clip = backgroundMusic[1];
+                audio.Play();
+            }
+        }
+        
     }
 }

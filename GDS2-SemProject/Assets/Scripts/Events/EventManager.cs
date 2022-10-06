@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     private Dictionary<string, Ink.Runtime.Object> variables;
     private DialogueManager dm;
     private GameData gd;
+    [SerializeField] private MapCanvas mc;
 
     // Start is called before the first frame update
 
@@ -20,11 +21,15 @@ public class EventManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
+    
     void Start()
     {
         Compile();
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         dm = GameObject.Find("Managers").GetComponent<DialogueManager>();
+        mc = GameObject.Find("Map Canvas").GetComponent<MapCanvas>();
+
+        // StartEvent();
     }
 
     // Update is called once per frame
@@ -62,9 +67,19 @@ public class EventManager : MonoBehaviour
             variables.Add(name, value);
         }
 
-        if (name.Equals("morale"))
+        switch(name)
         {
-            gd.morale -= 150;
+            case("morale"):
+                if ((int) dm.currentStory.variablesState["morale"] != 0)
+                {
+                    gd.morale += (int) dm.currentStory.variablesState["morale"];
+                }
+                mc.UpdateMorale();
+                break;
+            case("gold"):
+                break;
+            case("swordsmanAtt"):
+                break;
         }
     }
 
