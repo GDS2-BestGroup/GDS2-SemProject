@@ -145,6 +145,7 @@ public class GameController : MonoBehaviour
                 gd.LoseBattle();
                 endingText.text = "Defeat...";
             }
+            Time.timeScale = 0; //Pausing game after battle is done
             afterScreen.gameObject.SetActive(true);
         }
     }
@@ -152,6 +153,7 @@ public class GameController : MonoBehaviour
     public void ToOverworld()
     {
         SceneManager.LoadScene(gd.previousLevel);
+        Time.timeScale = 1; //Undoing the pause set during EndGame
     }
 
     public void ChangeSpeed()

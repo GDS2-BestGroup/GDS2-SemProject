@@ -24,7 +24,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /// <summary>
@@ -33,11 +33,11 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseDown()
     {
         //Debug.Log(this.name + " selected");
-        if (gd.overworldStatus[regionIndex])
+        if (gd.overworldStatus[regionIndex] && !gd.paused)
         {
             SceneManager.LoadScene("Region" + regionIndex);
         }
-        
+
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseOver()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        if (gd.overworldStatus[regionIndex])
+        if (gd.overworldStatus[regionIndex] && !gd.paused)
         {
             sprite.color = mouseOverColor;
         }
