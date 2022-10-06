@@ -8,20 +8,27 @@ using System;
 
 public class PauseMenu : MonoBehaviour
 {
-    private Canvas pauseCanvas;
+    [SerializeField] private Canvas pauseCanvas;
     [SerializeField] private Button backBtn;
     [SerializeField] private TMP_Text backBtnTxt;
+    [SerializeField] private Button yesBtn;
+    [SerializeField] private TMP_Text confirmUIText;
     private GameData gd;
+    [SerializeField] private Canvas confirmUI;
     private bool pauseAllowed;
     private float time;
     // Start is called before the first frame update
     void Start()
     {
-        pauseCanvas = GameObject.Find("PauseUI").GetComponentInChildren<Canvas>(true);
+        //pauseCanvas = GameObject.Find("PauseUI").GetComponentInChildren<Canvas>(true);
         pauseCanvas.gameObject.SetActive(false);
         //backButton = GameObject.Find("PauseUI").GetComponentInChildren<Button>(true);
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         time = 1;
+
+        confirmUI = GameObject.Find("ForfeitConfirmationUI").GetComponentInChildren<Canvas>(true);
+        confirmUI.worldCamera = Camera.main;
+
     }
 
     // Update is called once per frame
@@ -66,10 +73,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseCanvas.gameObject.SetActive(false);
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = time;
+        gd.paused = false;
     }
 
     private void OnLevelWasLoaded(int level)
     {
+        pauseCanvas.worldCamera = Camera.main;
+        confirmUI.worldCamera = Camera.main;
         if (level == 0)
         {
             pauseAllowed = false;
@@ -95,12 +106,34 @@ public class PauseMenu : MonoBehaviour
 
         if (level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7) //Battle Levels
         {
-            GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
             backBtnTxt.text = "Forfeit Battle";
             backBtn.onClick.RemoveAllListeners();
-            backBtn.onClick.AddListener(Resume);
-            backBtn.onClick.AddListener(delegate { gc.EndGame(false); });
+            backBtn.onClick.AddListener(OpenUI);
         }
+    }
+
+    public void OpenUI()
+    {
+        if (gd.morale - 300 <= 0)
+        {
+            confirmUIText.text = "Your morale will reach 0 if you forfeit and your troops will abandon you! Are you sure you want to forfeit?";
+        }
+        else
+        {
+            confirmUIText.text = $"Your morale will drop to {gd.morale - 300}! Are you sure you want to forfeit?";
+        }
+        confirmUI.gameObject.SetActive(true);
+        GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
+        yesBtn.onClick.RemoveAllListeners();
+        yesBtn.onClick.AddListener(Resume);
+        yesBtn.onClick.AddListener(delegate { gc.EndGame(false); });
+        yesBtn.onClick.AddListener(CloseUI);
+    }
+
+    public void CloseUI()
+    {
+        confirmUI.gameObject.SetActive(false);
+
     }
 
 }
