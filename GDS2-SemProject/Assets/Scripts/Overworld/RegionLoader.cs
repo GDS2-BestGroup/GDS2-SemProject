@@ -11,9 +11,11 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     public int regionIndex;
     public Color mouseExitColor;
     public Color mouseOverColor;
+    private GameData gd;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
         mouseExitColor = sprite.color;
         mouseOverColor = sprite.color;
         mouseOverColor.a = 0.5f;
@@ -31,7 +33,11 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseDown()
     {
         //Debug.Log(this.name + " selected");
-        SceneManager.LoadScene("Region"+ regionIndex);
+        if (gd.overworldStatus[regionIndex])
+        {
+            SceneManager.LoadScene("Region" + regionIndex);
+        }
+        
     }
 
     /// <summary>
@@ -40,7 +46,10 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseOver()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = mouseOverColor;
+        if (gd.overworldStatus[regionIndex])
+        {
+            sprite.color = mouseOverColor;
+        }
     }
 
     /// <summary>
@@ -49,7 +58,10 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseExit()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        sprite.color = mouseExitColor;
+        if (gd.overworldStatus[regionIndex])
+        {
+            sprite.color = mouseExitColor;
+        }
     }
 
     /* FOR UI CLICKS

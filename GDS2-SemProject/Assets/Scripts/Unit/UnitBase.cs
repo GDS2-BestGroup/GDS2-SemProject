@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class UnitBase : MonoBehaviour
 {
     [SerializeField] private string unitName; //Name of the Unit
+    [SerializeField] private int unitLevel; //Unit level
+
     [SerializeField] private float health; //Health point
     [SerializeField] private float damage; //Damage unit deal each hit
     [SerializeField] private float defense; //Damage resistance of the unit
@@ -15,6 +18,9 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float spawnDuration; //How long the unit spawns for
     [SerializeField] private string counter; //Increase dmg deal to this type of units
     [SerializeField] float damageAdditionPercent; // Incrased dmg percent
+    private List<float> baseStats = new List<float>();
+    [Space(10)]
+
     [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
@@ -36,6 +42,9 @@ public class UnitBase : MonoBehaviour
     private GameController gc;
     private void Awake()
     {
+        baseStats.Add(health);
+        baseStats.Add(damage);
+        baseStats.Add(defense);
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
@@ -58,6 +67,7 @@ public class UnitBase : MonoBehaviour
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
             pad.SetDamage(damage);
@@ -77,7 +87,8 @@ public class UnitBase : MonoBehaviour
             cad.SetCounter(counter);
             cad.SetDamageAdditionPercent(damageAdditionPercent);
         }
-        bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
+        //bullet.GetComponent<ProjectileMovement>().SetVelocity(3);
+
     }
 
     public void DestroySelf()
@@ -93,10 +104,13 @@ public class UnitBase : MonoBehaviour
     public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u)
     {
         UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
+        l.SetEnemy(enemy);
+        Debug.Log(isEnemy);
         spawner = u;
         spawner.AddToList(l.gameObject);
         l.destination = end;
         l.parent = start;
+
         angle = Mathf.Atan2(end.position.y - start.transform.position.y, end.position.x - start.transform.position.x) * Mathf.Rad2Deg;
         if (Mathf.Abs(angle) > 90)
         {
@@ -109,11 +123,11 @@ public class UnitBase : MonoBehaviour
         }
         l.transform.Rotate(0, 0, angle);
 
-        if (!enemy)
+        if (!l.IsEnemy())
         {
             l.tag = "Player";
             l.gameObject.layer = 7;
-            isEnemy = false;
+
             foreach (Transform i in l.transform)
             {
                 i.gameObject.layer = 7;
@@ -124,7 +138,6 @@ public class UnitBase : MonoBehaviour
         {
             l.tag = "Enemy";
             l.gameObject.layer = 6;
-            isEnemy = true;
             foreach(Transform i in l.transform)
             {
                 i.gameObject.layer = 6;
@@ -136,6 +149,11 @@ public class UnitBase : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+    }
+
+    public void SetEnemy(bool tf)
+    {
+        isEnemy = tf;
     }
 
     public int GetCost()
@@ -212,6 +230,32 @@ public class UnitBase : MonoBehaviour
     {
         return damageAdditionPercent;
     }
+
+    public void LevelUp()
+    {
+        unitLevel += 1;
+        LevelCheck();
+    }
+
+    public void SetLevel(int i)
+    {
+        unitLevel = i;
+        LevelCheck();
+    }
+
+    public int GetLevel()
+    {
+        return unitLevel;
+    }
+
+    private void LevelCheck()
+    {
+        float upgradeFactor = unitLevel - 1;
+        health += 5 * upgradeFactor;
+        damage += 5 * upgradeFactor;
+        defense += 2 * upgradeFactor;
+    }
+
     public void PlayDeathSound()
     {
         audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);

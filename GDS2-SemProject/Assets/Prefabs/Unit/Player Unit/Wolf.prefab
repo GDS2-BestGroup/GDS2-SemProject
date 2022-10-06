@@ -104,17 +104,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Wolf
-  health: 50
-  damage: 70
+  unitLevel: 1
+  health: 30
+  damage: 40
   defense: 10
   attackSpeed: 1.5
-  walkSpeed: 3
-  spawnSpeed: 5
+  walkSpeed: 1
+  spawnSpeed: 2
   spawnDuration: 10
   counter: Archer
   damageAdditionPercent: 0
   destination: {fileID: 0}
-  cost: 1
+  cost: 2
   isEnemy: 0
   sprite: {fileID: 1201995053, guid: 328b5a69028177949a73edf0b5f35b3b, type: 3}
   spawner: {fileID: 0}
@@ -143,18 +144,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11148381, y: 0.26547515}
+  m_Offset: {x: -0.06494427, y: 0.12021628}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6489132, y: 0.06116231}
-    oldSize: {x: 0.76, y: 0.6}
+    oldSize: {x: 0.38, y: 0.3}
     newSize: {x: 0.76, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7547126, y: 0.6203115}
+  m_Size: {x: 0.38521957, y: 0.32979375}
   m_EdgeRadius: 0
 --- !u!50 &5779752898278818621
 Rigidbody2D:
@@ -339,7 +340,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.028085709, y: 0.26452428}
+  m_Offset: {x: 0.07768583, y: 0.14324015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -350,7 +351,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9291401, y: 0.6240493}
+  m_Size: {x: 0.32836246, y: 0.38148105}
   m_EdgeRadius: 0
 --- !u!114 &7585557502022507282
 MonoBehaviour:
