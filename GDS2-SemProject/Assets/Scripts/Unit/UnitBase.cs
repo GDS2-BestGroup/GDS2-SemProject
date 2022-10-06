@@ -13,8 +13,6 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float walkSpeed; //How fast unit move
     [SerializeField] private float spawnSpeed; //How fast unit spawn
     [SerializeField] private float spawnDuration; //How long the unit spawns for
-    [SerializeField] private string counter; //Increase dmg deal to this type of units
-    [SerializeField] float damageAdditionPercent; // Incrased dmg percent
     [SerializeField] private Transform destination;
     [SerializeField] private int cost;
     [SerializeField] private bool isEnemy;
@@ -61,8 +59,6 @@ public class UnitBase : MonoBehaviour
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
             pad.SetDamage(damage);
-            pad.SetCounter(counter);
-            pad.SetDamageAdditionPercent(damageAdditionPercent);
             if (pad.TryGetComponent(out ProjectileMovement pm))
             {
                 pm.setTarget(targetPosition);
@@ -74,8 +70,6 @@ public class UnitBase : MonoBehaviour
             cpm.setTarget(targetPosition);
             CurveProjectileAttackDealer cad = cpm.GetComponentInChildren<CurveProjectileAttackDealer>();
             cad.SetDamage(damage);
-            cad.SetCounter(counter);
-            cad.SetDamageAdditionPercent(damageAdditionPercent);
         }
         bullet.layer = (gameObject.tag == "Player") ? 7 : 6;
     }
@@ -199,19 +193,6 @@ public class UnitBase : MonoBehaviour
         return spawnDuration;
     }
 
-    public string GetUnitName()
-    {
-        return unitName;
-    }
-    public string GetCounter()
-    {
-        return counter;
-    }
-
-    public float GetDamageAddtionPercent()
-    {
-        return damageAdditionPercent;
-    }
     public void PlayDeathSound()
     {
         audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);

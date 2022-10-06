@@ -5,9 +5,7 @@ public class ProjectileAttackDealer : MonoBehaviour
 {
     private List<UnitBase> targetList = new List<UnitBase>();
     private float damage;
-    private string counter;
-    private float damageAddtionPercent;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +30,7 @@ public class ProjectileAttackDealer : MonoBehaviour
         {
             targetList.Add(collision.gameObject.GetComponent<UnitBase>());
             UnitBase target = targetList[0];
-            float damageToDeal = DealDamage(target.GetDefense(), target.GetUnitName());
+            float damageToDeal = DealDamage(damage, target.GetDefense());
             target.TakeDamage(damageToDeal);
             Destroy(gameObject);
         }
@@ -40,49 +38,25 @@ public class ProjectileAttackDealer : MonoBehaviour
         if (collision.gameObject.tag == "Node")
         {
             BattleNode target = collision.gameObject.GetComponent<BattleNode>();
-            float damageToDeal = DealDamage(0, "Node");
+            float damageToDeal = DealDamage(damage, 0);
             target.TakeDamage(damageToDeal);
             Destroy(gameObject);
         }
     }
 
-    public float DealDamage(float defense, string c)
+    public float DealDamage(float damage, float defense)
     {
-        if (c.Equals(counter, System.StringComparison.OrdinalIgnoreCase))
+        float damageToDeal = (damage - defense);
+        if (damageToDeal <= 0)
         {
-            float damageToDeal = ((damage + damage * damageAddtionPercent) - defense);
-            if (damageToDeal <= 0)
-            {
-                damageToDeal = 1;
-            }
-            return damageToDeal;
+            damageToDeal = 1;
         }
 
-        else if (!c.Equals(counter, System.StringComparison.OrdinalIgnoreCase))
-        {
-            float damageToDeal = (damage - defense);
-            if (damageToDeal <= 0)
-            {
-                damageToDeal = 1;
-            }
-            return damageToDeal;
-        }
-
-        return default;
+        return damageToDeal;
     }
 
     public void SetDamage(float dmg)
     {
         damage = dmg;
-    }
-
-    public void SetCounter(string c)
-    {
-        counter = c;
-    }
-    
-    public void SetDamageAdditionPercent(float da)
-    {
-        damageAddtionPercent = da;
     }
 }
