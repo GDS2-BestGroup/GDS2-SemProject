@@ -114,7 +114,7 @@ MonoBehaviour:
   destination: {fileID: 0}
   cost: 1
   isEnemy: 0
-  sprite: {fileID: 1201995053, guid: dca0b2ebe2f557a42bdc7cf499812839, type: 3}
+  sprite: {fileID: 1201995053, guid: 328b5a69028177949a73edf0b5f35b3b, type: 3}
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: 31896fd5faaee0f4892380d02919d2b0, type: 3}
