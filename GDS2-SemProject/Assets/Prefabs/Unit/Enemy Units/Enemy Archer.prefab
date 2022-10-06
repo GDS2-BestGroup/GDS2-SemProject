@@ -111,8 +111,6 @@ MonoBehaviour:
   walkSpeed: 1.2
   spawnSpeed: 3
   spawnDuration: 10
-  counter: Mage
-  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0

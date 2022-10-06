@@ -111,8 +111,6 @@ MonoBehaviour:
   walkSpeed: 3
   spawnSpeed: 2
   spawnDuration: 10
-  counter: Archer
-  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 1
   isEnemy: 0
@@ -410,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4f98de5708ee44baf9a9bb1201fe30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!61 &2940148228067359538
 BoxCollider2D:
   m_ObjectHideFlags: 0

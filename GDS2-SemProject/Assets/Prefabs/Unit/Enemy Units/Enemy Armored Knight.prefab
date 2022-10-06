@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4f98de5708ee44baf9a9bb1201fe30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &2415694328688245394
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +272,6 @@ MonoBehaviour:
   walkSpeed: 0.5
   spawnSpeed: 3
   spawnDuration: 10
-  counter: Sword Man
-  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0
