@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-using UnityEditor.Timeline;
-
 public class MapCanvas : MonoBehaviour
 {
     [SerializeField] private Sprite[] backgrounds;
