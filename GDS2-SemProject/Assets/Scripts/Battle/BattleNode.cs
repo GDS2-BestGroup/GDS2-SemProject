@@ -46,6 +46,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private Sprite EbossSprite;
 
     [SerializeField] private AudioSource captureSound;
+    [SerializeField] private AudioManager am;
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -84,6 +85,8 @@ public class BattleNode : MonoBehaviour
         {
             capturedBefore = true;
         }
+
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -220,6 +223,7 @@ public class BattleNode : MonoBehaviour
         }
         castleCurrHP = castleMaxHP;
         UpdateHealth();
+        am.IncreasePitch();
     }
 
     public void CheckSurround()

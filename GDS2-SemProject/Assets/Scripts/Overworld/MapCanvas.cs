@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-
 public class MapCanvas : MonoBehaviour
 {
     [SerializeField] private Sprite[] backgrounds;
@@ -14,6 +13,7 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private TMP_Text moraleTxt;
     [SerializeField] private Button backBtn;
     [SerializeField] private Slider moraleSlider;
+    [SerializeField] private Button pauseBtn;
     private GameData gd;
     private void Awake()
     {
@@ -105,6 +105,14 @@ public class MapCanvas : MonoBehaviour
         {
             backBtn.gameObject.SetActive(true);
         }
+        if (moraleSlider)
+        {
+            moraleSlider.gameObject.SetActive(true);
+        }
+        if (pauseBtn)
+        {
+            pauseBtn.gameObject.SetActive(true);
+        }
     }
 
     private void DisableCanvas()
@@ -113,6 +121,8 @@ public class MapCanvas : MonoBehaviour
         moraleTxt.gameObject.SetActive(false);
         text.gameObject.SetActive(false);
         backBtn.gameObject.SetActive(false);
+        moraleSlider.gameObject.SetActive(false);
+        pauseBtn.gameObject.SetActive(false);
     }
 
     public void GoBack()

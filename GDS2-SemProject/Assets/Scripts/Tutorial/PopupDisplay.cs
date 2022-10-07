@@ -19,6 +19,7 @@ public class PopupDisplay : MonoBehaviour
     private int count; //Keeps track of what instruction is currently being displayed
     private float previousTimeScale;
     private GameController gc;
+    private GameData gd;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class PopupDisplay : MonoBehaviour
         GetComponent<Collider2D>().isTrigger = true;
         count = 0;
         text = GetComponentInChildren<TMP_Text>();
+        gd = GameObject.Find("Managers").GetComponent<GameData>();
         if (GameObject.Find("GameController").GetComponent<GameController>())
         {
             gc = GameObject.Find("GameController").GetComponent<GameController>();
@@ -51,42 +53,46 @@ public class PopupDisplay : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Clicked Popup");
-        if (text.text != instructions[^1]) //if not last instruction
+        if (!gd.paused)
         {
-            text.text = instructions[++count];
-            if (count == enableDisplay)
+            Debug.Log("Clicked Popup");
+            if (text.text != instructions[^1]) //if not last instruction
             {
-                highlight.SetActive(true);
-            }
-
-        }
-        else
-        {
-            if (resume && gc)
-            {
-                Time.timeScale = gc.GetTime();
-                Debug.Log("Unpaused");
+                text.text = instructions[++count];
+                if (count == enableDisplay)
+                {
+                    highlight.SetActive(true);
+                }
 
             }
+            else
+            {
+                if (resume && gc)
+                {
+                    Time.timeScale = gc.GetTime();
+                    Debug.Log("Unpaused");
 
-            gameObject.SetActive(false);
-            if (clickBlocker)
-            {
-                clickBlocker.SetActive(false);
+                }
 
-            }
-            if (highlight)
-            {
-                highlight.SetActive(false);
-            }
-            if (nextPopup)
-            {
-                nextPopup.SetActive(true);
-            }
-            else if (!notLast)
-            {
-                this.transform.parent.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+                if (clickBlocker)
+                {
+                    clickBlocker.SetActive(false);
+
+                }
+                if (highlight)
+                {
+                    highlight.SetActive(false);
+                }
+                if (nextPopup)
+                {
+                    nextPopup.SetActive(true);
+                }
+                else if (!notLast)
+                {
+                    this.transform.parent.gameObject.SetActive(false);
+                }
+
             }
         }
 

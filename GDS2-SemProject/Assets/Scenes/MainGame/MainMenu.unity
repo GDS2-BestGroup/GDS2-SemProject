@@ -1324,7 +1324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusic:
   - {fileID: 8300000, guid: b3f0e7ee0d476a74d9c518ac5ae462d6, type: 3}
-  - {fileID: 8300000, guid: 04acf55436c343e4f9567793abdc4c9a, type: 3}
+  - {fileID: 8300000, guid: 3d7eeaa266daad948a53d6a5785529f8, type: 3}
+  - {fileID: 8300000, guid: 371979163b090f54fa03fad7faccb12a, type: 3}
   audio: {fileID: 0}
 --- !u!1 &1534861483
 GameObject:
