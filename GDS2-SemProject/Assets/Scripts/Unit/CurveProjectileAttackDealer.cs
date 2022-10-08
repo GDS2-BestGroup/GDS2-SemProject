@@ -81,4 +81,9 @@ public class CurveProjectileAttackDealer : MonoBehaviour
     {
         damageAddtionPercent = da;
     }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }

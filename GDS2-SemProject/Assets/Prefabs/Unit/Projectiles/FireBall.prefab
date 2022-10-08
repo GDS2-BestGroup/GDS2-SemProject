@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2072286609967123456}
   - component: {fileID: 8606936596633887910}
   - component: {fileID: 8798753677541706556}
+  - component: {fileID: 1964126317639876657}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 2104551575, guid: ceb4ecb7e278ebe4ead2685ebf731ef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 3
 --- !u!114 &8798753677541706556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +137,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bde1d825ae62c47a0f38205f9afb08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1964126317639876657
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177844248036482084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98baeeb1bf48c2843b9986e0fe7bc410, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2756068747138202276
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,5 +204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dest: {fileID: 0}
   timeToDest: 2
+  anim: {fileID: 1964126317639876657}
   child: {fileID: 177844248036482085}
   height: 1

@@ -64,6 +64,10 @@ public class UnitBase : MonoBehaviour
         }
     }
 
+    private void aaa()
+    {
+        print("spawn");
+    }
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
