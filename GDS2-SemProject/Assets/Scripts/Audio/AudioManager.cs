@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 
     public void IncreasePitch()
     {
-        audio.pitch += 0.125f;
+        audio.pitch += 0.05f;
     }
 
     private void OnLevelWasLoaded(int level)
