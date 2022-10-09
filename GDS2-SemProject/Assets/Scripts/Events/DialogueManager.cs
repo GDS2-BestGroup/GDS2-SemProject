@@ -75,6 +75,8 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("completing line");
             completeLine = true;
         }
+
+        Debug.Log("DialogueRunning is : " + dialogueRunning);
     }
 
     public void EnterDialogueMode(TextAsset inkText)
