@@ -71,4 +71,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame/Region3.unity
     guid: befec848b571c8147aa15189547fbb6e
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region3/BattleMap3.1.unity
+    guid: 73d031c315e87db44990e845924c62b4
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region3/BattleMap3.4.unity
+    guid: de8acd6ea125b084dad3788a8b640ac5
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region3/BattleMap3.5.unity
+    guid: 7fc2ab5874ebe994fac251f119d338f7
+  - enabled: 1
+    path: Assets/Scenes/BattleScenes/Region3/BattleMap3.8.unity
+    guid: a7285b1deeaf5b94c9eb81e789a26896
   m_configObjects: {}
