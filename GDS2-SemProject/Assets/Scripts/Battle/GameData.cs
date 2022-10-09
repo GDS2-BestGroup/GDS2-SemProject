@@ -304,6 +304,11 @@ public class GameData : MonoBehaviour
         return unitLevels;
     }
 
+    public void AddGold(int goldToAdd)
+    {
+        gold += goldToAdd;
+    }
+
     public void UnitLevelUp()
     {
         unitLevels += 1;

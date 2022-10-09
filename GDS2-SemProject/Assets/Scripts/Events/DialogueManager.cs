@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private AudioSource audio;
     [SerializeField] private List<AudioClip> writingSFX;
     
+    public bool dialogueRunning; // Bool to check whether or not dialogue is currently running
+
     public Story currentStory;
     private static DialogueManager instance;
     private GameData gd;
@@ -58,6 +60,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         gd = GameObject.Find("Managers").GetComponent<GameData>();
+        dialogueRunning = false;
     }
 
     // Update is called once per frame
@@ -68,6 +71,7 @@ public class DialogueManager : MonoBehaviour
             ContinueStory();
         } else if (displayLineCoroutine != null && Input.GetMouseButtonDown(0))
         {
+            Debug.Log("completing line");
             completeLine = true;
         }
     }
@@ -81,9 +85,8 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
         dialogueAnimator.Play("appear");
 
-        // HandleTags(currentStory.currentTags);
-
         em.StartListening(currentStory);
+        dialogueRunning = true;
 
         ContinueStory();
     }
@@ -91,6 +94,7 @@ public class DialogueManager : MonoBehaviour
     public void ExitDialogueMode()
     {
         canContinueToNextLine = false;
+        completeLine = false;
 
         dialogueUI.SetActive(false);
         dialogueText.text = "";
@@ -122,6 +126,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         em.StopListening(currentStory);
+        dialogueRunning = false;
     }
 
     public void ContinueStory()
@@ -131,6 +136,7 @@ public class DialogueManager : MonoBehaviour
             if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
+                completeLine = false;
             }
 
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
@@ -145,8 +151,9 @@ public class DialogueManager : MonoBehaviour
 
         else
         {
-            // backgroundAnimator.SetTrigger("end_dialogue");
-            ExitDialogueMode();
+            backgroundAnimator.SetTrigger("end_dialogue");
+            characterPortraitAnimator.SetTrigger("end_dialogue");
+            dialogueAnimator.SetTrigger("end_dialogue");
         }
     }
 
@@ -188,6 +195,7 @@ public class DialogueManager : MonoBehaviour
             RemoveChoices();
 
             currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueStory();
         }
     }
 
@@ -195,6 +203,8 @@ public class DialogueManager : MonoBehaviour
     {
         audio.clip = writingSFX[Random.Range(0, writingSFX.Count)];
         audio.Play();
+
+        Debug.Log("Starting coroutine");
 
         dialogueText.text = "";
 
@@ -213,8 +223,11 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         canContinueToNextLine = true;
+        completeLine = false;
 
         audio.Stop();
+
+        Debug.Log("Stopping coroutine");
     }
 
     private void HandleTags(List<string> currentTags)
