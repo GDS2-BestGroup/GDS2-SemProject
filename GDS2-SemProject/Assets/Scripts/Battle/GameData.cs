@@ -302,6 +302,11 @@ public class GameData : MonoBehaviour
         gold -= cost;
     }
 
+    public int GetGold()
+    {
+        return gold;
+    }
+
     public int GetUnitLevels()
     {
         return unitLevels;

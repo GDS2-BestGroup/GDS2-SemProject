@@ -9,8 +9,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameData gd;
     [SerializeField] private GameObject um;
     [SerializeField] private Text unitLevelText;
+    [SerializeField] private Text currentGoldText;
 
-    private int gold;
+    private int gold = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class UpgradeManager : MonoBehaviour
             }
         }
         unitLevelText.text = "Current Unit Level: " + gd.GetUnitLevels();
+        currentGoldText.text = "Current Gold: " + gd.GetGold();
     }
 
     public void BuyUpgrade(int cost)
