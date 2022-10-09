@@ -2113,7 +2113,7 @@ MonoBehaviour:
   - {fileID: 0}
   unitList:
   - {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
-  gold: 1000
+  gold: 0
   unitLevels: 1
 --- !u!114 &636572549
 MonoBehaviour:

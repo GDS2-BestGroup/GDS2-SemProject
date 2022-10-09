@@ -655,11 +655,11 @@ PrefabInstance:
     - target: {fileID: 3202953361191604607, guid: a01b5dcb698b58b4b9310b948c702911, type: 3}
       propertyPath: enemyUnits.Array.data[0]
       value: 
-      objectReference: {fileID: 7330391944571574696, guid: d6b370828b4d78747a04d18282b0e185, type: 3}
+      objectReference: {fileID: 8289470021822065500, guid: 4f6abc5d52903ef47a45bfa4e26c7f95, type: 3}
     - target: {fileID: 3202953361191604607, guid: a01b5dcb698b58b4b9310b948c702911, type: 3}
       propertyPath: enemyUnits.Array.data[1]
       value: 
-      objectReference: {fileID: 5094184241543559806, guid: 3958b7e958ec96641909eec861ce3883, type: 3}
+      objectReference: {fileID: 2699080221749698770, guid: 056aeb625d73bbe48bb25835aa316220, type: 3}
     - target: {fileID: 3202953361191604607, guid: a01b5dcb698b58b4b9310b948c702911, type: 3}
       propertyPath: enemyUnits.Array.data[2]
       value: 
@@ -829,6 +829,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1363298910990026265, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 29.354004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650028627613447352, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24.763794
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650028627613447352, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.807312
+      objectReference: {fileID: 0}
     - target: {fileID: 5973401335332294065, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
       propertyPath: m_Camera
       value: 

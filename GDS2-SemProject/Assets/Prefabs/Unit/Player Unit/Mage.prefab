@@ -78,7 +78,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.6418202, y: 0.40705892}
+  m_Offset: {x: 0.7500297, y: 0.21261765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.8785367, y: 0.7895455}
+  m_Size: {x: 1.9577029, y: 0.40066293}
   m_EdgeRadius: 0
 --- !u!114 &8410166371266870857
 MonoBehaviour:
@@ -226,9 +226,9 @@ MonoBehaviour:
   damage: 1
   defense: 30
   attackSpeed: 4
-  walkSpeed: 1
-  spawnSpeed: 1
-  spawnDuration: 0
+  walkSpeed: 0.9
+  spawnSpeed: 6
+  spawnDuration: 12
   counter: Armored Knight
   damageAdditionPercent: 0
   destination: {fileID: 0}
@@ -257,18 +257,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11175759, y: 0.39207447}
+  m_Offset: {x: -0.09874262, y: 0.21203072}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.65064436, y: 0.014748507}
-    oldSize: {x: 0.62, y: 0.86}
+    oldSize: {x: 0.31, y: 0.43}
     newSize: {x: 0.62, y: 0.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36299232, y: 0.80951643}
+  m_Size: {x: 0.33696237, y: 0.4147217}
   m_EdgeRadius: 0
 --- !u!50 &6402544600595070198
 Rigidbody2D:
