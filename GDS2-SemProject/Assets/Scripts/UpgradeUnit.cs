@@ -50,7 +50,7 @@ public class UpgradeUnit : MonoBehaviour
             else
             {
                 upgradeLevel += 1;
-                cost += 100 * upgradeLevel;
+                cost += 50 * upgradeLevel;
                 unitCostText.text = "Unit cost is: " + cost.ToString() + " gold";
             }
         }

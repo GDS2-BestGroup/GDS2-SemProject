@@ -136,6 +136,10 @@ public class GameData : MonoBehaviour
     public void LoseBattle()
     {
         morale -= 300;
+        foreach(UnitBase ub in fullUnitList)
+        {
+            ub.LevelReset();
+        }
         CheckMorale();
         mc.UpdateMorale();
     }
@@ -143,8 +147,12 @@ public class GameData : MonoBehaviour
     public void WinBattle()
     {
         morale += 100;
-        gold += 100;
+        gold += 50;
         baseIncome += 1;
+        foreach (UnitBase ub in fullUnitList)
+        {
+            ub.LevelReset();
+        }
         CheckMorale();
         CheckFinalWin();
         RegionUnlock();
