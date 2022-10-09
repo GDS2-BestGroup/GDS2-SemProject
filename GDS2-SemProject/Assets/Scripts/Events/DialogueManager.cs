@@ -97,6 +97,7 @@ public class DialogueManager : MonoBehaviour
         completeLine = false;
 
         dialogueUI.SetActive(false);
+        dialogueNameUI.SetActive(false);
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         background.SetActive(false);
