@@ -225,6 +225,10 @@ public class LevelNode : MonoBehaviour
             {
                 lvlCompletion = gameData.lvlStatusRegionZero;
             }
+            else if (region == 3)
+            {
+                lvlCompletion = gameData.lvlStatusRegionThree;
+            }
 
             //double level = (levelIndex * 10) - (region * 10);
             if (lvlCompletion[(int)levelNum - 1] == true)

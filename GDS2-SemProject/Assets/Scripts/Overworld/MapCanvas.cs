@@ -70,19 +70,19 @@ public class MapCanvas : MonoBehaviour
         else if (level == 3) //Region 1
         {
             EnableCanvas();
-            text.text = "Region 1";
+            text.text = "Region One";
             backgroundImg.sprite = backgrounds[2];
         }
         else if (level == 4) //Region 2
         {
             EnableCanvas();
-            text.text = "Region 2";
+            text.text = "Region Two";
             backgroundImg.sprite = backgrounds[3];
         }
-        else if (level == 19)
+        else if (level == 19) //Region 3
         {
             EnableCanvas();
-            text.text = "Region 3";
+            text.text = "Region Three";
             backgroundImg.sprite = backgrounds[4];
         }
         else
