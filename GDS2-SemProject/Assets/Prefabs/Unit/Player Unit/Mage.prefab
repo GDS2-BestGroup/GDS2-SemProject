@@ -238,12 +238,8 @@ MonoBehaviour:
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: c6968ebc517a8f947b12bfadb8056792, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   attackSound:
   - {fileID: 8300000, guid: f285d274040e842478ed74cae19ba18c, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   audioSource: {fileID: 4070709177499074123}
   parent: {fileID: 0}
   projectile: {fileID: 2756068747138202276, guid: 67c2114689e4973439a60d38a90f624c, type: 3}
