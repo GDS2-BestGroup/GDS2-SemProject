@@ -960,6 +960,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 309819219}
+    - target: {fileID: 6553007157262249422, guid: 5cc339ddd38890f48b2712ce73597c6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5167693371922632510}
+    - target: {fileID: 6553007157262249422, guid: 5cc339ddd38890f48b2712ce73597c6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553007157262249422, guid: 5cc339ddd38890f48b2712ce73597c6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelNode, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc339ddd38890f48b2712ce73597c6f, type: 3}
 --- !u!1001 &1679155719
@@ -1389,6 +1401,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+--- !u!114 &5167693371922632510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5167693370427612764, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
+  m_PrefabInstance: {fileID: 5167693371922632509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75286646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baaa106d8cd6be428dfdb9d03d6f6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5167693371922632515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5167693370427612761, guid: e6264e4ad7cfa954cb2beea5ce2f4268, type: 3}
