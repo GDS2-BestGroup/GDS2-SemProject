@@ -180,6 +180,7 @@ public class GameController : MonoBehaviour
 
     public int GetUnitLevel()
     {
+        unitLevels = gd.GetUnitLevels();
         return unitLevels;
     }
 }
