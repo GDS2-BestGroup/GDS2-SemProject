@@ -40,6 +40,7 @@ public class GameData : MonoBehaviour
     [SerializeField] private int gold;
 
     [SerializeField] private int unitLevels = 1;
+    [SerializeField] private MapCanvas mc;
     private Button disableBtn;
 
     private void Awake()
@@ -136,6 +137,7 @@ public class GameData : MonoBehaviour
     {
         morale -= 300;
         CheckMorale();
+        mc.UpdateMorale();
     }
 
     public void WinBattle()
@@ -146,6 +148,7 @@ public class GameData : MonoBehaviour
         CheckMorale();
         CheckFinalWin();
         RegionUnlock();
+        mc.UpdateMorale();
     }
 
     public int GetBaseIncome()

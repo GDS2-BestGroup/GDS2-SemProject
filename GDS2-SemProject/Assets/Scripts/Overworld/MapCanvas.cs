@@ -53,7 +53,8 @@ public class MapCanvas : MonoBehaviour
         canvas.worldCamera = Camera.main;
         if (moraleTxt != null && gd != null)
         {
-            moraleTxt.text = "Morale: " + gd.morale;
+            moraleTxt.text = gd.morale + "/1000";
+            moraleSlider.value = gd.morale;
         }
         if (level == 1) //Overworld
         {
