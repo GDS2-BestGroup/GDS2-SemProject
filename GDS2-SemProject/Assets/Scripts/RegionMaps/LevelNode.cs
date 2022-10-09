@@ -97,7 +97,7 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseDown()
     {
-        if (confirmUI && unlocked && !popup && !gameData.paused && !dm.dialogueRunning)
+        if (confirmUI && unlocked && !popup && !gameData.paused)
         {
             confirmUI.gameObject.SetActive(true);
             yesBtn = GameObject.Find("YesBtn").GetComponent<Button>();
