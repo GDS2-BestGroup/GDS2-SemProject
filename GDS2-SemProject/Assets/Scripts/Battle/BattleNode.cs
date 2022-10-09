@@ -180,6 +180,7 @@ public class BattleNode : MonoBehaviour
         //Capture the castle and reset its hp
         if (isBoss)
         {
+            Debug.Log("GC is currently: " + gc);
             gc.EndGame(isEnemy);
         }
 

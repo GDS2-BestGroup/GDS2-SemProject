@@ -58,10 +58,10 @@ public class UnitBase : MonoBehaviour
             DestroySelf();
         }
 
-        if (audioSource)
-        {
-            Debug.Log("as");
-        }
+        // if (audioSource)
+        // {
+        //     Debug.Log("as");
+        // }
     }
 
     private void aaa()

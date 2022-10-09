@@ -183,28 +183,36 @@ public class GameData : MonoBehaviour
     private void CheckFinalWin()
     {
 
-        foreach (LevelNode level in regionOneLvls)
+        if (!regionOneComplete)
         {
-            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+            foreach (LevelNode level in regionOneLvls)
             {
-                regionOneComplete = true;
+                if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+                {
+                    regionOneComplete = true;
+                }
             }
         }
 
-
-        foreach (LevelNode level in regionTwoLvls)
+        if (!regionTwoComplete)
         {
-            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            foreach (LevelNode level in regionTwoLvls)
             {
-                regionTwoComplete = true;
+                if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+                {
+                    regionTwoComplete = true;
+                }
             }
         }
 
-        foreach (LevelNode level in regionThreeLvls)
+        if (!regionThreeComplete)
         {
-            if (level.isFinalLevel && lvlStatusRegionThree[(int)level.levelNum - 1])
+            foreach (LevelNode level in regionThreeLvls)
             {
-                regionThreeComplete = true;
+                if (level.isFinalLevel && lvlStatusRegionThree[(int)level.levelNum - 1])
+                {
+                    regionThreeComplete = true;
+                }
             }
         }
 
@@ -223,28 +231,37 @@ public class GameData : MonoBehaviour
 
     public void RegionUnlock()
     {
-        foreach (LevelNode level in regionZeroLvls)
+        if (!overworldStatus[1])
         {
-            if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
+            foreach (LevelNode level in regionZeroLvls)
             {
-                overworldStatus[1] = true;
-                disableTut = true; //Disables tutorial for when tutorial has been completed
+                if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
+                {
+                    overworldStatus[1] = true;
+                    disableTut = true; //Disables tutorial for when tutorial has been completed
+                }
             }
         }
 
-        foreach (LevelNode level in regionOneLvls)
-        {
-            if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+       if (!overworldStatus[2])
+       {
+            foreach (LevelNode level in regionOneLvls)
             {
-                overworldStatus[2] = true;
+                if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
+                {
+                    overworldStatus[2] = true;
+                }
             }
-        }
+       }
 
-        foreach (LevelNode level in regionTwoLvls)
+        if (!overworldStatus[3])
         {
-            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            foreach (LevelNode level in regionTwoLvls)
             {
-                overworldStatus[3] = true;
+                if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+                {
+                    overworldStatus[3] = true;
+                }
             }
         }
     }
