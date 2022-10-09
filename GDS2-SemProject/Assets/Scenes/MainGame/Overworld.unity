@@ -12304,6 +12304,38 @@ PrefabInstance:
       propertyPath: pauseBtn
       value: 
       objectReference: {fileID: 74731554}
+    - target: {fileID: 843238384501906953, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_fontSize
+      value: 36.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 843238384501906953, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8145dba666806044bb2e3a8cd18661bb, type: 2}
+    - target: {fileID: 843238384501906953, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2990561289294541443, guid: 8145dba666806044bb2e3a8cd18661bb, type: 2}
+    - target: {fileID: 843238384501906953, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 843238384501906954, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 162.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 843238384501906954, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 843238384501906954, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843238384501906954, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 843238385268682738, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
       propertyPath: m_Type
       value: 0
