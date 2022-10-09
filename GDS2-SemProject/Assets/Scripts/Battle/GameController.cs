@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private float timeSpeed = 0;
 
-    private int unitLevels;
+    private int unitLevels = 1;
 
     private void Awake()
     {
@@ -45,10 +45,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         unitLevels = gd.GetUnitLevels();
-        foreach(UnitBase ub in unitList)
-        {
-            ub.SetLevel(unitLevels);
-        }
     }
 
     // Update is called once per frame
@@ -180,5 +176,10 @@ public class GameController : MonoBehaviour
     public void UnlockNextUnit()
     {
         gd.UnlockNextUnit();
+    }
+
+    public int GetUnitLevel()
+    {
+        return unitLevels;
     }
 }

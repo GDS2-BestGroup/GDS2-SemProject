@@ -9,12 +9,16 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionZeroLvls; //Tutorial Level
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
+    public LevelNode[] regionThreeLvls;
+
     public LevelNode[] neighbours;
     public bool paused;
-    [SerializeField] public bool[] overworldStatus = { true, false, false };
+    [SerializeField] public bool[] overworldStatus = { true, false, false, false };
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false, false, false, false, false, false, false };
     public bool[] lvlStatusRegionTwo = { true, false, false, false, false, false, false, false };
+    public bool[] lvlStatusRegionThree = { true, false, false, false, false, false, false, false };
+
     public int morale;
     [SerializeField] private int baseIncome = 7;
     [SerializeField] private bool disableTut = false;
@@ -30,10 +34,12 @@ public class GameData : MonoBehaviour
     private bool additionalIncome = false;
     private bool regionOneComplete = false;
     private bool regionTwoComplete = false;
+    private bool regionThreeComplete = false;
+
 
     [SerializeField] private int gold;
 
-    private int unitLevels = 1;
+    [SerializeField] private int unitLevels = 1;
     private Button disableBtn;
 
     private void Awake()
@@ -69,6 +75,11 @@ public class GameData : MonoBehaviour
         {
             regionZeroLvls = FindObjectsOfType<LevelNode>();
         }
+        else if (SceneManager.GetActiveScene().name == "Region3")
+        {
+            regionThreeLvls = FindObjectsOfType<LevelNode>();
+        }
+
 
         if (morale > 1000)
         {
@@ -93,6 +104,10 @@ public class GameData : MonoBehaviour
         {
             return regionZeroLvls;
         }
+        else if (region == 3)
+        {
+            return regionThreeLvls;
+        }
         return null;
     }
 
@@ -109,6 +124,10 @@ public class GameData : MonoBehaviour
         else if (region == 0)
         {
             return lvlStatusRegionZero;
+        }
+        else if (region == 3)
+        {
+            return lvlStatusRegionThree;
         }
         return null;
     }
@@ -177,9 +196,17 @@ public class GameData : MonoBehaviour
             }
         }
 
+        foreach (LevelNode level in regionThreeLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionThree[(int)level.levelNum - 1])
+            {
+                regionThreeComplete = true;
+            }
+        }
+
         Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
 
-        if (regionOneComplete && regionTwoComplete)
+        if (regionOneComplete && regionTwoComplete && regionThreeComplete)
         {
             SceneManager.LoadScene("WinScene");
         }
@@ -206,6 +233,14 @@ public class GameData : MonoBehaviour
             if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
             {
                 overworldStatus[2] = true;
+            }
+        }
+
+        foreach (LevelNode level in regionTwoLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            {
+                overworldStatus[3] = true;
             }
         }
     }
