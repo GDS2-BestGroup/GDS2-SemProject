@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScenes/Region2/BattleMap2.8.unity
     guid: 29de7bbbbe4701842a79a5f8d6f8c938
+  - enabled: 1
+    path: Assets/Scenes/MainGame/Region3.unity
+    guid: befec848b571c8147aa15189547fbb6e
   m_configObjects: {}

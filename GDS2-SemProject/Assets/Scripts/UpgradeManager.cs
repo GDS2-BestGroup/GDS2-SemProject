@@ -24,7 +24,7 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !SceneManager.GetActiveScene().name.Contains("BattleMap"))
+        if (Input.GetKeyDown(KeyCode.R) && !SceneManager.GetActiveScene().name.Contains("BattleMap") && !SceneManager.GetActiveScene().name.Contains("MainMenu"))
         {
             if (!um.activeSelf)
             {

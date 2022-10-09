@@ -79,6 +79,12 @@ public class MapCanvas : MonoBehaviour
             text.text = "Region 2";
             backgroundImg.sprite = backgrounds[3];
         }
+        else if (level == 19)
+        {
+            EnableCanvas();
+            text.text = "Region 3";
+            backgroundImg.sprite = backgrounds[4];
+        }
         else
         {
             DisableCanvas();
