@@ -95,7 +95,7 @@ public class UnitBase : MonoBehaviour
     }
 
 
-    public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u)
+    public void SpawnUnit(BattleNode start, Transform end, bool enemy, UnitSpawner u, int level)
     {
         UnitBase l = Instantiate(this, start.transform.position, Quaternion.identity);
         l.SetEnemy(enemy);
@@ -104,6 +104,7 @@ public class UnitBase : MonoBehaviour
         spawner.AddToList(l.gameObject);
         l.destination = end;
         l.parent = start;
+        l.SetLevel(level);
 
         angle = Mathf.Atan2(end.position.y - start.transform.position.y, end.position.x - start.transform.position.x) * Mathf.Rad2Deg;
         if (Mathf.Abs(angle) > 90)

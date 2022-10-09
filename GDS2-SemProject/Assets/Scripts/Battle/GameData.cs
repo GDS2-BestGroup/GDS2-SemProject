@@ -33,7 +33,7 @@ public class GameData : MonoBehaviour
 
     [SerializeField] private int gold;
 
-    private int unitLevels = 1;
+    [SerializeField] private int unitLevels = 1;
     private Button disableBtn;
 
     private void Awake()
