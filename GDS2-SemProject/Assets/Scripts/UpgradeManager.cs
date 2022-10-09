@@ -49,6 +49,11 @@ public class UpgradeManager : MonoBehaviour
         return gd.CheckCost(cost);
     }
 
+    public void OpenUpgradeScreen()
+    {
+        um.SetActive(true);
+    }
+
     public void CloseUpgradeScreen()
     {
         um.SetActive(false);
