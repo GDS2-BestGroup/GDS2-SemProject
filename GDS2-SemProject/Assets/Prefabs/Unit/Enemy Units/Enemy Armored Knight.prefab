@@ -264,13 +264,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Armored Knight
-  unitLevel: 0
+  unitLevel: 1
   health: 120
   damage: 25
   defense: 30
   attackSpeed: 4
   walkSpeed: 0.5
-  spawnSpeed: 3
+  spawnSpeed: 4
   spawnDuration: 10
   counter: Sword Man
   damageAdditionPercent: 0
