@@ -1711,7 +1711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &305868312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2086,12 +2086,14 @@ MonoBehaviour:
   regionZeroLvls: []
   regionOneLvls: []
   regionTwoLvls: []
+  regionThreeLvls: []
   neighbours: []
   paused: 0
-  overworldStatus: 010000
+  overworldStatus: 010101
   lvlStatusRegionZero: 010000
   lvlStatusRegionOne: 0100000000000000
   lvlStatusRegionTwo: 0100000000000000
+  lvlStatusRegionThree: 0100000000000000
   morale: 0
   baseIncome: 8
   disableTut: 0
