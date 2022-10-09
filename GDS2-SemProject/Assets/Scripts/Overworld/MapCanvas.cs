@@ -14,6 +14,8 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Button backBtn;
     [SerializeField] private Slider moraleSlider;
     [SerializeField] private Button pauseBtn;
+    [SerializeField] private Button upgradeBtn;
+
     private GameData gd;
     private void Awake()
     {
@@ -120,6 +122,10 @@ public class MapCanvas : MonoBehaviour
         {
             pauseBtn.gameObject.SetActive(true);
         }
+        if (upgradeBtn)
+        {
+            upgradeBtn.gameObject.SetActive(true);
+        }
     }
 
     private void DisableCanvas()
@@ -130,6 +136,7 @@ public class MapCanvas : MonoBehaviour
         backBtn.gameObject.SetActive(false);
         moraleSlider.gameObject.SetActive(false);
         pauseBtn.gameObject.SetActive(false);
+        upgradeBtn.gameObject.SetActive(false);
     }
 
     public void GoBack()
