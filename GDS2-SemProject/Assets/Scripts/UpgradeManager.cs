@@ -36,6 +36,7 @@ public class UpgradeManager : MonoBehaviour
                 um.SetActive(false);
             }
         }
+
         unitLevelText.text = "Current Unit Level: " + gd.GetUnitLevels();
         currentGoldText.text = "Current Gold: " + gd.GetGold();
     }

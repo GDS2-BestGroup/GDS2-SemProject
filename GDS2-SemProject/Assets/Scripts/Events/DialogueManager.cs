@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
     private const string BACKGROUND_TAG = "background";
+    private const string GOLD_TAG = "gold";
 
     [SerializeField] public EventManager em;
     private void Awake() 

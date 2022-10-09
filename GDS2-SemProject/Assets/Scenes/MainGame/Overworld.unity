@@ -7817,6 +7817,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1721203355070291804, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 251.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721203355070291804, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 199.88
+      objectReference: {fileID: 0}
     - target: {fileID: 5025664663309462175, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
       propertyPath: um
       value: 
@@ -7840,6 +7848,18 @@ PrefabInstance:
     - target: {fileID: 7140247587731709299, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140247587731709299, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140247587731709299, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140247587731709299, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a23cc786f37d004bbdc5b2573403c18, type: 3}
