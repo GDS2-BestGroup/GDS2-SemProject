@@ -223,16 +223,16 @@ MonoBehaviour:
   unitName: Mage
   unitLevel: 1
   health: 100
-  damage: 1
-  defense: 30
+  damage: 50
+  defense: 10
   attackSpeed: 4
   walkSpeed: 0.9
   spawnSpeed: 6
   spawnDuration: 12
   counter: Armored Knight
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.8
   destination: {fileID: 0}
-  cost: 3
+  cost: 4
   isEnemy: 0
   sprite: {fileID: 338165694, guid: 9dcb89b8fb18c5446a9f7aaa3a517bc1, type: 3}
   spawner: {fileID: 0}

@@ -106,16 +106,16 @@ MonoBehaviour:
   unitName: Wolf
   unitLevel: 1
   health: 30
-  damage: 1
+  damage: 40
   defense: 10
   attackSpeed: 1.5
-  walkSpeed: 3
+  walkSpeed: 1
   spawnSpeed: 2
   spawnDuration: 10
   counter: Archer
   damageAdditionPercent: 0
   destination: {fileID: 0}
-  cost: 1
+  cost: 2
   isEnemy: 0
   sprite: {fileID: 1201995053, guid: dca0b2ebe2f557a42bdc7cf499812839, type: 3}
   spawner: {fileID: 0}

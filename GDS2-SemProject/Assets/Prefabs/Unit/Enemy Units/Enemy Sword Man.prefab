@@ -201,7 +201,7 @@ MonoBehaviour:
   spawnSpeed: 3
   spawnDuration: 10
   counter: Wolf
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.3
   destination: {fileID: 0}
   cost: 3
   isEnemy: 1

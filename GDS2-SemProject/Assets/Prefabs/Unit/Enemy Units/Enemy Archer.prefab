@@ -105,13 +105,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Archer
   unitLevel: 1
-  health: 50
-  damage: 1
+  health: 75
+  damage: 30
   defense: 10
-  attackSpeed: 20
-  walkSpeed: 1.2
-  spawnSpeed: 3
-  spawnDuration: 10
+  attackSpeed: 3
+  walkSpeed: 0.6
+  spawnSpeed: 5
+  spawnDuration: 5
   counter: Mage
   damageAdditionPercent: 0
   destination: {fileID: 0}

@@ -196,7 +196,7 @@ MonoBehaviour:
   defense: 10
   attackSpeed: 3
   walkSpeed: 0.6
-  spawnSpeed: 10
+  spawnSpeed: 5
   spawnDuration: 5
   counter: Mage
   damageAdditionPercent: 0
