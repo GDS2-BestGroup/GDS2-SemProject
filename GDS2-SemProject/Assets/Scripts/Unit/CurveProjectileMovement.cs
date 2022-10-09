@@ -29,8 +29,11 @@ public class CurveProjectileMovement : MonoBehaviour
         Move();
         if (Vector3.Distance(gameObject.transform.position, dest.position) < 0.01)
         {
-            anim.SetTrigger("pop");
-            move = false;
+            if (anim)
+            {
+                anim.SetTrigger("pop");
+                move = false;
+            }
         }
 
     }
