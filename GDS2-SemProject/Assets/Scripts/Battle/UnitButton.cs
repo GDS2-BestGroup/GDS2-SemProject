@@ -80,7 +80,7 @@ public class UnitButton : MonoBehaviour
         unit = i;
         gc = gg;
         cost.text = i.GetCost().ToString();
-        level.text = i.GetLevel().ToString();
+        level.text = gg.GetUnitLevel().ToString();
         numb = keyCodes[num];
     }
 

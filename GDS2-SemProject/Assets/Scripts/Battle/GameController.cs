@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private float timeSpeed = 0;
 
-    private int unitLevels;
+    private int unitLevels = 1;
 
     private void Awake()
     {
@@ -45,10 +45,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         unitLevels = gd.GetUnitLevels();
-        foreach(UnitBase ub in unitList)
-        {
-            ub.SetLevel(unitLevels);
-        }
     }
 
     // Update is called once per frame
@@ -145,6 +141,7 @@ public class GameController : MonoBehaviour
                 gd.LoseBattle();
                 endingText.text = "Defeat...";
             }
+            Time.timeScale = 0; //Pausing game after battle is done
             afterScreen.gameObject.SetActive(true);
         }
     }
@@ -152,6 +149,7 @@ public class GameController : MonoBehaviour
     public void ToOverworld()
     {
         SceneManager.LoadScene(gd.previousLevel);
+        Time.timeScale = 1; //Undoing the pause set during EndGame
     }
 
     public void ChangeSpeed()
@@ -178,5 +176,11 @@ public class GameController : MonoBehaviour
     public void UnlockNextUnit()
     {
         gd.UnlockNextUnit();
+    }
+
+    public int GetUnitLevel()
+    {
+        unitLevels = gd.GetUnitLevels();
+        return unitLevels;
     }
 }

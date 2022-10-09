@@ -28,14 +28,25 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void IncreasePitch()
+    {
+        audio.pitch += 0.05f;
+    }
+
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 0 || level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7)
+        audio.pitch = 1;
+        if (level == 0) //Main Menu
         {
             audio.clip = backgroundMusic[0];
             audio.Play();
         }
-        else
+        else if (level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7) //Battle
+        {
+            audio.clip = backgroundMusic[2];
+            audio.Play();
+        }
+        else //Overworld/Region Maps
         {
             if (audio.clip != backgroundMusic[1])
             {

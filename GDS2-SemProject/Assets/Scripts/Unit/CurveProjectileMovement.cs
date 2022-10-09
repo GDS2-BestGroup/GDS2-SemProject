@@ -6,6 +6,9 @@ public class CurveProjectileMovement : MonoBehaviour
     [SerializeField] private Transform dest;
     private float tick = 0;
     [SerializeField] private float timeToDest = 3;
+    [SerializeField] private Animator anim;
+    private bool move = true;
+    private Vector3 rot;
     public float Percent => tick / timeToDest;
 
     [SerializeField] private Transform child;
@@ -15,6 +18,7 @@ public class CurveProjectileMovement : MonoBehaviour
     {
         startPos = transform.position;
         transform.right = dest.position - startPos;
+        rot = child.transform.eulerAngles;
 
     }
 
@@ -23,29 +27,40 @@ public class CurveProjectileMovement : MonoBehaviour
         float add = tick + Time.deltaTime;
         tick += add > timeToDest ? 0 : Time.deltaTime;
         Move();
+        if (Vector3.Distance(gameObject.transform.position, dest.position) < 0.01)
+        {
+            if (anim)
+            {
+                anim.SetTrigger("pop");
+                move = false;
+            }
+        }
 
     }
     public void Move()
     {
-        if (dest)
+        if (move)
         {
-            Vector2 newPos = Vector2.Lerp(startPos, dest.position, Percent);
-            transform.position = newPos;
-
-            Vector2 localPos = new()
+            if (dest)
             {
-                y = height * Mathf.Sin(Mathf.Deg2Rad * Percent * 180)
-            };
-            child.localPosition = localPos;
+                rot.z -= 5;
+                child.transform.eulerAngles = rot;
+                Vector2 newPos = Vector2.Lerp(startPos, dest.position, Percent);
+                transform.position = newPos;
 
+                Vector2 localPos = new()
+                {
+                    y = height * Mathf.Sin(Mathf.Deg2Rad * Percent * 180)
+                };
+                child.localPosition = localPos;
+            }
+
+            else
+            {
+                Debug.Log("No Destination");
+                Destroy(gameObject);
+            }
         }
-
-        else
-        {
-            Debug.Log("No Destination");
-            Destroy(gameObject);
-        }
-
     }
 
     public void setTarget(Transform end)

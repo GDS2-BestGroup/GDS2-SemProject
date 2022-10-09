@@ -13,6 +13,7 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private float spawnDuration = 1;
     [SerializeField] private bool isEnemy = false;
     private float spawnSpeed;
+    [SerializeField] private int unitLevel = 1;
 
     [SerializeField] private List<GameObject> childUnits;
     // Start is called before the first frame update
@@ -61,14 +62,14 @@ public class UnitSpawner : MonoBehaviour
         if (spawnTimer <= 0)
         {
             spawnTimer = spawnSpeed;
-            unit.SpawnUnit(parent, destination.transform, isEnemy, this);
+            unit.SpawnUnit(parent, destination.transform, isEnemy, this, unitLevel);
         }
 
         spawnDuration -= Time.deltaTime;
         spawnTimer -= Time.deltaTime;
     }
 
-    public void Setup(int c, UnitBase u, float speed, BattleNode d, BattleNode p, bool ie)
+    public void Setup(int c, UnitBase u, float speed, BattleNode d, BattleNode p, bool ie, int level)
     {
         cost = c;
         unit = u;
@@ -77,6 +78,7 @@ public class UnitSpawner : MonoBehaviour
         spawnSpeed = speed;
         spawnDuration = u.GetDuration();
         isEnemy = ie;
+        unitLevel = level;
     }
 
     private void DestroySequence()

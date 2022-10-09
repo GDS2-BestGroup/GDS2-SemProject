@@ -92,7 +92,7 @@ public class LevelNode : MonoBehaviour
     /// </summary>
     void OnMouseDown()
     {
-        if (confirmUI && unlocked && !popup)
+        if (confirmUI && unlocked && !popup && !gameData.paused)
         {
             confirmUI.gameObject.SetActive(true);
             yesBtn = GameObject.Find("YesBtn").GetComponent<Button>();
@@ -141,11 +141,11 @@ public class LevelNode : MonoBehaviour
             }
         }*/
         //Currently changes colour of sprite, just placeholder for future anim
-        if (unlocked && !popup && level == LevelType.Event)
+        if (unlocked && !popup && !gameData.paused && level == LevelType.Event)
         {
             sprite.sprite = nodeSprites[1];
         }
-        else if (unlocked && !popup && level == LevelType.Battle)
+        else if (unlocked && !gameData.paused && !popup && level == LevelType.Battle)
         {
             sprite.sprite=nodeSprites[3];
         }

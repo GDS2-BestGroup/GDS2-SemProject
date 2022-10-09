@@ -9,11 +9,16 @@ public class GameData : MonoBehaviour
     public LevelNode[] regionZeroLvls; //Tutorial Level
     public LevelNode[] regionOneLvls;
     public LevelNode[] regionTwoLvls;
+    public LevelNode[] regionThreeLvls;
+
     public LevelNode[] neighbours;
-    [SerializeField] public bool[] overworldStatus = { true, false, false };
+    public bool paused;
+    [SerializeField] public bool[] overworldStatus = { true, false, false, false };
     public bool[] lvlStatusRegionZero = { true, false, false }; //Tutorial Level
     public bool[] lvlStatusRegionOne = { true, false, false, false, false, false, false, false };
     public bool[] lvlStatusRegionTwo = { true, false, false, false, false, false, false, false };
+    public bool[] lvlStatusRegionThree = { true, false, false, false, false, false, false, false };
+
     public int morale;
     [SerializeField] private int baseIncome = 7;
     [SerializeField] private bool disableTut = false;
@@ -29,10 +34,13 @@ public class GameData : MonoBehaviour
     private bool additionalIncome = false;
     private bool regionOneComplete = false;
     private bool regionTwoComplete = false;
+    private bool regionThreeComplete = false;
+
 
     [SerializeField] private int gold;
 
-    private int unitLevels = 1;
+    [SerializeField] private int unitLevels = 1;
+    private Button disableBtn;
 
     private void Awake()
     {
@@ -49,6 +57,7 @@ public class GameData : MonoBehaviour
     void Start()
     {
         morale = 600;
+        paused = false;
     }
 
     // Update is called once per frame
@@ -66,6 +75,11 @@ public class GameData : MonoBehaviour
         {
             regionZeroLvls = FindObjectsOfType<LevelNode>();
         }
+        else if (SceneManager.GetActiveScene().name == "Region3")
+        {
+            regionThreeLvls = FindObjectsOfType<LevelNode>();
+        }
+
 
         if (morale > 1000)
         {
@@ -90,6 +104,10 @@ public class GameData : MonoBehaviour
         {
             return regionZeroLvls;
         }
+        else if (region == 3)
+        {
+            return regionThreeLvls;
+        }
         return null;
     }
 
@@ -106,6 +124,10 @@ public class GameData : MonoBehaviour
         else if (region == 0)
         {
             return lvlStatusRegionZero;
+        }
+        else if (region == 3)
+        {
+            return lvlStatusRegionThree;
         }
         return null;
     }
@@ -154,53 +176,6 @@ public class GameData : MonoBehaviour
         }
     }
 
-    //private void CheckFinalWin()
-    //{
-    //    bool win = true;
-    //    foreach (bool i in lvlStatusRegionZero)
-    //    {
-    //        if (i)
-    //        {
-    //            win = false;
-    //        }
-    //    }
-    //    /*if (win)
-    //    {
-    //        overworldStatus[1] = true;
-    //    }*/
-
-    //    if (win)
-    //    {
-    //        foreach (bool i in lvlStatusRegionOne)
-    //        {
-    //            if (i)
-    //            {
-    //                win = false;
-    //            }
-    //        }
-    //        /*if (win)
-    //        {
-    //            overworldStatus[2] = true;
-    //        }*/
-    //    }
-
-    //    if (win)
-    //    {
-    //        foreach (bool i in lvlStatusRegionTwo)
-    //        {
-    //            if (i)
-    //            {
-    //                win = false;
-    //            }
-    //        }
-    //    }
-
-    //    if (win)
-    //    {
-    //        SceneManager.LoadScene("WinScene");
-    //    }
-    //}
-
     private void CheckFinalWin()
     {
 
@@ -221,9 +196,17 @@ public class GameData : MonoBehaviour
             }
         }
 
+        foreach (LevelNode level in regionThreeLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionThree[(int)level.levelNum - 1])
+            {
+                regionThreeComplete = true;
+            }
+        }
+
         Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
 
-        if (regionOneComplete && regionTwoComplete)
+        if (regionOneComplete && regionTwoComplete && regionThreeComplete)
         {
             SceneManager.LoadScene("WinScene");
         }
@@ -241,7 +224,7 @@ public class GameData : MonoBehaviour
             if (level.isFinalLevel && lvlStatusRegionZero[(int)level.levelNum - 1])
             {
                 overworldStatus[1] = true;
-                //overworldStatus[2] = true;
+                disableTut = true; //Disables tutorial for when tutorial has been completed
             }
         }
 
@@ -250,6 +233,14 @@ public class GameData : MonoBehaviour
             if (level.isFinalLevel && lvlStatusRegionOne[(int)level.levelNum - 1])
             {
                 overworldStatus[2] = true;
+            }
+        }
+
+        foreach (LevelNode level in regionTwoLvls)
+        {
+            if (level.isFinalLevel && lvlStatusRegionTwo[(int)level.levelNum - 1])
+            {
+                overworldStatus[3] = true;
             }
         }
     }
@@ -266,20 +257,32 @@ public class GameData : MonoBehaviour
     public void DisableTut()
     {
         GameObject[] tutCanvas = GameObject.FindGameObjectsWithTag("Panel");
-        foreach (GameObject t in tutCanvas)
+        if (tutCanvas != null)
         {
-            t.SetActive(false);
+            foreach (GameObject t in tutCanvas)
+            {
+                t.SetActive(false);
+            }
+            disableTut = true;
+            disableBtn.interactable = false;
         }
-        disableTut = true;
     }
 
     private void OnLevelWasLoaded(int level)
     {
-        GameObject disable = GameObject.Find("DisableTutBtn");
+        GameObject disable = GameObject.Find("PauseUI");
         if (disable)
         {
-            Button disableBtn = disable.GetComponent<Button>();
-            Debug.Log("Button Found");
+            Debug.Log("Found Pause UI");
+            Button[] disableBtns = disable.GetComponentsInChildren<Button>(true);
+            foreach (Button b in disableBtns)
+            {
+                if (b.name == "DisableTutBtn")
+                {
+                    disableBtn = b;
+                    Debug.Log("Button Found");
+                }
+            }
             disableBtn.onClick.RemoveAllListeners();
             disableBtn.onClick.AddListener(DisableTut);
         }
@@ -287,7 +290,6 @@ public class GameData : MonoBehaviour
         {
             DisableTut();
         }
-
     }
     public bool CheckCost(int cost)
     {

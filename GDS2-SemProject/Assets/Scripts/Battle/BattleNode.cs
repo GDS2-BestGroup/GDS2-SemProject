@@ -19,7 +19,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private bool isBoss;
 
     [SerializeField] private List<UnitBase> enemyUnits;
-    public int enemyLevel;
+    public int enemyLevel = 1;
     [SerializeField] private List<UnitBase> summonedUnits;
 
     [SerializeField] private UnitSpawner uSpawn;
@@ -46,6 +46,7 @@ public class BattleNode : MonoBehaviour
     [SerializeField] private Sprite EbossSprite;
 
     [SerializeField] private AudioSource captureSound;
+    [SerializeField] private AudioManager am;
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -84,6 +85,8 @@ public class BattleNode : MonoBehaviour
         {
             capturedBefore = true;
         }
+
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -220,6 +223,7 @@ public class BattleNode : MonoBehaviour
         }
         castleCurrHP = castleMaxHP;
         UpdateHealth();
+        am.IncreasePitch();
     }
 
     public void CheckSurround()
@@ -319,7 +323,7 @@ public class BattleNode : MonoBehaviour
                  foreach (UnitBase e in enemyUnits)
                     {
                         UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
-                        us.Setup(0, e, e.GetSpawnSpeed() * splitCount, i, this, true);
+                        us.Setup(0, e, e.GetSpawnSpeed() * splitCount, i, this, true, enemyLevel);
                         //Debug.Log("S " + this.name);
                         //StartCoroutine(EnemySummonUnit(e, i.transform));
                     }
@@ -370,7 +374,7 @@ public class BattleNode : MonoBehaviour
             {
                 gc.UseIncome(i.GetCost());
                 UnitSpawner us = Instantiate(uSpawn, transform.position, Quaternion.identity, transform);
-                us.Setup(i.GetCost(), i, i.GetSpawnSpeed(), dest, this, false);
+                us.Setup(i.GetCost(), i, i.GetSpawnSpeed(), dest, this, false, gc.GetUnitLevel());
 
                 GameObject ni = Instantiate(nImage, unitDisplay.transform.position, Quaternion.identity, unitDisplay.transform);
                 ni.GetComponent<NodeImage>().NodeSetUp(i.GetSprite(), i.GetDuration());
