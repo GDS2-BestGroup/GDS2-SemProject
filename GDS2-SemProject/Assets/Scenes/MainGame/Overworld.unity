@@ -1595,9 +1595,13 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 817093c9c6f07a347862810336db1f1c, type: 3}
   - {fileID: 4900000, guid: 131f1f437060d2b41b71c5e82fafd5ad, type: 3}
   - {fileID: 4900000, guid: 39216dc4e0b22b44ebeb7c84793f46cb, type: 3}
-  - {fileID: 4900000, guid: 7763700b62094b344a75bee795de84b9, type: 3}
   - {fileID: 4900000, guid: be476237a82c0484db6885627f1cb642, type: 3}
   - {fileID: 4900000, guid: 614d8a5c62b789a46bd990ab272110c6, type: 3}
+  - {fileID: 4900000, guid: 92cd88514bf0bf8409e63a8dc72ddfea, type: 3}
+  - {fileID: 4900000, guid: 3feb21e401a9e5949b8adf889928a3ba, type: 3}
+  - {fileID: 4900000, guid: 8b372826be2a20f4c868ef0400ce0fcd, type: 3}
+  - {fileID: 4900000, guid: eadae6f0cb27734468445ae574eba1e9, type: 3}
+  - {fileID: 4900000, guid: 1a0d402c6e6533b4380d9257dc2d9b0f, type: 3}
   - {fileID: 4900000, guid: f24f0f672deb6ed47a7b64466d634b01, type: 3}
   globalVars: {fileID: 4900000, guid: af9a64f44f5d2e842bb563d374a7e83d, type: 3}
   mc: {fileID: 1871294927}
@@ -1979,7 +1983,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719186568}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

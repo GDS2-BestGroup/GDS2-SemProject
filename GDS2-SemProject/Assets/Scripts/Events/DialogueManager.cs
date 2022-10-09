@@ -204,8 +204,6 @@ public class DialogueManager : MonoBehaviour
         audio.clip = writingSFX[Random.Range(0, writingSFX.Count)];
         audio.Play();
 
-        Debug.Log("Starting coroutine");
-
         dialogueText.text = "";
 
         canContinueToNextLine = false;
@@ -226,8 +224,6 @@ public class DialogueManager : MonoBehaviour
         completeLine = false;
 
         audio.Stop();
-
-        Debug.Log("Stopping coroutine");
     }
 
     private void HandleTags(List<string> currentTags)
