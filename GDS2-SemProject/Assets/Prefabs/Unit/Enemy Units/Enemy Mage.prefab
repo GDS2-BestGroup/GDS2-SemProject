@@ -143,19 +143,17 @@ MonoBehaviour:
   walkSpeed: 1
   spawnSpeed: 1
   spawnDuration: 0
+  counter: Armored Knight
+  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 3
   isEnemy: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 338165694, guid: 6510ad21077aff14b83f54dc0912a737, type: 3}
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: c6968ebc517a8f947b12bfadb8056792, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   attackSound:
   - {fileID: 8300000, guid: f285d274040e842478ed74cae19ba18c, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   audioSource: {fileID: 2294006735914734760}
   parent: {fileID: 0}
   projectile: {fileID: 2756068747138202276, guid: 67c2114689e4973439a60d38a90f624c, type: 3}

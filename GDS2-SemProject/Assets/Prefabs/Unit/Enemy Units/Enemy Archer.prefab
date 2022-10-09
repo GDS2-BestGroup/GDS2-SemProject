@@ -112,19 +112,17 @@ MonoBehaviour:
   walkSpeed: 1.2
   spawnSpeed: 3
   spawnDuration: 10
+  counter: Mage
+  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0
-  sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
+  sprite: {fileID: 665679527, guid: 8e90c1bab41e1964ba6ffd52c2d88eee, type: 3}
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: fdf22d5a4d5c77d4d92ba1cc140e5561, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   attackSound:
   - {fileID: 8300000, guid: b795329507728044083ec4bbd4dc6bd7, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   audioSource: {fileID: 6395324030280584702}
   parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}

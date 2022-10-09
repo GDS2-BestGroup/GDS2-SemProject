@@ -198,6 +198,8 @@ MonoBehaviour:
   walkSpeed: 0.6
   spawnSpeed: 10
   spawnDuration: 5
+  counter: Mage
+  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 4
   isEnemy: 1
@@ -205,12 +207,8 @@ MonoBehaviour:
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: fdf22d5a4d5c77d4d92ba1cc140e5561, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   attackSound:
   - {fileID: 8300000, guid: b795329507728044083ec4bbd4dc6bd7, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   audioSource: {fileID: 3357892727973459437}
   parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}

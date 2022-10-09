@@ -16,6 +16,8 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private float walkSpeed; //How fast unit move
     [SerializeField] private float spawnSpeed; //How fast unit spawn
     [SerializeField] private float spawnDuration; //How long the unit spawns for
+    [SerializeField] private string counter; //Increase dmg deal to this type of units
+    [SerializeField] float damageAdditionPercent; // Incrased dmg percent
     private List<float> baseStats = new List<float>();
     [Space(10)]
 
@@ -62,6 +64,10 @@ public class UnitBase : MonoBehaviour
         }
     }
 
+    private void aaa()
+    {
+        print("spawn");
+    }
     public void SpawnProjectile()
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
@@ -69,6 +75,8 @@ public class UnitBase : MonoBehaviour
         if (bullet.TryGetComponent(out ProjectileAttackDealer pad))
         {
             pad.SetDamage(damage);
+            pad.SetCounter(counter);
+            pad.SetDamageAdditionPercent(damageAdditionPercent);
             if (pad.TryGetComponent(out ProjectileMovement pm))
             {
                 pm.setTarget(targetPosition);
@@ -80,6 +88,8 @@ public class UnitBase : MonoBehaviour
             cpm.setTarget(targetPosition);
             CurveProjectileAttackDealer cad = cpm.GetComponentInChildren<CurveProjectileAttackDealer>();
             cad.SetDamage(damage);
+            cad.SetCounter(counter);
+            cad.SetDamageAdditionPercent(damageAdditionPercent);
         }
         //bullet.GetComponent<ProjectileMovement>().SetVelocity(3);
 
@@ -212,6 +222,19 @@ public class UnitBase : MonoBehaviour
         return spawnDuration;
     }
 
+    public string GetUnitName()
+    {
+        return unitName;
+    }
+    public string GetCounter()
+    {
+        return counter;
+    }
+
+    public float GetDamageAddtionPercent()
+    {
+        return damageAdditionPercent;
+    }
 
     public void LevelUp()
     {
