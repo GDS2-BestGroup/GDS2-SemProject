@@ -77,6 +77,10 @@ public class EventManager : MonoBehaviour
                 mc.UpdateMorale();
                 break;
             case("gold"):
+                if ((int) dm.currentStory.variablesState["gold"] != 0)
+                {
+                    gd.AddGold( (int) dm.currentStory.variablesState["gold"] );
+                }
                 break;
             case("swordsmanAtt"):
                 break;

@@ -92,14 +92,14 @@ public class PauseMenu : MonoBehaviour
 
         if (level == 1)
         {
-            backBtnTxt.text = "Return to Main Menu";
+            backBtnTxt.text = "Main Menu";
             backBtn.onClick.RemoveAllListeners();
             backBtn.onClick.AddListener(delegate { GoBackToScene("MainMenu"); });
         }
 
-        if (level == 2 || level == 3 || level == 4)
+        if (level == 2 || level == 3 || level == 4 || level == 19)
         {
-            backBtnTxt.text = "Return to Overworld";
+            backBtnTxt.text = "Overworld";
             backBtn.onClick.RemoveAllListeners();
             backBtn.onClick.AddListener(delegate { GoBackToScene("Overworld"); });
         }

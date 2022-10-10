@@ -14,6 +14,8 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Button backBtn;
     [SerializeField] private Slider moraleSlider;
     [SerializeField] private Button pauseBtn;
+    [SerializeField] private Button upgradeBtn;
+
     private GameData gd;
     private void Awake()
     {
@@ -53,7 +55,8 @@ public class MapCanvas : MonoBehaviour
         canvas.worldCamera = Camera.main;
         if (moraleTxt != null && gd != null)
         {
-            moraleTxt.text = "Morale: " + gd.morale;
+            moraleTxt.text = gd.morale + "/1000";
+            moraleSlider.value = gd.morale;
         }
         if (level == 1) //Overworld
         {
@@ -70,14 +73,20 @@ public class MapCanvas : MonoBehaviour
         else if (level == 3) //Region 1
         {
             EnableCanvas();
-            text.text = "Region 1";
+            text.text = "Region One";
             backgroundImg.sprite = backgrounds[2];
         }
         else if (level == 4) //Region 2
         {
             EnableCanvas();
-            text.text = "Region 2";
+            text.text = "Region Two";
             backgroundImg.sprite = backgrounds[3];
+        }
+        else if (level == 19) //Region 3
+        {
+            EnableCanvas();
+            text.text = "Region Three";
+            backgroundImg.sprite = backgrounds[4];
         }
         else
         {
@@ -113,6 +122,10 @@ public class MapCanvas : MonoBehaviour
         {
             pauseBtn.gameObject.SetActive(true);
         }
+        if (upgradeBtn)
+        {
+            upgradeBtn.gameObject.SetActive(true);
+        }
     }
 
     private void DisableCanvas()
@@ -123,6 +136,7 @@ public class MapCanvas : MonoBehaviour
         backBtn.gameObject.SetActive(false);
         moraleSlider.gameObject.SetActive(false);
         pauseBtn.gameObject.SetActive(false);
+        upgradeBtn.gameObject.SetActive(false);
     }
 
     public void GoBack()

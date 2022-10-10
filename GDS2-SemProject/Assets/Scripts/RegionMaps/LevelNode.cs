@@ -34,6 +34,7 @@ public class LevelNode : MonoBehaviour
     [SerializeField] private LevelNode[] neighbours;
 
     [SerializeField] public EventManager em;
+    [SerializeField] public DialogueManager dm;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,10 @@ public class LevelNode : MonoBehaviour
         if (level == LevelType.Battle)
         {
             sprite.sprite = nodeSprites[2];
+        }
+        else
+        {
+            sprite.sprite = nodeSprites[0];
         }
     }
 
@@ -178,7 +183,7 @@ public class LevelNode : MonoBehaviour
         Debug.Log("Level " + levelNum + " unlocked");
         if (level == LevelType.Event)
         {
-            sprite.color = Color.white;
+            sprite.sprite = nodeSprites[0];
 
         }
         {
@@ -224,6 +229,10 @@ public class LevelNode : MonoBehaviour
             else if (region == 0)
             {
                 lvlCompletion = gameData.lvlStatusRegionZero;
+            }
+            else if (region == 3)
+            {
+                lvlCompletion = gameData.lvlStatusRegionThree;
             }
 
             //double level = (levelIndex * 10) - (region * 10);

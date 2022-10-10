@@ -28,7 +28,7 @@ public class UpgradeUnit : MonoBehaviour
         }
         um = GameObject.Find("Managers").GetComponent<UpgradeManager>();
         unitText.text = text;
-        unitCostText.text = cost.ToString();
+        unitCostText.text = "Unit cost is: " + cost.ToString() + " gold";
     }
 
     // Update is called once per frame
@@ -50,8 +50,8 @@ public class UpgradeUnit : MonoBehaviour
             else
             {
                 upgradeLevel += 1;
-                cost += 100 * upgradeLevel;
-                unitCostText.text = cost.ToString();
+                cost += 50 * upgradeLevel;
+                unitCostText.text = "Unit cost is: " + cost.ToString() + " gold";
             }
         }
     }

@@ -5,6 +5,7 @@ INCLUDE globals.ink
 === cave ===
 
 ~ morale = 0
+~ gold = 0
 
 Your army arrives at a cave entrance which you know connects to the next settlement however none of your lieutenants are familiar with this particular cave system. #background:cave #speaker: 
 

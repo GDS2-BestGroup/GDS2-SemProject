@@ -9,8 +9,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameData gd;
     [SerializeField] private GameObject um;
     [SerializeField] private Text unitLevelText;
+    [SerializeField] private Text currentGoldText;
 
-    private int gold;
+    private int gold = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !SceneManager.GetActiveScene().name.Contains("BattleMap"))
+        if (Input.GetKeyDown(KeyCode.R) && !SceneManager.GetActiveScene().name.Contains("BattleMap") && !SceneManager.GetActiveScene().name.Contains("MainMenu"))
         {
             if (!um.activeSelf)
             {
@@ -35,7 +36,9 @@ public class UpgradeManager : MonoBehaviour
                 um.SetActive(false);
             }
         }
+
         unitLevelText.text = "Current Unit Level: " + gd.GetUnitLevels();
+        currentGoldText.text = "Current Gold: " + gd.GetGold();
     }
 
     public void BuyUpgrade(int cost)
@@ -47,6 +50,11 @@ public class UpgradeManager : MonoBehaviour
     public bool Afford(int cost)
     {
         return gd.CheckCost(cost);
+    }
+
+    public void OpenUpgradeScreen()
+    {
+        um.SetActive(true);
     }
 
     public void CloseUpgradeScreen()

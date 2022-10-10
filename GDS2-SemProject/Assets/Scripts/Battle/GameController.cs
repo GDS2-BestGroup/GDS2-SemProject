@@ -143,6 +143,7 @@ public class GameController : MonoBehaviour
             }
             Time.timeScale = 0; //Pausing game after battle is done
             afterScreen.gameObject.SetActive(true);
+            
         }
     }
 
@@ -180,6 +181,7 @@ public class GameController : MonoBehaviour
 
     public int GetUnitLevel()
     {
+        unitLevels = gd.GetUnitLevels();
         return unitLevels;
     }
 }

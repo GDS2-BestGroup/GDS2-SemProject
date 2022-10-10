@@ -9,6 +9,10 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private string unitName; //Name of the Unit
     [SerializeField] private int unitLevel; //Unit level
 
+    [SerializeField] private float baseHealth;
+    [SerializeField] private float baseDamage;
+    [SerializeField] private float baseDefense;
+
     [SerializeField] private float health; //Health point
     [SerializeField] private float damage; //Damage unit deal each hit
     [SerializeField] private float defense; //Damage resistance of the unit
@@ -58,10 +62,10 @@ public class UnitBase : MonoBehaviour
             DestroySelf();
         }
 
-        if (audioSource)
-        {
-            Debug.Log("as");
-        }
+        // if (audioSource)
+        // {
+        //     Debug.Log("as");
+        // }
     }
 
     private void aaa()
@@ -256,9 +260,20 @@ public class UnitBase : MonoBehaviour
     private void LevelCheck()
     {
         float upgradeFactor = unitLevel - 1;
+        health = baseHealth;
+        damage = baseDamage;
+        defense = baseDefense;
         health += 5 * upgradeFactor;
         damage += 5 * upgradeFactor;
         defense += 2 * upgradeFactor;
+    }
+
+    public void LevelReset()
+    {
+        health = baseHealth;
+        damage = baseDamage;
+        defense = baseDefense;
+        unitLevel = 1;
     }
 
     public void PlayDeathSound()

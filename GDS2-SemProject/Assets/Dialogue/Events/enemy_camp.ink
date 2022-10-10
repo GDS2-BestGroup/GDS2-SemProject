@@ -7,6 +7,7 @@ VAR knot_name = -> enemy_camp
 === enemy_camp ===
 
 ~ morale = 0
+~ gold = 0
 
 You are approached by your lieutenant who informs you of a nearby enemy camp. He advises that attacking them at night will be the best option however you understand that this could lead to soldier morale lowering. #speaker:Lieutenant Edwards #portrait:LieutenantEdwards #background:castle_ruins_clearing
 
