@@ -5459,7 +5459,7 @@ MonoBehaviour:
   regionThreeLvls: []
   neighbours: []
   paused: 0
-  overworldStatus: 01000000
+  overworldStatus: 01010101
   lvlStatusRegionZero: 010000
   lvlStatusRegionOne: 0100000000000000
   lvlStatusRegionTwo: 0100000000000000
