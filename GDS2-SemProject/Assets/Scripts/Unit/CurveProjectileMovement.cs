@@ -43,6 +43,7 @@ public class CurveProjectileMovement : MonoBehaviour
         {
             if (dest)
             {
+                float mult = transform.eulerAngles.z > 180 ? -1 : 1;
                 rot.z -= 5;
                 child.transform.eulerAngles = rot;
                 Vector2 newPos = Vector2.Lerp(startPos, dest.position, Percent);
@@ -50,7 +51,7 @@ public class CurveProjectileMovement : MonoBehaviour
 
                 Vector2 localPos = new()
                 {
-                    y = height * Mathf.Sin(Mathf.Deg2Rad * Percent * 180)
+                    y = height * Mathf.Sin(Mathf.Deg2Rad * Percent * 180) * mult
                 };
                 child.localPosition = localPos;
             }
