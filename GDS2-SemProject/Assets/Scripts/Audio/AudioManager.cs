@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
             audio.clip = backgroundMusic[0];
             audio.Play();
         }
-        else if (level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7) //Battle
+        else if (level == 11 || level == 12 || level == 13 || level == 14 || level == 15 || level == 16 || level == 17 || level == 18 || level == 6 || level == 7 || level == 20 || level == 21 || level == 22 || level == 23) //Battle
         {
             audio.clip = backgroundMusic[2];
             audio.Play();
