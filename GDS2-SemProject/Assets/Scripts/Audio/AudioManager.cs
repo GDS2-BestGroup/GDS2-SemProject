@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip[] backgroundMusic;
     public AudioSource audio;
+    public float rootTwelve;
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Audio");
@@ -20,6 +21,8 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        rootTwelve = Mathf.Pow(2.0f, 1.0f / 12.0f); 
+        Debug.Log("The 12th root of 2 is: " + rootTwelve);
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class AudioManager : MonoBehaviour
 
     public void IncreasePitch()
     {
-        audio.pitch += 0.05f;
+        audio.pitch *= rootTwelve; 
     }
 
     private void OnLevelWasLoaded(int level)
