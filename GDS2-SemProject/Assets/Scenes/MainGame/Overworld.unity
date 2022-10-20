@@ -12792,17 +12792,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921369054}
   m_CullTransparentMesh: 1
---- !u!114 &1927116784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 866344305, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-  m_PrefabInstance: {fileID: 843238383286280355}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2011376198
 GameObject:
   m_ObjectHideFlags: 0
@@ -13068,14 +13057,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[0]
       value: Click this small island to the left to enter your first Region Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 140.36935
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 88.407364
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
@@ -19178,9 +19159,5 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1191844736}
-    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
-      propertyPath: upgradeBtn
-      value: 
-      objectReference: {fileID: 1927116784}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}

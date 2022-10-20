@@ -284,14 +284,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 197.66238
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 99.61163
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -1.45047
       objectReference: {fileID: 0}
@@ -542,14 +534,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[4]
       value: based on their position in this UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 183.76474
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 86.534935
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
@@ -1273,14 +1257,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[3]
       value: So place your units wisely
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 221.19492
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 105.29501
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x

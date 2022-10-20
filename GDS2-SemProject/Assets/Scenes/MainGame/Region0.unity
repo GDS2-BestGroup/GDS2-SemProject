@@ -480,14 +480,6 @@ PrefabInstance:
       value: Good luck!
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 232.63264
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 110.92877
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -1.7039871
       objectReference: {fileID: 0}
@@ -907,14 +899,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[4]
       value: Good luck!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 236.5102
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 110.99374
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
@@ -1637,7 +1621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_text
-      value: Welcome to the tutorial region map (click here to continue)
+      value: Welcome to the tutorial region map (click ANYWHERE to continue)
       objectReference: {fileID: 0}
     - target: {fileID: 1649908867655253080, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_fontSize
@@ -1789,7 +1773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[0]
-      value: Welcome to the tutorial region map (click here to continue)
+      value: Welcome to the tutorial region map (click ANYWHERE to continue)
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[1]
@@ -1807,14 +1791,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[4]
       value: Good luck!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 236.5102
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 110.99374
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x

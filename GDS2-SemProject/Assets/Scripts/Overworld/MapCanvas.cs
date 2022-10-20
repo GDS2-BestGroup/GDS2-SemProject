@@ -11,6 +11,7 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private TMP_Text text;
     [SerializeField] private TMP_Text moraleTxt;
+    [SerializeField] private TMP_Text goldTxt;
     [SerializeField] private Button backBtn;
     [SerializeField] private Slider moraleSlider;
     [SerializeField] private Button pauseBtn;
@@ -163,5 +164,10 @@ public class MapCanvas : MonoBehaviour
             moraleTxt.text = gd.morale + "/1000";
             moraleSlider.value = gd.morale;
         }
+    }
+
+    public void UpdateGold()
+    {
+        goldTxt.text = gd.GetGold().ToString();
     }
 }
