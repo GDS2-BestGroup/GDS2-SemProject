@@ -193,6 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Sword Man
   unitLevel: 1
+  baseHealth: 100
+  baseDamage: 35
+  baseDefense: 10
   health: 100
   damage: 35
   defense: 10
@@ -201,7 +204,7 @@ MonoBehaviour:
   spawnSpeed: 3
   spawnDuration: 10
   counter: Wolf
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.3
   destination: {fileID: 0}
   cost: 3
   isEnemy: 1
@@ -294,7 +297,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

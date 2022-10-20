@@ -97,7 +97,7 @@ public class PauseMenu : MonoBehaviour
             backBtn.onClick.AddListener(delegate { GoBackToScene("MainMenu"); });
         }
 
-        if (level == 2 || level == 3 || level == 4)
+        if (level == 2 || level == 3 || level == 4 || level == 19)
         {
             backBtnTxt.text = "Overworld";
             backBtn.onClick.RemoveAllListeners();

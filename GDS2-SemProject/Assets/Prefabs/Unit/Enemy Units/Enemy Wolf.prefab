@@ -105,17 +105,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Wolf
   unitLevel: 1
+  baseHealth: 30
+  baseDamage: 40
+  baseDefense: 10
   health: 30
-  damage: 1
+  damage: 40
   defense: 10
   attackSpeed: 1.5
-  walkSpeed: 3
+  walkSpeed: 1
   spawnSpeed: 2
   spawnDuration: 10
   counter: Archer
   damageAdditionPercent: 0
   destination: {fileID: 0}
-  cost: 1
+  cost: 2
   isEnemy: 0
   sprite: {fileID: 1201995053, guid: dca0b2ebe2f557a42bdc7cf499812839, type: 3}
   spawner: {fileID: 0}
@@ -207,7 +210,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

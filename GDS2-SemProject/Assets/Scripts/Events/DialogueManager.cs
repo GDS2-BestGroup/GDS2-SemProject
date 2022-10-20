@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
     private const string BACKGROUND_TAG = "background";
+    private const string GOLD_TAG = "gold";
 
     [SerializeField] public EventManager em;
     private void Awake() 
@@ -74,6 +75,8 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("completing line");
             completeLine = true;
         }
+
+        Debug.Log("DialogueRunning is : " + dialogueRunning);
     }
 
     public void EnterDialogueMode(TextAsset inkText)
@@ -97,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         completeLine = false;
 
         dialogueUI.SetActive(false);
+        dialogueNameUI.SetActive(false);
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         background.SetActive(false);

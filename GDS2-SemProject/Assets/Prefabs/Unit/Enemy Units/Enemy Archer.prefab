@@ -105,13 +105,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Archer
   unitLevel: 1
-  health: 50
-  damage: 1
+  baseHealth: 75
+  baseDamage: 30
+  baseDefense: 10
+  health: 75
+  damage: 30
   defense: 10
-  attackSpeed: 20
-  walkSpeed: 1.2
-  spawnSpeed: 3
-  spawnDuration: 10
+  attackSpeed: 3
+  walkSpeed: 0.6
+  spawnSpeed: 5
+  spawnDuration: 5
   counter: Mage
   damageAdditionPercent: 0
   destination: {fileID: 0}
@@ -206,7 +209,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
