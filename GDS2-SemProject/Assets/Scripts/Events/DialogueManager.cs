@@ -192,6 +192,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void CheckGold (int choiceIndex)
+    {
+        CheckTags(choiceIndex);
+    }
+
     public void MakeChoice(int choiceIndex)
     {
         if (canContinueToNextLine)
@@ -230,6 +235,36 @@ public class DialogueManager : MonoBehaviour
         audio.Stop();
     }
 
+    public void CheckTags(int choiceIndex)
+    {
+        Debug.Log("Checking Tags");
+        foreach (string tag in currentStory.currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+
+            string tagChoice = splitTag[0].Trim();
+            string tagKey = splitTag[1].Trim();
+            string tagValue = splitTag[2].Trim();
+
+            if (int.Parse(tagChoice) == choiceIndex)
+            {
+                switch(tagKey)
+                {
+                    case "gold":
+                        if (gd.CheckCost(-int.Parse(tagValue)))
+                        {
+                            MakeChoice(choiceIndex);
+                        } else {
+                            Debug.Log("Don't have enough gold");
+                        }
+                        break;
+                }
+            } else {
+                Debug.Log("Failed and tagChoice is : " + tagChoice);
+            }
+        }
+    }
+
     private void HandleTags(List<string> currentTags)
     {
         foreach (string tag in currentTags)
@@ -255,6 +290,8 @@ public class DialogueManager : MonoBehaviour
                 case BACKGROUND_TAG:
                     background.SetActive(true);
                     backgroundAnimator.Play(tagValue);
+                    break;
+                default:
                     break;
             }
             
