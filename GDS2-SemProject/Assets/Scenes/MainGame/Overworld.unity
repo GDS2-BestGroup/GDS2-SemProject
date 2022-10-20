@@ -13059,14 +13059,6 @@ PrefabInstance:
       value: Click this small island to the left to enter your first Region Map
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 140.36935
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 88.407364
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -0.8505707
       objectReference: {fileID: 0}
