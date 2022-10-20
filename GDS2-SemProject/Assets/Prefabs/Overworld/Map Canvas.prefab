@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -35}
+  m_AnchoredPosition: {x: 65, y: -35}
   m_SizeDelta: {x: 26.64, y: 26.64}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &78743306
@@ -515,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.780029, y: -27.640015}
+  m_AnchoredPosition: {x: -76, y: -26.650024}
   m_SizeDelta: {x: 173.13, y: 38.350006}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1354633813
@@ -711,9 +711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Back
-
-'
+  m_text: <
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -746,7 +744,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -988,11 +986,11 @@ MonoBehaviour:
   canvas: {fileID: 843238384388874410}
   text: {fileID: 843238384501906953}
   moraleTxt: {fileID: 843238384566836628}
-  goldTxt: {fileID: 0}
+  goldTxt: {fileID: 1101178844072099080}
   backBtn: {fileID: 6610417304795477193}
   moraleSlider: {fileID: 1354633813}
   pauseBtn: {fileID: 78743304}
-  upgradeBtn: {fileID: 0}
+  upgradeBtn: {fileID: 866344305}
 --- !u!1 &843238384501906955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,8 +1435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45, y: -35}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 20, y: -35}
+  m_SizeDelta: {x: 41.44, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1831076066227473222
 CanvasRenderer:
