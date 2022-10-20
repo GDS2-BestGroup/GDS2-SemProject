@@ -86,7 +86,10 @@ public class BattleNode : MonoBehaviour
             capturedBefore = true;
         }
 
-        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if (GameObject.Find("AudioManager"))
+        {
+            am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        }
     }
 
     // Update is called once per frame
