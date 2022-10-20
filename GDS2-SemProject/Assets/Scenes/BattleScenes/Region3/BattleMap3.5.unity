@@ -1124,6 +1124,10 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: unitLevels
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
       propertyPath: unitList.Array.size
       value: 4
       objectReference: {fileID: 0}
