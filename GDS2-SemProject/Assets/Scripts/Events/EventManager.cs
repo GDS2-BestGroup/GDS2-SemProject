@@ -41,7 +41,8 @@ public class EventManager : MonoBehaviour
     public void StartEvent()
     {
         int randEvent = Random.Range(0, inkText.Count);
-        dm.EnterDialogueMode(inkText[randEvent]);
+        // dm.EnterDialogueMode(inkText[randEvent]);
+        dm.EnterDialogueMode(inkText[0]);
         inkText.RemoveAt(randEvent);
     }
 
@@ -83,6 +84,8 @@ public class EventManager : MonoBehaviour
                 }
                 break;
             case("swordsmanAtt"):
+                break;
+            default:
                 break;
         }
     }
