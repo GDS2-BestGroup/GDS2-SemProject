@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private UnitBase selectedUnit;
     [SerializeField] private List<UnitBase> unitList;
 
+    [SerializeField] private int unitLevels = 1;
+
     [SerializeField] private int gameIncome;
     private int currIncome;
 
@@ -24,12 +26,13 @@ public class GameController : MonoBehaviour
 
     private float timeSpeed = 0;
 
-    private int unitLevels = 1;
+    
 
     private void Awake()
     {
+        Time.timeScale = 0;
         currIncome = gameIncome;
-        if (GameObject.Find("Managers").GetComponent<GameData>())
+        if (GameObject.Find("Managers"))
         {
             gd = GameObject.Find("Managers").GetComponent<GameData>();
         }
@@ -39,7 +42,7 @@ public class GameController : MonoBehaviour
             unitList = gd.GetUnitList();
         }
         currIncome = gameIncome;
-        Time.timeScale = 0;
+        
     }
 
     void Start()
@@ -181,7 +184,7 @@ public class GameController : MonoBehaviour
 
     public int GetUnitLevel()
     {
-        unitLevels = gd.GetUnitLevels();
+        unitLevels = gd ? gd.GetUnitLevels() : unitLevels;
         return unitLevels;
     }
 }

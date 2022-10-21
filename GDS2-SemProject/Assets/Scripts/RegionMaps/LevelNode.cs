@@ -186,6 +186,7 @@ public class LevelNode : MonoBehaviour
             sprite.sprite = nodeSprites[0];
 
         }
+        else
         {
             sprite.sprite = nodeSprites[2];
         }
