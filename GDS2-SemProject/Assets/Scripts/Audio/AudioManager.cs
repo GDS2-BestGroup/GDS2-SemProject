@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         rootTwelve = Mathf.Pow(2.0f, 1.0f / 12.0f); 
-        Debug.Log("The 12th root of 2 is: " + rootTwelve);
+        Debug.Log("The 12th root of 2 to the power of 7 is: " + Mathf.Pow(rootTwelve, 7));
     }
 
     // Update is called once per frame
@@ -33,7 +33,14 @@ public class AudioManager : MonoBehaviour
 
     public void IncreasePitch()
     {
-        audio.pitch *= rootTwelve; 
+        if ((audio.pitch * rootTwelve) < Mathf.Pow(rootTwelve, 7))
+        {
+            audio.pitch *= rootTwelve;
+        }
+        else
+        {
+            audio.pitch = Mathf.Pow(rootTwelve, 7);
+        }
     }
 
     private void OnLevelWasLoaded(int level)
