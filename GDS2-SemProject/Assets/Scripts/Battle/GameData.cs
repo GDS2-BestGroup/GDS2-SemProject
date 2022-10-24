@@ -157,6 +157,7 @@ public class GameData : MonoBehaviour
         CheckFinalWin();
         RegionUnlock();
         mc.UpdateMorale();
+        mc.UpdateGold();
     }
 
     public int GetBaseIncome()

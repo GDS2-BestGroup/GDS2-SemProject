@@ -894,8 +894,16 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: gameIncome
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: unitLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
       propertyPath: unitList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
       propertyPath: unitList.Array.data[2]
@@ -905,5 +913,9 @@ PrefabInstance:
       propertyPath: unitList.Array.data[3]
       value: 
       objectReference: {fileID: 3837123510629813929, guid: 894d71223af66b2418d8717d3a463db7, type: 3}
+    - target: {fileID: 6817084299161204919, guid: a4cac27a733b8934e897d7281c69a504, type: 3}
+      propertyPath: unitList.Array.data[4]
+      value: 
+      objectReference: {fileID: 7759317926424138997, guid: a4dff5746de670f4ea6b0ab3717f0922, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4cac27a733b8934e897d7281c69a504, type: 3}

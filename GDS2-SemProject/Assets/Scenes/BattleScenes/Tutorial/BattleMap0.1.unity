@@ -474,14 +474,6 @@ PrefabInstance:
         enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 202.05066
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 88.27847
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -0.15049744
       objectReference: {fileID: 0}
@@ -686,14 +678,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[2]
       value: and will be replenished once a unit despawns
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 218.94138
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 83.263054
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
@@ -985,14 +969,6 @@ PrefabInstance:
         enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
@@ -1004,8 +980,7 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
 --- !u!1 &333459220
 GameObject:
@@ -1652,14 +1627,6 @@ PrefabInstance:
       value: With each unit having their own strengths and weaknesses
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 201.85742
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 76.78554
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -0.69488144
       objectReference: {fileID: 0}
@@ -1881,14 +1848,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[2]
       value: and will be replenished once a unit despawns
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 344.76874
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 107.20309
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
@@ -2418,14 +2377,6 @@ PrefabInstance:
       value: Nice
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 180.0635
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 62.65425
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: -2.1932373
       objectReference: {fileID: 0}
@@ -2603,14 +2554,6 @@ PrefabInstance:
       value: and will be replenished once a unit despawns
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 344.76874
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 107.20309
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x
       value: 50.16977
       objectReference: {fileID: 0}
@@ -2751,37 +2694,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906163678}
   m_CullTransparentMesh: 1
---- !u!1 &1913357362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1649908869125097008, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-  m_PrefabInstance: {fileID: 239732645}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1913357367
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913357362}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.3501816, y: 0.7385082}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 190.04997, y: 103.581436}
-  m_EdgeRadius: 0
 --- !u!1001 &1984489055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2952,14 +2864,6 @@ PrefabInstance:
     - target: {fileID: 1649908869125097012, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: instructions.Array.data[2]
       value: Nice
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.x
-      value: 236.29013
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
-      propertyPath: m_Size.y
-      value: 87.75467
       objectReference: {fileID: 0}
     - target: {fileID: 1649908869125097013, guid: 5edb07fe79f5f1742bc79330d9bc5892, type: 3}
       propertyPath: m_Offset.x

@@ -21,13 +21,17 @@ public class PopupDisplay : MonoBehaviour
     private GameController gc;
     private GameData gd;
 
-    void Start()
+    private void Awake()
     {
-        //clickBlocker = GameObject.Find("ClickBlocker", true);
         if (clickBlocker != null)
         {
             clickBlocker.SetActive(clickBlocker);
         }
+    }
+
+    void Start()
+    {
+        //clickBlocker = GameObject.Find("ClickBlocker", true);
         GetComponent<Collider2D>().isTrigger = true;
         count = 0;
         text = GetComponentInChildren<TMP_Text>();

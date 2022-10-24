@@ -11,7 +11,13 @@ A wise old man requests an audience with you. He is offering to provide some war
 
 What do you do?
 + [Accept his offer of gold for information (Gold -50)]
-    "Those with heavy protection can only be protected from those that are of a physical dimension."
+    "A few hundred years ago, a ruthless king built an army of armoured knights. 
+    They conquered and ravaged every castle they passed and slaughtered anyone who disobeyed them. 
+    No man had the ability to stop them. 
+    Until a group of mages from a far away land heard of the king‘s atrocities. 
+    They gathered their own army of mages and challenged the king’s army for the freedom of the land. 
+    Emboldened by his continuous success, the king faced them head on but that was a fatal mistake. 
+    Their magic easily pierced through the heavy armour and defeated the king."
     ~ gold -= 50
     -> END
 + [Refuse the offer.]
