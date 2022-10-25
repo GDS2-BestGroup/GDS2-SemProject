@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238611979316801749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: 0.961, z: 0}
+  m_LocalPosition: {x: 0.208, y: 0.369, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,8 +241,11 @@ MonoBehaviour:
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: c6968ebc517a8f947b12bfadb8056792, type: 3}
+  - {fileID: 8300000, guid: a80a45b56972fa748ab2c7742cce8734, type: 3}
+  - {fileID: 8300000, guid: f239c5b4b419dba42aa23ed0c405c909, type: 3}
   attackSound:
   - {fileID: 8300000, guid: f285d274040e842478ed74cae19ba18c, type: 3}
+  - {fileID: 8300000, guid: c8c88dc87a9fda044b40777be7f291d8, type: 3}
   audioSource: {fileID: 4070709177499074123}
   parent: {fileID: 0}
   projectile: {fileID: 2756068747138202276, guid: 67c2114689e4973439a60d38a90f624c, type: 3}

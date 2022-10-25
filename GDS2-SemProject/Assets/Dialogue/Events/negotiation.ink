@@ -13,7 +13,7 @@ You and Lieutenant Edwards are approached by a foreign messenger. He mentions th
 
 Lieutenant Edwards thinks this could be a good opportunity to gather some resources and take a rest.
 
-What do you do?
+What do you do? #0:gold:-200
 + [Agree to help and send reinforcements (Gold - 200, Morale + 150, Troop Damage - 5%)]
     You agree to send some reinforcements in exchange for payment. 
     ~ morale += 150

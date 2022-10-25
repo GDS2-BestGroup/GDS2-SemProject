@@ -124,8 +124,12 @@ MonoBehaviour:
   spawner: {fileID: 0}
   deathSound:
   - {fileID: 8300000, guid: fdf22d5a4d5c77d4d92ba1cc140e5561, type: 3}
+  - {fileID: 8300000, guid: d260a24af9027c6478f3deef2c3fda8b, type: 3}
   attackSound:
   - {fileID: 8300000, guid: b795329507728044083ec4bbd4dc6bd7, type: 3}
+  - {fileID: 8300000, guid: 542cae4a379c44c4aa61e462fc6e4455, type: 3}
+  - {fileID: 8300000, guid: ab80340f27a6e3044ad1afe5e5475e54, type: 3}
+  - {fileID: 8300000, guid: c23aad99853c0894a8546c5d566f9add, type: 3}
   audioSource: {fileID: 6395324030280584702}
   parent: {fileID: 0}
   projectile: {fileID: 3907835371349354240, guid: b0b98ce7829ae7647a607d36e22cb79c, type: 3}

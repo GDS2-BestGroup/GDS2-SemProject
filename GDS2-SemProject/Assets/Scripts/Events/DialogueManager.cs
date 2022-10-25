@@ -18,20 +18,30 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator backgroundAnimator;
     [SerializeField] private Animator characterPortraitAnimator;
     [SerializeField] private Animator dialogueAnimator;
+    private Color defaultTextColor = new Color(120/255f, 68/255f, 48/255f, 255/255f);
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
     private TextMeshProUGUI[] choicesText;
+    private List<string> choicesInvalidity;
+    private Color textErrorColor = new Color(191/255f, 53/255f, 0/255f, 255/255f);
 
     [Header("Layout UI")]
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject background;
+
+    [Header("Error UI")]
+    [SerializeField] private GameObject errorUI;
+    [SerializeField] private TextMeshProUGUI errorText;
+    [SerializeField] private GameObject continueText;
+    [SerializeField] private GameObject errorButtons;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
     [SerializeField] private List<AudioClip> writingSFX;
     
     public bool dialogueRunning; // Bool to check whether or not dialogue is currently running
+    public int awaitingErrorChoice;
 
     public Story currentStory;
     private static DialogueManager instance;
@@ -61,22 +71,30 @@ public class DialogueManager : MonoBehaviour
         }
 
         gd = GameObject.Find("Managers").GetComponent<GameData>();
+
+        choicesInvalidity = new List<string>();
         dialogueRunning = false;
+        awaitingErrorChoice = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canContinueToNextLine && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            ContinueStory();
-        } else if (displayLineCoroutine != null && Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("completing line");
-            completeLine = true;
+            if (errorUI.activeInHierarchy && awaitingErrorChoice < 0)
+            {
+                errorUI.SetActive(false);
+                continueText.SetActive(false);
+            } else if (canContinueToNextLine)
+            {
+                ContinueStory();
+            } else if (displayLineCoroutine != null)
+            {
+                Debug.Log("Completing Line");
+                completeLine = true;
+            }
         }
-
-        Debug.Log("DialogueRunning is : " + dialogueRunning);
     }
 
     public void EnterDialogueMode(TextAsset inkText)
@@ -104,6 +122,14 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         background.SetActive(false);
+
+        errorButtons.SetActive(false);
+        choicesInvalidity.Clear();
+        foreach(TextMeshProUGUI text in choicesText)
+        {
+            text.color = defaultTextColor;
+        }
+
         Debug.Log(gd.currentLevel);
         
         // Level progression
@@ -170,7 +196,13 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < currentChoices.Count; i++)
             {
                 choiceButtons[i].gameObject.SetActive(true);
+                choicesInvalidity.Add(CheckChoiceValidity(i));
+
                 choicesText[i].text = currentChoices[i].text;
+                if (choicesInvalidity[i] != "")
+                {
+                    choicesText[i].color = textErrorColor;
+                }
             }
         }
     }
@@ -192,18 +224,85 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void CheckGold (int choiceIndex)
+    public void CheckChoice (int choiceIndex)
     {
-        CheckTags(choiceIndex);
+        if (choicesInvalidity[choiceIndex] == "")
+        {
+            MakeChoice(choiceIndex);
+        } else 
+        { 
+            errorText.text = BuildChoiceErrorText(choiceIndex);
+            errorUI.SetActive(true);
+        }
+    }
+
+    private string BuildChoiceErrorText(int choiceIndex)
+    {
+        bool moraleReason = false;
+        string errorText = "";
+
+        string[] errors = choicesInvalidity[choiceIndex].Split(",", System.StringSplitOptions.RemoveEmptyEntries);
+
+        foreach(string error in errors)
+        {
+            if (error == "morale")
+            {
+                moraleReason = true;
+            }
+        }
+
+        int errorsLength = errors.Length;
+        Debug.Log("Errors Length = " + errorsLength);
+        if (moraleReason)
+        {
+            errorsLength -= 1;
+        }
+
+        if (errorsLength > 0)
+        {
+            for(int i = 0; i < errorsLength; i++)
+            {
+                if (i == 0)
+                {
+                    errorText += "You don't have enough ";
+                }
+
+                errorText += errors[i];
+                if (errors.Length - i == 2)
+                {
+                    errorText += " and ";
+                } else if (errors.Length -i > 2)
+                {
+                    errorText += ", ";
+                }
+            }
+
+            errorText += " to make this choice.\n\n";
+
+            continueText.SetActive(true);
+        } else if (moraleReason)
+        {
+            errorText = "Choosing this option will cause you to lose the game. Are you sure?";
+            awaitingErrorChoice = choiceIndex;
+            errorButtons.SetActive(true);
+        }
+
+        return errorText;
     }
 
     public void MakeChoice(int choiceIndex)
     {
-        if (canContinueToNextLine)
+        if (canContinueToNextLine && choiceIndex >= 0)
         {
             RemoveChoices();
 
             currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueStory();
+        } else if (choiceIndex == -1 && awaitingErrorChoice >= 0)
+        {
+            RemoveChoices();
+
+            currentStory.ChooseChoiceIndex(awaitingErrorChoice);
             ContinueStory();
         }
     }
@@ -235,9 +334,10 @@ public class DialogueManager : MonoBehaviour
         audio.Stop();
     }
 
-    public void CheckTags(int choiceIndex)
+    // Returns the reason for failure as a string e.g. "Gold", "GoldMorale"
+    public string CheckChoiceValidity (int choiceIndex)
     {
-        Debug.Log("Checking Tags");
+        string reason = "";
         foreach (string tag in currentStory.currentTags)
         {
             string[] splitTag = tag.Split(':');
@@ -251,18 +351,23 @@ public class DialogueManager : MonoBehaviour
                 switch(tagKey)
                 {
                     case "gold":
-                        if (gd.CheckCost(-int.Parse(tagValue)))
+                        if (!gd.CheckCost(-int.Parse(tagValue)))
                         {
-                            MakeChoice(choiceIndex);
-                        } else {
-                            Debug.Log("Don't have enough gold");
+                            
+                            reason += "gold,";
+                        }
+                        break;
+                    case "morale":
+                        if (gd.morale - (-int.Parse(tagValue)) <= 0)
+                        {
+                            reason += "morale,";
                         }
                         break;
                 }
-            } else {
-                Debug.Log("Failed and tagChoice is : " + tagChoice);
             }
         }
+
+        return reason;
     }
 
     private void HandleTags(List<string> currentTags)

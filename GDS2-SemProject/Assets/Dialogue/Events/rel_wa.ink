@@ -9,7 +9,7 @@ INCLUDE globals.ink
 
 A wise old man requests an audience with you. He is offering to provide some war insights in exchange for some gold. #background:clearing #speaker: Wise Old Man #portrait: WiseOldMan
 
-What do you do?
+What do you do? #0:gold:-50
 + [Accept his offer of gold for information (Gold -50)]
     "Swift beasts will fleetly hunt anchored souls that wield feathered artifacts."
     ~ gold -= 50
