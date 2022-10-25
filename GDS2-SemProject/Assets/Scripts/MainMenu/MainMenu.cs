@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     private AudioManager audioManager;
     private AudioSource audioSource;
+    [SerializeField] private LevelTransition levelTransition;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,8 @@ public class MainMenu : MonoBehaviour
     {
         //audioManager.ChangeMusic();
         audioSource.Play();
-        SceneManager.LoadScene("Overworld");
+        //SceneManager.LoadScene("Overworld");
+        levelTransition.FadeToLevel("Overworld");
     }
 
     public void Instructions()

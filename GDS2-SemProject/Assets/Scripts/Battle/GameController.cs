@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Canvas afterScreen;
     [SerializeField] private Text endingText;
+    private LevelTransition lvlTransition;
 
     private float timeSpeed = 0;
 
@@ -48,6 +49,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         unitLevels = gd.GetUnitLevels();
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
     }
 
     // Update is called once per frame
@@ -152,7 +154,8 @@ public class GameController : MonoBehaviour
 
     public void ToOverworld()
     {
-        SceneManager.LoadScene(gd.previousLevel);
+        //SceneManager.LoadScene(gd.previousLevel);
+        lvlTransition.FadeToLevel(gd.previousLevel);
         Time.timeScale = 1; //Undoing the pause set during EndGame
     }
 

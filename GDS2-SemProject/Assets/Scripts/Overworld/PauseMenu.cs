@@ -13,7 +13,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private TMP_Text backBtnTxt;
     [SerializeField] private Button yesBtn;
     [SerializeField] private TMP_Text confirmUIText;
+    [SerializeField] private Slider volumeSlider;
     private GameData gd;
+    private AudioManager am;
+    private AudioSource masterAudio;
+    private LevelTransition lvlTransition;
     [SerializeField] private Canvas confirmUI;
     private bool pauseAllowed;
     private float time;
@@ -24,6 +28,10 @@ public class PauseMenu : MonoBehaviour
         pauseCanvas.gameObject.SetActive(false);
         //backButton = GameObject.Find("PauseUI").GetComponentInChildren<Button>(true);
         gd = GameObject.Find("Managers").GetComponent<GameData>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
+        masterAudio = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        volumeSlider.value = masterAudio.volume * 100;
         time = 1;
 
         confirmUI = GameObject.Find("ForfeitConfirmationUI").GetComponentInChildren<Canvas>(true);
@@ -72,7 +80,8 @@ public class PauseMenu : MonoBehaviour
     public void GoBackToScene(string sceneName)
     {
         pauseCanvas.gameObject.SetActive(false);
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
+        lvlTransition.FadeToLevel(sceneName);
         Time.timeScale = time;
         gd.paused = false;
     }
@@ -134,6 +143,11 @@ public class PauseMenu : MonoBehaviour
     {
         confirmUI.gameObject.SetActive(false);
 
+    }
+
+    public void VolumeAdjust()
+    {
+        masterAudio.volume = volumeSlider.normalizedValue;
     }
 
 }
