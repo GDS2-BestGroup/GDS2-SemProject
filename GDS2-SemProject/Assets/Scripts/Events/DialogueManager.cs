@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator backgroundAnimator;
     [SerializeField] private Animator characterPortraitAnimator;
     [SerializeField] private Animator dialogueAnimator;
-    private Color textColor = new Color(120/255f, 68/255f, 48/255f, 255/255f);
+    private Color defaultTextColor = new Color(120/255f, 68/255f, 48/255f, 255/255f);
     
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -33,6 +33,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Error UI")]
     [SerializeField] private GameObject errorUI;
     [SerializeField] private TextMeshProUGUI errorText;
+    [SerializeField] private GameObject continueText;
+    [SerializeField] private GameObject errorButtons;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
@@ -83,6 +85,7 @@ public class DialogueManager : MonoBehaviour
             if (errorUI.activeInHierarchy && awaitingErrorChoice < 0)
             {
                 errorUI.SetActive(false);
+                continueText.SetActive(false);
             } else if (canContinueToNextLine)
             {
                 ContinueStory();
@@ -119,6 +122,14 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         characterPortrait.SetActive(false);
         background.SetActive(false);
+
+        errorButtons.SetActive(false);
+        choicesInvalidity.Clear();
+        foreach(TextMeshProUGUI text in choicesText)
+        {
+            text.color = defaultTextColor;
+        }
+
         Debug.Log(gd.currentLevel);
         
         // Level progression
@@ -241,6 +252,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         int errorsLength = errors.Length;
+        Debug.Log("Errors Length = " + errorsLength);
         if (moraleReason)
         {
             errorsLength -= 1;
@@ -265,11 +277,14 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
-            errorText = " to make this choice.\n\n";
+            errorText += " to make this choice.\n\n";
+
+            continueText.SetActive(true);
         } else if (moraleReason)
         {
             errorText = "Choosing this option will cause you to lose the game. Are you sure?";
             awaitingErrorChoice = choiceIndex;
+            errorButtons.SetActive(true);
         }
 
         return errorText;
@@ -338,6 +353,7 @@ public class DialogueManager : MonoBehaviour
                     case "gold":
                         if (!gd.CheckCost(-int.Parse(tagValue)))
                         {
+                            
                             reason += "gold,";
                         }
                         break;

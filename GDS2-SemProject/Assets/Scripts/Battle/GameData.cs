@@ -323,6 +323,8 @@ public class GameData : MonoBehaviour
     }
     public bool CheckCost(int cost)
     {
+        Debug.Log("Cost is : " + cost);
+        Debug.Log("Gold is : " + gold);
         return cost <= gold;
     }
 

@@ -9,15 +9,12 @@ INCLUDE globals.ink
 
 A wise old man requests an audience with you. He is offering to provide some war insights in exchange for some gold. #background:clearing #speaker: Wise Old Man #portrait: WiseOldMan
 
-What do you do?
+What do you do? #0:gold:-50
 + [Accept his offer of gold for information (Gold -50)]
-    "A few hundred years ago, a ruthless king built an army of armoured knights. 
-    They conquered and ravaged every castle they passed and slaughtered anyone who disobeyed them. 
-    No man had the ability to stop them. 
-    Until a group of mages from a far away land heard of the king‘s atrocities. 
-    They gathered their own army of mages and challenged the king’s army for the freedom of the land. 
-    Emboldened by his continuous success, the king faced them head on but that was a fatal mistake. 
-    Their magic easily pierced through the heavy armour and defeated the king."
+    "A few hundred years ago, a ruthless king built an army of armoured knights.
+    Many tried to rebel but their impenetrable armour made their weaponry useless.
+    That was until a famous guild of mages heard of the king’s atrocities and decided to join the ensuing rebel army.
+    <color=\#37A63F>Their magic easily pierced through the heavy armour and defeated the armoured knights</color>, bringing peace back to the land."
     ~ gold -= 50
     -> END
 + [Refuse the offer.]
