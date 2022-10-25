@@ -41,6 +41,7 @@ public class GameData : MonoBehaviour
 
     [SerializeField] private int unitLevels = 1;
     [SerializeField] private MapCanvas mc;
+    private LevelTransition lvlTransition;
     private Button disableBtn;
 
     private void Awake()
@@ -59,6 +60,7 @@ public class GameData : MonoBehaviour
     {
         morale = 600;
         paused = false;
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
     }
 
     // Update is called once per frame
@@ -169,7 +171,8 @@ public class GameData : MonoBehaviour
     {
         if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
         {
-            SceneManager.LoadScene("LoseScene");
+            //SceneManager.LoadScene("LoseScene");
+            lvlTransition.FadeToLevel("LoseScene");
         }
 
         if (morale >= 800 && additionalIncome == false)
@@ -229,7 +232,8 @@ public class GameData : MonoBehaviour
 
         if (regionOneComplete && regionTwoComplete && regionThreeComplete)
         {
-            SceneManager.LoadScene("WinScene");
+            //SceneManager.LoadScene("WinScene");
+            lvlTransition.FadeToLevel("WinScene");
         }
     }
 
@@ -300,6 +304,7 @@ public class GameData : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         GameObject disable = GameObject.Find("PauseUI");
         if (disable)
         {

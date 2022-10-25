@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     private GameData gd;
     private AudioManager am;
     private AudioSource masterAudio;
+    private LevelTransition lvlTransition;
     [SerializeField] private Canvas confirmUI;
     private bool pauseAllowed;
     private float time;
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         //backButton = GameObject.Find("PauseUI").GetComponentInChildren<Button>(true);
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         masterAudio = GameObject.Find("AudioManager").GetComponent<AudioSource>();
         volumeSlider.value = masterAudio.volume * 100;
         time = 1;
@@ -78,7 +80,8 @@ public class PauseMenu : MonoBehaviour
     public void GoBackToScene(string sceneName)
     {
         pauseCanvas.gameObject.SetActive(false);
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
+        lvlTransition.FadeToLevel(sceneName);
         Time.timeScale = time;
         gd.paused = false;
     }
