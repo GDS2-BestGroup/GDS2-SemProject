@@ -185,15 +185,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a4ec4135844f82438dd88f56972980f, type: 2}
+  m_sharedMaterial: {fileID: -1183224349053374558, guid: 4a4ec4135844f82438dd88f56972980f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4281353336
+  m_fontColor: {r: 0.47058824, g: 0.26666668, b: 0.1882353, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bda710e40cd10e4aab07b52526bff2d, type: 3}
   audioCurrent: {fileID: 1470047452}
   audioNext: {fileID: 1470047455}
-  audioTemp: {fileID: 0}
+  audioPlaying: {fileID: 0}
   rootTwelve: 0
 --- !u!82 &1470047455
 AudioSource:

@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button yesBtn;
     [SerializeField] private TMP_Text confirmUIText;
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Image volImg;
+    [SerializeField] private Sprite[] volIcons;
     private GameData gd;
     private AudioManager am;
     private AudioSource masterAudio;
@@ -30,8 +32,8 @@ public class PauseMenu : MonoBehaviour
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
-        masterAudio = GameObject.Find("AudioManager").GetComponent<AudioSource>();
-        volumeSlider.value = masterAudio.volume * 100;
+        masterAudio = am.GetAudioPlaying();
+        volumeSlider.value = 100;
         time = 1;
 
         confirmUI = GameObject.Find("ForfeitConfirmationUI").GetComponentInChildren<Canvas>(true);
@@ -146,9 +148,40 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void GetAudio()
+    {
+        if (am)
+        {
+            masterAudio = am.GetAudioPlaying();
+            VolumeAdjust();
+        }
+    }
+
     public void VolumeAdjust()
     {
+        //masterAudio = am.GetAudioPlaying();
         masterAudio.volume = volumeSlider.normalizedValue;
+        VolumeIconChange();
+    }
+
+    public void VolumeIconChange()
+    {
+        if (masterAudio.volume >= 0.95)
+        {
+            volImg.sprite = volIcons[3];
+        }
+        else if (masterAudio.volume >= 0.50 && masterAudio.volume < 0.95)
+        {
+            volImg.sprite = volIcons[2];
+        }
+        else if (masterAudio.volume > 0 && masterAudio.volume < 0.50)
+        {
+            volImg.sprite = volIcons[1];
+        }
+        else
+        {
+            volImg.sprite = volIcons[0];
+        }
     }
 
 }

@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] backgroundMusic;
     public AudioSource audioCurrent;
     public AudioSource audioNext;
-    public AudioSource audioTemp;
+    public AudioSource audioPlaying;
     public float rootTwelve;
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     {
         //audioCurrent = GetComponent<AudioSource>();
         audioNext.volume = 0;
+        audioPlaying = audioCurrent;
         rootTwelve = Mathf.Pow(2.0f, 1.0f / 12.0f); 
         Debug.Log("The 12th root of 2 to the power of 7 is: " + Mathf.Pow(rootTwelve, 7));
     }
@@ -79,6 +80,19 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public AudioSource GetAudioPlaying()
+    {
+        /*if (audioCurrent.volume != 0)
+        {
+            return audioCurrent;
+        }
+        else
+        {
+            return audioNext;
+        }*/
+        return audioPlaying;
+    }
+
     private void AudioSwap(AudioClip newAudio)
     {
         if (audioCurrent.volume != 0)
@@ -89,7 +103,7 @@ public class AudioManager : MonoBehaviour
                 audioNext.volume = 0;
                 audioNext.Play();
                 StartCoroutine(Crossfade(audioCurrent, audioNext));
-                //audioCurrent.Stop();
+                audioPlaying = audioNext;
             }
         }
         else
@@ -100,7 +114,7 @@ public class AudioManager : MonoBehaviour
                 audioCurrent.volume = 0;
                 audioCurrent.Play();
                 StartCoroutine(Crossfade(audioNext, audioCurrent));
-                //audioNext.Stop();
+                audioPlaying = audioCurrent;
             }
         }
     }
