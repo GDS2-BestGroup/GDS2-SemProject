@@ -79,17 +79,18 @@ public class PauseMenu : MonoBehaviour
 
     public void GoBackToScene(string sceneName)
     {
-        pauseCanvas.gameObject.SetActive(false);
-        //SceneManager.LoadScene(sceneName);
-        lvlTransition.FadeToLevel(sceneName);
         Time.timeScale = time;
         gd.paused = false;
+        lvlTransition.FadeToLevel(sceneName);
+        pauseCanvas.gameObject.SetActive(false);
+        //SceneManager.LoadScene(sceneName);
     }
 
     private void OnLevelWasLoaded(int level)
     {
         pauseCanvas.worldCamera = Camera.main;
         confirmUI.worldCamera = Camera.main;
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         if (level == 0)
         {
             pauseAllowed = false;
