@@ -22,6 +22,7 @@ public class LevelNode : MonoBehaviour
     private bool unlockFirst;
     private bool[] lvlCompletion;
     private LineController lr;
+    private LevelTransition lvlTransition;
     public Transform[] points;
     public bool unlocked;
     public double levelIndex;
@@ -45,6 +46,7 @@ public class LevelNode : MonoBehaviour
 
         // Managers
         gameData = GameObject.Find("Managers").GetComponent<GameData>();
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         //panels = confirmUI.GetComponentsInChildren<UIP>
         em = GameObject.Find("Managers").GetComponent<EventManager>();
 
@@ -119,8 +121,9 @@ public class LevelNode : MonoBehaviour
         if (level == LevelType.Battle)
         {
             CloseUI();
-            SceneManager.LoadScene("BattleMap" + levelIndex);
-            Debug.Log("Battle Level");
+            //SceneManager.LoadScene("BattleMap" + levelIndex);
+            lvlTransition.FadeToLevel("BattleMap" + levelIndex);
+            //Debug.Log("Battle Level");
         }
         else if (level == LevelType.Event)
         {

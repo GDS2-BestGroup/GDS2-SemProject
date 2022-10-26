@@ -42,7 +42,7 @@ public class EventManager : MonoBehaviour
     {
         int randEvent = Random.Range(0, inkText.Count);
         // dm.EnterDialogueMode(inkText[randEvent]);
-        dm.EnterDialogueMode(inkText[0]);
+        dm.EnterDialogueMode(inkText[6]);
         inkText.RemoveAt(randEvent);
     }
 
@@ -82,8 +82,7 @@ public class EventManager : MonoBehaviour
                 {
                     gd.AddGold( (int) dm.currentStory.variablesState["gold"] );
                 }
-                break;
-            case("swordsmanAtt"):
+                mc.UpdateGold();
                 break;
             default:
                 break;

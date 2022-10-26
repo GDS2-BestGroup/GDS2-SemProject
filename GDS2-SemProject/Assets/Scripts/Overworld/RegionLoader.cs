@@ -12,6 +12,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     public Color mouseExitColor;
     public Color mouseOverColor;
     private GameData gd;
+    private LevelTransition lvlTransition;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -19,6 +20,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
         mouseExitColor = sprite.color;
         mouseOverColor = sprite.color;
         mouseOverColor.a = 0.5f;
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,8 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
         //Debug.Log(this.name + " selected");
         if (gd.overworldStatus[regionIndex] && !gd.paused)
         {
-            SceneManager.LoadScene("Region" + regionIndex);
+            //SceneManager.LoadScene("Region" + regionIndex);
+            lvlTransition.FadeToLevel("Region" + regionIndex);
         }
 
     }

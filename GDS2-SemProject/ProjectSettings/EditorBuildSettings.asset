@@ -83,4 +83,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScenes/Region3/BattleMap3.8.unity
     guid: a7285b1deeaf5b94c9eb81e789a26896
+  - enabled: 1
+    path: Assets/Scenes/MainGame/Credit.unity
+    guid: b31a3e07f5d437e4ebd859ae371f8661
   m_configObjects: {}

@@ -9,10 +9,12 @@ INCLUDE globals.ink
 
 A wise old man requests an audience with you. He is offering to provide some war insights in exchange for some gold. #background:clearing #speaker: Wise Old Man #portrait: WiseOldMan
 
-What do you do?
+What do you do? #0:gold:-50
 + [Accept his offer of gold for information (Gold -50)]
-    "Listen carefully, while man may be scared of beast, only an agile one with a tool of silver can overwhelm the onslaught."
-    ~ gold -= 50
+    "I used to be the quartermaster for many brilliant young soldiers.
+     ~ gold -= 50
+    However certain knowledge can only be learnt through practical trials. The boys learned a valuable lesson when I asked them to compete, one in lighter armour and one in heavy armour.
+    <color=\#37A63F>You can dance around a heavily armoured Knight as much as you want, but in the end, you won't be able to emerge the victor.</color>"
     -> END
 + [Refuse the offer.]
     You politely refuse and the wise old man leaves. -> END
