@@ -316,7 +316,9 @@ public class DialogueManager : MonoBehaviour
 
         canContinueToNextLine = false;
 
-        foreach( char letter in line.ToCharArray())
+        string tag = "";
+
+        for (int i = 0; i < line.Length; i++)
         {
             if (completeLine)
             {
@@ -325,9 +327,29 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
 
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            if (line[i] == '<') 
+            {
+
+                for (int j = i; j < line.Length; j++)
+                {
+                    tag += line[j];
+                    if (line[j] == '>')
+                    {
+                        tag += line[j+1];
+                        i = j + 1;
+                        break;
+                    }
+                }
+
+                dialogueText.text += tag;
+                tag = "";
+            } else
+            {
+                dialogueText.text += line[i];
+                yield return new WaitForSeconds(typingSpeed);
+            }  
         }
+
         canContinueToNextLine = true;
         completeLine = false;
 
