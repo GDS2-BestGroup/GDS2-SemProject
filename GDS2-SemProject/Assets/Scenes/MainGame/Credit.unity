@@ -241,34 +241,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sword Man
-
-
-
-    Archer
-
-
-
-    Mage
-
-
-
-    Wolf
-
-
-
-    Knight
-
-
-
-    FireBall
-
-
-
-    FireBall
-    Explosion Effect
-
-'
+  m_text: "Sword Man\n\n\nArcher\n\n\nMage\n\n\nWolf\n\n\nKnight\n\n\nFireBall\n\n\nFireBall
+    Explosion Effect\n\n\nAmika Blackletter Font \n\n\nTutorial Scroll\n\n\nVolume
+    Icon\n\n\nGold Bar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -693,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: -1006}
+  m_AnchoredPosition: {x: -31, y: -1312}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509432269
@@ -1640,7 +1615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '2D Sprite Assets
+  m_text: '2D Assets
 
 '
   m_isRightToLeft: 0
@@ -1928,7 +1903,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "OcO \n\n\nOcO \n\n\nLuizMelo\n\n\nFrom \"Heroes of Might and Magic II\",
-    ripped by Maxim\n\nWarren Clark\n\n\nblackdragon1727\n\n\nCraftpix.net\n"
+    ripped by Maxim\n\nWarren Clark\n\n\nblackdragon1727\n\n\nCraftpix.net\n\n\nMaulana
+    Creative\n\n\nCdxyxtcnpe\n\n\n30000010595\n\n\nmohsen\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2063,32 +2039,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'https://itch.io/queue/c/844603/asset-packs?game_id=444209
-
-
-
-    https://itch.io/queue/c/844603/asset-packs?game_id=578689
-
-
-
-    https://luizmelo.itch.io/wizard-pack
-
-
-
-    https://www.pngegg.com/en/png-eyhsg
-
-
-
-    https://lionheart963.itch.io/knight-sprite
-
-
-
-    https://blackdragon1727.itch.io/fire-pixel-bullet-16x16/devlog/267448/3th-update
-
-
-    https://free-game-assets.itch.io/11-free-pixel-art-explosion-sprites
-
-'
+  m_text: "https://itch.io/queue/c/844603/asset-packs?game_id=444209\n\n\nhttps://itch.io/queue/c/844603/asset-packs?game_id=578689\n\n\nhttps://luizmelo.itch.io/wizard-pack\n\n\nhttps://www.pngegg.com/en/png-eyhsg\n\n\nhttps://lionheart963.itch.io/knight-sprite\n\n\nhttps://blackdragon1727.itch.io/fire-pixel-bullet-16x16/devlog/267448/3th-update\n\nhttps://free-game-assets.itch.io/11-free-pixel-art-explosion-sprites\n\nhttps://www.dafont.com/amika-blackletter.font?text=Battle+for+Terrak
+    \n\nhttps://www.subpng.com/png-a2kfkp/\n\n\nhttps://lovepik.com/image-401809444/volume-icon.html
+    \n\n\nhttps://pngtree.com/freepng/physical-gold-bar-cartoon-golden-vector_5417513.html "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2151,7 +2104,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -293.77643, y: 15.689331, z: -211.72198, w: -591.10815}
+  m_margin: {x: -284.6361, y: 15.689331, z: -211.72198, w: -851.6162}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
