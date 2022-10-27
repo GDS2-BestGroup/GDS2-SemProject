@@ -16,6 +16,7 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Slider moraleSlider;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Image goldImg;
     private LevelTransition lvlTransition;
 
     private GameData gd;
@@ -56,6 +57,7 @@ public class MapCanvas : MonoBehaviour
         //Regions start from int 1
         Debug.Log("This is level " + level);
         canvas.worldCamera = Camera.main;
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         if (moraleTxt != null && gd != null)
         {
             moraleTxt.text = gd.morale + "/1000";
@@ -129,6 +131,14 @@ public class MapCanvas : MonoBehaviour
         {
             upgradeBtn.gameObject.SetActive(true);
         }
+        if (goldTxt)
+        {
+            goldTxt.gameObject.SetActive(true);
+        }
+        if (goldImg)
+        {
+            goldImg.gameObject.SetActive(true);
+        }
     }
 
     private void DisableCanvas()
@@ -140,6 +150,8 @@ public class MapCanvas : MonoBehaviour
         moraleSlider.gameObject.SetActive(false);
         pauseBtn.gameObject.SetActive(false);
         upgradeBtn.gameObject.SetActive(false);
+        goldTxt.gameObject.SetActive(false);
+        goldImg.gameObject.SetActive(false);
     }
 
     public void GoBack()
