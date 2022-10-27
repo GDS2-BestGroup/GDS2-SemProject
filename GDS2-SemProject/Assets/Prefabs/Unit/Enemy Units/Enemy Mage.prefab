@@ -136,12 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Mage
   unitLevel: 1
-  baseHealth: 100
-  baseDamage: 40
+  baseHealth: 70
+  baseDamage: 50
   baseDefense: 10
-  health: 100
+  health: 110
   damage: 50
-  defense: 10
+  defense: 14
   attackSpeed: 4
   walkSpeed: 0.9
   spawnSpeed: 6

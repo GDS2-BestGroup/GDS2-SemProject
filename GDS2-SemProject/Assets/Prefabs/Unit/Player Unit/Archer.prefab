@@ -200,9 +200,9 @@ MonoBehaviour:
   attackSpeed: 3
   walkSpeed: 0.6
   spawnSpeed: 5
-  spawnDuration: 5
+  spawnDuration: 15
   counter: Mage
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.8
   destination: {fileID: 0}
   cost: 4
   isEnemy: 1
