@@ -50,6 +50,7 @@ public class BattleNode : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        castleMaxHP = 400 + enemyLevel * 150;
         castleCurrHP = castleMaxHP;
         CreatePaths();
         foreach (BattleNode i in neighbourNodes)
