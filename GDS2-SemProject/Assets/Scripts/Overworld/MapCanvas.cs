@@ -16,6 +16,7 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Slider moraleSlider;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Image goldImg;
     private LevelTransition lvlTransition;
 
     private GameData gd;
@@ -130,6 +131,14 @@ public class MapCanvas : MonoBehaviour
         {
             upgradeBtn.gameObject.SetActive(true);
         }
+        if (goldTxt)
+        {
+            goldTxt.gameObject.SetActive(true);
+        }
+        if (goldImg)
+        {
+            goldImg.gameObject.SetActive(true);
+        }
     }
 
     private void DisableCanvas()
@@ -141,6 +150,8 @@ public class MapCanvas : MonoBehaviour
         moraleSlider.gameObject.SetActive(false);
         pauseBtn.gameObject.SetActive(false);
         upgradeBtn.gameObject.SetActive(false);
+        goldTxt.gameObject.SetActive(false);
+        goldImg.gameObject.SetActive(false);
     }
 
     public void GoBack()
