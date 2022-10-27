@@ -113,10 +113,10 @@ MonoBehaviour:
   defense: 10
   attackSpeed: 1.5
   walkSpeed: 1
-  spawnSpeed: 3
-  spawnDuration: 6
+  spawnSpeed: 4
+  spawnDuration: 9
   counter: Archer
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.8
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0
