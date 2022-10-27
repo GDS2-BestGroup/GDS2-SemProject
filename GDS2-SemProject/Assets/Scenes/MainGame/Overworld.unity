@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2039417614, guid: 2ff07fda01f7f0743b96d4ce647f2b6a, type: 3}
+  m_Sprite: {fileID: 430283245, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10713,10 +10713,10 @@ MonoBehaviour:
   volumeSlider: {fileID: 1538119827}
   volImg: {fileID: 289104471}
   volIcons:
-  - {fileID: 993828742, guid: 2ff07fda01f7f0743b96d4ce647f2b6a, type: 3}
-  - {fileID: 363777805, guid: 2ff07fda01f7f0743b96d4ce647f2b6a, type: 3}
-  - {fileID: 1275253587, guid: 2ff07fda01f7f0743b96d4ce647f2b6a, type: 3}
-  - {fileID: 2039417614, guid: 2ff07fda01f7f0743b96d4ce647f2b6a, type: 3}
+  - {fileID: -355894845, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
+  - {fileID: 1399097226, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
+  - {fileID: 289656917, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
+  - {fileID: 430283245, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
   confirmUI: {fileID: 1198239592}
 --- !u!1001 &1750107043
 PrefabInstance:

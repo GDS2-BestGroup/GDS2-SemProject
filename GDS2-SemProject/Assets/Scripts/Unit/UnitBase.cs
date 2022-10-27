@@ -44,12 +44,14 @@ public class UnitBase : MonoBehaviour
     private Transform targetPosition; //Used for Bullet Destination
 
     private GameController gc;
+    private AudioManager am;
     private void Awake()
     {
         baseStats.Add(health);
         baseStats.Add(damage);
         baseStats.Add(defense);
         gc = GameObject.Find("GameController").GetComponent<GameController>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
@@ -278,12 +280,14 @@ public class UnitBase : MonoBehaviour
 
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
+        //audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
+        am.PlaySfxAudio(unitName, deathSound[Random.Range(0, deathSound.Count())]);
     }
 
     public void PlayAttackSound()
     {
-        audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
+        am.PlaySfxAudio(unitName, attackSound[Random.Range(0, deathSound.Count())]);
+        //audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 }
 
