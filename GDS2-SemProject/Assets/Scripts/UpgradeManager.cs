@@ -31,10 +31,15 @@ public class UpgradeManager : MonoBehaviour
             {
                 um.SetActive(true);
             }
-            else if((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space))&& !SceneManager.GetActiveScene().name.Contains("BattleMap") && !SceneManager.GetActiveScene().name.Contains("MainMenu"))
+            else
             {
                 um.SetActive(false);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && um.activeSelf)
+        {
+            um.SetActive(false);
         }
 
         unitLevelText.text = "Current Unit Level: " + gd.GetUnitLevels();
