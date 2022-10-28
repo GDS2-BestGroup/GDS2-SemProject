@@ -13,6 +13,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     public Color mouseOverColor;
     private GameData gd;
     private LevelTransition lvlTransition;
+    [SerializeField] private UpgradeManager um;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -35,7 +36,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseDown()
     {
         //Debug.Log(this.name + " selected");
-        if (gd.overworldStatus[regionIndex] && !gd.paused)
+        if (gd.overworldStatus[regionIndex] && !gd.paused && !um.MenuActive())
         {
             //SceneManager.LoadScene("Region" + regionIndex);
             lvlTransition.FadeToLevel("Region" + regionIndex);
@@ -49,7 +50,7 @@ public class RegionLoader : MonoBehaviour /*, IPointerClickHandler, IPointerExit
     void OnMouseOver()
     {
         //Currently changes colour of sprite, just placeholder for future anim
-        if (gd.overworldStatus[regionIndex] && !gd.paused)
+        if (gd.overworldStatus[regionIndex] && !gd.paused && !um.MenuActive())
         {
             sprite.color = mouseOverColor;
         }
