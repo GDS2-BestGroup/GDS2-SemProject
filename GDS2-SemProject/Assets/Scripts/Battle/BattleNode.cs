@@ -58,15 +58,17 @@ public class BattleNode : MonoBehaviour
         {
             ub.SetLevel(enemyLevel);
         }
-    }
 
-    private void Start()
-    {
         CreatePaths();
         foreach (BattleNode i in neighbourNodes)
         {
             i.AddNeighbour(this);
         }
+    }
+
+    private void Start()
+    {
+
 
         if (isBoss)
         {
@@ -79,8 +81,10 @@ public class BattleNode : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = AbossSprite;
             }
         }
+
         if (isEnemy)
         {
+            Debug.LogError("EnemySpawn");
             EnemySummonUnits();
         }
         else
@@ -302,7 +306,7 @@ public class BattleNode : MonoBehaviour
     private void EnemySummonUnits()
     {
         //StopAllCoroutines();
-
+        Debug.LogError("EnemySpawning!!");
         foreach(Transform tt in transform)
         {
             if (tt.gameObject.GetComponent<UnitSpawner>())

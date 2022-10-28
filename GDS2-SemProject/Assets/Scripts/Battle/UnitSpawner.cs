@@ -61,6 +61,7 @@ public class UnitSpawner : MonoBehaviour
         
         if (spawnTimer <= 0)
         {
+            Debug.LogError("Spawning!");
             spawnTimer = spawnSpeed;
             unit.SpawnUnit(parent, destination.transform, isEnemy, this, unitLevel);
         }
@@ -71,6 +72,7 @@ public class UnitSpawner : MonoBehaviour
 
     public void Setup(int c, UnitBase u, float speed, BattleNode d, BattleNode p, bool ie, int level)
     {
+        Debug.LogError("Settingup");
         cost = c;
         unit = u;
         destination = d;
