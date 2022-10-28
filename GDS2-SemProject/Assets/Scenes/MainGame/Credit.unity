@@ -382,8 +382,8 @@ MonoBehaviour:
     Icon\n\n\nGold Bar\n\n\nLieutenant Edwards\n\n\nLieutenant Serena\n\n\nWise Old
     Man\n\n\n(Background) Blacksmith\n\n\n(Background) Cave\n\n\n(Background) Forest
     Clearing\n\n\n(Background) Castle Ruins\n\n\n(Background) River\n\n\n(Background)
-    Waterfall\n\n\n(Background) Battle Background\n\n\nHumble-Lettering Font\n\n\nAubrey
-    Font\n\n\nDialogue Border\n\n\nDialogue UI"
+    Waterfall\n\n\nHumble-Lettering Font\n\n\nAubrey Font\n\n\nDialogue Border\n\n\nDialogue
+    UI"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -498,7 +498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44, y: -3462}
+  m_AnchoredPosition: {x: -44, y: -3382}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283602098
@@ -1234,7 +1234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44, y: -2560}
+  m_AnchoredPosition: {x: -44, y: -2480}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509432269
@@ -2774,8 +2774,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "OcO \n\n\nOcO \n\n\nLuizMelo\n\n\nFrom \"Heroes of Might and Magic II\",
     ripped by Maxim\n\nWarren Clark\n\n\nblackdragon1727\n\n\nCraftpix.net\n\n\nMaulana
-    Creative\n\n\nCdxyxtcnpe\n\n\n30000010595\n\n\nmohsen\n\n\ndashinvaine\n\n\ndashinvaine\n\n\ndashinvaine\n\n\npxfuel.com\n\n\nmad-jojo\n\n\nLornn\n\n\nLornn\n\n\nLornn\n\n\nLornn\n\n\n2-Minute
-    Tabletop\n\n\nFonttherapy\n\n\nCriselda Caecilia Titus\n\n\nseekpng.com\n\n\nfylgjur"
+    Creative\n\n\nCdxyxtcnpe\n\n\n30000010595\n\n\nmohsen\n\n\ndashinvaine\n\n\ndashinvaine\n\n\ndashinvaine\n\n\npxfuel.com\n\n\nmad-jojo\n\n\nLornn\n\n\nLornn\n\n\nLornn\n\n\nLornn\n\n\nFonttherapy\n\n\nCriselda
+    Caecilia Titus\n\n\nseekpng.com\n\n\nfylgjur"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_text: "https://itch.io/queue/c/844603/asset-packs?game_id=444209\n\n\nhttps://itch.io/queue/c/844603/asset-packs?game_id=578689\n\n\nhttps://luizmelo.itch.io/wizard-pack\n\n\nhttps://www.pngegg.com/en/png-eyhsg\n\n\nhttps://lionheart963.itch.io/knight-sprite\n\n\nhttps://blackdragon1727.itch.io/fire-pixel-bullet-16x16/devlog/267448/3th-update\n\nhttps://free-game-assets.itch.io/11-free-pixel-art-explosion-sprites\n\nhttps://www.dafont.com/amika-blackletter.font?text=Battle+for+Terrak
     \n\nhttps://www.subpng.com/png-a2kfkp/\n\n\nhttps://lovepik.com/image-401809444/volume-icon.html
     \n\n\nhttps://pngtree.com/freepng/physical-gold-bar-cartoon-golden-vector_5417513.html
-    \n\nhttps://www.deviantart.com/dashinvaine/art/Duke-Alduin-829605011\n\nhttps://www.deviantart.com/dashinvaine/art/Duchess-Adley-832815445\n\nhttps://www.deviantart.com/dashinvaine/art/Dwarven-Cleric-920940318\r\n\nhttps://www.wallpaperbetter.com/en/hd-wallpaper-sbcvf\n\n\nhttps://www.deviantart.com/mad-jojo/art/anime-background-01-128832422=\n\nhttps://lornn.itch.io/fantasy-forest-backgrounds\n\n\nhttps://lornn.itch.io/fantasy-forest-backgrounds\n\n\nhttps://lornn.itch.io/wood-elves-backgrounds\n\n\nhttps://lornn.itch.io/dwarves-underground-backgrounds\n\n\nhttps://2minutetabletop.com/product/tiling-grass-textures/\n\n\nhttps://www.dafont.com/humble-lettering.font\n\n\nhttps://www.dafont.com/aubrey.font\n\n\nhttps://www.seekpng.com/ipng/u2w7e6r5o0o0a9w7_jpg-royalty-free-library-simple-design-png-vectors/\n\nhttps://www.deviantart.com/cospigeon/art/Antique-GUI-Image-Pack-for-Ren-Py-561986014"
+    \n\nhttps://www.deviantart.com/dashinvaine/art/Duke-Alduin-829605011\n\nhttps://www.deviantart.com/dashinvaine/art/Duchess-Adley-832815445\n\nhttps://www.deviantart.com/dashinvaine/art/Dwarven-Cleric-920940318\r\n\nhttps://www.wallpaperbetter.com/en/hd-wallpaper-sbcvf\n\n\nhttps://www.deviantart.com/mad-jojo/art/anime-background-01-128832422=\n\nhttps://lornn.itch.io/fantasy-forest-backgrounds\n\n\nhttps://lornn.itch.io/fantasy-forest-backgrounds\n\n\nhttps://lornn.itch.io/wood-elves-backgrounds\n\n\nhttps://lornn.itch.io/dwarves-underground-backgrounds\n\n\nhttps://www.dafont.com/humble-lettering.font\n\n\nhttps://www.dafont.com/aubrey.font\n\n\nhttps://www.seekpng.com/ipng/u2w7e6r5o0o0a9w7_jpg-royalty-free-library-simple-design-png-vectors/\n\nhttps://www.deviantart.com/cospigeon/art/Antique-GUI-Image-Pack-for-Ren-Py-561986014"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
