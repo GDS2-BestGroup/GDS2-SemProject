@@ -14,8 +14,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button yesBtn;
     [SerializeField] private TMP_Text confirmUIText;
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider volumeSliderSFX;
     [SerializeField] private Image volImg;
     [SerializeField] private Sprite[] volIcons;
+    [SerializeField] private Image volImgSFX;
+    [SerializeField] private AudioClip btnClick;
     private GameData gd;
     private AudioManager am;
     private AudioSource masterAudio;
@@ -34,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         masterAudio = am.GetAudioPlaying();
         volumeSlider.value = 100;
+        volumeSliderSFX.value = 50;
         time = 1;
 
         confirmUI = GameObject.Find("ForfeitConfirmationUI").GetComponentInChildren<Canvas>(true);
@@ -59,6 +63,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        am.PlaySfxAudio(btnClick);
         pauseCanvas.gameObject.SetActive(false);
         gd.paused = false;
         if (SceneManager.GetActiveScene().name.Contains("BattleMap"))
@@ -74,6 +79,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        am.PlaySfxAudio(btnClick);
         pauseCanvas.gameObject.SetActive(true);
         gd.paused = true;
         Time.timeScale = 0;
@@ -81,6 +87,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoBackToScene(string sceneName)
     {
+        am.PlaySfxAudio(btnClick);
         Time.timeScale = time;
         gd.paused = false;
         lvlTransition.FadeToLevel(sceneName);
@@ -145,7 +152,6 @@ public class PauseMenu : MonoBehaviour
     public void CloseUI()
     {
         confirmUI.gameObject.SetActive(false);
-
     }
 
     public void GetAudio()
@@ -162,6 +168,39 @@ public class PauseMenu : MonoBehaviour
         //masterAudio = am.GetAudioPlaying();
         masterAudio.volume = volumeSlider.normalizedValue;
         VolumeIconChange();
+    }
+
+    public void VolumeAdjustSFX()
+    {
+        //masterAudio = am.GetAudioPlaying();
+        float vol = 0.3f * volumeSliderSFX.normalizedValue;
+        am.swordAudio.volume = vol;
+        am.knightAudio.volume = vol;
+        am.mageAudio.volume = vol;
+        am.archerAudio.volume = vol;
+        am.wolfAudio.volume = vol;
+        am.sfxAudio.volume = vol;
+        VolumeIconChangeSFX();
+    }
+
+    public void VolumeIconChangeSFX()
+    {
+        if (volumeSliderSFX.normalizedValue >= 0.95)
+        {
+            volImgSFX.sprite = volIcons[3];
+        }
+        else if (volumeSliderSFX.normalizedValue >= 0.50 && volumeSliderSFX.normalizedValue < 0.95)
+        {
+            volImgSFX.sprite = volIcons[2];
+        }
+        else if (volumeSliderSFX.normalizedValue > 0 && volumeSliderSFX.normalizedValue < 0.50)
+        {
+            volImgSFX.sprite = volIcons[1];
+        }
+        else
+        {
+            volImgSFX.sprite = volIcons[0];
+        }
     }
 
     public void VolumeIconChange()
