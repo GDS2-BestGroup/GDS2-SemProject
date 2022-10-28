@@ -10,6 +10,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameObject um;
     [SerializeField] private Text unitLevelText;
     [SerializeField] private Text currentGoldText;
+    [SerializeField] private MapCanvas mp;
 
     private int gold = 0;
 
@@ -50,6 +51,7 @@ public class UpgradeManager : MonoBehaviour
     {
         gd.UseGold(cost);
         gd.UnitLevelUp();
+        mp.UpdateGold();
     }
 
     public bool Afford(int cost)
