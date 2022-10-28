@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         //audioCurrent.pitch = 1;
-        if (level == 0) //Main Menu
+        if (level == 0 || level == 9 || level == 10 || level == 24) //Main Menu
         {
             AudioSwap(backgroundMusic[0]);
         }
