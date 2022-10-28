@@ -288,6 +288,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2e3ba232ee964c34fa70e10037d0fcae, type: 3}
   attackSound:
   - {fileID: 8300000, guid: b8d2f742eda7a614883d33950d33b8f5, type: 3}
+  - {fileID: 8300000, guid: 7daf21bacf8ff2f498b1b39c2eade581, type: 3}
+  - {fileID: 8300000, guid: dcb8c6c090e56d549a99773001ca8180, type: 3}
+  - {fileID: 8300000, guid: 713bc925e6ff44c45ae3606f872a62ad, type: 3}
   audioSource: {fileID: 6793197094057848458}
   parent: {fileID: 0}
   projectile: {fileID: 0}
