@@ -43,6 +43,7 @@ public class InstructionButton : MonoBehaviour
             Destroy(dc);
             Destroy(am);
         }
-        SceneManager.LoadScene("MainMenu");
+        am.PlaySfxAudio(click);
+        lvlTransition.FadeToLevel("MainMenu");
     }
 }

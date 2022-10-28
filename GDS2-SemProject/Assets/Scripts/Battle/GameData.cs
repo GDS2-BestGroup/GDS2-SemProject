@@ -21,7 +21,7 @@ public class GameData : MonoBehaviour
     public bool[] lvlStatusRegionThree = { true, false, false, false, false, false, false, false };
 
     public int morale;
-    [SerializeField] private int baseIncome = 6;
+    [SerializeField] private int baseIncome = 7;
     [SerializeField] private bool disableTut = false;
 
     public string previousLevel;
@@ -173,7 +173,7 @@ public class GameData : MonoBehaviour
 
     public void CheckMorale()
     {
-        if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
+        if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene" && SceneManager.GetActiveScene().name != "Credit")
         {
             //SceneManager.LoadScene("LoseScene");
             lvlTransition.FadeToLevel("LoseScene");
@@ -285,6 +285,9 @@ public class GameData : MonoBehaviour
 
     public void UnlockNextUnit()
     {
+        StackTrace stackTrace;
+        stackTrace = new StackTrace();
+        print("stackTrace!! "+ stackTrace.GetFrame(1).GetMethod().Name);
         unitSequence += 1;
         if (unitSequence < fullUnitList.Count)
         {
