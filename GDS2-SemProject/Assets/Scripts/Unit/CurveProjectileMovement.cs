@@ -58,8 +58,8 @@ public class CurveProjectileMovement : MonoBehaviour
 
             else
             {
-                Debug.Log("No Destination");
-                Destroy(gameObject);
+                anim.SetTrigger("pop");
+                move = false;
             }
         }
     }
