@@ -52,11 +52,6 @@ public class BattleNode : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         castleMaxHP = 400 + enemyLevel * 150;
         castleCurrHP = castleMaxHP;
-        CreatePaths();
-        foreach (BattleNode i in neighbourNodes)
-        {
-            i.AddNeighbour(this);
-        }
 
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         foreach(UnitBase ub in enemyUnits)
@@ -67,6 +62,12 @@ public class BattleNode : MonoBehaviour
 
     private void Start()
     {
+        CreatePaths();
+        foreach (BattleNode i in neighbourNodes)
+        {
+            i.AddNeighbour(this);
+        }
+
         if (isBoss)
         {
             if (isEnemy)

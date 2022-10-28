@@ -196,7 +196,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 338165694, guid: 9dcb89b8fb18c5446a9f7aaa3a517bc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
   unitLevel: 1
   baseHealth: 70
   baseDamage: 50
-  baseDefense: 10
-  health: 100
+  baseDefense: 0
+  health: 70
   damage: 50
   defense: 10
   attackSpeed: 4
@@ -235,7 +235,7 @@ MonoBehaviour:
   counter: Armored Knight
   damageAdditionPercent: 0.8
   destination: {fileID: 0}
-  cost: 4
+  cost: 5
   isEnemy: 0
   sprite: {fileID: 338165694, guid: 9dcb89b8fb18c5446a9f7aaa3a517bc1, type: 3}
   spawner: {fileID: 0}

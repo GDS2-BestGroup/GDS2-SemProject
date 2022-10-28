@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Diagnostics;
 
 public class GameData : MonoBehaviour
 {
@@ -228,7 +229,7 @@ public class GameData : MonoBehaviour
             }
         }
 
-        Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
+        //Debug.Log("level one is " + regionOneComplete + " and level two is " + regionTwoComplete);
 
         if (regionOneComplete && regionTwoComplete && regionThreeComplete)
         {
@@ -281,6 +282,9 @@ public class GameData : MonoBehaviour
 
     public void UnlockNextUnit()
     {
+        StackTrace stackTrace;
+        stackTrace = new StackTrace();
+        print("stackTrace!! "+ stackTrace.GetFrame(1).GetMethod().Name);
         unitSequence += 1;
         if (unitSequence < fullUnitList.Count)
         {
@@ -308,14 +312,14 @@ public class GameData : MonoBehaviour
         GameObject disable = GameObject.Find("PauseUI");
         if (disable)
         {
-            Debug.Log("Found Pause UI");
+            //Debug.Log("Found Pause UI");
             Button[] disableBtns = disable.GetComponentsInChildren<Button>(true);
             foreach (Button b in disableBtns)
             {
                 if (b.name == "DisableTutBtn")
                 {
                     disableBtn = b;
-                    Debug.Log("Button Found");
+                    //Debug.Log("Button Found");
                 }
             }
             disableBtn.onClick.RemoveAllListeners();
@@ -328,8 +332,8 @@ public class GameData : MonoBehaviour
     }
     public bool CheckCost(int cost)
     {
-        Debug.Log("Cost is : " + cost);
-        Debug.Log("Gold is : " + gold);
+        //Debug.Log("Cost is : " + cost);
+        //Debug.Log("Gold is : " + gold);
         return cost <= gold;
     }
 

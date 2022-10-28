@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
             {
                 um.SetActive(true);
             }
-            else
+            else if((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space))&& !SceneManager.GetActiveScene().name.Contains("BattleMap") && !SceneManager.GetActiveScene().name.Contains("MainMenu"))
             {
                 um.SetActive(false);
             }

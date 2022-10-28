@@ -58,7 +58,7 @@ public class MapCanvas : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         //Regions start from int 1
-        Debug.Log("This is level " + level);
+        //Debug.Log("This is level " + level);
         canvas.worldCamera = Camera.main;
         lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
         if (moraleTxt != null && gd != null)
