@@ -29,6 +29,12 @@ public class MainMenu : MonoBehaviour
         levelTransition.FadeToLevel("Overworld");
     }
 
+    public void Credits()
+    {
+        audioManager.PlaySfxAudio(audioSource.clip);
+        levelTransition.FadeToLevel("Credit");
+    }
+
     public void Instructions()
     {
         audioSource.Play();

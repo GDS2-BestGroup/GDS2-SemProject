@@ -5,16 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class InstructionButton : MonoBehaviour
 {
+    private LevelTransition lvlTransition;
+    public AudioClip click;
+    private AudioManager am;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void LoadCredits()
+    {
+        am.PlaySfxAudio(click);
+        lvlTransition.FadeToLevel("Credit");
     }
 
     public void LoadMainMenu()
