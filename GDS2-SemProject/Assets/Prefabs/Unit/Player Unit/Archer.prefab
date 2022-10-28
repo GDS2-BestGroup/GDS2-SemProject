@@ -193,7 +193,7 @@ MonoBehaviour:
   unitLevel: 1
   baseHealth: 75
   baseDamage: 30
-  baseDefense: 10
+  baseDefense: 0
   health: 75
   damage: 30
   defense: 10
@@ -204,7 +204,7 @@ MonoBehaviour:
   counter: Mage
   damageAdditionPercent: 0.8
   destination: {fileID: 0}
-  cost: 4
+  cost: 3
   isEnemy: 1
   sprite: {fileID: 665679527, guid: bc4c224934b49d346a361e8f0ab6bd8d, type: 3}
   spawner: {fileID: 0}

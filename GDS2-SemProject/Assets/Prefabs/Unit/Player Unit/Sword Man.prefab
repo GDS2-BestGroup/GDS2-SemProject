@@ -265,9 +265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Sword Man
   unitLevel: 1
-  baseHealth: 100
+  baseHealth: 90
   baseDamage: 35
-  baseDefense: 10
+  baseDefense: 5
   health: 100
   damage: 35
   defense: 10

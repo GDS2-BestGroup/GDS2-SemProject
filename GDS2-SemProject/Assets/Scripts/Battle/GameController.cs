@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
         {
             gameIncome = gd.GetBaseIncome();
             unitList = gd.GetUnitList();
+            unitLevels = gd.GetUnitLevels();
         }
         currIncome = gameIncome;
         
@@ -48,7 +49,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        unitLevels = gd.GetUnitLevels();
         lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
     }
 

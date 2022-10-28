@@ -134,7 +134,7 @@ public class DialogueManager : MonoBehaviour
         
         // Level progression
         gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel-1] = false;
-        Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
+        //Debug.Log(gd.GetLevels(gd.currentRegion)[gd.currentLevel - 1].name);
         LevelNode currentlvl = null;
         LevelNode[] levels = gd.GetLevels(gd.currentRegion); 
         foreach (LevelNode level in levels)
