@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource mageAudio;
     public AudioSource wolfAudio;
     public AudioSource archerAudio;
+    public AudioSource sfxAudio;
     public float rootTwelve;
     private void Awake()
     {
@@ -97,7 +98,7 @@ public class AudioManager : MonoBehaviour
         return audioPlaying;
     }
 
-    public void PlaySfxAudio(string unitName, AudioClip audio)
+    public void PlayUnitSfxAudio(string unitName, AudioClip audio)
     {
         if (!swordAudio.isPlaying && unitName.Contains("Sword"))
         {
@@ -123,6 +124,15 @@ public class AudioManager : MonoBehaviour
         {
             wolfAudio.clip = audio;
             wolfAudio.Play();
+        }
+    }
+
+    public void PlaySfxAudio(AudioClip audio)
+    {
+        if (!sfxAudio.isPlaying)
+        {
+            sfxAudio.clip = audio;
+            sfxAudio.Play();
         }
     }
 

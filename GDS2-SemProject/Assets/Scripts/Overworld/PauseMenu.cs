@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Image volImg;
     [SerializeField] private Sprite[] volIcons;
+    [SerializeField] private AudioClip btnClick;
     private GameData gd;
     private AudioManager am;
     private AudioSource masterAudio;
@@ -59,6 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        am.PlaySfxAudio(btnClick);
         pauseCanvas.gameObject.SetActive(false);
         gd.paused = false;
         if (SceneManager.GetActiveScene().name.Contains("BattleMap"))
@@ -74,6 +76,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        am.PlaySfxAudio(btnClick);
         pauseCanvas.gameObject.SetActive(true);
         gd.paused = true;
         Time.timeScale = 0;
@@ -81,6 +84,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoBackToScene(string sceneName)
     {
+        am.PlaySfxAudio(btnClick);
         Time.timeScale = time;
         gd.paused = false;
         lvlTransition.FadeToLevel(sceneName);
@@ -145,7 +149,6 @@ public class PauseMenu : MonoBehaviour
     public void CloseUI()
     {
         confirmUI.gameObject.SetActive(false);
-
     }
 
     public void GetAudio()

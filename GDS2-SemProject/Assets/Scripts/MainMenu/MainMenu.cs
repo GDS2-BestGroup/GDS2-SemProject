@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         //audioManager.ChangeMusic();
-        audioSource.Play();
+        audioManager.PlaySfxAudio(audioSource.clip);
         //SceneManager.LoadScene("Overworld");
         levelTransition.FadeToLevel("Overworld");
     }

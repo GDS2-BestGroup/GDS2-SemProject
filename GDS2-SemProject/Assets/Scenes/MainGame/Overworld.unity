@@ -10736,6 +10736,7 @@ MonoBehaviour:
   - {fileID: 1399097226, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
   - {fileID: 289656917, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
   - {fileID: 430283245, guid: 1ad971e6232521b439161b9d798e3a23, type: 3}
+  btnClick: {fileID: 8300000, guid: 2c12a89f605d7de45be201d52c33abfc, type: 3}
   confirmUI: {fileID: 1198239592}
 --- !u!1001 &1750107043
 PrefabInstance:
@@ -20835,6 +20836,10 @@ PrefabInstance:
       propertyPath: goldImg
       value: 
       objectReference: {fileID: 843238383286280356}
+    - target: {fileID: 843238384388874415, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
+      propertyPath: btnClick
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c12a89f605d7de45be201d52c33abfc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966a7afe3327eb346bc26e8e94a6ad1f, type: 3}
 --- !u!114 &843238383286280356 stripped
