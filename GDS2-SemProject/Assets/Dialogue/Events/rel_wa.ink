@@ -11,8 +11,10 @@ A wise old man requests an audience with you. He is offering to provide some war
 
 What do you do? #0:gold:-50
 + [Accept his offer of gold for information (Gold -50)]
-    "Swift beasts will fleetly hunt anchored souls that wield feathered artifacts."
     ~ gold -= 50
+    "The ancient art of archery has always been closely aligned with the natural world.
+    That has not changed since, and young archers are still taught to respect all wildlife.
+    However, the <color=\#37A63F>wolves</color> of the current world do not share this connection and will ruthlessly hunt those standing in its way, <color=\#37A63F>especially those archers that so foolishly attempt to appease them</color>."
     -> END
 + [Refuse the offer.]
     You politely refuse and the wise old man leaves. -> END
