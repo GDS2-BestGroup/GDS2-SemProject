@@ -27,7 +27,7 @@ public class ProjectileMovement : MonoBehaviour
     public void Move()
     {
         float speed = velocity * Time.deltaTime;
-        Vector3 offSet = new Vector3(0, 0.17f, 0);
+        Vector3 offSet = new Vector3(0, 0.4f, 0);
         if (destination)
         {
             transform.position = Vector2.MoveTowards(transform.position, destination.position + offSet, speed);
