@@ -16,8 +16,10 @@ What do you do? #0:morale:-150
     You order an attack during the night. 
     ~ morale -= 150
     -> END
-+ [Attack during the day]
-    You order an attack during the day. -> END
++ [Attack during the day (Gold + 100)]
+    You order an attack during the day. 
+    ~ gold += 100
+    -> END
 + [Avoid them and do not attack (Morale + 150)]
     You order your men to stand down. 
     ~ morale += 150
