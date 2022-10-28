@@ -187,6 +187,7 @@ public class GameController : MonoBehaviour
         if (win)
         {
             gd.IncreaseBaseIncome();
+            gd.IncreaseBaseIncome();
             gd.UnlockNextUnit();
         }
     }
