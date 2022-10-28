@@ -7,7 +7,7 @@ INCLUDE globals.ink
 ~ morale = 0
 ~ gold = 0
 
-A wise old man requests an audience with you. He is offering to provide some war insights in exchange for some gold. #background:clearing #speaker: Wise Old Man #portrait: WiseOldMan
+A wise old man requests an audience with you. He is offering to provide some war insights in exchange for some gold. #background:waterfall #speaker: Wise Old Man #portrait: WiseOldMan
 
 What do you do? #0:gold:-50
 + [Accept his offer of gold for information (Gold -50)]
