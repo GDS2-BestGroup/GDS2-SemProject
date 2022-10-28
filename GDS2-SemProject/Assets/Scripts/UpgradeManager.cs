@@ -37,7 +37,7 @@ public class UpgradeManager : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && um.activeSelf)
+        if(Input.GetKeyDown(KeyCode.Escape) && um.activeSelf)
         {
             um.SetActive(false);
         }
