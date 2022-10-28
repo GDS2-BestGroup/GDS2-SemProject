@@ -6459,7 +6459,7 @@ MonoBehaviour:
   lvlStatusRegionTwo: 0100000000000000
   lvlStatusRegionThree: 0100000000000000
   morale: 0
-  baseIncome: 6
+  baseIncome: 8
   disableTut: 0
   previousLevel: 
   currentLevel: 0

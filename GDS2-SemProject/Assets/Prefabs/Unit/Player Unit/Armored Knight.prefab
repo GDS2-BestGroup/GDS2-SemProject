@@ -267,13 +267,13 @@ MonoBehaviour:
   unitLevel: 1
   baseHealth: 120
   baseDamage: 25
-  baseDefense: 25
+  baseDefense: 20
   health: 120
   damage: 25
-  defense: 20
-  attackSpeed: 3
+  defense: 30
+  attackSpeed: 4
   walkSpeed: 0.5
-  spawnSpeed: 6
+  spawnSpeed: 5
   spawnDuration: 10
   counter: Sword Man
   damageAdditionPercent: 0.8
