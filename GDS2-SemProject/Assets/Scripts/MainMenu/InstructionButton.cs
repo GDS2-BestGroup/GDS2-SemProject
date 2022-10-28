@@ -31,7 +31,7 @@ public class InstructionButton : MonoBehaviour
     public void LoadMainMenu()
     {
         //Restart Game on Lose
-        if (SceneManager.GetActiveScene().name == "LoseScene")
+        if (SceneManager.GetActiveScene().name == "Credit")
         {
             GameData gd = GameObject.Find("Managers").GetComponent<GameData>();
             MapCanvas mc = GameObject.Find("Map Canvas").GetComponent<MapCanvas>();
