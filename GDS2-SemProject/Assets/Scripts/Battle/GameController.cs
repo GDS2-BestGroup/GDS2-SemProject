@@ -192,6 +192,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void IncreaseBaseIncome()
+    {
+        gd.IncreaseBaseIncome();
+    }
     public int GetUnitLevel()
     {
         unitLevels = gd ? gd.GetUnitLevels() : unitLevels;
