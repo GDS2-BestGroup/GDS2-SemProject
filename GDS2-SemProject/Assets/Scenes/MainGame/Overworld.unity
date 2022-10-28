@@ -6504,6 +6504,7 @@ MonoBehaviour:
   um: {fileID: 305868311}
   unitLevelText: {fileID: 1605858756}
   currentGoldText: {fileID: 362479162}
+  mp: {fileID: 1871294927}
 --- !u!1 &649474935
 GameObject:
   m_ObjectHideFlags: 0
