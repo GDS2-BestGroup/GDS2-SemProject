@@ -94,6 +94,10 @@ public class GameData : MonoBehaviour
         CheckMorale();
     }
 
+    public void IncreaseBaseIncome()
+    {
+        baseIncome++;
+    }
     public LevelNode[] GetLevels(int region)
     {
         if (region == 1)
@@ -151,7 +155,6 @@ public class GameData : MonoBehaviour
     {
         morale += 100;
         gold += 50;
-        baseIncome += 1;
         foreach (UnitBase ub in fullUnitList)
         {
             ub.LevelReset();

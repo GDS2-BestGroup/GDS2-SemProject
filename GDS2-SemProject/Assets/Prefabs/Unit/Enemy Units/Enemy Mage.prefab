@@ -144,10 +144,10 @@ MonoBehaviour:
   defense: 14
   attackSpeed: 4
   walkSpeed: 0.9
-  spawnSpeed: 6
+  spawnSpeed: 10
   spawnDuration: 12
   counter: Armored Knight
-  damageAdditionPercent: 0.8
+  damageAdditionPercent: 0
   destination: {fileID: 0}
   cost: 5
   isEnemy: 0
