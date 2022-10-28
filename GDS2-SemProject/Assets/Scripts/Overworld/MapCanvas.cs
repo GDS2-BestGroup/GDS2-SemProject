@@ -17,7 +17,9 @@ public class MapCanvas : MonoBehaviour
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button upgradeBtn;
     [SerializeField] private Image goldImg;
+    [SerializeField] private AudioClip btnClick;
     private LevelTransition lvlTransition;
+    private AudioManager am;
 
     private GameData gd;
     private void Awake()
@@ -36,6 +38,7 @@ public class MapCanvas : MonoBehaviour
     {
         gd = GameObject.Find("Managers").GetComponent<GameData>();
         lvlTransition = GameObject.Find("LevelTransition").GetComponent<LevelTransition>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         canvas = this.GetComponent<Canvas>();
         EnableCanvas();
         moraleTxt.text = gd.morale + "/1000";
@@ -156,6 +159,7 @@ public class MapCanvas : MonoBehaviour
 
     public void GoBack()
     {
+        am.PlaySfxAudio(btnClick);
         if (SceneManager.GetActiveScene().name == "Overworld")
         {
             //SceneManager.LoadScene("MainMenu");

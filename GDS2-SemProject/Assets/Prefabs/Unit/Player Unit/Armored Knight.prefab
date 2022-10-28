@@ -274,9 +274,9 @@ MonoBehaviour:
   attackSpeed: 4
   walkSpeed: 0.5
   spawnSpeed: 4
-  spawnDuration: 10
+  spawnDuration: 28
   counter: Sword Man
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.8
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0

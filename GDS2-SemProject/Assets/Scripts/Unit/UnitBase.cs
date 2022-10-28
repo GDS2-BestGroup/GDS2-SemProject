@@ -281,12 +281,12 @@ public class UnitBase : MonoBehaviour
     public void PlayDeathSound()
     {
         //audioSource.PlayOneShot(deathSound[Random.Range(0, deathSound.Count())], 0.5f);
-        am.PlaySfxAudio(unitName, deathSound[Random.Range(0, deathSound.Count())]);
+        am.PlayUnitSfxAudio(unitName, deathSound[Random.Range(0, deathSound.Count())]);
     }
 
     public void PlayAttackSound()
     {
-        am.PlaySfxAudio(unitName, attackSound[Random.Range(0, deathSound.Count())]);
+        am.PlayUnitSfxAudio(unitName, attackSound[Random.Range(0, deathSound.Count())]);
         //audioSource.PlayOneShot(attackSound[Random.Range(0, deathSound.Count())], 0.5f);
     }
 }

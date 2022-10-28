@@ -116,7 +116,7 @@ MonoBehaviour:
   spawnSpeed: 5
   spawnDuration: 5
   counter: Mage
-  damageAdditionPercent: 0
+  damageAdditionPercent: 0.8
   destination: {fileID: 0}
   cost: 2
   isEnemy: 0

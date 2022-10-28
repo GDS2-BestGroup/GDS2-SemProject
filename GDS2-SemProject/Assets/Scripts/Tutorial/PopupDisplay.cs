@@ -36,7 +36,7 @@ public class PopupDisplay : MonoBehaviour
         count = 0;
         text = GetComponentInChildren<TMP_Text>();
         gd = GameObject.Find("Managers").GetComponent<GameData>();
-        if (GameObject.Find("GameController").GetComponent<GameController>())
+        if (GameObject.Find("GameController"))
         {
             gc = GameObject.Find("GameController").GetComponent<GameController>();
         }

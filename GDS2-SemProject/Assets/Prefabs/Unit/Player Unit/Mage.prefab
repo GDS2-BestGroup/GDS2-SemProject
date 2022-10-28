@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Mage
   unitLevel: 1
-  baseHealth: 100
+  baseHealth: 70
   baseDamage: 50
   baseDefense: 10
   health: 100
@@ -231,7 +231,7 @@ MonoBehaviour:
   attackSpeed: 4
   walkSpeed: 0.9
   spawnSpeed: 6
-  spawnDuration: 12
+  spawnDuration: 18
   counter: Armored Knight
   damageAdditionPercent: 0.8
   destination: {fileID: 0}
