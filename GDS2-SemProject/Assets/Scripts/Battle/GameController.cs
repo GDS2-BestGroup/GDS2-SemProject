@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
 
     private float timeSpeed = 0;
 
+    [SerializeField] private bool win = false;
     
 
     private void Awake()
@@ -118,6 +119,7 @@ public class GameController : MonoBehaviour
         {
             if (winner)
             {
+                win = true;
                 gd.WinBattle();
                 gd.GetLevelCompletion(gd.currentRegion)[gd.currentLevel - 1] = false;
                 /*if (gd.currentLevel < gd.GetLevelCompletion(gd.currentRegion).Length - 1)
@@ -182,7 +184,10 @@ public class GameController : MonoBehaviour
 
     public void UnlockNextUnit()
     {
-        gd.UnlockNextUnit();
+        if (win)
+        {
+            gd.UnlockNextUnit();
+        }
     }
 
     public int GetUnitLevel()
