@@ -170,7 +170,7 @@ public class GameData : MonoBehaviour
 
     public void CheckMorale()
     {
-        if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene")
+        if (morale <= 0 && SceneManager.GetActiveScene().name != "LoseScene" && SceneManager.GetActiveScene().name != "Credit")
         {
             //SceneManager.LoadScene("LoseScene");
             lvlTransition.FadeToLevel("LoseScene");
