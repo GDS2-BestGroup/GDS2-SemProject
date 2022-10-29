@@ -181,6 +181,7 @@ public class BattleNode : MonoBehaviour
 
     private void PlayCaptureSound()
     {
+        captureSound.volume = 0.5f;
         captureSound.Play();
     }
 
